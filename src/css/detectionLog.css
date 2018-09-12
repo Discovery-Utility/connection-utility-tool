@@ -1,0 +1,186 @@
+@font-face {
+    font-family: Metropolis;
+    font-weight: lighter;
+    src: url("../fonts/metropolis/Metropolis-Light.otf");
+}
+
+#logSwitch {
+  width: 20%;
+  float: left;
+  background-color: white;
+  height: 100vh;
+}
+
+.saveLogButton {
+  width: 20%;
+  float: left;
+  padding: 3px 25px;
+  margin: 0px 10px;
+
+  border: 1.5px solid #248dc0;
+  border-radius: 3px;
+
+  font-size: 11px;
+  color: #248dc0;
+  font-family: Metropolis;
+  font-weight: bold
+}
+.saveLogButton:hover {
+  background-color: #248dc0;
+  color: white;
+}
+
+#logShow {
+  width: 80%;
+  float: left;
+}
+
+#systemLogs {
+  color: #555555;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 15px 15px 15px 20px;
+}
+
+#detectionLog {
+  color: #248dc0;
+  background-color: #eeeeee;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 10px 10px 20px;
+}
+
+#eventLog {
+  color: #555555;
+  background-color: white;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 10px 10px 20px;
+}
+
+#logShow {
+  height: 100vh;
+}
+
+#captionLog {
+  color: #444444;
+  font-size: 28px;
+  font-weight: 400;
+  padding: 20px;
+  padding-left: 40px;
+}
+
+#whiteSpaceForTable {
+  margin: auto;
+  width: 95%;
+  background-color: white;
+  padding-bottom: 10px;
+  height: 80%;
+  overflow-y: auto;
+}
+
+#whiteSpaceForLogTable {
+  margin: auto;
+  width: 95%;
+  background-color: white;
+  padding-bottom: 10px;
+}
+
+#buttonRenewLog{
+  float: right;
+  width: 20px;
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+
+#refIcon:hover {
+  background-color: #dbdbdb;
+}
+
+#detectionLogTable {
+  margin: 15px;
+  table-layout: fixed;
+  width: 97%;
+}
+
+#detectionLogTable > thead > tr > th {
+  font-size: 13px;
+  font-weight: 500;
+  color: #565656;
+  padding: 15px;
+  border: 1px solid #f4f4f4;
+  border-bottom: none;
+  width: 20%;
+}
+
+thead {
+	display: table;
+	width: 100%;
+}
+
+#detectionLogTableBody {
+	height: 500px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	display: block;
+  border: 1px solid #f4f4f4;
+	width: 100%;
+}
+
+#detectionLogTableBody tr {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+  border-bottom: 1px solid #f4f4f4;
+  font-size: 13px;
+  font-weight: 500;
+  color: #565656;
+  padding: 15px;
+}
+
+#detectionLogTableBody td {
+  width: 20%;
+  padding-left: 15px;
+}
+
+#eventLogTable {
+  margin: 15px;
+  table-layout: fixed;
+  width: 97%;
+}
+
+#eventLogTable > thead > tr > th {
+  font-size: 13px;
+  font-weight: 500;
+  color: #565656;
+  padding: 15px;
+  border: 1px solid #f4f4f4;
+  border-bottom: none;
+  width: 25%;
+}
+
+#eventLogTableBody {
+  height: 500px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	display: block;
+  border: 1px solid #f4f4f4;
+	width: 100%;
+}
+
+#eventLogTableBody tr {
+  display: table;
+	width: 100%;
+	table-layout: fixed;
+  border-bottom: 1px solid #f4f4f4;
+  font-size: 13px;
+  font-weight: 500;
+  color: #565656;
+  padding: 15px;
+}
+
+#eventLogTableBody td {
+  width: 25%;
+  padding-left: 15px;
+}

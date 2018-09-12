@@ -1,0 +1,25 @@
+#expect {
+  color: #248dc0;
+  background-color: #eeeeee;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 10px 10px 20px;
+}
+
+.subtabs {
+  color: #555555;
+  background-color: white;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 10px 10px 20px;
+}
+
+.daeDownload:hover {
+  cursor: pointer;
+}
+.helpLinks:hover {
+  cursor: pointer;
+}
+.dpeDownload:hover {
+  cursor: pointer;
+}

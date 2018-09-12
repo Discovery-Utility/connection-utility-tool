@@ -1,0 +1,71 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" stroke="null" style="vector-effect: non-scaling-stroke;">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs stroke="null" style="vector-effect: non-scaling-stroke;">
+  <symbol stroke="null" style="vector-effect: non-scaling-stroke;" viewBox="0 0 32 32" y="0px" x="0px" id="svg_26" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+   <style stroke="null" style="vector-effect: non-scaling-stroke;" type="text/css">.st0{clip-path:url(#SVGID_2_);}
+	.st1{clip-path:url(#SVGID_4_);fill:#A7A7A7;}
+	.st2{clip-path:url(#SVGID_6_);}
+	.st3{clip-path:url(#SVGID_8_);fill:#A7A7A7;}</style>
+   <g stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_21">
+    <g stroke="null" style="vector-effect: non-scaling-stroke;">
+     <defs stroke="null" style="vector-effect: non-scaling-stroke;">
+      <rect stroke="null" style="vector-effect: non-scaling-stroke;" height="32" width="26" y="309.1" x="313.9" id="svg_25"/>
+     </defs>
+     <clipPath stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_24">
+      <use stroke="null" style="vector-effect: non-scaling-stroke;" xlink:href="#svg_25"/>
+     </clipPath>
+     <g stroke="null" style="vector-effect: non-scaling-stroke;" class="st0">
+      <defs stroke="null" style="vector-effect: non-scaling-stroke;">
+       <rect stroke="null" style="vector-effect: non-scaling-stroke;" height="32" width="26" y="309.1" x="313.9" id="svg_23"/>
+      </defs>
+      <clipPath stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_22">
+       <use stroke="null" style="vector-effect: non-scaling-stroke;" xlink:href="#svg_23"/>
+      </clipPath>
+      <path stroke="null" style="vector-effect: non-scaling-stroke;" d="m313.9,327.5l0,8.8c0,2.4 5.8,4.8 13,4.8c7.2,0 13,-2.3 13,-4.8l0,-8.9c-2.9,1.9 -7.8,3.2 -13,3.2c-5.2,0 -10.2,-1.2 -13,-3.1" class="st1"/>
+      <path stroke="null" style="vector-effect: non-scaling-stroke;" d="m339.9,324.9l0,-10.6c0,-2.4 -4.4,-5.1 -13,-5.1c-7.8,0 -13,2.7 -13,5.1l0,10.7c1.5,1.6 6.5,3.7 13,3.7c6.7,-0.1 11.4,-2.2 13,-3.8m-23,-10.1c0,-1.9 4.4,-3.4 10,-3.4c5.5,0 10,1.5 10,3.4c0,1.9 -4.4,3.4 -10,3.4c-5.5,0 -10,-1.5 -10,-3.4" class="st1"/>
+     </g>
+    </g>
+   </g>
+   <g stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_16">
+    <g stroke="null" style="vector-effect: non-scaling-stroke;">
+     <defs stroke="null" style="vector-effect: non-scaling-stroke;">
+      <rect stroke="null" style="vector-effect: non-scaling-stroke;" height="32" width="26" y="309.1" x="313.9" id="svg_20"/>
+     </defs>
+     <clipPath stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_19">
+      <use stroke="null" style="vector-effect: non-scaling-stroke;" xlink:href="#svg_20"/>
+     </clipPath>
+     <g stroke="null" style="vector-effect: non-scaling-stroke;" class="st2">
+      <defs stroke="null" style="vector-effect: non-scaling-stroke;">
+       <rect stroke="null" style="vector-effect: non-scaling-stroke;" height="32" width="26" y="309.1" x="313.9" id="svg_18"/>
+      </defs>
+      <clipPath stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_17">
+       <use stroke="null" style="vector-effect: non-scaling-stroke;" xlink:href="#svg_18"/>
+      </clipPath>
+      <path stroke="null" style="vector-effect: non-scaling-stroke;" d="m313.9,327.5l0,8.8c0,2.4 5.8,4.8 13,4.8c7.2,0 13,-2.3 13,-4.8l0,-8.9c-2.9,1.9 -7.8,3.2 -13,3.2c-5.2,0 -10.2,-1.2 -13,-3.1" class="st3"/>
+      <path stroke="null" style="vector-effect: non-scaling-stroke;" d="m339.9,324.9l0,-10.6c0,-2.4 -4.4,-5.1 -13,-5.1c-7.8,0 -13,2.7 -13,5.1l0,10.7c1.5,1.6 6.5,3.7 13,3.7c6.7,-0.1 11.4,-2.2 13,-3.8m-23,-10.1c0,-1.9 4.4,-3.4 10,-3.4c5.5,0 10,1.5 10,3.4c0,1.9 -4.4,3.4 -10,3.4c-5.5,0 -10,-1.5 -10,-3.4" class="st3"/>
+     </g>
+    </g>
+   </g>
+   <path stroke="null" style="vector-effect: non-scaling-stroke;" d="m3,18.4l0,8.8c0,2.5 5.8,4.8 13,4.8c7.2,0 13,-2.3 13,-4.8l0,-8.9c-2.9,1.9 -7.8,3.2 -13,3.2c-5.1,0.1 -10.2,-1.2 -13,-3.1"/>
+   <path stroke="null" style="vector-effect: non-scaling-stroke;" d="m29,15.8l0,-10.7c0,-2.4 -4.4,-5.1 -13,-5.1c-7.8,0 -13,2.7 -13,5.1l0,10.7c1.5,1.6 6.5,3.7 13,3.7c6.7,0.1 11.5,-2.1 13,-3.7m-22.9,-10.1c0,-1.9 4.4,-3.4 10,-3.4c5.5,0 10,1.5 10,3.4c0,1.9 -4.4,3.4 -10,3.4c-5.6,0 -10,-1.5 -10,-3.4"/>
+  </symbol>
+  <symbol id="svg_32" height="415.1" width="273.7" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg">
+   <g>
+    <title>Layer 1</title>
+    <g id="svg_29">
+     <path fill="#007db8" stroke-width="19" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" d="m12.48573,172.81051l123.50001,-123.50001l123.50001,123.50001l-123.50001,123.50001l-123.50001,-123.50001z" id="svg_31" stroke="#ffffff"/>
+     <path fill="#ffffff" d="m134.35256,113.99999c8.57715,0.16059 16.06555,1.39176 22.96976,5.03175c8.86925,4.63028 14.15362,11.8032 15.1627,22.00053c0.82319,8.27027 -2.04471,15.06849 -7.54152,20.95671c-3.53177,3.74705 -7.67429,6.71792 -11.81681,9.71556c-1.08874,0.77617 -2.12437,1.60588 -3.21311,2.35529c-3.02723,2.14117 -5.17815,4.95146 -6.37311,8.48439c-0.37176,1.09735 -0.84975,2.14117 -1.32773,3.18499c-1.1684,2.67646 -3.21311,4.28234 -6.08101,4.76411c-3.53177,0.58882 -6.82454,0.24088 -9.4269,-2.56941c-2.01815,-2.16794 -2.81479,-4.79087 -2.76168,-7.73498c0.07966,-5.51352 2.70857,-9.84939 6.53244,-13.43585c3.26622,-3.05117 6.87765,-5.6741 10.22353,-8.61821c2.33681,-2.06088 4.67362,-4.17528 6.63866,-6.61087c4.2753,-5.2994 3.26622,-13.59644 -1.91193,-17.58437c-2.46958,-1.90029 -5.33748,-2.6497 -8.33816,-2.75676c-2.09782,-0.05353 -4.24874,0.10706 -6.29345,0.50853c-4.43462,0.93676 -7.16975,3.98793 -9.13479,7.92233c-1.00908,2.03411 -1.93849,4.12175 -3.05378,6.07557c-3.13345,5.54028 -10.17043,7.0391 -15.29547,3.26529c-2.60235,-1.92705 -3.47866,-4.68381 -3.34588,-7.81527c0.26555,-5.88822 2.73513,-10.89321 6.69177,-15.09526c7.75395,-8.18998 17.47295,-11.8032 27.69648,-12.04409l-0.00001,0.00002zm11.92303,98.78828c0,6.79822 -5.49681,12.31173 -12.26824,12.31173c-6.69177,0 -12.13547,-5.54028 -12.16202,-12.28497c0,-6.79822 5.57647,-12.41879 12.24169,-12.3385c6.71832,0.05353 12.18858,5.59381 12.18858,12.31173l-0.00001,0.00001z" id="svg_30"/>
+    </g>
+   </g>
+  </symbol>
+ </defs>
+ <g stroke="null">
+  <title stroke="null">Layer 1</title>
+  <g stroke="null" id="svg_4"/>
+  <g stroke="null" id="svg_10"/>
+  <use fill="#bfbfbf" stroke="null" x="234.37686" y="-122.00343" transform="matrix(0.8815983472848148,0,0,0.8811969448965482,-230.16176868233453,147.57617155041572) " xlink:href="#svg_26" id="svg_27"/>
+  <g stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_28"/>
+  <use x="0" y="0" transform="matrix(0.5809658063530551,0,0,0.5809658063530551,148.25668346204773,-26.265945309456693) " xlink:href="#svg_32" id="svg_33"/>
+  <g id="svg_34"/>
+ </g>
+</svg>

@@ -1,0 +1,246 @@
+#body {
+    width: 100%
+
+    display: -moz-box;
+    display: -webkit-box;
+
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    margin-left: 5%;
+    margin-right: 5%;
+    /*border-style: solid;*/
+    /*border-color: red;*/
+}
+
+.cycIcon {
+  margin-bottom: 0.5%;
+  margin-right: 5%;
+}
+
+.cancelIcon {
+  width: 3%;
+  height: 3%;
+  float: right;
+}
+
+.cancelIcon:hover {
+  cursor: pointer;
+}
+
+#namewin {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 1%;
+    margin-top: 20px;
+    color: #3c3c3c;
+}
+#block {
+    display: -moz-box;
+    display: -webkit-box;
+
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+
+    /*border-style: solid;*/
+    /*border-color: blue;*/
+}
+
+#block2 {
+    margin-top: 5%;
+    display: -moz-box;
+    display: -webkit-box;
+
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+}
+
+#line {
+    width: 100%;
+    border: 1px solid #c7c7c7;
+}
+
+#nameBlock {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #6c6c6c
+}
+table {
+  width: 100%;
+}
+.tdApp {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    color: #7c7c7c
+}
+
+.thApp {
+  font-size: 14px;
+  font-weight: 500;
+  color: #7c7c7c
+}
+#table2{
+    display: -moz-box;
+    display: -webkit-box;
+
+    -moz-box-orient: horizontal;
+    -webkit-box-orient: horizontal;
+
+    /*border-style: solid;*/
+    /*border-color: pink;*/
+}
+
+#context {
+  margin-bottom: 10%;
+}
+
+thead {
+  padding: 10%;
+  display: table;
+	width: 100%;
+}
+
+.hCl {
+  padding-left: 10%;
+  font-size: 14px;
+  color: #717171;
+}
+
+.hC2 {
+  font-size: 14px;
+  color: #717171;
+}
+
+.trCl {
+  border: 1px solid #d1d1d1;
+  height: 40px;
+}
+
+.trC2 {
+  border: 1px solid #d1d1d1;
+  border-top: 1px solid white;
+}
+
+#collum1{
+    display: -moz-box;
+    display: -webkit-box;
+
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+
+    text-align: right;
+    margin: 15px;
+    margin-right: 3px;
+
+    color: #a7a7a7;
+
+    /*border-style: solid;*/
+    /*border-color: orange;*/
+}
+
+.closePopupButton {
+    text-align: center;
+    width: 20%;
+    padding: 10px 15px;
+    border: 1.5px solid #248dc0;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #248dc0;
+    float: right;
+    font-family: Metropolis;
+    font-weight: 600;
+}
+.joinButton {
+  text-align: center;
+  margin-right: 5%;
+  width: 25%;
+  padding: 10px 15px;
+  border: 1.5px solid #248dc0;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #248dc0;
+  float: right;
+  font-family: Metropolis;
+  font-weight: 600;
+}
+.closePopupButton:hover, .joinButton:hover {
+  color: white;
+  background-color: #248dc0;
+  cursor: pointer;
+}
+
+.atool {
+  color: #248dc0;
+}
+
+#collum2{
+    display: -moz-box;
+    display: -webkit-box;
+
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+
+    text-align: left;
+    margin: 15px;
+    margin-left: 3px;
+
+    /*border-style: solid;*/
+    /*border-color: orange;*/
+}
+
+#tabelem{
+    width: 135px;
+    margin: 10px;
+    /*border-style: solid;*/
+    /*border-color: black;*/
+}
+
+.radioJoin {
+  padding-left: 10px;
+  width: 27px;
+}
+
+#selectedApplianceForJoin {
+  margin-top: 10px;
+}
+
+.clusterImg {
+  width: 15px;
+  height: 15px;
+}
+
+.divForClusterImg {
+  padding-left: 10px;
+  width: 27px;
+}
+
+.clusterName {
+  font-size: 13px;
+  font-weight: 500;
+  padding-left: 10px;
+}
+
+.clusterIp {
+   font-size: 13px;
+   font-weight: 500;
+}
+
+#clustersList {
+	table-layout: fixed;
+}
+
+
+#clustersContainer {
+	height: 200px;
+	overflow: auto;
+	overflow-x: hidden;
+	display: block;
+	width: 100%;
+}
+
+#clustersContainer tr {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}

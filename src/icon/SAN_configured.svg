@@ -1,0 +1,61 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" stroke="null" style="vector-effect: non-scaling-stroke;">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs stroke="null" style="vector-effect: non-scaling-stroke;">
+  <symbol stroke="null" style="vector-effect: non-scaling-stroke;" viewBox="0 0 32 32" y="0px" x="0px" id="svg_26" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+   <style stroke="null" style="vector-effect: non-scaling-stroke;" type="text/css">.st0{clip-path:url(#SVGID_2_);}
+	.st1{clip-path:url(#SVGID_4_);fill:#A7A7A7;}
+	.st2{clip-path:url(#SVGID_6_);}
+	.st3{clip-path:url(#SVGID_8_);fill:#A7A7A7;}</style>
+   <g stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_21">
+    <g stroke="null" style="vector-effect: non-scaling-stroke;">
+     <defs stroke="null" style="vector-effect: non-scaling-stroke;">
+      <rect stroke="null" style="vector-effect: non-scaling-stroke;" height="32" width="26" y="309.1" x="313.9" id="svg_25"/>
+     </defs>
+     <clipPath stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_24">
+      <use stroke="null" style="vector-effect: non-scaling-stroke;" xlink:href="#svg_25"/>
+     </clipPath>
+     <g stroke="null" style="vector-effect: non-scaling-stroke;" class="st0">
+      <defs stroke="null" style="vector-effect: non-scaling-stroke;">
+       <rect stroke="null" style="vector-effect: non-scaling-stroke;" height="32" width="26" y="309.1" x="313.9" id="svg_23"/>
+      </defs>
+      <clipPath stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_22">
+       <use stroke="null" style="vector-effect: non-scaling-stroke;" xlink:href="#svg_23"/>
+      </clipPath>
+      <path stroke="null" style="vector-effect: non-scaling-stroke;" d="m313.9,327.5l0,8.8c0,2.4 5.8,4.8 13,4.8c7.2,0 13,-2.3 13,-4.8l0,-8.9c-2.9,1.9 -7.8,3.2 -13,3.2c-5.2,0 -10.2,-1.2 -13,-3.1" class="st1"/>
+      <path stroke="null" style="vector-effect: non-scaling-stroke;" d="m339.9,324.9l0,-10.6c0,-2.4 -4.4,-5.1 -13,-5.1c-7.8,0 -13,2.7 -13,5.1l0,10.7c1.5,1.6 6.5,3.7 13,3.7c6.7,-0.1 11.4,-2.2 13,-3.8m-23,-10.1c0,-1.9 4.4,-3.4 10,-3.4c5.5,0 10,1.5 10,3.4c0,1.9 -4.4,3.4 -10,3.4c-5.5,0 -10,-1.5 -10,-3.4" class="st1"/>
+     </g>
+    </g>
+   </g>
+   <g stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_16">
+    <g stroke="null" style="vector-effect: non-scaling-stroke;">
+     <defs stroke="null" style="vector-effect: non-scaling-stroke;">
+      <rect stroke="null" style="vector-effect: non-scaling-stroke;" height="32" width="26" y="309.1" x="313.9" id="svg_20"/>
+     </defs>
+     <clipPath stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_19">
+      <use stroke="null" style="vector-effect: non-scaling-stroke;" xlink:href="#svg_20"/>
+     </clipPath>
+     <g stroke="null" style="vector-effect: non-scaling-stroke;" class="st2">
+      <defs stroke="null" style="vector-effect: non-scaling-stroke;">
+       <rect stroke="null" style="vector-effect: non-scaling-stroke;" height="32" width="26" y="309.1" x="313.9" id="svg_18"/>
+      </defs>
+      <clipPath stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_17">
+       <use stroke="null" style="vector-effect: non-scaling-stroke;" xlink:href="#svg_18"/>
+      </clipPath>
+      <path stroke="null" style="vector-effect: non-scaling-stroke;" d="m313.9,327.5l0,8.8c0,2.4 5.8,4.8 13,4.8c7.2,0 13,-2.3 13,-4.8l0,-8.9c-2.9,1.9 -7.8,3.2 -13,3.2c-5.2,0 -10.2,-1.2 -13,-3.1" class="st3"/>
+      <path stroke="null" style="vector-effect: non-scaling-stroke;" d="m339.9,324.9l0,-10.6c0,-2.4 -4.4,-5.1 -13,-5.1c-7.8,0 -13,2.7 -13,5.1l0,10.7c1.5,1.6 6.5,3.7 13,3.7c6.7,-0.1 11.4,-2.2 13,-3.8m-23,-10.1c0,-1.9 4.4,-3.4 10,-3.4c5.5,0 10,1.5 10,3.4c0,1.9 -4.4,3.4 -10,3.4c-5.5,0 -10,-1.5 -10,-3.4" class="st3"/>
+     </g>
+    </g>
+   </g>
+   <path stroke="null" style="vector-effect: non-scaling-stroke;" d="m3,18.4l0,8.8c0,2.5 5.8,4.8 13,4.8c7.2,0 13,-2.3 13,-4.8l0,-8.9c-2.9,1.9 -7.8,3.2 -13,3.2c-5.1,0.1 -10.2,-1.2 -13,-3.1"/>
+   <path stroke="null" style="vector-effect: non-scaling-stroke;" d="m29,15.8l0,-10.7c0,-2.4 -4.4,-5.1 -13,-5.1c-7.8,0 -13,2.7 -13,5.1l0,10.7c1.5,1.6 6.5,3.7 13,3.7c6.7,0.1 11.5,-2.1 13,-3.7m-22.9,-10.1c0,-1.9 4.4,-3.4 10,-3.4c5.5,0 10,1.5 10,3.4c0,1.9 -4.4,3.4 -10,3.4c-5.6,0 -10,-1.5 -10,-3.4"/>
+  </symbol>
+ </defs>
+ <g stroke="null">
+  <title stroke="null">Layer 1</title>
+  <g stroke="null" id="svg_4"/>
+  <g stroke="null" id="svg_10"/>
+  <use fill="#bfbfbf" stroke="null" x="234.37686" y="-122.00343" transform="matrix(0.8815983472848148,0,0,0.8811969448965482,-230.16176868233453,147.57617155041572) " xlink:href="#svg_26" id="svg_27"/>
+  <g stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_28"/>
+  <g id="svg_34"/>
+ </g>
+</svg>

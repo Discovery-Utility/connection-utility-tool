@@ -1,0 +1,25 @@
+.ttText {
+  padding-top: 2.5%;
+  margin-left: 12px;
+}
+
+#qrCode {
+  padding-top: 5%;
+  width: 80px;
+  height: 80px;
+}
+
+.qrCodes {
+  width: 16%;
+  float: left;
+}
+
+.textArQR {
+  width: 84%;
+  float: right;
+}
+
+.helpLinks {
+  display: inline;
+  color: #248dc0;
+}

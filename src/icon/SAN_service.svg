@@ -1,0 +1,75 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <symbol stroke="null" viewBox="0 0 32 32" id="svg_26" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+   <style type="text/css">.st0{clip-path:url(#SVGID_2_);}
+	.st1{clip-path:url(#SVGID_4_);fill:#A7A7A7;}
+	.st2{clip-path:url(#SVGID_6_);}
+	.st3{clip-path:url(#SVGID_8_);fill:#A7A7A7;}</style>
+   <g stroke="null" id="svg_21">
+    <g stroke="null" id="svg_1">
+     <defs>
+      <rect stroke="null" height="32" width="26" y="309.1" x="313.9" id="svg_25"/>
+     </defs>
+     <clipPath id="svg_24">
+      <use stroke="null" xlink:href="#svg_25" id="svg_2"/>
+     </clipPath>
+     <g stroke="null" class="st0" id="svg_3">
+      <defs>
+       <rect stroke="null" height="32" width="26" y="309.1" x="313.9" id="svg_23"/>
+      </defs>
+      <clipPath id="svg_22">
+       <use stroke="null" xlink:href="#svg_23" id="svg_5"/>
+      </clipPath>
+      <path stroke="null" d="m313.9,327.5l0,8.8c0,2.4 5.8,4.8 13,4.8c7.2,0 13,-2.3 13,-4.8l0,-8.9c-2.9,1.9 -7.8,3.2 -13,3.2c-5.2,0 -10.2,-1.2 -13,-3.1" class="st1" id="svg_6"/>
+      <path stroke="null" d="m339.9,324.9l0,-10.6c0,-2.4 -4.4,-5.1 -13,-5.1c-7.8,0 -13,2.7 -13,5.1l0,10.7c1.5,1.6 6.5,3.7 13,3.7c6.7,-0.1 11.4,-2.2 13,-3.8m-23,-10.1c0,-1.9 4.4,-3.4 10,-3.4c5.5,0 10,1.5 10,3.4c0,1.9 -4.4,3.4 -10,3.4c-5.5,0 -10,-1.5 -10,-3.4" class="st1" id="svg_7"/>
+     </g>
+    </g>
+   </g>
+   <g stroke="null" id="svg_16">
+    <g stroke="null" id="svg_8">
+     <defs>
+      <rect stroke="null" height="32" width="26" y="309.1" x="313.9" id="svg_20"/>
+     </defs>
+     <clipPath id="svg_19">
+      <use stroke="null" xlink:href="#svg_20" id="svg_9"/>
+     </clipPath>
+     <g stroke="null" class="st2" id="svg_11">
+      <defs>
+       <rect stroke="null" height="32" width="26" y="309.1" x="313.9" id="svg_18"/>
+      </defs>
+      <clipPath id="svg_17">
+       <use stroke="null" xlink:href="#svg_18" id="svg_12"/>
+      </clipPath>
+      <path stroke="null" d="m313.9,327.5l0,8.8c0,2.4 5.8,4.8 13,4.8c7.2,0 13,-2.3 13,-4.8l0,-8.9c-2.9,1.9 -7.8,3.2 -13,3.2c-5.2,0 -10.2,-1.2 -13,-3.1" class="st3" id="svg_13"/>
+      <path stroke="null" d="m339.9,324.9l0,-10.6c0,-2.4 -4.4,-5.1 -13,-5.1c-7.8,0 -13,2.7 -13,5.1l0,10.7c1.5,1.6 6.5,3.7 13,3.7c6.7,-0.1 11.4,-2.2 13,-3.8m-23,-10.1c0,-1.9 4.4,-3.4 10,-3.4c5.5,0 10,1.5 10,3.4c0,1.9 -4.4,3.4 -10,3.4c-5.5,0 -10,-1.5 -10,-3.4" class="st3" id="svg_14"/>
+     </g>
+    </g>
+   </g>
+   <path stroke="null" d="m3,18.4l0,8.8c0,2.5 5.8,4.8 13,4.8c7.2,0 13,-2.3 13,-4.8l0,-8.9c-2.9,1.9 -7.8,3.2 -13,3.2c-5.1,0.1 -10.2,-1.2 -13,-3.1" id="svg_15"/>
+   <path stroke="null" d="m29,15.8l0,-10.7c0,-2.4 -4.4,-5.1 -13,-5.1c-7.8,0 -13,2.7 -13,5.1l0,10.7c1.5,1.6 6.5,3.7 13,3.7c6.7,0.1 11.5,-2.1 13,-3.7m-22.9,-10.1c0,-1.9 4.4,-3.4 10,-3.4c5.5,0 10,1.5 10,3.4c0,1.9 -4.4,3.4 -10,3.4c-5.6,0 -10,-1.5 -10,-3.4" id="svg_29"/>
+  </symbol>
+  <symbol id="svg_33" height="242" width="242" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg">
+   <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+   <g>
+    <title>Layer 1</title>
+    <g id="svg_30">
+     <circle stroke="#ffffff" id="svg_32" r="121.23531" cy="121.2353" cx="121.23529" stroke-width="16" fill="#f2af00"/>
+     <path stroke="#f2a900" transform="rotate(-90 115.02272033691408,115.06024169921875) " id="svg_31" d="m168.79338,109.0172c9.68474,-11.13531 11.63128,-26.33437 6.36228,-39.11224l-19.44413,22.67593l-19.16682,-3.72777l-6.35161,-18.46286l19.39614,-22.6226c-13.34318,-3.35979 -28.04094,0.69329 -37.68301,11.78594c-10.17003,11.69527 -11.83393,27.88627 -5.54099,41.02679l-50.68486,58.2844c-5.39167,6.19695 -4.73571,15.5937 1.46124,20.98537c6.19695,5.38633 15.5937,4.7357 20.98537,-1.46125l50.6262,-58.22573c13.93514,4.49039 29.82216,0.60263 40.04019,-11.14598l0,0z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="2" fill="#ffffff"/>
+    </g>
+   </g>
+  </symbol>
+ </defs>
+ <g stroke="null">
+  <title>Layer 1</title>
+  <g id="svg_37">
+   <g stroke="null" id="svg_4"/>
+   <g stroke="null" id="svg_10"/>
+   <use fill="#bfbfbf" stroke="null" x="234.37686" y="-122.00343" transform="matrix(0.8815983472848148,0,0,0.8811969448965482,-230.16176868233453,147.57617155041572) " xlink:href="#svg_26" id="svg_27"/>
+   <g stroke="null" id="svg_28"/>
+   <g id="svg_34"/>
+   <use x="435.41782" y="11.77862" transform="matrix(0.6639200412013366,0,0,0.6639200412013366,-159.5585423707962,-3.0334286036853086) " xlink:href="#svg_33" id="svg_35"/>
+   <g id="svg_36"/>
+  </g>
+ </g>
+</svg>

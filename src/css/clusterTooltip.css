@@ -1,0 +1,44 @@
+@font-face {
+    font-family: Metropolis;
+    font-weight: lighter;
+    src: url("../fonts/metropolis/Metropolis-Light.otf");
+}
+
+#tooltipCluster, #tooltipJoinCluster {
+    position: relative;
+}
+
+#tooltipCluster #tooltiptextCluster, #tooltipJoinCluster #tooltiptextJoinCluster {
+    top: 120%;
+    left: 50%;
+    margin-left: -100px;
+    visibility: hidden;
+    background-color: white;
+    color: #fff;
+    padding: 3px;
+    border: 1px solid grey;
+
+    position: absolute;
+    z-index: 1;
+}
+
+#tooltipCluster #tooltiptextCluster::after, #tooltipJoinCluster #tooltiptextJoinCluster::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent grey transparent;
+}
+
+#clusterTooltip, #joinClusterTooltip {
+  font-family: Metropolis;
+  font-weight: lighter;
+  background-color: white;
+  color: grey;
+  width: 180px;
+  text-align: center;
+  font-size: 12px;
+}

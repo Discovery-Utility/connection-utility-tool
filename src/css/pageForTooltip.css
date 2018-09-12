@@ -1,0 +1,81 @@
+@font-face {
+    font-family: Metropolis;
+    font-weight: lighter;
+    src: url("../fonts/metropolis/Metropolis-Light.otf");
+}
+
+#tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+#tooltip #tooltiptext {
+    top: -60%;
+    left: 120%;
+
+    height: 350px;
+    visibility: hidden;
+    max-width: 300px;
+    background-color: white;
+    color: #fff;
+    padding: 3px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid grey;
+
+    position: absolute;
+    z-index: 1;
+}
+
+#tooltip #tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 40%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: grey grey transparent transparent;
+}
+
+#pageForTooltip {
+  font-family: Metropolis;
+  font-weight: lighter;
+  background-color: white;
+  color: grey;
+  width: 250px;
+  height: 280px;
+  text-align: left;
+}
+
+#imgForTooltip {
+  width: 26px;
+  height: 26px;
+  margin: 5px 5px 0px 5px;
+  float: left;
+}
+
+#captionTroubleShooting {
+  margin-top: 10px;
+  font-size: 18px;
+  display: inline-block;
+}
+
+#problemWithAppliances {
+  /* margin-top: 5px; */
+  margin-left: 5px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+#stepsToSolve {
+  margin-left: -15px;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+#stepsToSolve li {
+  margin-bottom: 5px;
+  padding-left: 5px;
+}

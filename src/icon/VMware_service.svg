@@ -1,0 +1,36 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <symbol viewBox="0 0 32 32" height="32px" width="32px" y="0px" x="0px" id="svg_44" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+   <g>
+    <rect height="8.5" width="8.5" y="7.5" x="16"/>
+    <rect height="8.5" width="8.5" y="16" x="7.5"/>
+    <path d="m29.9,0l-19.2,0c-1.2,0 -2.2,1 -2.2,2.1l0,6.4l-6.4,0c-1.1,0 -2.1,1 -2.1,2.2l0,19.2c0,1.1 1,2.1 2.1,2.1l19.2,0c1.2,0 2.1,-1 2.1,-2.1l0,-6.4l6.4,0c1.2,0 2.1,-1 2.1,-2.1l0,-19.3c0.1,-1.1 -0.9,-2.1 -2,-2.1zm-2.2,19.2l-8.5,0l0,8.5l-14.9,0l0,-14.9l8.5,0l0,-8.5l14.9,0l0,14.9z"/>
+   </g>
+  </symbol>
+  <symbol id="svg_50" height="242" width="242" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg">
+   <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+   <g>
+    <title>Layer 1</title>
+    <g id="svg_47">
+     <circle stroke="#ffffff" id="svg_49" r="121.23531" cy="121.2353" cx="121.23529" stroke-width="16" fill="#f2af00"/>
+     <path stroke="#f2a900" transform="rotate(-90 115.02272033691408,115.06024169921875) " id="svg_48" d="m168.79338,109.0172c9.68474,-11.13531 11.63128,-26.33437 6.36228,-39.11224l-19.44413,22.67593l-19.16682,-3.72777l-6.35161,-18.46286l19.39614,-22.6226c-13.34318,-3.35979 -28.04094,0.69329 -37.68301,11.78594c-10.17003,11.69527 -11.83393,27.88627 -5.54099,41.02679l-50.68486,58.2844c-5.39167,6.19695 -4.73571,15.5937 1.46124,20.98537c6.19695,5.38633 15.5937,4.7357 20.98537,-1.46125l50.6262,-58.22573c13.93514,4.49039 29.82216,0.60263 40.04019,-11.14598l0,0z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="2" fill="#ffffff"/>
+    </g>
+   </g>
+  </symbol>
+ </defs>
+ <g stroke="null">
+  <title>Layer 1</title>
+  <g id="svg_53">
+   <g id="svg_4" stroke="null"/>
+   <g id="svg_10" stroke="null"/>
+   <g id="svg_28" stroke="null"/>
+   <g id="svg_34"/>
+   <g id="svg_42"/>
+   <use fill="#bfbfbf" x="-334.0554" y="-344.79715" transform="matrix(0.8183203408033962,0,0,0.8183203408033962,274.0280362724683,336.9650725708333) " xlink:href="#svg_44" id="svg_45"/>
+   <g id="svg_46"/>
+   <use x="451.44782" y="7.02271" transform="matrix(0.6517895105863545,0,0,0.6517895105863545,-159.9205732345581,-0.5773269760780408) " xlink:href="#svg_50" id="svg_51"/>
+   <g id="svg_52"/>
+  </g>
+ </g>
+</svg>

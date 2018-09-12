@@ -1,0 +1,20 @@
+.docDownload {
+  color: #248dc0;
+  margin-top: 2.2%;
+  font-size: 12px;
+  width: 60%;
+}
+
+.dpeDownload {
+  width: 50%;
+  float: left;
+}
+
+.daeDownload {
+  width: 50%;
+  float: right;
+}
+
+.docBlock {
+  margin-top: 17%;
+}

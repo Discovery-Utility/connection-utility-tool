@@ -1,0 +1,22 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <symbol viewBox="0 0 32 32" height="32px" width="32px" y="0px" x="0px" id="svg_44" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+   <g>
+    <rect height="8.5" width="8.5" y="7.5" x="16"/>
+    <rect height="8.5" width="8.5" y="16" x="7.5"/>
+    <path d="m29.9,0l-19.2,0c-1.2,0 -2.2,1 -2.2,2.1l0,6.4l-6.4,0c-1.1,0 -2.1,1 -2.1,2.2l0,19.2c0,1.1 1,2.1 2.1,2.1l19.2,0c1.2,0 2.1,-1 2.1,-2.1l0,-6.4l6.4,0c1.2,0 2.1,-1 2.1,-2.1l0,-19.3c0.1,-1.1 -0.9,-2.1 -2,-2.1zm-2.2,19.2l-8.5,0l0,8.5l-14.9,0l0,-14.9l8.5,0l0,-8.5l14.9,0l0,14.9z"/>
+   </g>
+  </symbol>
+ </defs>
+ <g stroke="null">
+  <title>Layer 1</title>
+  <g id="svg_4" stroke="null"/>
+  <g id="svg_10" stroke="null"/>
+  <g id="svg_28" stroke="null"/>
+  <g id="svg_34"/>
+  <g id="svg_42"/>
+  <use fill="#bfbfbf" x="-334.0554" y="-344.79715" transform="matrix(0.8183203408033962,0,0,0.8183203408033962,274.0280362724683,336.9650725708333) " xlink:href="#svg_44" id="svg_45"/>
+  <g id="svg_46"/>
+ </g>
+</svg>
