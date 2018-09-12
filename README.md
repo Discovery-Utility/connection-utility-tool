@@ -51,9 +51,9 @@ command in "./src/"
 folowing commands in "./src/":
 
         ```
-npm run build:win32
-npm run build:win64
-npm run build:linux
+        npm run build:win32
+        npm run build:win64
+        npm run build:linux
         ```
 
 
