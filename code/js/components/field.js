@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import Appliance from "./fieldComponents/appliance";
-import Infotab from "./fieldComponents/popUpWindow/infotab"
-import ClusterTooltip from "./fieldComponents/clusterTooltip";
-import JoinClusterTooltip from "./fieldComponents/joinClusterTooltip";
-import LoadTooltip from "./fieldComponents/pageForTooltip";
+import Appliance from "./field/appliance";
+import Infotab from "./field/popUpWindow/infotab"
+import ClusterTooltip from "./field/clusterTooltip";
+import JoinClusterTooltip from "./field/joinClusterTooltip";
+import LoadTooltip from "./field/pageForTooltip";
 import 'bootstrap/dist/css/bootstrap.css';
 import mainPage_lang from "../locales/translation";
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import Field from "./indexComponents/field";
-import DetectionLog from "./indexComponents/detectionLog";
-import HelpPage from "./indexComponents/helpPage";
+import Field from "./components/field";
+import DetectionLog from "./components/log/detectionLog";
+import HelpPage from "./components/helpPage";
 import 'bootstrap/dist/css/bootstrap.css';
 import mainPage_lang from "./locales/translation";
 import {cdTool} from "./locales/translation";
