@@ -47,7 +47,7 @@ mdns while it is being delivered to mainline)
 6. Now you can run or build binary files of **ZSCU**:
     1. For running this application you need enter `npm run electron`
 command in "./src/"
-    2. You can building binary files only from target to target platform. For building binary files you need run one of the
+    2. You can build binary files only from the same platform type as the intended target. For building binary files you need run one of the
 following commands in "./src/":
 
         ```
