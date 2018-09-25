@@ -2,7 +2,7 @@ import React from 'react';
 import WtExpect from "./helpSubpages/whatToExpect";
 import Troubleshooting from "./helpSubpages/troubleshootingTips";
 import Docs from "./helpSubpages/documentation";
-import mainPage_lang from "../lang/mainPage_lang";
+import mainPage_lang from "../locales/mainPage_lang";
 
 // This component is responsible for displaying the technical support page,
 // it contains three tabs "Documentation", "Troubleshooting Tips" and "What To Expect",

@@ -4,8 +4,8 @@ import Field from "./indexComponents/field";
 import DetectionLog from "./indexComponents/detectionLog";
 import HelpPage from "./indexComponents/helpPage";
 import 'bootstrap/dist/css/bootstrap.css';
-import mainPage_lang from "./lang/mainPage_lang";
-import {cdTool} from "./lang/mainPage_lang";
+import mainPage_lang from "./locales/mainPage_lang";
+import {cdTool} from "./locales/mainPage_lang";
 
 /**
  * MainWindow used to display header of application window.

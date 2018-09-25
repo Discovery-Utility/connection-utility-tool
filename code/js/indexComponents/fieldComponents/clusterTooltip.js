@@ -1,5 +1,5 @@
 import React from 'react';
-import mainPage_lang from "../../lang/mainPage_lang";
+import mainPage_lang from "../../locales/mainPage_lang";
 
 // The component is responsible for displaying the tooltip when hovering over the inactive Create button
 

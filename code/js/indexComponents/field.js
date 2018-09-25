@@ -6,7 +6,7 @@ import ClusterTooltip from "./fieldComponents/clusterTooltip";
 import JoinClusterTooltip from "./fieldComponents/joinClusterTooltip";
 import LoadTooltip from "./fieldComponents/pageForTooltip";
 import 'bootstrap/dist/css/bootstrap.css';
-import mainPage_lang from "../lang/mainPage_lang";
+import mainPage_lang from "../locales/mainPage_lang";
 
 // Html-element, in which this component will be displayed
 var timerForTooltip = 0;

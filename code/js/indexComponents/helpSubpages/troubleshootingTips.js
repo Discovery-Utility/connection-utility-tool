@@ -1,6 +1,6 @@
 import React from 'react';
-import mainPage_lang from "../../lang/mainPage_lang";
-import {discTool} from "../../lang/mainPage_lang";
+import mainPage_lang from "../../locales/mainPage_lang";
+import {discTool} from "../../locales/mainPage_lang";
 
 // The component is responsible for displaying the Troubleshooting Tips page
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import mainPage_lang from "../../lang/mainPage_lang";
-import {productName, discTool} from "../../lang/mainPage_lang";
+import mainPage_lang from "../../locales/mainPage_lang";
+import {productName, discTool} from "../../locales/mainPage_lang";
 
 
 // The component is responsible for displaying the product description page

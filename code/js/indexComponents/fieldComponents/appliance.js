@@ -1,7 +1,7 @@
 import Infotab from "./popUpWindow/infotab"
 import React from 'react';
 import ReactDOM from "react-dom";
-import mainPage_lang from "../../lang/mainPage_lang";
+import mainPage_lang from "../../locales/mainPage_lang";
 // import 'bootstrap/dist/css/bootstrap.css';
 
 // This component is responsible for displaying the device element that contains
