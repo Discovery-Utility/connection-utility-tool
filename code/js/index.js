@@ -7,12 +7,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 import mainPage_lang from "./lang/mainPage_lang";
 import {cdTool} from "./lang/mainPage_lang";
 
-// This component is responsible for displaying the header at the top of
-// the application window. It contains the DELL EMC logo, icon, Appliances tab,
-// Logs tab and Help tab, and accordingly contains built-in components for each of the tabs
-
-const app = document.getElementById("program");
-
+/**
+ * MainWindow used to display header of application window.
+ * Contains Dell EMC logo, application icon, and tabs.
+ * Appliances tab show all appliances in network.
+ * Log tab show all program logs.
+ * Help tab contains all help information (docs, tutorials, etc.)
+ */
 class MainWindow extends React.Component {
     constructor(props) {
         super(props);
@@ -20,22 +21,30 @@ class MainWindow extends React.Component {
         this.rendHeader = this.rendHeader.bind(this);
         this.changeTabs = this.changeTabs.bind(this);
 
-        // "tab" - tab, that is initially set as "field" - this is the "Appliances" main page.
-        // "tab" can also accept "logs" (log page) and "help" page (page of the techsupport)
+        /**
+         * "field" - it is "Appliances" main page.
+         * "logs"  - log page
+         * "help"  - help page
+         */
         this.state = {
             tab: "field"
         };
     }
 
-    // Switch application tabs
+    /**
+     * Switch application tabs
+     */
     changeTabs(tabChange, e) {
-        //console.log(tabChange);
         selectAppliances = [];
         this.setState({
             tab: tabChange
         });
     }
 
+    /**
+     * Header render
+     * @return {}
+     */
     rendHeader() {
         return (
             <div id="header">
@@ -51,9 +60,13 @@ class MainWindow extends React.Component {
                     </div>
                 </div>
 
-                {/* The search string by devices' SSN. In the properties of the component,
-          the "filterList" parameter is passed, indicating the required state of
-          display of additional filters */}
+                {
+                    /**
+                     * The search string by devices' SSN. In the properties of the component,
+                     * the "filterList" parameter is passed, indicating the required state of
+                     * display of additional filters
+                     */
+                }
                 <div id="headerSettings">
                     <div id="Gear" onClick={this.changeTabs.bind(this, "logs")}>
                         <img src="icon/gear_white.png" height="18"/>
@@ -69,7 +82,7 @@ class MainWindow extends React.Component {
     }
 
     render() {
-        if (this.state.tab == "field") {
+        if (this.state.tab === "field") {
             return (
                 <div id="mainField" ref="mainField">
                     {this.rendHeader()}
@@ -77,7 +90,7 @@ class MainWindow extends React.Component {
                 </div>
             );
         }
-        if (this.state.tab == "logs") {
+        if (this.state.tab === "logs") {
             return (
                 <div id="mainField" ref="mainField">
                     {this.rendHeader()}
@@ -85,7 +98,7 @@ class MainWindow extends React.Component {
                 </div>
             );
         }
-        if (this.state.tab == "help") {
+        if (this.state.tab === "help") {
             return (
                 <div id="mainField" ref="mainField">
                     {this.rendHeader()}
@@ -94,12 +107,12 @@ class MainWindow extends React.Component {
             );
         }
     };
-};
+}
 
-// "Field" component display
+/**
+ * Display Main Window into container with "program" id
+ */
 ReactDOM.render(
-    <div>
-        <MainWindow/>
-    </div>,
-    app
+    <MainWindow/>,
+    document.getElementById("program")
 );
