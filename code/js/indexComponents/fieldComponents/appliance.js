@@ -1,7 +1,7 @@
 import Infotab from "./popUpWindow/infotab"
 import React from 'react';
 import ReactDOM from "react-dom";
-import mainPage_lang from "../../locales/mainPage_lang";
+import mainPage_lang from "../../locales/translation";
 // import 'bootstrap/dist/css/bootstrap.css';
 
 // This component is responsible for displaying the device element that contains
@@ -108,13 +108,13 @@ class Appliance extends React.Component {
 
         // Bringing the name of the device to what is recognized by the application
         var nameOrSSN = null;
-        if (this.props.cluster == 'true') nameOrSSN = mainPage_lang.applianceinfo_ClusterName;
+        if (this.props.cluster == 'true') nameOrSSN = mainPage_lang.CLUSTER_NAME;
         else nameOrSSN = "SN"
 
         // Set "ip" or "unconfigured"
         var ipOrUnconfig = null;
         if (this.props.state == 'unconfigured') {
-            ipOrUnconfig = mainPage_lang.applianceinfo_stateUnconf;
+            ipOrUnconfig = mainPage_lang.UNCONFIGURED;
         }
         else ipOrUnconfig = this.props.ip.slice(7);
         // "service state" -> "service" to transfer the name of the icon
@@ -130,7 +130,7 @@ class Appliance extends React.Component {
                     <img className="boxStateIcon" src={"icon/dell_logo.png"}/>
                     <div className="boxInfo">
                         <div>
-                            <font> {mainPage_lang.formatString(mainPage_lang.applianceinfo_Appliance, this.props.type)}</font>
+                            <font> {mainPage_lang.formatString(mainPage_lang.APPLIANCES_FILTER, this.props.type)}</font>
                         </div>
                         <div><font> {nameOrSSN}: {this.props.ssn}</font></div>
                         <div className={this.props.state + "unc"}><font>{ipOrUnconfig}</font></div>

@@ -1,6 +1,6 @@
 import React from 'react';
-import mainPage_lang from "../../locales/mainPage_lang";
-import {productName, discTool} from "../../locales/mainPage_lang";
+import mainPage_lang from "../../locales/translation";
+import {productName, discTool} from "../../locales/translation";
 
 
 // The component is responsible for displaying the product description page
@@ -10,7 +10,7 @@ class WtExpect extends React.Component {
         return (
             <div id="logShow">
                 <div id="captionLog">
-                    {mainPage_lang.tab_WtExpect}
+                    {mainPage_lang.WHAT_EXPECT}
                 </div>
                 <div id="whiteSpaceForTable">
                     <div className="ExpContainer">

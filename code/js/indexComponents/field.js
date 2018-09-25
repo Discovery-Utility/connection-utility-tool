@@ -6,7 +6,7 @@ import ClusterTooltip from "./fieldComponents/clusterTooltip";
 import JoinClusterTooltip from "./fieldComponents/joinClusterTooltip";
 import LoadTooltip from "./fieldComponents/pageForTooltip";
 import 'bootstrap/dist/css/bootstrap.css';
-import mainPage_lang from "../locales/mainPage_lang";
+import mainPage_lang from "../locales/translation";
 
 // Html-element, in which this component will be displayed
 var timerForTooltip = 0;
@@ -370,25 +370,25 @@ class Field extends React.Component {
                     <div id="innerHeader">
 
                         <div id="ApplianceSign">
-                            <font>{mainPage_lang.header_appliances}</font>
+                            <font>{mainPage_lang.APPLIANCES}</font>
                         </div>
                         <div id="configFilters">
                             <div className="confFilt" onClick={this.filterConfiguration.bind(this, "")} id="all">
-                                <font>{mainPage_lang.formatString(mainPage_lang.filter_allAppl, this.state.all)}</font>
+                                <font>{mainPage_lang.formatString(mainPage_lang.ALL_APPLIANCES_FILTER, this.state.all)}</font>
                             </div>
                             <div className="confFilt" onClick={this.filterConfiguration.bind(this, "unconfigured")}
                                  id="unconfigured">
-                                <font>{mainPage_lang.formatString(mainPage_lang.filter_unconf, this.state.unconfig)}</font>
+                                <font>{mainPage_lang.formatString(mainPage_lang.UNCONFIGURED_FILTER, this.state.unconfig)}</font>
                             </div>
 
                             <div className="confFilt" onClick={this.filterConfiguration.bind(this, "configured")}
                                  id="configured">
-                                <font>{mainPage_lang.formatString(mainPage_lang.filter_conf, this.state.config)}</font>
+                                <font>{mainPage_lang.formatString(mainPage_lang.CONFIGURED_FILTER, this.state.config)}</font>
                             </div>
 
                             <div className="confFilt" onClick={this.filterConfiguration.bind(this, "service state")}
                                  id="service state">
-                                <font>{mainPage_lang.formatString(mainPage_lang.filter_serv, this.state.service)}</font>
+                                <font>{mainPage_lang.formatString(mainPage_lang.SERVICE_STATE_FILTER, this.state.service)}</font>
                             </div>
 
                             <div id="confFiltUnderline"/>
@@ -402,7 +402,7 @@ class Field extends React.Component {
 
                                 <div id="search" className="col-lg-5 col-md-8 col-sm-7">
                                     <input type="text" id="searchLine" onChange={this.filterList}
-                                           placeholder={mainPage_lang.filter_search}>
+                                           placeholder={mainPage_lang.SEARCH_APPLIANCES}>
                                     </input>
                                 </div>
 
@@ -410,7 +410,7 @@ class Field extends React.Component {
                                     <div id="typeFilters">
                                         <div className="typeFilt" onClick={this.filterType.bind(this, "")}
                                              id="allSecondFilters">
-                                            <font>{mainPage_lang.filter_All}</font>
+                                            <font>{mainPage_lang.ALL}</font>
                                         </div>
 
                                         <div className="typeFilt typeFiltMiddle"
@@ -430,7 +430,7 @@ class Field extends React.Component {
                                         <div id="buttonCreate" onClick={this.createClick}
                                              onMouseEnter={this.mouseEventOnCreateClick}
                                              onMouseLeave={this.mouseleaveFromCreateClick}>
-                                            <font>{mainPage_lang.button_createCluster}</font>
+                                            <font>{mainPage_lang.CREATE_CLUSTER}</font>
                                         </div>
                                         <div id="tooltiptextCluster">
                                             <ClusterTooltip/>
@@ -443,7 +443,7 @@ class Field extends React.Component {
                                         <div id="buttonJoin" onClick={this.joinClick}
                                              onMouseEnter={this.mouseEventOnJoinClick}
                                              onMouseLeave={this.mouseleaveFromJoinClick}>
-                                            <font>{mainPage_lang.button_joinCluster}</font>
+                                            <font>{mainPage_lang.JOIN_CLASTER}</font>
                                         </div>
                                         <div id="tooltiptextJoinCluster">
                                             <JoinClusterTooltip/>
@@ -467,7 +467,7 @@ class Field extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div>{mainPage_lang.formatString(mainPage_lang.bottomInfo_appliancesSelected, selectAppliances.length)}</div>
+                        <div>{mainPage_lang.formatString(mainPage_lang.FILTER_APPLIANCES_SELECTED, selectAppliances.length)}</div>
                     </div>
 
                 </div>
@@ -485,26 +485,26 @@ class Field extends React.Component {
                     <div id="innerHeader">
 
                         <div id="ApplianceSign">
-                            <font>{mainPage_lang.header_appliances}</font>
+                            <font>{mainPage_lang.APPLIANCES}</font>
                         </div>
 
                         <div id="configFilters">
                             <div className="confFilt" onClick={this.filterConfiguration.bind(this, "")} id="all">
-                                <font>{mainPage_lang.formatString(mainPage_lang.filter_allAppl, this.state.all)}</font>
+                                <font>{mainPage_lang.formatString(mainPage_lang.ALL_APPLIANCES_FILTER, this.state.all)}</font>
                             </div>
                             <div className="confFilt" onClick={this.filterConfiguration.bind(this, "unconfigured")}
                                  id="unconfigured">
-                                <font>{mainPage_lang.formatString(mainPage_lang.filter_unconf, this.state.unconfig)}</font>
+                                <font>{mainPage_lang.formatString(mainPage_lang.UNCONFIGURED_FILTER, this.state.unconfig)}</font>
                             </div>
 
                             <div className="confFilt" onClick={this.filterConfiguration.bind(this, "configured")}
                                  id="configured">
-                                <font>{mainPage_lang.formatString(mainPage_lang.filter_conf, this.state.config)}</font>
+                                <font>{mainPage_lang.formatString(mainPage_lang.CONFIGURED_FILTER, this.state.config)}</font>
                             </div>
 
                             <div className="confFilt" onClick={this.filterConfiguration.bind(this, "service state")}
                                  id="service state">
-                                <font>{mainPage_lang.formatString(mainPage_lang.filter_serv, this.state.service)}</font>
+                                <font>{mainPage_lang.formatString(mainPage_lang.SERVICE_STATE_FILTER, this.state.service)}</font>
                             </div>
                             <div id="confFiltUnderline"/>
                         </div>
@@ -515,14 +515,14 @@ class Field extends React.Component {
                         <div id="reprHeader">
                             <div id="search">
                                 <input type="text" id="searchLine" onChange={this.filterList}
-                                       placeholder={mainPage_lang.filter_search}>
+                                       placeholder={mainPage_lang.SEARCH_APPLIANCES}>
                                 </input>
                             </div>
 
                             <div id="typeFilters">
                                 <div className="typeFilt" onClick={this.filterType.bind(this, "")}
                                      id="allSecondFilters">
-                                    <font>{mainPage_lang.filter_All}</font>
+                                    <font>{mainPage_lang.ALL}</font>
                                 </div>
 
                                 <div className="typeFilt typeFiltMiddle" onClick={this.filterType.bind(this, "SAN")}
@@ -538,11 +538,11 @@ class Field extends React.Component {
                             <div id="buttonCreate" onClick={this.createClick}
                                  onMouseEnter={this.mouseEventOnCreateClick}
                                  onMouseLeave={this.mouseleaveFromCreateClick}>
-                                <font>{mainPage_lang.button_createCluster}</font>
+                                <font>{mainPage_lang.CREATE_CLUSTER}</font>
                             </div>
                             <div id="buttonJoin" onClick={this.joinClick} onMouseEnter={this.mouseEventOnJoinClick}
                                  onMouseLeave={this.mouseleaveFromJoinClick}>
-                                <font>{mainPage_lang.button_joinCluster}</font>
+                                <font>{mainPage_lang.JOIN_CLASTER}</font>
                             </div>
 
                             <div id="buttonRenew" onClick={this.refreshButton}>
@@ -565,7 +565,7 @@ class Field extends React.Component {
                     {/* Header */}
                     <div id="innerHeader">
                         <div id="ApplianceSign">
-                            <font>{mainPage_lang.header_appliances}</font>
+                            <font>{mainPage_lang.APPLIANCES}</font>
                         </div>
                     </div>
                     <div id="representation">
@@ -579,7 +579,7 @@ class Field extends React.Component {
                                 </div>
                             </div>
                             <div id="searchText">
-                                <font>{mainPage_lang.main_searching}</font>
+                                <font>{mainPage_lang.SEARCHING}</font>
                             </div>
                         </div>
                     </div>

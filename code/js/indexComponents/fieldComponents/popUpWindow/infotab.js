@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import mainPage_lang from "../../../locales/mainPage_lang";
+import mainPage_lang from "../../../locales/translation";
 
 // The component responsible for opening pop-up windows. It contains two types of windows:
 // the first for displaying information about the service;

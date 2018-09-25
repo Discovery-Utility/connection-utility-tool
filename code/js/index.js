@@ -4,8 +4,8 @@ import Field from "./indexComponents/field";
 import DetectionLog from "./indexComponents/detectionLog";
 import HelpPage from "./indexComponents/helpPage";
 import 'bootstrap/dist/css/bootstrap.css';
-import mainPage_lang from "./locales/mainPage_lang";
-import {cdTool} from "./locales/mainPage_lang";
+import mainPage_lang from "./locales/translation";
+import {cdTool} from "./locales/translation";
 
 /**
  * MainWindow used to display header of application window.
@@ -56,7 +56,7 @@ class MainWindow extends React.Component {
                     <font id="CycSign">{cdTool}</font>
 
                     <div id="Dashboard" onClick={this.changeTabs.bind(this, "field")}>
-                        <div><font>{mainPage_lang.header_appliances}</font></div>
+                        <div><font>{mainPage_lang.APPLIANCES}</font></div>
                     </div>
                 </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import mainPage_lang from "../../locales/mainPage_lang";
-import {productName} from "../../locales/mainPage_lang";
+import mainPage_lang from "../../locales/translation";
+import {productName} from "../../locales/translation";
 
 
 // The component is responsible for displaying the documentation page

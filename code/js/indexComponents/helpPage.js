@@ -2,7 +2,7 @@ import React from 'react';
 import WtExpect from "./helpSubpages/whatToExpect";
 import Troubleshooting from "./helpSubpages/troubleshootingTips";
 import Docs from "./helpSubpages/documentation";
-import mainPage_lang from "../locales/mainPage_lang";
+import mainPage_lang from "../locales/translation";
 
 // This component is responsible for displaying the technical support page,
 // it contains three tabs "Documentation", "Troubleshooting Tips" and "What To Expect",
@@ -43,10 +43,10 @@ class HelpPage extends React.Component {
         return (
             <div id="logSwitch">
                 <div id="systemLogs">
-                    {mainPage_lang.tab_Help}
+                    {mainPage_lang.HELP}
                 </div>
                 <div className="subtabs" id="expect" onClick={this.changeSubtabs.bind(this, "expect")}>
-                    {mainPage_lang.tab_WtExpect}
+                    {mainPage_lang.WHAT_EXPECT}
                 </div>
                 <div className="subtabs" id="tips" onClick={this.changeSubtabs.bind(this, "tips")}>
                     {mainPage_lang.tab_Troubleshoot}
