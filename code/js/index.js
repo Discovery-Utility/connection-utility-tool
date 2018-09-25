@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import Field from "./indexComponents/field";
 import DetectionLog from "./indexComponents/detectionLog";
 import HelpPage from "./indexComponents/helpPage";
-import {connect} from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 import mainPage_lang from "./lang/mainPage_lang";
 import {cdTool} from "./lang/mainPage_lang";

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from "react-dom";
 import mainPage_lang from "../../lang/mainPage_lang";
 import {productName} from "../../lang/mainPage_lang";
 

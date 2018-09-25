@@ -1,6 +1,4 @@
 import React from 'react';
-import {Container, Row, Col} from "reactstrap";
-import ReactDOM from "react-dom";
 import mainPage_lang from "../../lang/mainPage_lang";
 import {productName, discTool} from "../../lang/mainPage_lang";
 

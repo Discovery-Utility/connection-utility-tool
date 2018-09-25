@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from "react-dom";
-import {Container, Row, Col} from "reactstrap";
 import WtExpect from "./helpSubpages/whatToExpect";
 import Troubleshooting from "./helpSubpages/troubleshootingTips";
 import Docs from "./helpSubpages/documentation";
