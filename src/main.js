@@ -13,6 +13,8 @@ var fs = require("fs");
 
 var os = require('os')
 
+const DEMO_MODE = false;
+
 function allInterfaces() {
     var networks = os.networkInterfaces()
     var res = []
@@ -36,81 +38,82 @@ var bonjour = require('bonjour')({interface: allInterfaces()});
 var browser = null;
 
 // Info about devices, that will be sent to the UI part of the app
-var stor = {
+var storages = {
     "storages": []
 };
 var logs = {
     "storages": []
 };
-//Demo data
-// stor={
-// 			"storages": [
-// 					{
-// 							"link": "http://192.168.0.100:8080",
-// 							"name": "Dhsdf 5767",
-// 							"state": "unconfigured",
-// 							"type": "VMware",
-// 							"cluster": "false"
-// 					},
-// 					{
-// 							"link": "http://192.168.181.1:5883",
-// 							"name": "Ffijl 4362",
-// 							"state": "configured",
-// 							"type": "SAN",
-// 							"cluster": "true"
-// 					},
-// 					{
-// 							"link": "http://192.168.145.1:5303",
-// 							"name": "Sjivt 42",
-// 							"state": "service state",
-// 							"type": "SAN",
-// 							"cluster": "false"
-// 					},
-// 					{
-// 							"link": "http://192.168.4.15:8080",
-// 							"name": "Sdfjilk 3456",
-// 							"state": "unconfigured",
-// 							"type": "VMware",
-// 							"cluster": "false"
-// 					},
-// 					{
-// 							"link": "http://192.168.6.47:3000",
-// 							"name": "Sgfgf 5374",
-// 							"state": "configured",
-// 							"type": "SAN",
-// 							"cluster": "true"
-// 					},
-// 					{
-// 							"link": "http://192.168.8.14:5303",
-// 							"name": "Dsdfsfg 1321",
-// 							"state": "unconfigured",
-// 							"type": "VMware",
-// 							"cluster": "false"
-// 					},
-// 					{
-// 							"link": "http://192.168.8.144:8003",
-// 							"name": "Afsfg 5341",
-// 							"state": "service state",
-// 							"type": "SAN",
-// 							"cluster": "true"
-// 					},
-// 					{
-// 							"link": "http://192.168.1.34:4303",
-// 							"name": "Dsiljg 5321",
-// 							"state": "unconfigured",
-// 							"type": "VMware",
-// 							"cluster": "false"
-// 					},
-// 					{
-// 							"link": "http://192.168.2.58:5333",
-// 							"name": "Dsssfjg 5111",
-// 							"state": "unconfigured",
-// 							"type": "SAN",
-// 							"cluster": "false"
-// 					}
-// 			]
-// 	};
 
+if (DEMO_MODE) {
+    storages = {
+        "storages": [
+            {
+                "link": "http://192.168.0.100:8080",
+                "name": "Dhsdf 5767",
+                "state": "unconfigured",
+                "type": "VMware",
+                "cluster": "false"
+            },
+            {
+                "link": "http://192.168.181.1:5883",
+                "name": "Ffijl 4362",
+                "state": "configured",
+                "type": "SAN",
+                "cluster": "true"
+            },
+            {
+                "link": "http://192.168.145.1:5303",
+                "name": "Sjivt 42",
+                "state": "service state",
+                "type": "SAN",
+                "cluster": "false"
+            },
+            {
+                "link": "http://192.168.4.15:8080",
+                "name": "Sdfjilk 3456",
+                "state": "unconfigured",
+                "type": "VMware",
+                "cluster": "false"
+            },
+            {
+                "link": "http://192.168.6.47:3000",
+                "name": "Sgfgf 5374",
+                "state": "configured",
+                "type": "SAN",
+                "cluster": "true"
+            },
+            {
+                "link": "http://192.168.8.14:5303",
+                "name": "Dsdfsfg 1321",
+                "state": "unconfigured",
+                "type": "VMware",
+                "cluster": "false"
+            },
+            {
+                "link": "http://192.168.8.144:8003",
+                "name": "Afsfg 5341",
+                "state": "service state",
+                "type": "SAN",
+                "cluster": "true"
+            },
+            {
+                "link": "http://192.168.1.34:4303",
+                "name": "Dsiljg 5321",
+                "state": "unconfigured",
+                "type": "VMware",
+                "cluster": "false"
+            },
+            {
+                "link": "http://192.168.2.58:5333",
+                "name": "Dsssfjg 5111",
+                "state": "unconfigured",
+                "type": "SAN",
+                "cluster": "false"
+            }
+        ]
+    };
+}
 
 // function JSON.stringify():  convert object into a string
 function jsonParseString(json) {
@@ -118,7 +121,7 @@ function jsonParseString(json) {
     return JSON.stringify(json, "", 4);
 }
 
-var storages = jsonParseString(stor);
+var storages = jsonParseString(storages);
 var detectionLog = jsonParseString(logs);
 
 function clone(obj) {
