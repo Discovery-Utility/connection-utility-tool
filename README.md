@@ -12,7 +12,7 @@ you to Discover, Connect and Manage storage systems.
 
 ### Discover  
 The **ZSCU** will locate all available appliances within your network.
-It allows you to choose newly installed appliances and procced to
+It allows you to choose newly installed appliances and proceed to
 Initial Configuration Wizard so that you can create a new cluster,
 or add them to an existing one.
 
@@ -47,8 +47,8 @@ mdns while it is being delivered to mainline)
 6. Now you can run or build binary files of **ZSCU**:
     1. For running this application you need enter `npm run electron`
 command in "./src/"
-    2. For building binary files for the target OS you need run one of the
-folowing commands in "./src/":
+    2. You can build binary files only from the same platform type as the intended target. For building binary files you need run one of the
+following commands in "./src/":
 
         ```
         npm run build:win32
