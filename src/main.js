@@ -1,19 +1,19 @@
-// Main file that is responsible for creating window and processong of
-// adding/deleting discovered in the network devices
 "use strict";
-// const {app, BrowserWindow} = require('electron');
+
+/**
+ * main.js need to create application window.
+ * And parse appliances data. (from network or demo data)
+ */
+
+const env = require("./app_environment");
+const demo_data = require("./demo/demo_data");
+
 const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path');
 const url = require('url');
-// Initializing of window "win"
+const os = require('os');
+
 let win;
-var fs = require("fs");
-
-//console.log(process.versions);
-
-var os = require('os')
-
-const DEMO_MODE = false;
 
 function allInterfaces() {
     var networks = os.networkInterfaces()
@@ -29,7 +29,7 @@ function allInterfaces() {
                 break
             }
         }
-    })
+    });
 
     return res
 }
@@ -45,74 +45,8 @@ var logs = {
     "storages": []
 };
 
-if (DEMO_MODE) {
-    storages = {
-        "storages": [
-            {
-                "link": "http://192.168.0.100:8080",
-                "name": "Dhsdf 5767",
-                "state": "unconfigured",
-                "type": "VMware",
-                "cluster": "false"
-            },
-            {
-                "link": "http://192.168.181.1:5883",
-                "name": "Ffijl 4362",
-                "state": "configured",
-                "type": "SAN",
-                "cluster": "true"
-            },
-            {
-                "link": "http://192.168.145.1:5303",
-                "name": "Sjivt 42",
-                "state": "service state",
-                "type": "SAN",
-                "cluster": "false"
-            },
-            {
-                "link": "http://192.168.4.15:8080",
-                "name": "Sdfjilk 3456",
-                "state": "unconfigured",
-                "type": "VMware",
-                "cluster": "false"
-            },
-            {
-                "link": "http://192.168.6.47:3000",
-                "name": "Sgfgf 5374",
-                "state": "configured",
-                "type": "SAN",
-                "cluster": "true"
-            },
-            {
-                "link": "http://192.168.8.14:5303",
-                "name": "Dsdfsfg 1321",
-                "state": "unconfigured",
-                "type": "VMware",
-                "cluster": "false"
-            },
-            {
-                "link": "http://192.168.8.144:8003",
-                "name": "Afsfg 5341",
-                "state": "service state",
-                "type": "SAN",
-                "cluster": "true"
-            },
-            {
-                "link": "http://192.168.1.34:4303",
-                "name": "Dsiljg 5321",
-                "state": "unconfigured",
-                "type": "VMware",
-                "cluster": "false"
-            },
-            {
-                "link": "http://192.168.2.58:5333",
-                "name": "Dsssfjg 5111",
-                "state": "unconfigured",
-                "type": "SAN",
-                "cluster": "false"
-            }
-        ]
-    };
+if (env.DEMO_MODE) {
+    storages = demo_data;
 }
 
 // function JSON.stringify():  convert object into a string
