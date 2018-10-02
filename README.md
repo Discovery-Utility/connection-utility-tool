@@ -117,6 +117,6 @@ should be cabled directly to the network switch, or connected virtually on
 a host within the same network.
 
 ### Enable developer tools
-If you want to enable developer tools, you should uncomment line:
-`// win.webContents.openDevTools();` in "/src/main.js" file before
+If you want to enable developer tools, you should set SHOW_DEV_CONSOLE state true:
+`SHOW_DEV_CONSOLE: true` in "/src/app_environment.js" file before
 build/run process
