@@ -286,7 +286,9 @@ function createWindow() {
     //Menu.setApplicationMenu(mainMenu);
 
     // Console
-    // win.webContents.openDevTools();
+    if (env.SHOW_DEV_CONSOLE) {
+        win.webContents.openDevTools();
+    }
 
     win.webContents.on('did-finish-load', () => {
         try {
