@@ -4,15 +4,12 @@
   "private": true,
   "main": "main.js",
   "author": {
-    "name": "ConnectUtility",
+    "name": "ConnectionUtility",
     "email": "support@TBD.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/OSLL/zeroconf"
   },
   "dependencies": {
     "bonjour": "3.5.0",
+    "multicast-dns": "github:alexey-martynov/multicast-dns#multihomed-multicast",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14"
@@ -36,7 +33,7 @@
     "electron-squirrel-startup": "^1.0.0"
   },
   "build": {
-    "productName": "ConnectUtil",
+    "productName": "ConnectingUtility",
     "asar": "true",
     "extends": null,
     "squirrelWindows": {
