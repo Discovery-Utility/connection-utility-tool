@@ -33,7 +33,7 @@
     "electron-squirrel-startup": "^1.0.0"
   },
   "build": {
-    "productName": "ConnectingUtility",
+    "productName": "ConnectionUtility",
     "asar": "true",
     "extends": null,
     "squirrelWindows": {
