@@ -40,11 +40,8 @@ and will also install [npm](https://docs.npmjs.com)
 running the folowing commands (using any shell).
     1. run `npm install` in "./" of the project.
     2. run `npm install` in "./src/" of the project.
-4. Replace directories "./src/node_modules/multicast-dns" with [this one](https://github.com/alexey-martynov/multicast-dns/tree/multihomed-multicast).
-_The directory must have the same name_ (this is a temporary fix for
-mdns while it is being delivered to mainline)
-5. In the directory "./" build the bundle by `npm run dev` command
-6. Now you can run or build binary files of **ZSCU**:
+4. In the directory "./" build the bundle by `npm run dev` command
+5. Now you can run or build binary files of **ZSCU**:
     1. For running this application you need enter `npm run electron`
 command in "./src/"
     2. You can build binary files only from the same platform type as the intended target. For building binary files you need run one of the
