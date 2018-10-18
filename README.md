@@ -37,15 +37,14 @@ for your system. The installer will guide you through all necessary steps
 and will also install [npm](https://docs.npmjs.com)
 2. Clone or download this project
 3. Download and install all of the project libraries and dependencies by
-running the folowing commands (using any shell).
+running the following commands (using any shell).
     1. run `npm install` in "./" of the project.
-    2. run `npm install` in "./src/" of the project.
 4. In the directory "./" build the bundle by `npm run dev` command
 5. Now you can run or build binary files of **ZSCU**:
     1. For running this application you need enter `npm run electron`
-command in "./src/"
+command in "./"
     2. You can build binary files only from the same platform type as the intended target. For building binary files you need run one of the
-following commands in "./src/":
+following commands in "./":
 
         ```
         npm run build:win32
