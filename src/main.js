@@ -97,7 +97,7 @@ function appOnUp(service) {
     // New discovered device name parsing
 
     var namearr = service.name.split('_');
-    if ((namearr[0] == 'CycApp') || (namearr[0] == 'CycCluster')) {
+    if ((namearr[0] == 'PSApp') || (namearr[0] == 'PSCluster')) {
         var tmp = JSON.parse(storages);
         var tmpLog = JSON.parse(detectionLog);
         var newelem = {
@@ -126,7 +126,7 @@ function appOnUp(service) {
         else {
             newelem.type = 'SAN';
         }
-        if (namearr[0] == 'CycApp') {
+        if (namearr[0] == 'PSApp') {
             newelem.cluster = 'false';
         }
         else newelem.cluster = 'true';
