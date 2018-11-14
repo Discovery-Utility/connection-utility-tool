@@ -110,7 +110,7 @@ function appOnUp(service) {
         };
         console.log('Success');
         newelem.name = namearr[1];
-        newelem.link = 'http://' + service.referer.address + ':' + service.port;
+        newelem.link = 'https://' + service.referer.address + ':' + service.port;
         if (namearr[4] == 'Management') {
             newelem.state = 'configured';
         }
