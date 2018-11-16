@@ -29,6 +29,7 @@ module.exports = {
 			}
         ]
     },
+    target: "electron",
     output: {
         path: 'src',
         filename: 'js/bundle.min.js'
