@@ -28,7 +28,7 @@
 }
 
 .appTitle {
-    font-size: 25px;
+    font-size: 20px;
     color: white;
     font-family: Metropolis, serif;
 }
@@ -36,11 +36,6 @@
 #appTitle {
     color: white;
 }
-
-nav {
-    border: 1px white solid;
-}
-
 /***********************/
 
 #header {

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {appTitle} from "./locales/translation";
+import {appTitle} from "../locales/translation";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import {Link} from 'react-router-dom'
@@ -18,18 +18,18 @@ class AppHeader extends Component {
                 <span className="appTitle navbar-text navbar-left text-left" id="appTitle">
                     {appTitle}
                 </span>
-                <div className="col-lg-7 col-md-6 col-sm-3"/>
+                <div className="col-xl-7 col-lg-6 col-md-5 col-sm-3"/>
 
-                <Link to='/home'>
+                <Link to='/menu'>
                     <img src="./images/menu.svg"
-                         width="30" height="30"
+                         width="25" height="25"
                          className="d-inline-block align-top"
                          alt=""/>
                 </Link>
 
-                <Link to='/about'>
+                <Link to='/question'>
                     <img src="./images/question.svg"
-                         width="30" height="30"
+                         width="25" height="25"
                          className="d-inline-block align-top"
                          alt=""/>
                 </Link>
@@ -42,10 +42,3 @@ class AppHeader extends Component {
 
 export default AppHeader;
 
-/* <div className="row header">
-                <div className="col-sm-2 logo"/>
-                <div className="col-sm-1 verticalLine"/>
-                <p className="col-3 appTitle">{appTitle}</p>
-                <div className="col-1 menu" />
-                <div className="col-1 question" />
-            </div>*/

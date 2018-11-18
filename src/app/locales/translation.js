@@ -1,12 +1,23 @@
 import LocalizedStrings from 'react-localization';
 
 // Product constants
-export const appTitle = "Cyc Discovery Tool";
+export const appTitle = "Cyclone Discovery Tool";
 export const productName = "Product Name";
 export const discTool = "Discovery tool";
 
 let translation = new LocalizedStrings({
     en: {
+        //new ui locales*************
+        WELCOME_TITLE: "Welcome to Cyclone",
+        ABOUT_TOOL: "This discovery tool will scan for appliances,\n" +
+            "making them available for... Before\n" +
+            "scanning, disable the following services:",
+        WIFI_NETWORKS: "Wi-Fi networks.",
+        SHOW_ME_LINK: "Show me how.",
+        PC_FIRE_WALL: "Your PC firewall",
+        SHOW_ME_HOW: "Show me how.",
+        SCAN_APPLIANCES: "Scan appliances",
+        //*************************
         // ** MAIN PAGE LOCALES
         // * HEADER
         APPLIANCES: "Appliances",
