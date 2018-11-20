@@ -17,6 +17,9 @@ let translation = new LocalizedStrings({
         PC_FIRE_WALL: "Your PC firewall",
         SHOW_ME_HOW: "Show me how.",
         SCAN_APPLIANCES: "Scan appliances",
+        SEARCH: "Searching...",
+        SEARCH_HELP: "Hang tight. This process usually takes 60 seconds." +
+            " Once we find the available appliances, you can create a cluster or add to existing.",
         //*************************
         // ** MAIN PAGE LOCALES
         // * HEADER

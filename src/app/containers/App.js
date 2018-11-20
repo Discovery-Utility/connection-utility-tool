@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-import AppHeader from '../components/AppHeader';
 import {ipcRenderer} from "electron";
-import {Link, Route, Redirect, Switch} from 'react-router-dom'
-import QuestionPage from './QuestionPage'
-import MenuPage from './MenuPage'
-import WelcomePage from './WelcomePage'
+import {Redirect} from 'react-router-dom'
+
 
 class App extends Component {
     constructor(props) {
@@ -15,13 +12,11 @@ class App extends Component {
         };
     }
 
-
     render() {
 
         /*ipcRenderer.on('ping', (event, arg) => {
-            this.changeText(arg);
+            console.log(arg);
         });*/
-
 
         return (
             <Redirect to="/welcome"/>
