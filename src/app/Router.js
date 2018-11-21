@@ -5,6 +5,7 @@ import WelcomePage from './containers/WelcomePage';
 import MenuPage from './containers/MenuPage';
 import QuestionPage from './containers/QuestionPage';
 import SearchPage from './containers/SearchPage';
+import WrongSearchPage from './containers/WrongSearchPage';
 
 const Router = () => (
     <HashRouter>
@@ -14,6 +15,7 @@ const Router = () => (
             <Route exact path="/search" component={SearchPage}/>
             <Route exact path="/menu" component={MenuPage}/>
             <Route exact path="/question" component={QuestionPage}/>
+            <Route exact path="/wrong" component={WrongSearchPage}/>
         </Switch>
     </HashRouter>
 );

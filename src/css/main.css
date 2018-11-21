@@ -1,6 +1,15 @@
 /****NEW UI*****/
+.customButton {
+    background-color: #007DB8;  !important;/*dell blue*/
+}
 
+.tooltipText {
+    padding-top: 0;
+}
 
+.tooltipTitle {
+    padding-bottom: 0;
+}
 
 
 /****************/

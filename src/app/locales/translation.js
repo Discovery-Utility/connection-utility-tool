@@ -20,6 +20,16 @@ let translation = new LocalizedStrings({
         SEARCH: "Searching...",
         SEARCH_HELP: "Hang tight. This process usually takes 60 seconds." +
             " Once we find the available appliances, you can create a cluster or add to existing.",
+        WRONG_PAGE_TITLE: "Well this is embarrassing...",
+        DISABLE_ALL: "Before re-scanning, disable the following services:",
+        PC_FIRE_WALL_EXTENDED: "Your PC firewall, or add SERVICES to the \"Exclusion list\"",
+        DISABLE_CISCO_MESSAGE: "Cisco Access Manager and Cisco Security Manager.",
+        DISABLE_NETWORKS: "Networks (wireless, bluetooth, LAN)",
+        SECURITY_APPS: "Security applications.",
+        ERROR_TITLE: "Error",
+        ERROR_MESSAGE: "Cyclone was unable to scan for appliances.",
+        RESCAN_APPLIANCES: "Re-scan for Appliances",
+
         //*************************
         // ** MAIN PAGE LOCALES
         // * HEADER

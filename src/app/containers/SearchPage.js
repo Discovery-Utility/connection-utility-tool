@@ -1,38 +1,65 @@
 import React, {Component} from 'react';
 import AppHeader from "../components/AppHeader";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import t from './../locales/translation';
 import ButtonOutline from './../components/ButtonOutline';
-import {ipcRenderer} from "electron";
+import env from './../../app_environment';
+import {ProgressBar} from 'react-bootstrap';
+
+const COUNT_SECONDS = env.SECOND_TO_WAIT;
 
 class SearchPage extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
-            isLoadSome: false
+            timer: null,
+            timeLeft: COUNT_SECONDS,
+            progress: 0
         };
+    }
 
-        this.isLoad = () => {
+    componentDidMount() {
+        let timer = setInterval(() => {
+            let timeLeft = this.state.timeLeft - 1;
+            let progress = this.state.progress + (100 / COUNT_SECONDS);
+
+            if (timeLeft === 0) {
+                clearInterval(timer);
+            }
+
             this.setState({
-                isLoadSome: true
-            });
-        }
+                timeLeft: timeLeft,
+                progress: progress
+            })
+        }, 1000);
+
+        this.setState({
+            timer: timer
+        });
+    }
+
+    componentWillUnmount() {
+        let timer = this.state.timer;
+        clearInterval(timer);
     }
 
     render() {
-        ipcRenderer.on('ping', (event, arg) => {
-            if (arg) {
-                this.isLoad();
-                console.log(arg);
-            }
-        });
+        let redirectToWrongPage, redirectToAppliancesPage = false;
 
+        //try to fetch appliances, in fact appliances is store to localStorage in root of page (now in index.html)
+        let appliances = localStorage.getItem("messag");
+
+        //if timer left and appliances not found redirect to "wrong" page
+        //else redirect to page with appliances
+        if (!appliances && this.state.timeLeft === 0) {
+            redirectToWrongPage = true;
+        } else if (appliances) {
+            redirectToAppliancesPage = true;
+        }
 
         return (
             <div>
                 <AppHeader/>
-                <Link to="/welcome">back</Link>
                 <div className="container">
                     <div className="row justify-content-center text-center">
                         <div className="col-12 align-content-center">
@@ -55,12 +82,15 @@ class SearchPage extends Component {
                     </div>
 
 
-                    <div className="row justify-content-center">
+                    <div className="row justify-content-center progressBar">
                         <Link to="/welcome"><ButtonOutline text="Cancel"/></Link>
                     </div>
 
-                    {this.state.isLoadSome ? <p>:)</p> : <p>:(</p>}
+                    <ProgressBar active now={this.state.progress} />
 
+                    {/*if component <Redirect> visible, page redirect automatic*/}
+                    {redirectToWrongPage ? <Redirect to="/wrong"/> : null}
+                    {redirectToAppliancesPage ? <Redirect to="/appliances"/> : null}
                 </div>
             </div>
         )

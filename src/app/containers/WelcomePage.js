@@ -5,6 +5,7 @@ import Button from './../components/Button';
 const {shell} = require('electron');
 import {Link} from 'react-router-dom'
 
+
 class WelcomePage extends Component {
     constructor(props) {
         super(props);
@@ -17,10 +18,6 @@ class WelcomePage extends Component {
 
         this.clickOnShowDisableFirewall = () => {
             shell.openExternal(disableFirewallPath);
-        };
-
-        this.clockOnScanBtn = () => {
-
         };
     }
 
@@ -52,7 +49,7 @@ class WelcomePage extends Component {
                         <p className="showLink" onClick={this.clickOnShowDisableFirewall}>  {t.SHOW_ME_HOW}</p>
                     </div>
                     <div className="row justify-content-center">
-                        <Link to="/search"><Button text={t.SCAN_APPLIANCES} onClick={this.clockOnScanBtn}/></Link>
+                        <Link to="/search"><Button text={t.SCAN_APPLIANCES} className="customButton"/></Link>
                     </div>
                 </div>
             </div>
