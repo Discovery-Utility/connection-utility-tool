@@ -97,7 +97,7 @@ function appOnUp(service) {
     // New discovered device name parsing
 
     var namearr = service.name.split('_');
-    if ((namearr[0] == 'CycApp') || (namearr[0] == 'CycCluster')) {
+    if ((namearr[0] == 'PSApp') || (namearr[0] == 'PSCluster')) {
         var tmp = JSON.parse(storages);
         var tmpLog = JSON.parse(detectionLog);
         var newelem = {
@@ -110,7 +110,7 @@ function appOnUp(service) {
         };
         console.log('Success');
         newelem.name = namearr[1];
-        newelem.link = 'http://' + service.referer.address + ':' + service.port;
+        newelem.link = 'https://' + service.referer.address + ':' + service.port;
         if (namearr[4] == 'Management') {
             newelem.state = 'configured';
         }
@@ -126,7 +126,7 @@ function appOnUp(service) {
         else {
             newelem.type = 'SAN';
         }
-        if (namearr[0] == 'CycApp') {
+        if (namearr[0] == 'PSApp') {
             newelem.cluster = 'false';
         }
         else newelem.cluster = 'true';
@@ -286,7 +286,9 @@ function createWindow() {
     //Menu.setApplicationMenu(mainMenu);
 
     // Console
-    // win.webContents.openDevTools();
+    if (env.SHOW_DEV_CONSOLE) {
+        win.webContents.openDevTools();
+    }
 
     win.webContents.on('did-finish-load', () => {
         try {

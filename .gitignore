@@ -1,9 +1,4 @@
 .idea/
 node_modules/
-src/node_modules/
 src/dist
-package-lock.json
-package.json
-src/package.json
-src/package-lock.json
 src/js/bundle.min.js

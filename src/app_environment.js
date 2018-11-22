@@ -1,3 +1,4 @@
 module.exports = {
-    DEMO_MODE: true
+    DEMO_MODE: true,
+    SHOW_DEV_CONSOLE: false
 };
