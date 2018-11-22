@@ -1,0 +1,13 @@
+.appliancesHeader {
+    background-color: #DBE9F4;
+    height: 100px;
+}
+
+.availableAppliancesTitle {
+    font-size: 22px;/*margin-left: 10px;*/
+
+}
+.headerRefreshIco {
+    margin: 0;
+    padding: 0;
+}

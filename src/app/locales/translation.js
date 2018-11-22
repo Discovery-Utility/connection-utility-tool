@@ -29,6 +29,7 @@ let translation = new LocalizedStrings({
         ERROR_TITLE: "Error",
         ERROR_MESSAGE: "Cyclone was unable to scan for appliances.",
         RESCAN_APPLIANCES: "Re-scan for Appliances",
+        SCAN_AGAIN: "Scan again",
 
         //*************************
         // ** MAIN PAGE LOCALES

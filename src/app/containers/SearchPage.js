@@ -46,14 +46,14 @@ class SearchPage extends Component {
     render() {
         let redirectToWrongPage, redirectToAppliancesPage = false;
 
-        //try to fetch appliances, in fact appliances is store to localStorage in root of page (now in index.html)
-        let appliances = localStorage.getItem("messag");
+        //try to fetch appliances, appliances is store to localStorage in root of page (now in index.html)
+        let appliances = localStorage.getItem("message");
 
         //if timer left and appliances not found redirect to "wrong" page
         //else redirect to page with appliances
         if (!appliances && this.state.timeLeft === 0) {
             redirectToWrongPage = true;
-        } else if (appliances) {
+        } else if (appliances && this.state.timeLeft === env.SECOND_TO_WAIT - 2) {
             redirectToAppliancesPage = true;
         }
 
@@ -90,7 +90,7 @@ class SearchPage extends Component {
 
                     {/*if component <Redirect> visible, page redirect automatic*/}
                     {redirectToWrongPage ? <Redirect to="/wrong"/> : null}
-                    {redirectToAppliancesPage ? <Redirect to="/appliances"/> : null}
+                    {redirectToAppliancesPage ? <Redirect to="/available"/> : null}
                 </div>
             </div>
         )
