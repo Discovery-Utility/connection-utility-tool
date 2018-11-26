@@ -1,9 +1,9 @@
-.welcomePageTitle {
+.welcome-page-title {
     font-size: 25px;
     padding-top: 100px;
 }
 
-.showLink {
+.show-link {
     font-size: 14px;
     color: #007DB8; /*dell blue*/
     cursor: pointer;

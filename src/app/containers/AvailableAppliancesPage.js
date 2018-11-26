@@ -8,31 +8,18 @@ class AvailableAppliancesPage extends Component {
         return (
             <div>
                 <AppHeader/>
-                {/*<div className="row align-items-center appliancesHeader">
-                    <p className="col-1 availableAppliancesTitle">{t.APPLIANCES}</p>
-                    <div className="offset-7 col-1">
+                <div className="appliances-header ">
+                    <div className="available-appliances-title d-inline-block">
+                        <p>{t.APPLIANCES}</p>
+                    </div>
+                    <div className="d-inline-block">
                         <img src="./images/refresh.svg"
-                             width="25" height="25"
-                             className=""
+                             width="20" height="20"
+                             className="d-inline-block"
                              alt=""/>
                     </div>
-                    <p className="col-2">{t.SCAN_AGAIN}</p>
-                </div>*/}
-
-                <div className="container-fluid appliancesHeader">
-                    <div className="row align-items-center">
-                        <div className="col">
-                            <p className="availableAppliancesTitle">{t.APPLIANCES}</p>
-                        </div>
-                        <div className="col">
-                            <img src="./images/refresh.svg"
-                                 width="22" height="22"
-                                 className="headerRefreshIco"
-                                 alt="refresh ico"/>
-                        </div>
-                        <div className="col">
-                            <p>{t.SCAN_AGAIN.toUpperCase()}</p>
-                        </div>
+                    <div className="d-inline-block">
+                        <p>{t.SCAN_AGAIN}</p>
                     </div>
                 </div>
 

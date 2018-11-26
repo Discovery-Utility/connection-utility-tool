@@ -65,13 +65,13 @@ class SearchPage extends Component {
                         <div className="col-12 align-content-center">
                             <img src="./images/search.svg"
                                  width="150" height="150"
-                                 className="searchImage"
+                                 className="search-image"
                                  alt=""/>
                         </div>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-12 text-center">
-                            <h2 className="searchTitle">{t.SEARCH}</h2>
+                            <h2 className="search-title">{t.SEARCH}</h2>
                         </div>
                     </div>
 
@@ -82,7 +82,7 @@ class SearchPage extends Component {
                     </div>
 
 
-                    <div className="row justify-content-center progressBar">
+                    <div className="row justify-content-center custom-progress-bar">
                         <Link to="/welcome"><ButtonOutline text="Cancel"/></Link>
                     </div>
 

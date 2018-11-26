@@ -49,13 +49,13 @@ class WrongSearchPage extends Component {
                 <AppHeader/>
                 <div className="container">
                     {this.state.showAlert? <div className="row justify-content-center">
-                        <Alert onClick={this.clickOnAlert} type="error" className="col-8 errorTooltip" title={t.ERROR_TITLE}
+                        <Alert onClick={this.clickOnAlert} type="error" className="col-8 error-tooltip" title={t.ERROR_TITLE}
                                text={t.ERROR_MESSAGE}/>
                     </div> : null}
 
                     <div className="row justify-content-center">
                         <div className="col-12 text-center">
-                            <h1 className="wrongPageTitle">{t.WRONG_PAGE_TITLE}</h1>
+                            <h1 className="wrong-page-title">{t.WRONG_PAGE_TITLE}</h1>
                         </div>
                     </div>
                     <div className="row justify-content-center">
@@ -70,7 +70,7 @@ class WrongSearchPage extends Component {
                             <b>1.</b> {t.PC_FIRE_WALL_EXTENDED}</p>
                     </div>
                     <div className="row">
-                        <p className="showLink offset-xs-1 offset-sm-2 offset-md-3 offset-lg-4"
+                        <p className="show-link offset-xs-1 offset-sm-2 offset-md-3 offset-lg-4"
                            onClick={this.clickOnShowDisableFirewall}>{t.SHOW_ME_HOW}</p>
                     </div>
 
@@ -79,7 +79,7 @@ class WrongSearchPage extends Component {
                             <b>2.</b> {t.DISABLE_CISCO_MESSAGE}</p>
                     </div>
                     <div className="row">
-                        <p className="showLink offset-xs-1 offset-sm-2 offset-md-3 offset-lg-4"
+                        <p className="show-link offset-xs-1 offset-sm-2 offset-md-3 offset-lg-4"
                            onClick={this.clickOnShowDisableCisco}>{t.SHOW_ME_HOW}</p>
                     </div>
 
@@ -88,7 +88,7 @@ class WrongSearchPage extends Component {
                         </p>
                     </div>
                     <div className="row">
-                        <p className="showLink offset-xs-1 offset-sm-2 offset-md-3 offset-lg-4"
+                        <p className="show-link offset-xs-1 offset-sm-2 offset-md-3 offset-lg-4"
                            onClick={this.clickOnShowDisableNetworks}>{t.SHOW_ME_HOW}</p>
                     </div>
 
@@ -96,7 +96,7 @@ class WrongSearchPage extends Component {
                         <p className="offset-xs-1 offset-sm-2 offset-md-3 offset-lg-4"><b>4.</b> {t.SECURITY_APPS}</p>
                     </div>
                     <div className="row">
-                        <p className="showLink offset-xs-1 offset-sm-2 offset-md-3 offset-lg-4"
+                        <p className="show-link offset-xs-1 offset-sm-2 offset-md-3 offset-lg-4"
                            onClick={this.clickOnShowDisableSecurity}>{t.SHOW_ME_HOW}</p>
                     </div>
 
