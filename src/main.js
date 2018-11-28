@@ -269,6 +269,8 @@ function createWindow() {
     // Creating a browser window "win" - the app window
     win = new BrowserWindow({
         width: 1250, height: 700,
+        minWidth: 800,
+        minHeight: 650,
         icon: __dirname,
         autoHideMenuBar: true,
         //frame: false
