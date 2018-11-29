@@ -4,9 +4,17 @@
     width: 100%;
     height: 40px;
     align-items: center;
-    background-color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.appliance.not-active {
+    border: 1px solid #fff;
+}
+
+.appliance.active {
+    border: 2px solid #007DB8;
 }
 
 .app-dell-ico {
@@ -19,6 +27,10 @@
     height: 14px;
 }
 
+.app-name {
+    padding-top: 12px;
+    margin-left: 20px;
+}
 /****************/
 body {
     margin: 0px;
@@ -33,7 +45,7 @@ body {
     -moz-box-pack: center;
     -webkit-box-pack: center;
 
-    background-color: #fff;
+    background-color: #F9F9F9;
 }
 
 #wrapper {

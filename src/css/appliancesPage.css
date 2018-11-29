@@ -21,7 +21,8 @@
 }
 
 .appliances-list {
-    padding-top: 50px;
+    padding-top: 10px;
+    width: 100%;
 }
 
 .change-available-configured {

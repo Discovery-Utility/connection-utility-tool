@@ -12,6 +12,7 @@ class AppliancesPage extends Component {
         this.state = {
             appliances: [],
             configured: [],
+            selected_ids: [1],
             unconfigured: [],
             state_available: true    //used for switch available/configured screen states
         };
@@ -22,14 +23,38 @@ class AppliancesPage extends Component {
             });
         };
 
+        this.addSelection = (selectionId) => {
+            let selected = this.state.selected_ids;
+            selected.push(selectionId);
+            this.setState({
+                selected_ids: selected
+            });
+        };
+
+        this.removeSelection = (selectionId) => {
+            let selected = this.state.selected_ids;
+            selected = selected.filter((id) => id !== selectionId)
+            this.setState({
+                selected_ids: selected
+            });
+        };
+
     }
 
     componentDidMount() {
-        let appliances = JSON.parse(localStorage.getItem("message"));
+        let appliances = JSON.parse(localStorage.getItem("message")).storages;
 
         if (appliances) {
-            let configured = appliances.storages.filter(appliance => appliance.state === "configured");
-            let unconfigured = appliances.storages.filter(appliance => appliance.state === "unconfigured");
+            let id = 0;
+            appliances.forEach((appliance) => appliance.id = id++);
+
+            for (let i = 0; i < appliances.length; i++) {
+                appliances[i].id = i;
+            }
+
+            let configured = appliances.filter(appliance => appliance.state === "configured");
+            let unconfigured = appliances.filter(appliance => appliance.state === "unconfigured");
+
             this.setState({
                 appliances: appliances,
                 configured: configured,
@@ -40,6 +65,7 @@ class AppliancesPage extends Component {
 
     render() {
         let unconfigured = this.state.unconfigured;
+        let selected = this.state.selected_ids;
 
         return (
             <div>
@@ -75,7 +101,23 @@ class AppliancesPage extends Component {
 
                     <div className="row">
                         <div className="appliances-list">
-                            {unconfigured.map(appliance => <Appliance appliance={appliance} type="" name=""/>)}
+                            {unconfigured.map(appliance => {
+                                let active = false;
+
+                                selected.forEach((element) => {
+                                   if (element === appliance.id) {
+                                       active = true;
+                                   }
+                                });
+
+
+                                //this.addSelection(2);
+                                return (<Appliance addSelection={this.addSelection}
+                                                   removeSelection={this.removeSelection}
+                                                   key={appliance.id}
+                                                   appliance={appliance}
+                                                   active={active}/>);
+                            })}
                         </div>
                     </div>
                 </div>

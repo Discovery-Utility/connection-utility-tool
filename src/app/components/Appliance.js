@@ -1,35 +1,60 @@
 import React, {Component} from 'react';
-import {Checkbox} from 'react-bootstrap';
 
 class Appliance extends Component {
     constructor(props) {
         super(props);
 
-        this.getClassNames = () => {
-            let selfClassNames = "shadow-sm bg-white rounded appliance";
-            let customClassNames = this.props.className;
+        this.state = {
+            checked: false
+        };
 
+        this.getClassNames = () => {
+            let selfClassNames = "bg-white rounded appliance";
+            let customClassNames = this.props.className;
+            if (!customClassNames) {
+                customClassNames = "";
+            }
+
+            let active = this.props.active ? "active" : "not-active";
+            selfClassNames += " " + active;
             return selfClassNames + " " + customClassNames;
         };
 
         this.checkBoxClick = () => {
-            console.log("clicked")
+            let selfID = this.props.appliance.id;
+            let {removeSelection, addSelection} = this.props;
+
+            if (this.state.checked) {
+                removeSelection(selfID);
+            } else {
+                addSelection(selfID);
+            }
+
+            this.setState({
+                checked: !this.state.checked
+            });
         }
     }
 
     render() {
+        let {appliance} = this.props;
+        let applianceName = appliance.name;
+        let applianceType = appliance.type;
         return (
             <div className={this.getClassNames()} onClick={this.props.onClick}>
 
                 <div className="app-checkbox">
-                    <input type="checkbox" id="checkbox_1"/>
-                        <label htmlFor="checkbox_1"/>
+                    <input type="checkbox" id="checkbox" onClick={this.checkBoxClick}/>
+                    <label htmlFor="checkbox"/>
                 </div>
 
                 <img src="./images/Dell_Logo.svg"
-                     width="20" height="20"
+                     width="25" height="25"
                      className="app-dell-ico"
                      alt="dell-logo"/>
+
+                <p className="app-name">{applianceName}</p>
+                <p className="app-type">{applianceType === "VMware" ? "HCI" : "SAN"}</p>
             </div>
         );
     }
