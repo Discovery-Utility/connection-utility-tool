@@ -1,6 +1,22 @@
 /****NEW UI*****/
-.customButton {
-    background-color: #007DB8;  !important;/*dell blue*/
+.appliance {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.app-dell-ico {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.app-checkbox input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
 }
 
 /****************/
@@ -17,7 +33,7 @@ body {
     -moz-box-pack: center;
     -webkit-box-pack: center;
 
-    background-color: white;
+    background-color: #fff;
 }
 
 #wrapper {

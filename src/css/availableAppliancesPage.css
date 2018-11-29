@@ -1,21 +1,24 @@
 .appliances-header {
-    display: flex;
     background-color: #DBE9F4;
-    align-items: center;
     height: 100px;
 }
 
 .available-appliances-title {
     font-size: 22px; /*margin-left: 10px;*/
-    margin-left: 15px;
+    padding: 10px;
+    top: 22px;
 }
 
 .available-appliances-rescan {
-    margin-left: auto;
+    top: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
 }
 
 .available-appliances-rescan-text {
-    margin-right: 15px;
-    padding-left: 5px;
-    cursor: pointer;
+    top: 25px;
+    margin-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
