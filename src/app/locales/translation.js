@@ -33,6 +33,8 @@ let translation = new LocalizedStrings({
         AVAILABLE: "Available",
         CONFIGURED: "Configured",
         SELECT_APPLIANCES: "Select appliance(s) you'd like to add to existing or new clusters.",
+        APPLIANCE_SELECTED: "Appliance selected",
+        APPLIANCES_SELECTED: "Appliances selected",
 
         //*************************
         // ** MAIN PAGE LOCALES

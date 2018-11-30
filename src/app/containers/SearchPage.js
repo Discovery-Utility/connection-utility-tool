@@ -53,7 +53,7 @@ class SearchPage extends Component {
         //else redirect to page with appliances
         if (!appliances && this.state.timeLeft === 0) {
             redirectToWrongPage = true;
-        } else if (appliances && this.state.timeLeft === env.SECOND_TO_WAIT - 2) {
+        } else if (appliances && this.state.timeLeft === env.SECOND_TO_WAIT) {
             redirectToAppliancesPage = true;
         }
 

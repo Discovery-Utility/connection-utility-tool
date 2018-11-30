@@ -49,7 +49,7 @@ class WelcomePage extends Component {
                         <p className="show-link" onClick={this.clickOnShowDisableFirewall}>  {t.SHOW_ME_HOW}</p>
                     </div>
                     <div className="row justify-content-center">
-                        <Link to="/search"><Button text={t.SCAN_APPLIANCES} className="customButton"/></Link>
+                        <Link to="/search"><Button text={t.SCAN_APPLIANCES}/></Link>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ class Appliance extends Component {
         };
 
         this.getClassNames = () => {
-            let selfClassNames = "bg-white rounded appliance";
+            let selfClassNames = "shadow rounded appliance";
             let customClassNames = this.props.className;
             if (!customClassNames) {
                 customClassNames = "";

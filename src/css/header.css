@@ -18,6 +18,7 @@
 .logo {
     width: 108px;
     height: 22px;
+    cursor: pointer;
     background: url('../images/Dell_EMC_Logo_white.svg') no-repeat;
     margin-left: 20px;
 }
