@@ -100,7 +100,7 @@ class AppliancesPage extends Component {
                     </div>
 
                     <div className="row">
-                        <div className="appliances-list">
+                        {this.state.state_available ? <div className="appliances-list">
                             {unconfigured.map(appliance => {
                                 let active = false;
 
@@ -110,15 +110,13 @@ class AppliancesPage extends Component {
                                    }
                                 });
 
-
-                                //this.addSelection(2);
                                 return (<Appliance addSelection={this.addSelection}
                                                    removeSelection={this.removeSelection}
                                                    key={appliance.id}
                                                    appliance={appliance}
                                                    active={active}/>);
                             })}
-                        </div>
+                        </div> : null}
                     </div>
                 </div>
             </div>

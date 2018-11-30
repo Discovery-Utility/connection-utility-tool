@@ -5,12 +5,12 @@
     height: 40px;
     align-items: center;
     padding: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     background-color: #fff;
 }
 
 .appliance.not-active {
-    border: 1px solid #fff;
+    border: 1px solid #ffa809;
 }
 
 .appliance.active {
@@ -28,6 +28,11 @@
 }
 
 .app-name {
+    padding-top: 12px;
+    margin-left: 20px;
+}
+
+.app-type {
     padding-top: 12px;
     margin-left: 20px;
 }
