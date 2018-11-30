@@ -36,6 +36,16 @@
     padding-top: 12px;
     margin-left: 20px;
 }
+
+.custom-alert {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+
+    background-color: #CE1126; /* DELL red*/
+    color: white;
+}
+
 /****************/
 body {
     margin: 0px;

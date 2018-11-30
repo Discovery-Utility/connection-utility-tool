@@ -12,48 +12,42 @@ class SearchPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            timer: null,
             timeLeft: COUNT_SECONDS,
             progress: 0
         };
     }
 
     componentDidMount() {
-        let timer = setInterval(() => {
+        this.timer = setInterval(() => {
             let timeLeft = this.state.timeLeft - 1;
             let progress = this.state.progress + (100 / COUNT_SECONDS);
 
             if (timeLeft === 0) {
-                clearInterval(timer);
+                clearInterval(this.timer);
             }
-
             this.setState({
                 timeLeft: timeLeft,
                 progress: progress
             })
         }, 1000);
 
-        this.setState({
-            timer: timer
-        });
     }
 
     componentWillUnmount() {
-        let timer = this.state.timer;
-        clearInterval(timer);
+        clearInterval(this.timer);
     }
 
     render() {
         let redirectToWrongPage, redirectToAppliancesPage = false;
 
         //try to fetch appliances, appliances is store to localStorage in root of page (now in index.html)
-        let appliances = localStorage.getItem("message");
-
+        let appliances = JSON.parse(localStorage.getItem("message")).storages;
+        console.log(appliances);
         //if timer left and appliances not found redirect to "wrong" page
         //else redirect to page with appliances
-        if (!appliances && this.state.timeLeft === 0) {
+        if (this.state.timeLeft === 0 && appliances.length === 0) {
             redirectToWrongPage = true;
-        } else if (appliances && this.state.timeLeft === env.SECOND_TO_WAIT) {
+        } else if (this.state.timeLeft === COUNT_SECONDS - 2 && appliances.length > 0) {
             redirectToAppliancesPage = true;
         }
 

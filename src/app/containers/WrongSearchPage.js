@@ -48,10 +48,13 @@ class WrongSearchPage extends Component {
             <div>
                 <AppHeader/>
                 <div className="container">
-                    {this.state.showAlert? <div className="row justify-content-center">
-                        <Alert onClick={this.clickOnAlert} type="error" className="col-8 error-tooltip" title={t.ERROR_TITLE}
-                               text={t.ERROR_MESSAGE}/>
-                    </div> : null}
+                    {this.state.showAlert ?
+                        <div className="row">
+                            <Alert onClick={this.clickOnAlert} type="error"
+                                   className="error-tooltip"
+                                   title={t.ERROR_TITLE}
+                                   text={t.ERROR_MESSAGE}/></div>
+                        : null}
 
                     <div className="row justify-content-center">
                         <div className="col-12 text-center">
