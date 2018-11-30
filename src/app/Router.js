@@ -7,6 +7,8 @@ import QuestionPage from './containers/QuestionPage';
 import SearchPage from './containers/SearchPage';
 import WrongSearchPage from './containers/WrongSearchPage';
 import AppliancesPage from './containers/AppliancesPage';
+import DetectionLog from './containers/log/detectionLog';
+import HelpPage from "./containers/helpPage";
 
 const Router = () => (
     <HashRouter>
@@ -18,6 +20,8 @@ const Router = () => (
             <Route exact path="/question" component={QuestionPage}/>
             <Route exact path="/wrong" component={WrongSearchPage}/>
             <Route exact path="/available" component={AppliancesPage}/>
+            <Route exact path="/log" component={DetectionLog}/>
+            <Route exact path="/help" component={HelpPage}/>
         </Switch>
     </HashRouter>
 );
