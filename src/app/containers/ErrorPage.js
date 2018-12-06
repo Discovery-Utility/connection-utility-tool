@@ -12,7 +12,7 @@ const disableFirewallUrl = "http://lmgtfy.com/?q=how+to+disable+firewall+windows
 const disableCiscoUrl = "http://lmgtfy.com/?q=how+to+disable+firewall+windows+10";
 const disableSecuritylUrl = "http://lmgtfy.com/?q=how+to+disable+firewall+windows+10";
 
-class WrongSearchPage extends Component {
+class ErrorPage extends Component {
     constructor(props) {
         super(props);
 
@@ -49,12 +49,11 @@ class WrongSearchPage extends Component {
                 <AppHeader/>
                 <div className="container">
                     {this.state.showAlert ?
-                        <div className="row">
+                        <div className="row justify-content-center">
                             <Alert onClick={this.clickOnAlert} type="error"
-                                   className="error-tooltip"
+                                   className="error-tooltip custom-alert col-auto"
                                    title={t.ERROR_TITLE}
-                                   text={t.ERROR_MESSAGE}/></div>
-                        : null}
+                                   text={t.ERROR_MESSAGE}/></div> : null}
 
                     <div className="row justify-content-center">
                         <div className="col-12 text-center">
@@ -112,4 +111,4 @@ class WrongSearchPage extends Component {
     }
 }
 
-export default WrongSearchPage;
+export default ErrorPage;

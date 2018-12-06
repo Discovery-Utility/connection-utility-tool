@@ -1,11 +1,14 @@
 .search-image {
-    padding-top: 50px;
+    margin-top: 70px;
 }
 
 .search-title {
     font-size: 24px;
+    margin-top: 20px;
 }
 
 .custom-progress-bar {
     padding-bottom: 10px;
 }
+
+

@@ -43,6 +43,7 @@ class SearchPage extends Component {
         //try to fetch appliances, appliances is store to localStorage in root of page (now in index.html)
         let appliances = JSON.parse(localStorage.getItem("message")).storages;
         console.log(appliances);
+
         //if timer left and appliances not found redirect to "wrong" page
         //else redirect to page with appliances
         if (this.state.timeLeft === 0 && appliances.length === 0) {

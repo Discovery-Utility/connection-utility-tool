@@ -5,7 +5,7 @@ import WelcomePage from './containers/WelcomePage';
 import MenuPage from './containers/MenuPage';
 import QuestionPage from './containers/QuestionPage';
 import SearchPage from './containers/SearchPage';
-import WrongSearchPage from './containers/WrongSearchPage';
+import ErrorPage from './containers/ErrorPage';
 import AppliancesPage from './containers/AppliancesPage';
 import DetectionLog from './containers/log/detectionLog';
 import HelpPage from "./containers/helpPage";
@@ -18,7 +18,7 @@ const Router = () => (
             <Route exact path="/search" component={SearchPage}/>
             <Route exact path="/menu" component={MenuPage}/>
             <Route exact path="/question" component={QuestionPage}/>
-            <Route exact path="/wrong" component={WrongSearchPage}/>
+            <Route exact path="/wrong" component={ErrorPage}/>
             <Route exact path="/available" component={AppliancesPage}/>
             <Route exact path="/log" component={DetectionLog}/>
             <Route exact path="/help" component={HelpPage}/>

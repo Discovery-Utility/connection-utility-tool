@@ -9,6 +9,10 @@
     background-color: white;
 }
 
+.outline-btn {
+    padding: 10px 10px 10px 10px;
+}
+
 .appliance.not-active {
     border: 1px solid white;
 }
@@ -37,14 +41,6 @@
     margin-left: 20px;
 }
 
-.custom-alert {
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-
-    background-color: #CE1126; /* DELL red*/
-    color: white;
-}
 
 /****************/
 body {
