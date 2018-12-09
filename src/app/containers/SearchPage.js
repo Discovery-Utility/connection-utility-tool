@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import AppHeader from "../components/AppHeader";
 import {Link, Redirect} from "react-router-dom";
-import t from './../locales/translation';
-import ButtonOutline from './../components/ButtonOutline';
 import env from './../../app_environment';
+import t from './../locales/translation';
+import "../../scss/pages/_searchpage.scss"
+import AppHeader from "../components/AppHeader";
+import ButtonOutline from './../components/ButtonOutline';
 import {ProgressBar} from 'react-bootstrap';
+
 
 const COUNT_SECONDS = env.SECOND_TO_WAIT;
 
@@ -13,8 +15,15 @@ class SearchPage extends Component {
         super(props);
         this.state = {
             timeLeft: COUNT_SECONDS,
-            progress: 0
+            progress: 0,
+            redirectToErrorPage: false
         };
+
+        this.clickOnCancelBtn = () => {
+            this.setState({
+                redirectToErrorPage: true
+            })
+        }
     }
 
     componentDidMount() {
@@ -38,7 +47,8 @@ class SearchPage extends Component {
     }
 
     render() {
-        let redirectToWrongPage, redirectToAppliancesPage = false;
+        let redirectToErrorPage = this.state.redirectToErrorPage;
+        let redirectToAppliancesPage = false;
 
         //try to fetch appliances, appliances is store to localStorage in root of page (now in index.html)
         let appliances = JSON.parse(localStorage.getItem("message")).storages;
@@ -47,7 +57,7 @@ class SearchPage extends Component {
         //if timer left and appliances not found redirect to "wrong" page
         //else redirect to page with appliances
         if (this.state.timeLeft === 0 && appliances.length === 0) {
-            redirectToWrongPage = true;
+            redirectToErrorPage = true;
         } else if (this.state.timeLeft === COUNT_SECONDS - 2 && appliances.length > 0) {
             redirectToAppliancesPage = true;
         }
@@ -78,14 +88,14 @@ class SearchPage extends Component {
 
 
                     <div className="row justify-content-center custom-progress-bar">
-                        <Link to="/welcome"><ButtonOutline text="Cancel"/></Link>
+                        <ButtonOutline text="Cancel" onClick={this.clickOnCancelBtn}/>
                     </div>
 
-                    <ProgressBar active now={this.state.progress} />
+                    <ProgressBar active now={this.state.progress}/>
 
                     {/*if component <Redirect> visible, page redirect automatic*/}
-                    {redirectToWrongPage ? <Redirect to="/wrong"/> : null}
-                    {redirectToAppliancesPage ? <Redirect to="/available"/> : null}
+                    {redirectToErrorPage ? <Redirect to="/error"/> : null}
+                    {redirectToAppliancesPage ? <Redirect to="/appliances"/> : null}
                 </div>
             </div>
         )

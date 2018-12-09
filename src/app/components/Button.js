@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../../scss/components/_button.scss';
 
 
 class Button extends Component {
@@ -6,7 +7,7 @@ class Button extends Component {
         super(props);
 
         this.getClassNames = () => {
-            let buttonClassNames = "btn btn-primary";
+            let buttonClassNames = "button";
             let customClassNames = this.props.className;
 
             return buttonClassNames + " " + customClassNames;
@@ -15,7 +16,7 @@ class Button extends Component {
 
     render() {
         return (
-            <button type="button" className={this.getClassNames()} onClick={this.props.onClick}>{this.props.text}</button>
+            <div className={this.getClassNames()} onClick={this.props.onClick}>{this.props.text}</div>
         );
     }
 }

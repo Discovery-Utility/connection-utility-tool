@@ -9,10 +9,6 @@
     background-color: white;
 }
 
-.outline-btn {
-    padding: 10px 10px 10px 10px;
-}
-
 .appliance.not-active {
     border: 1px solid white;
 }

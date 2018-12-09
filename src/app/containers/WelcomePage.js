@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import AppHeader from "../components/AppHeader";
 import t from './../locales/translation';
 import Button from './../components/Button';
+import '../../scss/pages/_welcomepage.scss'
+
 const {shell} = require('electron');
-import {Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 
 class WelcomePage extends Component {
@@ -12,6 +14,10 @@ class WelcomePage extends Component {
         const disableNetworkPath = "http://lmgtfy.com/?q=how+to+disable+network";
         const disableFirewallPath = "http://lmgtfy.com/?q=how+to+disable+firewall+windows+10";
 
+        this.state = {
+           redirectToSearch: false
+        };
+
         this.clickOnShowDisableNetwork = () => {
             shell.openExternal(disableNetworkPath);
         };
@@ -19,9 +25,17 @@ class WelcomePage extends Component {
         this.clickOnShowDisableFirewall = () => {
             shell.openExternal(disableFirewallPath);
         };
+
+        this.clickOnScanBtn = () => {
+            this.setState({
+                redirectToSearch: true
+            })
+        };
     }
 
     render() {
+
+        let redirect = this.state.redirectToSearch;
         return (
             <div>
                 <AppHeader/>
@@ -49,8 +63,9 @@ class WelcomePage extends Component {
                         <p className="show-link" onClick={this.clickOnShowDisableFirewall}>  {t.SHOW_ME_HOW}</p>
                     </div>
                     <div className="row justify-content-center">
-                        <Link to="/search"><Button text={t.SCAN_APPLIANCES}/></Link>
+                        <Button text={t.SCAN_APPLIANCES} onClick={this.clickOnScanBtn}/>
                     </div>
+                    {redirect ? <Redirect to="/search"/> : null}
                 </div>
             </div>
         )

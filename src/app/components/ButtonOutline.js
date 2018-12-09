@@ -8,7 +8,7 @@ class ButtonOutline extends Component {
 
     render() {
         return (
-            <button type="button" className="btn btn-outline-primary outline-btn" onClick={this.props.onClick}>{this.props.text}</button>
+            <div className="button-outline" onClick={this.props.onClick}>{this.props.text}</div>
         );
     }
 }

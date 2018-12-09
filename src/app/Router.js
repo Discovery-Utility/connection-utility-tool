@@ -18,8 +18,8 @@ const Router = () => (
             <Route exact path="/search" component={SearchPage}/>
             <Route exact path="/menu" component={MenuPage}/>
             <Route exact path="/question" component={QuestionPage}/>
-            <Route exact path="/wrong" component={ErrorPage}/>
-            <Route exact path="/available" component={AppliancesPage}/>
+            <Route exact path="/error" component={ErrorPage}/>
+            <Route exact path="/appliances" component={AppliancesPage}/>
             <Route exact path="/log" component={DetectionLog}/>
             <Route exact path="/help" component={HelpPage}/>
         </Switch>
