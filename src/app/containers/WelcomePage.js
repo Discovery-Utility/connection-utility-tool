@@ -63,7 +63,7 @@ class WelcomePage extends Component {
                         <p className="show-link" onClick={this.clickOnShowDisableFirewall}>  {t.SHOW_ME_HOW}</p>
                     </div>
                     <div className="row justify-content-center">
-                        <Button text={t.SCAN_APPLIANCES} onClick={this.clickOnScanBtn}/>
+                        <Button available={true} text={t.SCAN_APPLIANCES} onClick={this.clickOnScanBtn}/>
                     </div>
                     {redirect ? <Redirect to="/search"/> : null}
                 </div>

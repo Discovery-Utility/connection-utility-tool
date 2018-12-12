@@ -6,6 +6,7 @@ import Appliance from './../components/Appliance'
 import Button from "../components/Button";
 
 const MAX_SELECT_APPLIANCES = 4;
+const MAX_APPLIANCES_ON_PAGE = 5;
 
 const {shell} = require('electron');
 
@@ -20,13 +21,15 @@ class AppliancesPage extends Component {
             selected_ids: [],
             unconfigured: [],
             stateAvailable: true,    //used for switch available/configured screen states
-            showCreateClusterMessage: false
-
+            showCreateClusterMessage: false,
+            countConfiguredPages: 0,
+            countUnconfiguredPages: 0
         };
 
         this.changeScreenState = () => {
             this.setState({
-                stateAvailable: !this.state.stateAvailable
+                stateAvailable: !this.state.stateAvailable,
+                selected_ids: []
             });
         };
 
@@ -54,20 +57,24 @@ class AppliancesPage extends Component {
 
         this.continueClick = () => {
             let {selected_ids, unconfigured} = this.state;
-            let link = "https://google.com";
-            selected_ids.forEach((id) => {
-                let redirect = false;
-                unconfigured.forEach((appliance) => {
-                   if (id === appliance.id) {
-                       link = appliance.link;
-                       redirect = true;
-                   }
-                });
-                if (redirect) {
-                    shell.openExternal(link);
-                }
+
+            let countSelected = selected_ids.length;
+            let firstAppliance = unconfigured.filter((appliance) => {
+                return appliance.id === selected_ids[0]
             });
 
+            let names = "";
+            for (let i = 0; i < countSelected; i++) {
+                let nextAppliance = unconfigured.filter((appliance) => {
+                    return appliance.id === selected_ids[i];
+                });
+
+
+                names += nextAppliance[0].name;
+                names += i < countSelected - 1 ? "," : "";
+            }
+            let link = firstAppliance[0].link + "/?appliances=" + names;
+            shell.openExternal(link);
             this.setState({
                 showCreateClusterMessage: false
             });
@@ -92,25 +99,34 @@ class AppliancesPage extends Component {
                 appliances[i].id = i;
             }
 
-            let configured = appliances.filter(appliance => appliance.state === "configured");
-            let unconfigured = appliances.filter(appliance => appliance.state === "unconfigured");
+            let configured = appliances.filter(appliance => appliance.state === "configured" || appliance.state === "service state");
+            let unconfigured = appliances.filter(appliance => appliance.state === "unconfigured" );
+
+            let countConfiguredPages = Math.ceil(configured.length / MAX_APPLIANCES_ON_PAGE);
+            let countUnconfiguredPages = Math.ceil(unconfigured.length / MAX_APPLIANCES_ON_PAGE);
 
             this.setState({
                 appliances: appliances,
                 configured: configured,
                 unconfigured: unconfigured,
+                countConfiguredPages: countConfiguredPages,
+                countUnconfiguredPages: countUnconfiguredPages
             });
         }
     }
 
     render() {
-        let {unconfigured, selected_ids, showCreateClusterMessage} = this.state;
+        let {unconfigured, selected_ids, showCreateClusterMessage, configured, stateAvailable} = this.state;
+
         let showCreateClusterButton = false;
         let countSelectedAppliances = selected_ids.length;
-        if (countSelectedAppliances > 0 && countSelectedAppliances <= MAX_SELECT_APPLIANCES) {
+        let isAvailableBtnCreateCluster = true;
+        if (countSelectedAppliances > 0 && stateAvailable) {
             showCreateClusterButton = true;
+            if (countSelectedAppliances > MAX_SELECT_APPLIANCES) {
+                isAvailableBtnCreateCluster = false;
+            }
         }
-
 
         return (
             <div>
@@ -128,7 +144,7 @@ class AppliancesPage extends Component {
                     </div>
                     <Link to="/search">
                         <div className="available-appliances-rescan-text">
-                            {t.SCAN_AGAIN}
+                            {t.SCAN_AGAIN.toUpperCase()}
                         </div>
                     </Link>
 
@@ -136,8 +152,11 @@ class AppliancesPage extends Component {
 
                 <div className="container">
                     <div className="row">
-                        <p onClick={this.changeScreenState}
-                           className="change-available-configured">{this.state.stateAvailable ? t.AVAILABLE : t.CONFIGURED}</p>
+                        <p className="change-available-configured">{stateAvailable ? t.AVAILABLE : t.CONFIGURED}</p>
+                        <label className="switch">
+                            <input onClick={this.changeScreenState} type="checkbox"/>
+                            <span className="slider round"/>
+                        </label>
                     </div>
 
                     <div className="row">
@@ -145,37 +164,55 @@ class AppliancesPage extends Component {
                     </div>
 
                     <div className="row">
-                        {this.state.stateAvailable ? <div className="appliances-list">
-                            {unconfigured.map(appliance => {
-                                let active = false;
+                        <div className="appliances-list">
+                            {this.state.stateAvailable ?
+                                unconfigured.map(appliance => {
+                                    let active = false;
 
-                                selected_ids.forEach((element) => {
-                                    if (element === appliance.id) {
-                                        active = true;
-                                    }
-                                });
+                                    selected_ids.forEach((element) => {
+                                        if (element === appliance.id) {
+                                            active = true;
+                                        }
+                                    });
 
-                                return (<Appliance addSelection={this.addSelection}
-                                                   removeSelection={this.removeSelection}
-                                                   key={appliance.id}
-                                                   appliance={appliance}
-                                                   active={active}/>);
-                            })}
-                        </div> : null}
+                                    return (<Appliance addSelection={this.addSelection}
+                                                       removeSelection={this.removeSelection}
+                                                       key={appliance.id}
+                                                       appliance={appliance}
+                                                       active={active}/>);
+                                })
+                                : configured.map(appliance => {
+                                    let active = false;
+                                    selected_ids.forEach(element => {
+                                        if (element === appliance.id) {
+                                            active = true;
+                                        }
+                                    });
+                                    return (<Appliance addSelection={this.addSelection}
+                                                       removeSelection={this.removeSelection}
+                                                       key={appliance.id}
+                                                       appliance={appliance}
+                                                       active={active}/>)
+                                })}
+                        </div>
                     </div>
 
                     {showCreateClusterButton ?
                         <div className="shadow create-cluster-popup">
                             <p className="popup-selected-text">{countSelectedAppliances} {countSelectedAppliances === 1 ? t.APPLIANCE_SELECTED : t.APPLIANCES_SELECTED}</p>
                             <Button text={t.CREATE_CLUSTER} className="popup-create-cluster-button"
-                                    onClick={this.createClusterClick}/>
+                                    onClick={this.createClusterClick}
+                                    available={isAvailableBtnCreateCluster}/>
                         </div> : null}
                     {showCreateClusterMessage ? <div className="create-cluster-screen">
                         <h1>Almost there!</h1>
-                        <p>To complete the process, you will be leaving the discovery tool and opening Trident to complete
-                        the setup process</p>
+                        <p>To complete the process, you will be leaving the discovery tool and opening Trident to
+                            complete
+                            the setup process</p>
                         <b>You can disconnect from the hardware.</b>
-                        <Button text="Continue" onClick={this.continueClick} className="create-cluster-screen-continue"/>
+                        <Button text="Continue" onClick={this.continueClick}
+                                className="create-cluster-screen-continue"
+                                available={true}/>
                         <p onClick={this.cancelClick} className="create-cluster-screen-cancel">Back</p>
                     </div> : null}
                 </div>

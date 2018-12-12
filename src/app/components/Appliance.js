@@ -54,7 +54,7 @@ class Appliance extends Component {
                      alt="dell-logo"/>
 
                 <p className="app-name">{applianceName}</p>
-                <p className="app-type">{applianceType === "VMware" ? "Trident HCI" : "Cyclone SAN"}</p>
+                <p className="app-type">{applianceType === "VMware" ? "HCI" : "SAN"}</p>
             </div>
         );
     }

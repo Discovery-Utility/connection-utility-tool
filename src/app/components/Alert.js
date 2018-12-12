@@ -22,7 +22,7 @@ class Alert extends Component {
                      width="30" height="30"
                      className="alert-img"
                      alt=""/>
-                <div className="">
+                <div className="alert-content">
                     <p className="alert-title"><b>{this.props.title}</b></p>
                     <p className="alert-msg">{this.props.text}</p>
                 </div>

@@ -31,6 +31,10 @@ $btn-primary-active-bg-color: $dell-dark-blue;
     background-color: $btn-primary-active-bg-color;
     border-color: $btn-primary-active-bg-color;
   }
+
+  &.disable {
+    background-color: $dell-dark-blue;
+  }
 }
 
 .button-outline {
@@ -56,6 +60,10 @@ $btn-primary-active-bg-color: $dell-dark-blue;
   &:active {
     background-color: $btn-primary-active-bg-color;
     border-color: $btn-primary-active-bg-color;
+  }
+
+  &.no-border {
+    border: none;
   }
 }
 

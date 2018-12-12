@@ -1,6 +1,6 @@
 .wrong-page-title {
     font-size: 25px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .error-tooltip {
@@ -9,7 +9,6 @@
     justify-content: center;
     justify-items: center;
     align-items: center;
-    width: 50%;
     background-color: #CE1126; /* DELL red*/
     color: white;
     cursor: pointer;
@@ -26,4 +25,9 @@
 
 .alert-msg {
     margin-bottom: 5px;
+}
+
+.alert-content {
+    padding-right: 200px;
+    padding-left: 10px;
 }

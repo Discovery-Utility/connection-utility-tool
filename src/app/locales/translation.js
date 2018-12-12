@@ -1,14 +1,14 @@
 import LocalizedStrings from 'react-localization';
 
 // Product constants
-export const appTitle = "Cyclone Discovery Tool";
 export const productName = "Product Name";
+export const appTitle = productName;
 export const discTool = "Discovery tool";
 
 let translation = new LocalizedStrings({
     en: {
         //new ui locales*************
-        WELCOME_TITLE: "Welcome to Cyclone",
+        WELCOME_TITLE: "Welcome to " + productName,
         ABOUT_TOOL: "This discovery tool will scan for appliances,\n" +
             "making them available for... Before\n" +
             "scanning, disable the following services:",
@@ -27,10 +27,10 @@ let translation = new LocalizedStrings({
         DISABLE_NETWORKS: "Networks (wireless, bluetooth, LAN)",
         SECURITY_APPS: "Security applications.",
         ERROR_TITLE: "Error",
-        ERROR_MESSAGE: "Cyclone was unable to scan for appliances.",
+        ERROR_MESSAGE: productName + " was unable to scan for appliances.",
         RESCAN_APPLIANCES: "Re-scan for Appliances",
         SCAN_AGAIN: "Scan again",
-        AVAILABLE: "Available",
+        AVAILABLE: "Available ",
         CONFIGURED: "Configured",
         SELECT_APPLIANCES: "Select appliance(s) you'd like to add to existing or new clusters.",
         APPLIANCE_SELECTED: "Appliance selected",

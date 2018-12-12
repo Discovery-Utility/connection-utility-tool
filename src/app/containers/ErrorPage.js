@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import AppHeader from "../components/AppHeader";
 import t from './../locales/translation';
 import Button from './../components/Button';
-
 const {shell} = require('electron');
-import {Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import Alert from "../components/Alert";
 
 const disableNetworksUrl = "http://lmgtfy.com/?q=how+to+disable+network";
@@ -17,7 +16,8 @@ class ErrorPage extends Component {
         super(props);
 
         this.state = {
-            showAlert: true
+            showAlert: true,
+            redirectToSearch: false
         };
 
         this.clickOnShowDisableNetworks = () => {
@@ -40,10 +40,18 @@ class ErrorPage extends Component {
             this.setState({
                 showAlert: false
             });
+        };
+
+        this.clickOnReScanBtn = () => {
+          this.setState({
+              redirectToSearch: true
+          })
         }
     }
 
     render() {
+        let redirectToSearch = this.state.redirectToSearch;
+
         return (
             <div>
                 <AppHeader/>
@@ -103,8 +111,10 @@ class ErrorPage extends Component {
                     </div>
 
                     <div className="row justify-content-center">
-                        <Link to="/search"><Button text={t.RESCAN_APPLIANCES}/></Link>
+                        <Button text={t.RESCAN_APPLIANCES} onClick={this.clickOnReScanBtn}/>
                     </div>
+
+                    {redirectToSearch ? <Redirect to="/search"/> : null}
                 </div>
             </div>
         )

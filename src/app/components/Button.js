@@ -6,9 +6,18 @@ class Button extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            disable: false
+        };
+
         this.getClassNames = () => {
             let buttonClassNames = "button";
             let customClassNames = this.props.className;
+            let available = this.props.available;
+
+            if (!available) {
+                buttonClassNames += " disable";
+            }
 
             return buttonClassNames + " " + customClassNames;
         }
@@ -16,7 +25,8 @@ class Button extends Component {
 
     render() {
         return (
-            <div className={this.getClassNames()} onClick={this.props.onClick}>{this.props.text}</div>
+            <div className={this.getClassNames()}
+                 onClick={this.props.available ? this.props.onClick : null}>{this.props.text}</div>
         );
     }
 }

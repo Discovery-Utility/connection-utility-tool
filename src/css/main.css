@@ -29,12 +29,13 @@
 
 .app-name {
     padding-top: 12px;
-    margin-left: 20px;
+    margin-left: 50px;
+    width: 100px;
 }
 
 .app-type {
     padding-top: 12px;
-    margin-left: 20px;
+    margin-left: 100px;
 }
 
 
