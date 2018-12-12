@@ -66,6 +66,12 @@
     height: 100%;
 }
 
+.create-cluster-screen-title {
+    font-size: 25px;
+    color: white;
+    padding-bottom: 20px;
+}
+
 .create-cluster-screen-cancel {
     cursor: pointer;
     color: #007DB8;
@@ -73,6 +79,7 @@
 
 .create-cluster-screen-continue {
     margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .switch {
@@ -115,10 +122,6 @@
 
 input:checked + .slider {
     background-color: #007DB8;;
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px #007DB8;
 }
 
 input:checked + .slider:before {

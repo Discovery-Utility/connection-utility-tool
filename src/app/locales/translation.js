@@ -35,6 +35,9 @@ let translation = new LocalizedStrings({
         SELECT_APPLIANCES: "Select appliance(s) you'd like to add to existing or new clusters.",
         APPLIANCE_SELECTED: "Appliance selected",
         APPLIANCES_SELECTED: "Appliances selected",
+        ALMOST_THERE: "Almost there!",
+        REDIRECT_HELP_MESSAGE: "To complete the process, you will be leaving the discovery tool and opening "+ productName+ " to complete the setup process",
+        YOU_CAN_DISCONNECT: "You can disconnect from the hardware.",
 
         //*************************
         // ** MAIN PAGE LOCALES

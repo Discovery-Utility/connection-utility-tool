@@ -43,11 +43,14 @@ class Appliance extends Component {
         return (
             <div className={this.getClassNames()} onClick={this.props.onClick}>
 
-                <div className="app-checkbox">
+                {/*<div className="app-checkbox">
                     <input type="checkbox" id="checkbox" onClick={this.checkBoxClick}/>
                     <label htmlFor="checkbox"/>
-                </div>
-
+                </div>*/}
+                <label  className="container-check">
+                    <input type="checkbox" />
+                        <span onClick={this.checkBoxClick} className="checkmark"/>
+                </label>
                 <img src="./images/Dell_Logo.svg"
                      width="25" height="25"
                      className="app-dell-ico"
@@ -56,9 +59,9 @@ class Appliance extends Component {
                 <p className="app-name">{applianceName}</p>
                 <p className="app-type">{applianceType === "VMware" ? "HCI" : "SAN"}</p>
             </div>
-        );
+    );
     }
-}
+    }
 
-export default Appliance;
+    export default Appliance;
 

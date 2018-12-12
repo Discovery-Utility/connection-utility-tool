@@ -205,11 +205,10 @@ class AppliancesPage extends Component {
                                     available={isAvailableBtnCreateCluster}/>
                         </div> : null}
                     {showCreateClusterMessage ? <div className="create-cluster-screen">
-                        <h1>Almost there!</h1>
-                        <p>To complete the process, you will be leaving the discovery tool and opening Trident to
-                            complete
-                            the setup process</p>
-                        <b>You can disconnect from the hardware.</b>
+                        <p className="create-cluster-screen-title">{t.ALMOST_THERE}</p>
+                        <p>{t.REDIRECT_HELP_MESSAGE}</p>
+                        <p>{t.YOU_CAN_DISCONNECT}</p>
+
                         <Button text="Continue" onClick={this.continueClick}
                                 className="create-cluster-screen-continue"
                                 available={true}/>

@@ -111,7 +111,7 @@ class ErrorPage extends Component {
                     </div>
 
                     <div className="row justify-content-center">
-                        <Button text={t.RESCAN_APPLIANCES} onClick={this.clickOnReScanBtn}/>
+                        <Button available="true" text={t.RESCAN_APPLIANCES} onClick={this.clickOnReScanBtn}/>
                     </div>
 
                     {redirectToSearch ? <Redirect to="/search"/> : null}
