@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import env from './../../app_environment';
 import t from './../locales/translation';
 import "../../scss/pages/_searchpage.scss"

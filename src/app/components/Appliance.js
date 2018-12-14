@@ -5,7 +5,7 @@ class Appliance extends Component {
         super(props);
 
         this.state = {
-            checked: false
+            checked: this.props.active
         };
 
         this.getClassNames = () => {
@@ -47,9 +47,9 @@ class Appliance extends Component {
                     <input type="checkbox" id="checkbox" onClick={this.checkBoxClick}/>
                     <label htmlFor="checkbox"/>
                 </div>*/}
-                <label  className="container-check">
-                    <input type="checkbox" />
-                        <span onClick={this.checkBoxClick} className="checkmark"/>
+                <label className="container-check">
+                    <input type="checkbox" defaultChecked={!!this.props.active} />
+                    <span onClick={this.checkBoxClick} className="checkmark"/>
                 </label>
                 <img src="./images/Dell_Logo.svg"
                      width="25" height="25"
@@ -59,9 +59,9 @@ class Appliance extends Component {
                 <p className="app-name">{applianceName}</p>
                 <p className="app-type">{applianceType === "VMware" ? "HCI" : "SAN"}</p>
             </div>
-    );
+        );
     }
-    }
+}
 
-    export default Appliance;
+export default Appliance;
 

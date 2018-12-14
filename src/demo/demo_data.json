@@ -62,6 +62,62 @@
       "state": "unconfigured",
       "type": "SAN",
       "cluster": "false"
+    },
+    {
+      "link": "http://192.168.2.58:8080",
+      "name": "FNM003456009762",
+      "state": "unconfigured",
+      "type": "VMware",
+      "cluster": "false"
+    },
+    {
+      "link": "http://192.168.2.58:8080",
+      "name": "FNM003456009762",
+      "state": "unconfigured",
+      "type": "SAN",
+      "cluster": "false"
+    },
+    {
+      "link": "http://192.168.2.58:8080",
+      "name": "FNM003456009762",
+      "state": "unconfigured",
+      "type": "VMware",
+      "cluster": "false"
+    },
+    {
+      "link": "http://192.168.2.58:8080",
+      "name": "FNM003456444754",
+      "state": "unconfigured",
+      "type": "SAN",
+      "cluster": "false"
+    },
+    {
+      "link": "http://192.168.2.58:8080",
+      "name": "FNM003432402309744",
+      "state": "unconfigured",
+      "type": "VMware",
+      "cluster": "false"
+    },
+    {
+      "link": "http://192.168.2.58:8080",
+      "name": "FNM0044949009767",
+      "state": "unconfigured",
+      "type": "SAN",
+      "cluster": "false"
+    },
+    {
+      "link": "http://192.168.2.58:8080",
+      "name": "FNM0033475097866",
+      "state": "unconfigured",
+      "type": "VMware",
+      "cluster": "false"
+    },
+    {
+      "link": "http://192.168.2.58:8080",
+      "name": "FNM0034560045123",
+      "state": "unconfigured",
+      "type": "SAN",
+      "cluster": "false"
     }
   ]
 }
