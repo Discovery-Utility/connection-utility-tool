@@ -2,6 +2,7 @@ import React from 'react';
 import mainPage_lang from "../../locales/translation";
 import AppHeader from "../../components/AppHeader";
 import App from "../App";
+import Button from './../../components/Button';
 
 class DetectionLog extends React.Component {
     constructor(props) {
@@ -130,16 +131,24 @@ class DetectionLog extends React.Component {
                                 {mainPage_lang.Logs_DetectionLog}
                             </div>
                             <div id="whiteSpaceForLogTable">
-                                <div className="saveLogButton"
+                                <Button text={mainPage_lang.Logs_buttonSave}
+                                        available="true"
+                                        onClick={this.saveLogs.bind(this, "text123", "logs.txt", "text/plain")}
+                                        className="save-log-btn"/>
+                                <Button text={mainPage_lang.Logs_buttonClear}
+                                        available="true"
+                                        onClick={this.clearLogs}
+                                        className="clear-log-btn"/>
+                                {/*<div className="saveLogButton"
                                      onClick={this.saveLogs.bind(this, "text123", "logs.txt", "text/plain")}>
                                     <font>{mainPage_lang.Logs_buttonSave}</font>
-                                </div>
-                                <div className="saveLogButton" onClick={this.clearLogs}>
+                                </div>*/}
+                                {/*<div className="saveLogButton" onClick={this.clearLogs}>
                                     <font>{mainPage_lang.Logs_buttonClear}</font>
-                                </div>
-                                <div id="buttonRenewLog" onClick={this.refreshButton}>
+                                </div>*/}
+                                {/*<div id="buttonRenewLog" onClick={this.refreshButton}>
                                     <img id="refIcon" src="icon/refresh.svg" height="20"/>
-                                </div>
+                                </div>*/}
                                 <table id="detectionLogTable">
                                     <thead>
                                     <tr>
@@ -170,9 +179,9 @@ class DetectionLog extends React.Component {
                                 {mainPage_lang.Logs_EventLog}
                             </div>
                             <div id="whiteSpaceForLogTable">
-                                <div id="buttonRenewLog">
+                                {/*<div id="buttonRenewLog">
                                     <img id="refIcon" src="icon/refresh.svg" height="20"/>
-                                </div>
+                                </div>*/}
                                 <table id="eventLogTable">
                                     <thead>
                                     <tr>

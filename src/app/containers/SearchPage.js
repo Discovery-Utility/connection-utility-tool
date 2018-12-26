@@ -43,17 +43,19 @@ class SearchPage extends Component {
     }
 
     componentWillUnmount() {
-        clearInterval(this.timer);
+        if (this.timer) {
+            clearInterval(this.timer);
+        }
     }
 
     render() {
         let redirectToErrorPage = this.state.redirectToErrorPage;
         let redirectToAppliancesPage = false;
 
-        //try to fetch appliances, appliances is store to localStorage in root of page (now in index.html)
+        //try to fetch appliances, appliances store in localStorage
         let appliances = JSON.parse(localStorage.getItem("message")).storages;
 
-        //if timer left and appliances not found redirect to "wrong" page
+        //if timer left and appliances not found redirect to "error" page
         //else redirect to page with appliances
         if (this.state.timeLeft === 0 && appliances.length === 0) {
             redirectToErrorPage = true;
@@ -86,7 +88,7 @@ class SearchPage extends Component {
                     </div>
 
 
-                    <div className="row justify-content-center custom-progress-bar">
+                    <div className="row justify-content-center search-page-cancel-btn">
                         <ButtonOutline text="Cancel" onClick={this.clickOnCancelBtn}/>
                     </div>
 

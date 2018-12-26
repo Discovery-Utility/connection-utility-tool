@@ -7,6 +7,7 @@
 }
 
 .subtabs {
+  cursor: pointer;
   color: #555555;
   background-color: white;
   font-size: 15px;

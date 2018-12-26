@@ -10,7 +10,7 @@ let translation = new LocalizedStrings({
         //new ui locales*************
         WELCOME_TITLE: "Welcome to " + productName,
         ABOUT_TOOL: "This discovery tool will scan for appliances,\n" +
-            "making them available for... Before\n" +
+            "making them available for initial configuration. Before\n" +
             "scanning, disable the following services:",
         WIFI_NETWORKS: "Wi-Fi networks.",
         SHOW_ME_LINK: "Show me how.",
@@ -19,7 +19,7 @@ let translation = new LocalizedStrings({
         SCAN_APPLIANCES: "Scan appliances",
         SEARCH: "Searching...",
         SEARCH_HELP: "Hang tight. This process usually takes 60 seconds." +
-            " Once we find the available appliances, you can create a cluster or add to existing.",
+            " Once we find the available appliances, you can create a cluster or add to an existing one.",
         WRONG_PAGE_TITLE: "Well this is embarrassing...",
         DISABLE_ALL: "Before re-scanning, disable the following services:",
         PC_FIRE_WALL_EXTENDED: "Your PC firewall, or add SERVICES to the \"Exclusion list\"",
@@ -32,12 +32,16 @@ let translation = new LocalizedStrings({
         SCAN_AGAIN: "Scan again",
         AVAILABLE: "Available ",
         CONFIGURED: "Configured",
-        SELECT_APPLIANCES: "Select appliance(s) you'd like to add to existing or new clusters.",
+        SELECT_APPLIANCES: "Select appliance(s) you'd like to add to new existing clusters.",
         APPLIANCE_SELECTED: "Appliance selected",
         APPLIANCES_SELECTED: "Appliances selected",
         ALMOST_THERE: "Almost there!",
-        REDIRECT_HELP_MESSAGE: "To complete the process, you will be leaving the discovery tool and opening "+ productName+ " to complete the setup process",
-        YOU_CAN_DISCONNECT: "You can disconnect from the hardware.",
+        REDIRECT_HELP_MESSAGE: "To complete the process, you will be leaving the discovery tool and opening "+ productName+ " to complete the setup process.",
+        PLEASE_STAY: "Please stay connected to the hardware until the configuration is complete.",
+        MIXED_CLUSTER_WARNING: "Your selection would result in a combination of SAN and HCI appliance types",
+        MAX_APPLIANCES_IN_CLUSTER: "Your selection would result in too many appliances in the cluster",
+        GO_TO_CLUSTER: "GO TO CLUSTER",
+
 
         //*************************
         // ** MAIN PAGE LOCALES

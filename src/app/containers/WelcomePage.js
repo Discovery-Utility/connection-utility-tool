@@ -65,6 +65,8 @@ class WelcomePage extends Component {
                     <div className="row justify-content-center">
                         <Button available={true} text={t.SCAN_APPLIANCES} onClick={this.clickOnScanBtn}/>
                     </div>
+
+                    {/*redirect to next page*/}
                     {redirect ? <Redirect to="/search"/> : null}
                 </div>
             </div>

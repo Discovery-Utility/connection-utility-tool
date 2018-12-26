@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import AppHeader from "../components/AppHeader";
 import t from './../locales/translation'
-import {Link} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import Appliance from './../components/Appliance'
 import Button from "../components/Button";
 import MappleToolTip from 'reactjs-mappletooltip';
+
 
 const MAX_SELECT_APPLIANCES = 4;
 const MAX_APPLIANCES_ON_PAGE = 5;
@@ -21,6 +22,7 @@ class AppliancesPage extends Component {
             configured: [],
             selected_ids: [],
             unconfigured: [],
+            redirectToSearch: false,
             stateAvailable: true,    //used for switch available/configured screen states
             showCreateClusterMessage: false,
             countConfiguredPages: 0,
@@ -33,7 +35,7 @@ class AppliancesPage extends Component {
             let pageState = this.state.stateAvailable;
 
             this.setState({
-                stateAvailable: !this.state.stateAvailable,
+                stateAvailable: !pageState,
                 selected_ids: [],
                 showPagination: !pageState
             });
@@ -55,11 +57,30 @@ class AppliancesPage extends Component {
             });
         };
 
-        this.createClusterClick = () => {
+        this.popupButtonClick = () => {
+            if (this.state.stateAvailable) {
+                this.setState({
+                    showCreateClusterMessage: true,
+                    showPagination: false
+                });
+            } else {
+                let {selected_ids, configured} = this.state;
+
+                let appliance = configured.filter((appliance) => {
+                    return appliance.id === selected_ids[0];
+                });
+
+                let link = appliance[0].link;
+                shell.openExternal(link);
+            }
+        };
+
+        this.scanAgainClick = () => {
+            ipcRndr.send('refresh', "Restart scaning");
+
             this.setState({
-                showCreateClusterMessage: true,
-                showPagination: false
-            });
+                redirectToSearch: true
+            })
         };
 
         this.continueClick = () => {
@@ -99,7 +120,64 @@ class AppliancesPage extends Component {
             this.setState({
                 page: page - 1
             })
-        }
+        };
+
+        this.getCreateClusterMessage = () => {
+            return (
+                <div className="create-cluster-screen">
+                    <p className="create-cluster-screen-title">{t.ALMOST_THERE}</p>
+                    <p>{t.REDIRECT_HELP_MESSAGE}</p>
+                    <p>{t.PLEASE_STAY}</p>
+
+                    <Button text="Continue" onClick={this.continueClick}
+                            className="create-cluster-screen-continue"
+                            available={true}/>
+                    <p onClick={this.cancelClick} className="create-cluster-screen-cancel">Back</p>
+                </div>
+            );
+        };
+
+        this.getPopup = (tooltipMessage, showTooltipMessage, isAvailableBtnCreateCluster, buttonText) => {
+            let countSelectedAppliances = this.state.selected_ids.length;
+            return (
+                <div className="shadow create-cluster-popup">
+                    <p className="popup-selected-text">{countSelectedAppliances} {countSelectedAppliances === 1 ? t.APPLIANCE_SELECTED : t.APPLIANCES_SELECTED}</p>
+                    <div className="popup-create-cluster-button">
+                        <MappleToolTip
+                            showMappleIf={showTooltipMessage}
+                            direction="left"
+                            mappleType="contra"
+                            float={false}>
+                            <Button text={buttonText}
+                                    onClick={this.popupButtonClick}
+                                    available={isAvailableBtnCreateCluster}/>
+                            <div>
+                                {tooltipMessage}
+                            </div>
+                        </MappleToolTip>
+                    </div>
+
+                </div>
+            );
+        };
+
+        this.getPagination = (pages, page) => {
+            return (
+                <nav className="page-selector" aria-label="Page navigation example">
+                    <ul className="pagination pagination-sm justify-content-end">
+                        {pages.map(pageId => {
+                            let additionalClass = "";
+                            if (pageId - 1 === page) {
+                                additionalClass = "active";
+                            }
+                            return (<li key={pageId} className={"page-item " + additionalClass}
+                                        onClick={this.pageClick.bind(this, pageId)}>
+                                <a className="page-link">{pageId}</a></li>)
+                        })}
+                    </ul>
+                </nav>
+            );
+        };
 
 
     }
@@ -132,34 +210,44 @@ class AppliancesPage extends Component {
     }
 
     render() {
-        let {page, countConfiguredPages, countUnconfiguredPages, unconfigured, selected_ids, showCreateClusterMessage, configured, stateAvailable} = this.state;
+        let {
+            page, countConfiguredPages, countUnconfiguredPages, unconfigured, selected_ids, showCreateClusterMessage,
+            configured, stateAvailable, showPagination, redirectToSearch
+        } = this.state;
 
-        let showCreateClusterButton = false;
-        let isAvailableBtnCreateCluster = true;
+        let showPopup = false;
+        let popupButtonText = "";
+        let isAvailablePopupButton = true;
         let showTooltipMessage = false;
         let tooltipMessage = "";
 
         let countSelectedAppliances = selected_ids.length;
 
-        if (countSelectedAppliances > 0 && stateAvailable) {
-            showCreateClusterButton = true;
+        if (countSelectedAppliances > 0) {
+            showPopup = true;
+
+            popupButtonText = stateAvailable ? t.CREATE_CLUSTER : t.GO_TO_CLUSTER;
 
             if (countSelectedAppliances > 1) {
-                let firstType = unconfigured.filter(appliance => appliance.id === selected_ids[0])[0].type;
-                for (let i = 1; i < countSelectedAppliances; i++) {
-                    let nextType = unconfigured.filter(appliance => appliance.id === selected_ids[i])[0].type;
-                    if (nextType !== firstType) {
-                        isAvailableBtnCreateCluster = false;
-                        showTooltipMessage = true;
-                        tooltipMessage = "You select different appliance types";
-                        break;
+                if (stateAvailable) {
+                    let firstType = unconfigured.filter(appliance => appliance.id === selected_ids[0])[0].type;
+                    for (let i = 1; i < countSelectedAppliances; i++) {
+                        let nextType = unconfigured.filter(appliance => appliance.id === selected_ids[i])[0].type;
+                        if (nextType !== firstType) {
+                            isAvailablePopupButton = false;
+                            showTooltipMessage = true;
+                            tooltipMessage = t.MIXED_CLUSTER_WARNING;
+                            break;
+                        }
                     }
+                } else {
+                    isAvailablePopupButton = false;
                 }
             }
             if (countSelectedAppliances > MAX_SELECT_APPLIANCES) {
-                isAvailableBtnCreateCluster = false;
+                isAvailablePopupButton = false;
                 showTooltipMessage = true;
-                tooltipMessage = "You select more than 4 appliances";
+                tooltipMessage = t.MAX_APPLIANCES_IN_CLUSTER;
             }
         }
 
@@ -193,11 +281,10 @@ class AppliancesPage extends Component {
                              alt="refresh-ico"/>
 
                     </div>
-                    <Link to="/search">
-                        <div className="available-appliances-rescan-text">
-                            {t.SCAN_AGAIN.toUpperCase()}
-                        </div>
-                    </Link>
+
+                    <div onClick={this.scanAgainClick} className="available-appliances-rescan-text">
+                        {t.SCAN_AGAIN.toUpperCase()}
+                    </div>
 
                 </div>
 
@@ -248,48 +335,10 @@ class AppliancesPage extends Component {
                         </div>
                     </div>
 
-                    {this.state.showPagination ? <nav className="page-selector" aria-label="Page navigation example">
-                        <ul className="pagination pagination-sm justify-content-end">
-                            {pages.map(pageId => {
-                                let additionalClass = "";
-                                if (pageId - 1 === page) {
-                                    additionalClass = "active";
-                                }
-                                return (<li key={pageId} className={"page-item " + additionalClass}
-                                            onClick={this.pageClick.bind(this, pageId)}><a
-                                    className="page-link">{pageId}</a></li>)
-                            })}
-                        </ul>
-                    </nav> : null}
-                    {showCreateClusterButton ?
-                        <div className="shadow create-cluster-popup">
-                            <p className="popup-selected-text">{countSelectedAppliances} {countSelectedAppliances === 1 ? t.APPLIANCE_SELECTED : t.APPLIANCES_SELECTED}</p>
-                            <div className="popup-create-cluster-button">
-                                <MappleToolTip
-                                    showMappleIf={showTooltipMessage}
-                                    direction="left"
-                                    backgroundColor="#007DB8"
-                                    float={false}>
-                                    <Button text={t.CREATE_CLUSTER}
-                                            onClick={this.createClusterClick}
-                                            available={isAvailableBtnCreateCluster}/>
-                                    <div>
-                                        {tooltipMessage}
-                                    </div>
-                                </MappleToolTip>
-                            </div>
-
-                        </div> : null}
-                    {showCreateClusterMessage ? <div className="create-cluster-screen">
-                        <p className="create-cluster-screen-title">{t.ALMOST_THERE}</p>
-                        <p>{t.REDIRECT_HELP_MESSAGE}</p>
-                        <p>{t.YOU_CAN_DISCONNECT}</p>
-
-                        <Button text="Continue" onClick={this.continueClick}
-                                className="create-cluster-screen-continue"
-                                available={true}/>
-                        <p onClick={this.cancelClick} className="create-cluster-screen-cancel">Back</p>
-                    </div> : null}
+                    {showPagination ? this.getPagination(pages, page) : null}
+                    {showPopup ? this.getPopup(tooltipMessage, showTooltipMessage, isAvailablePopupButton, popupButtonText) : null}
+                    {showCreateClusterMessage ? this.getCreateClusterMessage() : null}
+                    {redirectToSearch ? <Redirect to="/search"/> : null}
                 </div>
             </div>
         )
