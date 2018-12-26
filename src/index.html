@@ -33,6 +33,7 @@
         let shell = require('electron').shell
         // Get messege from the app's local storage
         require('electron').ipcRenderer.on('ping', (event, message, logMessage) => {
+
             localStorage.setItem('message', message);
             localStorage.setItem('logs', logMessage);
         })

@@ -60,12 +60,12 @@ class ErrorPage extends Component {
                         <div className="row justify-content-center">
                             <Alert onClick={this.clickOnAlert} type="error"
                                    className="error-tooltip custom-alert col-auto"
-                                   title={t.ERROR_TITLE}
+                                   title={t.ERROR}
                                    text={t.ERROR_MESSAGE}/></div> : null}
 
                     <div className="row justify-content-center">
                         <div className="col-12 text-center">
-                            <h1 className="wrong-page-title">{t.WRONG_PAGE_TITLE}</h1>
+                            <h1 className="wrong-page-title">{t.ERROR_PAGE_TITLE}</h1>
                         </div>
                     </div>
                     <div className="row justify-content-center">
