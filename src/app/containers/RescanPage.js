@@ -11,7 +11,7 @@ const disableFirewallUrl = "http://lmgtfy.com/?q=how+to+disable+firewall+windows
 const disableCiscoUrl = "http://lmgtfy.com/?q=how+to+disable+firewall+windows+10";
 const disableSecuritylUrl = "http://lmgtfy.com/?q=how+to+disable+firewall+windows+10";
 
-class ErrorPage extends Component {
+class RescanPage extends Component {
     constructor(props) {
         super(props);
 
@@ -121,4 +121,4 @@ class ErrorPage extends Component {
     }
 }
 
-export default ErrorPage;
+export default RescanPage;
