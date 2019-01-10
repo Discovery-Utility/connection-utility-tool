@@ -223,10 +223,8 @@ function appOnDown(service) {
 function bonjourLoad(refresh) {
     // reset of existing data
     if (refresh) {
-        var stor = {
-            "storages": []
-        };
-        storages = jsonParseString(stor);
+        let data = env.DEMO_MODE ? demo_data : {"storages" : []};
+        storages = jsonParseString(data);
     }
 
     // Discovering of devices with type "http"
