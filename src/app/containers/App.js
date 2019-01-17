@@ -1,23 +1,16 @@
 import React, {Component} from 'react';
-import {ipcRenderer} from "electron";
 import {Redirect} from 'react-router-dom'
 
-
+/**
+ * Default root component in application.
+ * App component redirect to WelcomePage container.
+ */
 class App extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            appStarted: "text"
-        };
     }
 
     render() {
-
-        /*ipcRenderer.on('ping', (event, arg) => {
-            console.log(arg);
-        });*/
-
         return (
             <Redirect to="/welcome"/>
         );

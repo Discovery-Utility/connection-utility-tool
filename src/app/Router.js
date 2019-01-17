@@ -8,6 +8,12 @@ import AppliancesPage from './containers/AppliancesPage';
 import DetectionLog from './containers/log/detectionLog';
 import HelpPage from "./containers/HelpPage";
 
+/**
+ * Router component implements the navigation.
+ * Use <Link to={path} /> or <Redirect to={path} /> components.
+ * @returns {*}
+ * @constructor
+ */
 const Router = () => (
     <HashRouter>
         <Switch>

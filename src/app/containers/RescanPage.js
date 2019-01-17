@@ -5,12 +5,14 @@ import Button from './../components/Button';
 const {shell} = require('electron');
 import {Redirect} from 'react-router-dom'
 import Alert from "../components/Alert";
+import '../../scss/pages/_rescanpage.scss'
 
 const disableNetworksUrl = "http://lmgtfy.com/?q=how+to+disable+network";
 const disableFirewallUrl = "http://lmgtfy.com/?q=how+to+disable+firewall+windows+10";
 const disableCiscoUrl = "http://lmgtfy.com/?q=how+to+disable+firewall+windows+10";
 const disableSecuritylUrl = "http://lmgtfy.com/?q=how+to+disable+firewall+windows+10";
 
+//TODO delete bootstrap grid from this page, use Flex, please
 class RescanPage extends Component {
     constructor(props) {
         super(props);
@@ -59,13 +61,13 @@ class RescanPage extends Component {
                     {this.state.showAlert ?
                         <div className="row justify-content-center">
                             <Alert onClick={this.clickOnAlert} type="error"
-                                   className="error-tooltip custom-alert col-auto"
+                                   className="col-auto"
                                    title={t.ERROR}
                                    text={t.ERROR_MESSAGE}/></div> : null}
 
                     <div className="row justify-content-center">
                         <div className="col-12 text-center">
-                            <h1 className="wrong-page-title">{t.ERROR_PAGE_TITLE}</h1>
+                            <h1 className="rescan-page-title">{t.ERROR_PAGE_TITLE}</h1>
                         </div>
                     </div>
                     <div className="row justify-content-center">

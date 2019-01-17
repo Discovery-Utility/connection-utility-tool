@@ -8,7 +8,7 @@ import ButtonOutline from './../components/ButtonOutline';
 import {ProgressBar} from 'react-bootstrap';
 
 
-const COUNT_SECONDS = env.SECOND_TO_WAIT;
+const COUNT_SECONDS = env.SEARCH_DELAY;
 
 class SearchPage extends Component {
     constructor(props) {
