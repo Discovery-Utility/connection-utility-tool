@@ -7,7 +7,9 @@ import '../../scss/pages/_welcomepage.scss'
 const {shell} = require('electron');
 import {Redirect} from 'react-router-dom'
 
-
+/**
+ * Welcome page displays welcome message and button to scan the appliances
+ */
 class WelcomePage extends Component {
     constructor(props) {
         super(props);

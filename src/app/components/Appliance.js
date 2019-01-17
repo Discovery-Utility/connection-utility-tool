@@ -2,6 +2,18 @@ import React, {Component} from 'react';
 import t from './../locales/translation'
 import '../../scss/components/_appliance.scss'
 
+/**
+ * Appliance component displays item of appliances list.
+ * Appliance may be a radio or checkbox item.
+ *
+ * props:
+ * active: true/false if true component marked.
+ * addSelection: callback function
+ * removeSelection: callback function
+ * appliance: appliance object
+ * selectTypeCheckbox: true/false use checkbox or radiobutton
+ * showSettingsMenu: true/false show dropdown menu
+ */
 class Appliance extends Component {
     constructor(props) {
         super(props);
@@ -10,6 +22,7 @@ class Appliance extends Component {
             checked: this.props.active
         };
 
+        //unite self classes and props classes
         this.getClassNames = () => {
             let selfClassNames = "rounded appliance";
             let customClassNames = this.props.className;
@@ -22,6 +35,7 @@ class Appliance extends Component {
             return selfClassNames + " " + customClassNames;
         };
 
+        //click on the checkbox if props selecteTypeCheckbox = true
         this.checkBoxClick = () => {
             let selfID = this.props.appliance.id;
             let {removeSelection, addSelection} = this.props;
@@ -37,6 +51,7 @@ class Appliance extends Component {
             });
         };
 
+        //click on the radio button if props selecteTypeCheckbox = false
         this.radioClick = () => {
             let {addSelection} = this.props;
             let selfID = this.props.appliance.id;

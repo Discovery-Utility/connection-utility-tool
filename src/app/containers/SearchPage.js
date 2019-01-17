@@ -10,6 +10,9 @@ import {ProgressBar} from 'react-bootstrap';
 
 const COUNT_SECONDS = env.SEARCH_DELAY;
 
+/**
+ * SearchPage displays the search appliances process
+ */
 class SearchPage extends Component {
     constructor(props) {
         super(props);

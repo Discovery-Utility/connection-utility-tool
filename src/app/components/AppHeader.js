@@ -4,29 +4,39 @@ import './../../bootstrap/scss/bootstrap.scss';
 import 'bootstrap/dist/js/bootstrap.js';
 import {Link, Redirect} from 'react-router-dom'
 
-
+/**
+ * AppHeader displayed in the application header.
+ * Contains links to Welcome, Logs, Help pages
+ *
+ * TODO replace bootstrap grid to flex.
+ */
 class AppHeader extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            showRedirect: false
+            redirectToWelcomePage: false
         };
 
+        /*
+        * Click on the DELL EMC logo
+        * */
         this.brandClick = () => {
             this.setState({
-                showRedirect: true
+                redirectToWelcomePage: true
             });
         }
     }
 
     render() {
-        let redirect = this.state.showRedirect;
+
+        let redirectToWelcomePage = this.state.redirectToWelcomePage;
         return (
             <div>
                 <nav className="navbar navbar-light header">
                     <span className="navbar-brand logo" onClick={this.brandClick}/>
-                    <div className="verticalLine"/>
-                    <span className="appTitle navbar-text navbar-left text-left" id="appTitle">
+                    <div className="vertical-line"/>
+                    <span className="application-title navbar-text navbar-left text-left" id="appTitle">
                     {appTitle}
                 </span>
                     <div className="col-xl-7 col-lg-6 col-md-5 col-sm-3"/>
@@ -45,7 +55,7 @@ class AppHeader extends Component {
                              alt=""/>
                     </Link>
                 </nav>
-                {redirect ? <Redirect to="/welcome"/> : null}
+                {redirectToWelcomePage ? <Redirect to="/welcome"/> : null}
             </div>
         );
     }

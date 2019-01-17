@@ -7,7 +7,7 @@ export const discTool = "Discovery tool";
 
 let translation = new LocalizedStrings({
     en: {
-        //new ui locales*************
+        //new ui locales
         WELCOME_TITLE: "Welcome to " + productName,
         ABOUT_TOOL: "This discovery tool will scan for appliances,\n" +
             "making them available for initial configuration. Before\n" +
@@ -41,6 +41,9 @@ let translation = new LocalizedStrings({
         MIXED_CLUSTER_WARNING: "Your selection would result in a combination of SAN and HCI appliance types",
         MAX_APPLIANCES_IN_CLUSTER: "Your selection would result in too many appliances in the cluster",
         GO_TO_CLUSTER: "GO TO CLUSTER",
+        ADD_TO_EXISTING: "Add to existing cluster",
+        ADD_TO_CLUSTER: "Add to cluster",
+        CLOSE: "Close",
 
 
         //*************************

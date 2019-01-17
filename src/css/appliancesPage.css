@@ -146,3 +146,48 @@ input:checked + .slider:before {
     top: 500px;
     right: 25px;
 }
+
+.available-appliances-modal {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 700px;
+    height: 100%;
+}
+
+
+.modal-dialog-slideout {
+    min-height: 100%;
+    margin: 0 0 0 auto;
+    background: #fff;
+}
+
+.modal.fade .modal-dialog.modal-dialog-slideout {
+    transform: translate(100%, 0);
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    width: 400px;
+    bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.modal.fade.show .modal-dialog.modal-dialog-slideout {
+    transform: translate(0, 0);
+    flex-flow: column;
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.modal-dialog-slideout .modal-content {
+    display: flex;
+    height: 100%;
+}
+

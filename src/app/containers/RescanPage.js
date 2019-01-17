@@ -12,7 +12,11 @@ const disableFirewallUrl = "http://lmgtfy.com/?q=how+to+disable+firewall+windows
 const disableCiscoUrl = "http://lmgtfy.com/?q=how+to+disable+firewall+windows+10";
 const disableSecuritylUrl = "http://lmgtfy.com/?q=how+to+disable+firewall+windows+10";
 
-//TODO delete bootstrap grid from this page, use Flex, please
+//TODO delete bootstrap grid from this page, use Flex
+
+/**
+ * RescanPage displays then appliances not found.
+ */
 class RescanPage extends Component {
     constructor(props) {
         super(props);
