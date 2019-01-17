@@ -36,6 +36,20 @@
       "cluster": "true"
     },
     {
+      "link": "http://192.168.3.45:8080",
+      "name": "TestCluster",
+      "state": "configured",
+      "type": "SAN",
+      "cluster": "true"
+    },
+    {
+      "link": "http://192.168.1.34:8080",
+      "name": "SecondCluster",
+      "state": "configured",
+      "type": "VMware",
+      "cluster": "true"
+    },
+    {
       "link": "http://192.168.8.14:8080",
       "name": "FNM00314386531",
       "state": "unconfigured",
