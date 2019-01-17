@@ -1,5 +1,5 @@
 module.exports = {
-    DEMO_MODE: false,
+    DEMO_MODE: true,
     SHOW_DEV_CONSOLE: false,
-    SECOND_TO_WAIT: 10        //seconds to search appliances, default = 60sec
+    SEARCH_DELAY: 10        //seconds to search appliances, default = 60sec
 };
