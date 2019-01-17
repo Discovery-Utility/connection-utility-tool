@@ -1,13 +1,22 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+import '../../scss/components/_alert.scss'
 
-
+/**
+ * Alert component display alert message.
+ *
+ * props:
+ * title: alert title
+ * text: alert text
+ * onClick: click on alert
+ *
+ * TODO. Display not only an error message, but also success.
+ */
 class Alert extends Component {
     constructor(props) {
         super(props);
 
         this.getClassNames = () => {
-            let selfClassNames = "rounded";//  p-3 mb-5 bg-white rounded
+            let selfClassNames = "rounded alert-error custom-alert";
             let customClassNames = this.props.className;
 
             return selfClassNames + " " + customClassNames;
@@ -17,7 +26,6 @@ class Alert extends Component {
     render() {
         return (
             <div className={this.getClassNames()} onClick={this.props.onClick}>
-
                 <img src="./images/error.svg"
                      width="30" height="30"
                      className="alert-img"
@@ -26,11 +34,6 @@ class Alert extends Component {
                     <p className="alert-title"><b>{this.props.title}</b></p>
                     <p className="alert-msg">{this.props.text}</p>
                 </div>
-
-                {/*<button type="button" className="close" aria-label="Close">
-                    <span aria-hidden="true"/>
-                </button>*/}
-
             </div>
         );
     }

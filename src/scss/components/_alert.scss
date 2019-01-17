@@ -1,0 +1,28 @@
+.alert-error {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  background-color: #CE1126; /* DELL red*/
+  color: white;
+  cursor: pointer;
+}
+
+.alert-img {
+  padding-right: 10px;
+}
+
+.alert-title {
+  margin-bottom: 0;
+  padding-top: 5px;
+}
+
+.alert-msg {
+  margin-bottom: 5px;
+}
+
+.alert-content {
+  padding-right: 200px;
+  padding-left: 10px;
+}
