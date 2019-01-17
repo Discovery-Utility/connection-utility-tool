@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import t from './../locales/translation'
+import '../../scss/components/_appliance.scss'
 
 class Appliance extends Component {
     constructor(props) {
@@ -23,34 +25,42 @@ class Appliance extends Component {
         this.checkBoxClick = () => {
             let selfID = this.props.appliance.id;
             let {removeSelection, addSelection} = this.props;
-
+            let isCheckbox = true;
             if (this.state.checked) {
                 removeSelection(selfID);
             } else {
-                addSelection(selfID);
+                addSelection(selfID, isCheckbox);
             }
 
             this.setState({
                 checked: !this.state.checked
             });
-        }
+        };
+
+        this.radioClick = () => {
+            let {addSelection} = this.props;
+            let selfID = this.props.appliance.id;
+            let isCheckBox = false;
+            addSelection(selfID, isCheckBox);
+        };
     }
 
     render() {
-        let {appliance} = this.props;
+        let {appliance, showSettingsMenu, itemClick, selectTypeCheckbox} = this.props;
         let applianceName = appliance.name;
         let applianceType = appliance.type;
         return (
             <div className={this.getClassNames()} onClick={this.props.onClick}>
-
-                {/*<div className="app-checkbox">
-                    <input type="checkbox" id="checkbox" onClick={this.checkBoxClick}/>
-                    <label htmlFor="checkbox"/>
-                </div>*/}
-                <label className="container-check">
-                    <input type="checkbox" defaultChecked={!!this.props.active} />
-                    <span onClick={this.checkBoxClick} className="checkmark"/>
-                </label>
+                {selectTypeCheckbox ?
+                    <label className="container-check">
+                        <input type="checkbox" defaultChecked={this.props.active}/>
+                        <span onClick={this.checkBoxClick} className="checkmark"/>
+                    </label>
+                    : <label className="radio-button">
+                        <input onClick={this.radioClick} type="radio" defaultChecked={this.props.active}
+                               name="radio"/>
+                        <span className="radio-checkmark"/>
+                    </label>}
                 <img src="./images/Dell_Logo.svg"
                      width="25" height="25"
                      className="app-dell-ico"
@@ -58,6 +68,18 @@ class Appliance extends Component {
 
                 <p className="app-name">{applianceName}</p>
                 <p className="app-type">{applianceType === "VMware" ? "HCI" : "SAN"}</p>
+                {showSettingsMenu ? <div className="custom-dropdown dropleft">
+                    <img src="./images/more.svg"
+                         width="25" height="25"
+                         className="d-inline-block align-top"
+                         id="dropdownMenuButton"
+                         data-toggle="dropdown" aria-haspopup="false" aria-expanded="false"
+                         alt=""/>
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <p className="dropdown-item custom-dropdown-item" data-toggle="modal" data-target="#modal"
+                           onClick={itemClick}>{t.ADD_TO_EXISTING}</p>
+                    </div>
+                </div> : null}
             </div>
         );
     }
