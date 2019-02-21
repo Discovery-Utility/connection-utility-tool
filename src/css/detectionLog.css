@@ -4,6 +4,16 @@
     src: url("../fonts/metropolis/Metropolis-Light.otf");
 }
 
+.clear-log-btn {
+  float: left;
+  margin: 10px 10px 10px 1px;
+}
+
+.save-log-btn {
+  float: left;
+  margin: 10px 10px 10px 15px;
+}
+
 #logSwitch {
   width: 20%;
   float: left;

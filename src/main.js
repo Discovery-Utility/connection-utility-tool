@@ -223,10 +223,8 @@ function appOnDown(service) {
 function bonjourLoad(refresh) {
     // reset of existing data
     if (refresh) {
-        var stor = {
-            "storages": []
-        };
-        storages = jsonParseString(stor);
+        let data = env.DEMO_MODE ? demo_data : {"storages" : []};
+        storages = jsonParseString(data);
     }
 
     // Discovering of devices with type "http"
@@ -268,7 +266,9 @@ ipcMain.on('clearDetectLog', (event, arg) => {
 function createWindow() {
     // Creating a browser window "win" - the app window
     win = new BrowserWindow({
-        width: 1250, height: 600,
+        width: 1250, height: 700,
+        minWidth: 800,
+        minHeight: 650,
         icon: __dirname,
         autoHideMenuBar: true,
         //frame: false

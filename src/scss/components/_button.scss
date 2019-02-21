@@ -1,0 +1,73 @@
+@import "../colors";
+$button-radius: 5px;
+$button-font-size: 16px;
+
+$btn-primary-hover-bg-color: #006899;
+$btn-primary-active-bg-color: $dell-dark-blue;
+
+
+.button {
+  border-radius: $button-radius;
+  font-size: $button-font-size;
+  box-shadow: none;
+  padding: 10px 40px 10px 40px;
+  color: $dell-white;
+  background-color: $dell-blue;
+  border-color: $dell-blue;
+  cursor: pointer;
+
+  &:focus,
+  &.focus {
+    background-color: $btn-primary-hover-bg-color;
+    border-color: $btn-primary-hover-bg-color;
+  }
+
+  &:hover {
+    background-color: $btn-primary-hover-bg-color;
+    border-color: $btn-primary-hover-bg-color;
+
+  }
+  &:active {
+    background-color: $btn-primary-active-bg-color;
+    border-color: $btn-primary-active-bg-color;
+  }
+
+  &.disable {
+    background-color: $dell-dark-blue;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+}
+
+.button-outline {
+  border-radius: $button-radius;
+  font-size: $button-font-size;
+  padding: 10px 40px 10px 40px;
+  color: $dell-blue;
+  border: 1px solid;
+  cursor: pointer;
+
+  &:focus,
+  &.focus {
+    background-color: $btn-primary-hover-bg-color;
+    border-color: $btn-primary-hover-bg-color;
+
+  }
+
+  &:hover {
+    background-color: $btn-primary-hover-bg-color;
+    border-color: $btn-primary-hover-bg-color;
+    color: $dell-white;
+  }
+  &:active {
+    background-color: $btn-primary-active-bg-color;
+    border-color: $btn-primary-active-bg-color;
+  }
+
+  &.no-border {
+    border: none;
+  }
+}
+
+
+
