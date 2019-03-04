@@ -81,7 +81,8 @@ class AppliancesPage extends Component {
                 });
 
                 let link = appliance[0].link;
-                shell.openExternal(link);
+                ipcRndr.send("connect-to-appliance", link);
+                //shell.openExternal(link);
             }
         };
 
@@ -114,7 +115,8 @@ class AppliancesPage extends Component {
                 names += i < countSelected - 1 ? "," : "";
             }
             let link = firstAppliance[0].link + "/?appliances=" + names;
-            shell.openExternal(link);
+            ipcRndr.send("connect-to-appliance", link);
+            //shell.openExternal(link);
             this.setState({
                 showCreateClusterMessage: false,
                 showPagination: true

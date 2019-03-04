@@ -262,6 +262,71 @@ ipcMain.on('clearDetectLog', (event, arg) => {
     }
 });
 
+let connectWindow;
+let linkToAppliance = "";
+ipcMain.on('connect-to-appliance', (event, arg) => {
+    console.log("connect-to-appliance");
+    linkToAppliance = arg;
+
+    //try to connect url
+    connectWindow = new BrowserWindow({
+        parent: win,
+        modal: true,
+        show: false
+    });
+    connectWindow.loadURL(linkToAppliance);
+
+    //event target url loaded
+    connectWindow.once('ready-to-show', () => {
+        win.webContents.send("redirect-to-browser", linkToAppliance);
+    });
+});
+
+
+app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
+    console.log("cert-error");
+    callback(false);
+
+    //if target platform windows
+    if (process.platform === "win32") {
+        //CRLF -> LF (UNIX)
+        let certData = certificate.issuerCert.data;
+        certData = certData.replace(/([\r\n]|[\n])/g, "");
+
+        //run child process cert exe
+        let exec = require('child_process').exec;
+        let path = env.PATH_TO_CERT_EXE + "\"" + certData + "\"";
+        win.webContents.send("print-to-console", path);
+
+        let result = '';
+        let child = exec(path);
+
+        //stdout from cert exe
+        child.stdout.on('data', function(data) {
+            result += data;
+        });
+
+        //stderr from cert exe
+        child.stderr.on('data', (data) => {
+            console.log(`stderr: ${data}`);
+            win.webContents.send("print-to-console", data);
+
+        });
+
+        //cert exe closed (certificate imported)
+        child.on('close', function() {
+            console.log('done');
+            console.log(result);
+
+            //open browser
+            if (linkToAppliance) {
+                win.webContents.send("redirect-to-browser", linkToAppliance);
+            }
+        });
+    }
+});
+
+
 
 function createWindow() {
     // Creating a browser window "win" - the app window
@@ -315,7 +380,9 @@ function createWindow() {
         }
     })
     win.on('closed', () => {
+        app.quit();
         win = null;
+
     });
 }
 

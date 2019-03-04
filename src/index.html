@@ -35,7 +35,15 @@
 
             localStorage.setItem('message', message);
             localStorage.setItem('logs', logMessage);
-        })
+        });
+
+        require('electron').ipcRenderer.on("redirect-to-browser", (event, redirectLink) => {
+            shell.openExternal(redirectLink);
+        });
+
+        require('electron').ipcRenderer.on("print-to-console", (event, data) => {
+            console.log(data)
+        });
 
         // Popup windows' closing on "focus left"
         function focusLeave() {
