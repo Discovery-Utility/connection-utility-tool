@@ -8,7 +8,7 @@
       "cluster": "false"
     },
     {
-      "link": "http://192.168.181.1:8080",
+      "link": "https://10.248.178.162",
       "name": "ClusterSample",
       "state": "configured",
       "type": "SAN",

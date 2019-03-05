@@ -68,6 +68,12 @@
     "squirrelWindows": {
       "msi": false
     },
+    "files": [
+      "src"
+    ],
+    "asarUnpack": [
+      "src/cert.exe"
+    ],
     "nsis": {
       "oneClick": "true",
       "perMachine": "true",

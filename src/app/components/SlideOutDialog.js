@@ -45,7 +45,9 @@ class SlideOutDialog extends Component {
             let unconfiguredAppliance = this.props.selectedAppliance;
             let appliance = configured.filter(appliance => appliance.id === selected[0])[0];
             let link = appliance.link + "/?appliances=" + unconfiguredAppliance.name;
-            shell.openExternal(link);
+
+            ipcRndr.send("connect-to-appliance", link);
+            //shell.openExternal(link);
         };
     };
 
