@@ -286,11 +286,30 @@ ipcMain.on('connect-to-appliance', (event, arg) => {
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
     console.log("cert-error");
     callback(false);
-
+    win.webContents.send("print-to-console", certificate);
     //if target platform windows
     if (process.platform === "win32") {
+
+        if (!certificate) {
+            win.webContents.send("print-to-console", "certificate empty");
+            if (linkToAppliance) {
+                win.webContents.send("redirect-to-browser", linkToAppliance);
+            }
+            return;
+        }
+        let certData;
+        if (certificate.issuerCert && certificate.issuerCert.data) {
+            certData = certificate.issuerCert.data;
+        } else if (certificate.data) {
+            certData = certificate.data;
+        } else {
+            if (linkToAppliance) {
+                win.webContents.send("redirect-to-browser", linkToAppliance);
+            }
+            return;
+        }
+
         //CRLF -> LF (UNIX)
-        let certData = certificate.issuerCert.data;
         certData = certData.replace(/([\r\n]|[\n])/g, "");
 
         //run child process cert exe

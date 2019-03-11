@@ -62,7 +62,7 @@ class SearchPage extends Component {
         //else redirect to page with appliances
         if (this.state.timeLeft === 0 && appliances.length === 0) {
             redirectToErrorPage = true;
-        } else if (this.state.timeLeft <= COUNT_SECONDS - 2 && appliances.length > 0) {
+        } else if (this.state.timeLeft === 0 && appliances.length > 0) {
             redirectToAppliancesPage = true;
         }
 
