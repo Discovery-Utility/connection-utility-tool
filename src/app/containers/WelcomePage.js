@@ -53,13 +53,19 @@ class WelcomePage extends Component {
                         </div>
                     </div>
                     <div className="row justify-content-center">
-                        <p className="text-center"><b>1.</b> {t.WIFI_NETWORKS}</p>
+                        <p className="text-center"><b>1.</b> {t.CONNECT_YOUR_LAPTOP}</p>
                     </div>
                     <div className="row justify-content-center">
                         <p className="show-link" onClick={this.clickOnShowDisableNetwork}>  {t.SHOW_ME_HOW}</p>
                     </div>
                     <div className="row justify-content-center">
-                        <p className="text-center"><b>2.</b> {t.PC_FIRE_WALL}</p>
+                        <p className="text-center"><b>2.</b> {t.WIFI_NETWORKS}</p>
+                    </div>
+                    <div className="row justify-content-center">
+                        <p className="show-link" onClick={this.clickOnShowDisableNetwork}>  {t.SHOW_ME_HOW}</p>
+                    </div>
+                    <div className="row justify-content-center">
+                        <p className="text-center"><b>3.</b> {t.PC_FIRE_WALL}</p>
                     </div>
                     <div className="row justify-content-center">
                         <p className="show-link" onClick={this.clickOnShowDisableFirewall}>  {t.SHOW_ME_HOW}</p>
