@@ -242,7 +242,6 @@ function bonjourLoad(refresh) {
     let data = env.DEMO_MODE ? demo_data : { storages: [] };
     storages = jsonParseString(data);
   }
-
   // Discovering of devices with type "http"
   browser = bonjour.find({ type: "http" });
   // setting function for handling the emergence of new devices in the network
@@ -432,24 +431,24 @@ wifi.getCurrentConnections(function(err, currentConnections) {
   console.log(currentConnections);
 
   win.webContents.on("did-finish-load", () => {
-    win.webContents.send("ping", currentConnections.length, "wifi");
+    win.webContents.send("wifi", currentConnections.length, "wifi");
   });
   /*
-      // you may have several connections
-      [
-          {
-              iface: '...', // network interface used for the connection, not available on macOS
-              ssid: '...',
-              bssid: '...',
-              mac: '...', // equals to bssid (for retrocompatibility)
-              channel: <number>,
-              frequency: <number>, // in MHz
-              signal_level: <number>, // in dB
-              quality: <number>, // same as signal level but in %
-              security: '...' //
-              security_flags: '...' // encryption protocols (format currently depending of the OS)
-              mode: '...' // network mode like Infra (format currently depending of the OS)
-          }
-      ]
-      */
+    // you may have several connections
+    [
+        {
+            iface: '...', // network interface used for the connection, not available on macOS
+            ssid: '...',
+            bssid: '...',
+            mac: '...', // equals to bssid (for retrocompatibility)
+            channel: <number>,
+            frequency: <number>, // in MHz
+            signal_level: <number>, // in dB
+            quality: <number>, // same as signal level but in %
+            security: '...' //
+            security_flags: '...' // encryption protocols (format currently depending of the OS)
+            mode: '...' // network mode like Infra (format currently depending of the OS)
+        }
+    ]
+    */
 });

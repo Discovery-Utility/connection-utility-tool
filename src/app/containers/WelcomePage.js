@@ -39,6 +39,8 @@ class WelcomePage extends Component {
 
   render() {
     let redirect = this.state.redirectToSearch;
+
+    console.log(localStorage);
     return (
       <div>
         <AppHeader />
@@ -58,15 +60,17 @@ class WelcomePage extends Component {
               <b>1.</b> {t.WIFI_NETWORKS}
             </p>
           </div>
-          <div className="row justify-content-center">
+          <div
+            className="row justify-content-center"
+            style={{ display: "inherit" }}
+          >
             {this.state.wifi == 1 && (
-              <p>
-                <br />
-                Вы подключены к сети Wifi
-                <br />
-              </p>
+              <p className="text-center">Вы подключены к сети Wifi</p>
             )}
-            <p className="show-link" onClick={this.clickOnShowDisableNetwork}>
+            <p
+              className="show-link text-center"
+              onClick={this.clickOnShowDisableNetwork}
+            >
               {" "}
               {t.SHOW_ME_HOW}
             </p>

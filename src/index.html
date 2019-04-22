@@ -36,13 +36,14 @@
         require("electron").ipcRenderer.on(
           "ping",
           (event, message, logMessage) => {
-            console.log(message, logMessage);
-            if (logMessage === "wifi") {
-              localStorage.setItem("wifi", message);
-            } else {
-              localStorage.setItem("message", message);
-              localStorage.setItem("logs", logMessage);
-            }
+            localStorage.setItem("message", message);
+            localStorage.setItem("logs", logMessage);
+          }
+        );
+        require("electron").ipcRenderer.on(
+          "wifi",
+          (event, message, logMessage) => {
+            localStorage.setItem("wifi", message);
           }
         );
 

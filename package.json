@@ -28,6 +28,7 @@
     "multicast-dns": "github:alexey-martynov/multicast-dns#multihomed-multicast",
     "node-libs-browser": "^2.0.0",
     "node-sass": "^4.7.2",
+    "node-wifi": "^2.0.5",
     "react": "^15.6.2",
     "react-addons-test-utils": "^15.1.0",
     "react-bootstrap": "^0.32.4",
