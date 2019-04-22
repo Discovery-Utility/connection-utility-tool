@@ -25,7 +25,9 @@ class WelcomePage extends Component {
     this.clickOnShowDisableNetwork = () => {
       shell.openExternal(disableNetworkPath);
     };
-
+    this.clickOnButton = () => {
+      require("electron").ipcRenderer.send("off-wifi");
+    };
     this.clickOnShowDisableFirewall = () => {
       shell.openExternal(disableFirewallPath);
     };
@@ -64,6 +66,13 @@ class WelcomePage extends Component {
             className="row justify-content-center"
             style={{ display: "inherit" }}
           >
+            <div className="row justify-content-center">
+              <Button
+                available={true}
+                text="Off Wi-Fi"
+                onClick={this.clickOnButton}
+              />
+            </div>
             {this.state.wifi == 1 && (
               <p className="text-center">Вы подключены к сети Wifi</p>
             )}

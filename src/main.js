@@ -423,32 +423,43 @@ wifi.init({
   iface: null // network interface, choose a random wifi interface if set to null
 });
 
-// Scan networks
+// get current networks
 wifi.getCurrentConnections(function(err, currentConnections) {
   if (err) {
     console.log(err);
   }
-  console.log(currentConnections);
 
-  win.webContents.on("did-finish-load", () => {
-    win.webContents.send("wifi", currentConnections.length, "wifi");
-  });
-  /*
-    // you may have several connections
-    [
-        {
-            iface: '...', // network interface used for the connection, not available on macOS
-            ssid: '...',
-            bssid: '...',
-            mac: '...', // equals to bssid (for retrocompatibility)
-            channel: <number>,
-            frequency: <number>, // in MHz
-            signal_level: <number>, // in dB
-            quality: <number>, // same as signal level but in %
-            security: '...' //
-            security_flags: '...' // encryption protocols (format currently depending of the OS)
-            mode: '...' // network mode like Infra (format currently depending of the OS)
+  console.log(currentConnections);
+  if (currentConnections != undefined) {
+    win.webContents.on("did-finish-load", () => {
+      win.webContents.send("wifi", currentConnections.length, "wifi");
+    });
+  }
+});
+
+ipcMain.on("off-wifi", () => {
+  console.log("off-wifi");
+  // Scan networks
+  wifi.scan(function(err, networks) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(networks);
+
+      for (var i = 0; i < networks.length; i++) {
+        if (networks[i].security !== "Open") {
+          wifi.connect(
+            { ssid: networks[i].ssid, password: "password" },
+            function(err) {
+              if (err) {
+                console.log(err);
+              }
+              console.log("Connected");
+            }
+          );
+          i = networks.length;
         }
-    ]
-    */
+      }
+    }
+  });
 });
