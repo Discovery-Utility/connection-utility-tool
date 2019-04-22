@@ -8,6 +8,8 @@
 const env = require("./app_environment");
 const demo_data = require("./demo/demo_data");
 
+const wifi = require("node-wifi");
+
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const url = require("url");
