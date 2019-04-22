@@ -1,75 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/infotab.css">
-    <link rel="stylesheet" href="./css/detectionLog.css">
-    <link rel="stylesheet" href="./css/helpPage.css">
-    <link rel="stylesheet" href="./css/helpSubpages/whatToExpect.css">
-    <link rel="stylesheet" href="./css/helpSubpages/troubleshootingTips.css">
-    <link rel="stylesheet" href="./css/helpSubpages/docs.css">
-    <link rel="stylesheet" href="./css/pageForTooltip.css">
-    <link rel="stylesheet" href="./css/clusterTooltip.css">
-    <link rel="stylesheet" href="css/appliancesPage.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/infotab.css" />
+    <link rel="stylesheet" href="./css/detectionLog.css" />
+    <link rel="stylesheet" href="./css/helpPage.css" />
+    <link rel="stylesheet" href="./css/helpSubpages/whatToExpect.css" />
+    <link rel="stylesheet" href="./css/helpSubpages/troubleshootingTips.css" />
+    <link rel="stylesheet" href="./css/helpSubpages/docs.css" />
+    <link rel="stylesheet" href="./css/pageForTooltip.css" />
+    <link rel="stylesheet" href="./css/clusterTooltip.css" />
+    <link rel="stylesheet" href="css/appliancesPage.css" />
 
     <title>Discovery Tool</title>
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-</head>
-<body>
-<div id="wrapper">
-
-    <script>
-        const ipcRndr = require('electron').ipcRenderer;
+  </head>
+  <body>
+    <div id="wrapper">
+      <script>
+        const ipcRndr = require("electron").ipcRenderer;
         var selectAppliances = [];
         var selectedCluster = "noSelected";
         var prevFilter = "unconfigured";
         // Required for redirecting all links to the default browser
-        let shell = require('electron').shell
+        let shell = require("electron").shell;
         // Get messege from the app's local storage
-        require('electron').ipcRenderer.on('ping', (event, message, logMessage) => {
+        require("electron").ipcRenderer.on(
+          "ping",
+          (event, message, logMessage) => {
+            console.log(message, logMessage);
+            if (logMessage === "wifi") {
+              localStorage.setItem("wifi", message);
+            } else {
+              localStorage.setItem("message", message);
+              localStorage.setItem("logs", logMessage);
+            }
+          }
+        );
 
-            localStorage.setItem('message', message);
-            localStorage.setItem('logs', logMessage);
-        });
-
-        require('electron').ipcRenderer.on("redirect-to-browser", (event, redirectLink) => {
+        require("electron").ipcRenderer.on(
+          "redirect-to-browser",
+          (event, redirectLink) => {
             shell.openExternal(redirectLink);
-        });
+          }
+        );
 
-        require('electron').ipcRenderer.on("print-to-console", (event, data) => {
-            console.log(data)
-        });
+        require("electron").ipcRenderer.on(
+          "print-to-console",
+          (event, data) => {
+            console.log(data);
+          }
+        );
 
         // Popup windows' closing on "focus left"
         function focusLeave() {
-            var ppup = document.getElementById("modalpopup");
-            ppup.style.visibility = "hidden";
-            ppup.style.left = "100%";
-            ppup.style.opacity = "0.0";
-            var jppup = document.getElementById("joinpopup");
-            jppup.style.visibility = "hidden";
-            jppup.style.left = "100%";
-            jppup.style.opacity = "0.0";
-            if (selectedCluster != "noSelected")
-                document.getElementById(selectedCluster).checked = false;
-            selectedCluster = "noSelected"
-        };
-    </script>
-    <!-- <div id="header"></div> -->
-    <!--App display area -->
-    <!--  Pop-up window of service description -->
-    <div id="modalpopup"></div>
-    <!--  Pop-up window of adding service to the cluster -->
-    <div id="joinpopup"></div>
-    <!--  Main part of the app -->
-    <div id="program" onclick="focusLeave()"></div>
+          var ppup = document.getElementById("modalpopup");
+          ppup.style.visibility = "hidden";
+          ppup.style.left = "100%";
+          ppup.style.opacity = "0.0";
+          var jppup = document.getElementById("joinpopup");
+          jppup.style.visibility = "hidden";
+          jppup.style.left = "100%";
+          jppup.style.opacity = "0.0";
+          if (selectedCluster != "noSelected")
+            document.getElementById(selectedCluster).checked = false;
+          selectedCluster = "noSelected";
+        }
+      </script>
+      <!-- <div id="header"></div> -->
+      <!--App display area -->
+      <!--  Pop-up window of service description -->
+      <div id="modalpopup"></div>
+      <!--  Pop-up window of adding service to the cluster -->
+      <div id="joinpopup"></div>
+      <!--  Main part of the app -->
+      <div id="program" onclick="focusLeave()"></div>
 
-    <script src="js/bundle.min.js"></script>
-</div>
-</body>
+      <script src="js/bundle.min.js"></script>
+    </div>
+  </body>
 </html>
