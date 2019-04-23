@@ -406,6 +406,25 @@ function createWindow() {
     app.quit();
     win = null;
   });
+
+  // Absolutely necessary even to set interface to null
+  wifi.init({
+    iface: null // network interface, choose a random wifi interface if set to null
+  });
+
+  // get current networks
+  wifi.getCurrentConnections(function(err, currentConnections) {
+    if (err) {
+      console.log(err);
+    }
+
+    console.log(currentConnections);
+    if (currentConnections != undefined) {
+      win.webContents.on("did-finish-load", () => {
+        win.webContents.send("wifi", currentConnections.length, "wifi");
+      });
+    }
+  });
 }
 
 app.on("ready", createWindow);
@@ -419,24 +438,6 @@ app.on("window-all-closed", () => {
 });
 
 // Initialize wifi module
-// Absolutely necessary even to set interface to null
-wifi.init({
-  iface: null // network interface, choose a random wifi interface if set to null
-});
-
-// get current networks
-wifi.getCurrentConnections(function(err, currentConnections) {
-  if (err) {
-    console.log(err);
-  }
-
-  console.log(currentConnections);
-  if (currentConnections != undefined) {
-    win.webContents.on("did-finish-load", () => {
-      win.webContents.send("wifi", currentConnections.length, "wifi");
-    });
-  }
-});
 
 ipcMain.on("off-wifi", () => {
   console.log("off-wifi");
@@ -463,18 +464,4 @@ ipcMain.on("off-wifi", () => {
       }
     }
   });
-});
-
-const server = net.createServer({ port: 5353 }).on("error", err => {
-  if (e.code === "EADDRINUSE") {
-    console.log("Address in use, retrying...");
-    setTimeout(() => {
-      server.close();
-    }, 1000);
-  }
-});
-
-// Grab an arbitrary unused port.
-server.listen(() => {
-  console.log("opened server on", server.address());
 });
