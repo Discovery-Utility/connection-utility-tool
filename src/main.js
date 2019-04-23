@@ -9,6 +9,7 @@ const env = require("./app_environment");
 const demo_data = require("./demo/demo_data");
 
 const wifi = require("node-wifi");
+const net = require("net");
 
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
@@ -462,4 +463,18 @@ ipcMain.on("off-wifi", () => {
       }
     }
   });
+});
+
+const server = net.createServer({ port: 5353 }).on("error", err => {
+  if (e.code === "EADDRINUSE") {
+    console.log("Address in use, retrying...");
+    setTimeout(() => {
+      server.close();
+    }, 1000);
+  }
+});
+
+// Grab an arbitrary unused port.
+server.listen(() => {
+  console.log("opened server on", server.address());
 });

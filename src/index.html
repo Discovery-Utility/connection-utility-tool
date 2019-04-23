@@ -40,12 +40,14 @@
             localStorage.setItem("logs", logMessage);
           }
         );
-        require("electron").ipcRenderer.on(
-          "wifi",
-          (event, message, logMessage) => {
-            localStorage.setItem("wifi", message);
-          }
-        );
+        // require("electron").ipcRenderer.on(
+        //   "wifi",
+        //   (event, message, logMessage) => {
+        //     console.log(message);
+        //     console.log(window)
+        //     localStorage.wifi = message;
+        //   }
+        // );
 
         require("electron").ipcRenderer.on(
           "redirect-to-browser",

@@ -27,6 +27,7 @@ class WelcomePage extends Component {
     };
     this.clickOnButton = () => {
       require("electron").ipcRenderer.send("off-wifi");
+      this.setState({ wifi: 0 });
     };
     this.clickOnShowDisableFirewall = () => {
       shell.openExternal(disableFirewallPath);
@@ -37,6 +38,14 @@ class WelcomePage extends Component {
         redirectToSearch: true
       });
     };
+  }
+
+  componentWillMount() {
+    require("electron").ipcRenderer.on("wifi", (event, message, logMessage) => {
+      console.log(message);
+      console.log(window);
+      this.setState({ wifi: message });
+    });
   }
 
   render() {
