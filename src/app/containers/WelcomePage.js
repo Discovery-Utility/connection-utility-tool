@@ -3,7 +3,6 @@ import AppHeader from "../components/AppHeader";
 import t from "./../locales/translation";
 import Button from "./../components/Button";
 import "../../scss/pages/_welcomepage.scss";
-
 const { shell } = require("electron");
 import { Redirect } from "react-router-dom";
 
@@ -13,13 +12,16 @@ import { Redirect } from "react-router-dom";
 class WelcomePage extends Component {
   constructor(props) {
     super(props);
+    window.refresh = 0;
     const disableNetworkPath = "http://lmgtfy.com/?q=how+to+disable+network";
     const disableFirewallPath =
       "http://lmgtfy.com/?q=how+to+disable+firewall+windows+10";
 
     this.state = {
       redirectToSearch: false,
-      wifi: localStorage.getItem("wifi")
+      wifi: localStorage.getItem("wifi"),
+      refresh: 0,
+      a: 0
     };
 
     this.clickOnShowDisableNetwork = () => {
@@ -28,6 +30,12 @@ class WelcomePage extends Component {
     this.clickOnButton = () => {
       require("electron").ipcRenderer.send("off-wifi");
       this.setState({ wifi: 0 });
+      this.setState({ refresh: 1 });
+      console.log(this.state);
+      setTimeout(() => {
+        this.setState({ refresh: 0 });
+      }, 1000);
+      console.log(this.state);
     };
     this.clickOnShowDisableFirewall = () => {
       shell.openExternal(disableFirewallPath);
@@ -78,12 +86,17 @@ class WelcomePage extends Component {
             <div className="row justify-content-center">
               <Button
                 available={true}
-                text="Off Wi-Fi"
+                text={this.state.refresh === 1 ? "Execution..." : "Off Wi-fi"}
                 onClick={this.clickOnButton}
               />
             </div>
             {this.state.wifi == 1 && (
               <p className="text-center">Вы подключены к сети Wifi</p>
+            )}
+            {this.state.wifi == 0 && (
+              <p className="text-center">
+                <br />
+              </p>
             )}
             <p
               className="show-link text-center"

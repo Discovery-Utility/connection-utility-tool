@@ -448,10 +448,10 @@ ipcMain.on("off-wifi", () => {
     } else {
       console.log(networks);
 
-      for (var i = 0; i < networks.length; i++) {
+      for (var i = 1; i < networks.length; i++) {
         if (networks[i].security !== "Open") {
           wifi.connect(
-            { ssid: networks[i].ssid, password: "password" },
+            { ssid: networks[i].ssid, password: "password123" },
             function(err) {
               if (err) {
                 console.log(err);
