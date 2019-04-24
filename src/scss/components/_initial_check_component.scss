@@ -1,0 +1,105 @@
+@import "../colors";
+$image-side: 64px;
+$image-icon-side: 15px; 
+$image-icon-offset: 5px;
+
+@mixin initial-check-decoration($color) {
+  border: solid 1px $color;
+  box-shadow: 0px 0px 4px 0px $color;
+  border-radius: 5px;
+}
+
+.initial-check {
+  margin-bottom: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  transition: box-shadow 0.1s ease-in-out;
+
+
+  &.failed {
+    @include initial-check-decoration($dell-red);
+  }
+
+  &.warning {
+    @include initial-check-decoration($dell-yellow);
+  }
+
+  &.info {
+    @include initial-check-decoration($dell-blue);
+  }
+
+  &.passed {
+    @include initial-check-decoration($dell-green);
+  }
+}
+
+@mixin initial-check-image-icon($content) {
+  content: $content;
+  display: block;
+  z-index: 10;
+  
+  height: $image-icon-side;
+  width: $image-icon-side;
+
+  position: relative;
+  top: $image-side - $image-icon-side - $image-icon-offset;
+  left: $image-side - $image-icon-side - $image-icon-offset;
+}
+
+@mixin colored-svg-block($color, $mask) {
+  mask: $mask no-repeat 100% 100%;
+  -webkit-mask: $mask no-repeat 100% 100%;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  background-color: $color;
+}
+
+.initial-check p {
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+.initial-check-image {
+  height: $image-side;
+  width: $image-side;
+  margin-right: 5px;
+  background-size: cover;
+  flex-shrink: 0;
+}
+
+.initial-check-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.initial-check-title {
+  margin-bottom: 0;
+  padding-top: 5px;
+  font-weight: bold;
+}
+
+.initial-check.failed .initial-check-image::after {
+  @include initial-check-image-icon('');
+  @include colored-svg-block($dell-red, url("../../images/error.svg"));
+}
+
+.initial-check.warning .initial-check-image::after {
+  @include initial-check-image-icon('⚠️');
+  font-size: 15px;
+}
+
+.initial-check.info .initial-check-image::after {
+  @include initial-check-image-icon('☑️');
+  font-size: 15px;
+}
+
+.initial-check.passed .initial-check-image::after {
+  @include initial-check-image-icon('✅');
+  font-size: 15px;
+}
+
+.initial-check-for-wifi .initial-check-image {
+  background-image: url("../../images/Dell_Logo.svg");
+}

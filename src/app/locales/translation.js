@@ -9,14 +9,28 @@ let translation = new LocalizedStrings({
     en: {
         //new ui locales
         WELCOME_TITLE: "Welcome to " + productName,
-        ABOUT_TOOL: "This discovery tool will scan for appliances,\n" +
-            "making them available for initial configuration. Before\n" +
-            "scanning, disable the following services:",
-        WIFI_NETWORKS: "Wi-Fi networks.",
-        SHOW_ME_LINK: "Show me how.",
-        PC_FIRE_WALL: "Your PC firewall",
-        SHOW_ME_HOW: "Show me how.",
+        ABOUT_TOOL: "This discovery tool will scan for appliances, \n" +
+            "making them available for initial configuration.",
+        CHECK_THE_FOLLOWING: "Check the following conditions before start:",
         SCAN_APPLIANCES: "Scan appliances",
+
+        // INITIAL CHECKS
+        INITIAL_WIFI: "Wi-Fi networks",
+        INITIAL_WIFI_TEXT: "Wireless networks should be disabled",
+        INITIAL_WIFI_FAILED: "Wi-Fi networks enabled",
+        INITIAL_WIFI_FAILED_TEXT: "Disable wireless networks to continue",
+
+        INITIAL_FIREWALL: "Firewalls",
+        INITIAL_FIREWALL_TEXT: "Make sure your firewall is not blocking any connections.",
+        INITIAL_FIREWALL_WARNING_TEXT: "Your firewall may cause discovery problems. Please, disable it or check firewall settings.",
+        INITIAL_FIREWALL_PASSED_TEXT: "No firewalls detected. Sometimes firewalls cause problems with discovery.",
+        INITIAL_FIREWALL_FAILED_TEXT: "Windows Firewall has rules that block port 5353. Please delete them to continue.",
+
+        INITIAL_ANTIVIRUS: "Antivirus software",
+        INITIAL_ANTIVIRUS_TEXT: "Antivirus software may cause problems.",
+        INITIAL_ANTIVIRUS_PASSED: "No active antivirus software found.",
+
+        // 
         SEARCH: "Searching...",
         SEARCH_HELP: "Hang tight. This process usually takes 60 seconds." +
             " Once we find the available appliances, you can create a cluster or add to an existing one.",
