@@ -16,7 +16,9 @@ const os = require('os');
 const EnvironmentChecker = require("./initial-checks/EnvironmentChecker");
 
 let win;
-let checker = EnvironmentChecker(null, ['wifi', 'firewall']);
+let checker = EnvironmentChecker({
+    linux: './initial-checks/platform/linux-checks'
+}, ['wifi', 'firewall']);
 
 function allInterfaces() {
     var networks = os.networkInterfaces()
