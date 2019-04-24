@@ -13,7 +13,10 @@ const path = require('path');
 const url = require('url');
 const os = require('os');
 
+const EnvironmentChecker = require("./initial-checks/EnvironmentChecker");
+
 let win;
+let checker = EnvironmentChecker(null, ['wifi', 'firewall']);
 
 function allInterfaces() {
     var networks = os.networkInterfaces()
@@ -282,6 +285,11 @@ ipcMain.on('connect-to-appliance', (event, arg) => {
     });
 });
 
+ipcMain.on('checkRequested', (event, arg) => {
+    checker.check().then((result) => {
+        event.sender.send('checkResult', result);
+    })
+});
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
     console.log("cert-error");
