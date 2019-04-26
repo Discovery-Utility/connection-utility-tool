@@ -1,0 +1,17 @@
+
+.scroll {
+    overflow: scroll; /* Добавляем полосы прокрутки */
+    padding: 5px; /* Поля вокруг текста */
+    height: 98%;
+    width: 88%;
+    position: absolute;
+    margin: 0.5rem;
+}
+
+
+.btn-cust {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    top: 5px;
+}
