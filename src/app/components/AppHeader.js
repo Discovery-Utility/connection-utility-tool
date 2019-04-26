@@ -10,6 +10,8 @@ import {Link, Redirect} from 'react-router-dom'
  *
  * TODO replace bootstrap grid to flex.
  */
+
+
 class AppHeader extends Component {
     constructor(props) {
         super(props);
@@ -25,12 +27,20 @@ class AppHeader extends Component {
             this.setState({
                 redirectToWelcomePage: true
             });
+        };
+
+        this.redirected = () => {
+            console.log('redirected');
+            this.setState({
+                redirectToWelcomePage: false
+            });
         }
     }
 
     render() {
 
-        let redirectToWelcomePage = this.state.redirectToWelcomePage;
+        // let redirectToWelcomePage = this.state.redirectToWelcomePage;
+        //console.log(this.state.redirectToWelcomePage);
         return (
             <div>
                 <nav className="navbar navbar-light header">
@@ -55,7 +65,11 @@ class AppHeader extends Component {
                              alt=""/>
                     </Link>
                 </nav>
-                {redirectToWelcomePage ? <Redirect to="/welcome"/> : null}
+                {this.state.redirectToWelcomePage ?
+                    <div>
+                        {this.state.redirectToWelcomePage=false}
+                    <Redirect to="/welcome"/>
+                    </div>: null}
             </div>
         );
     }

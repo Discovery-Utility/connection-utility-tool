@@ -41,8 +41,7 @@ class SearchPage extends Component {
                 timeLeft: timeLeft,
                 progress: progress
             })
-        }, 1000);
-
+        }, 1000)
     }
 
     componentWillUnmount() {
