@@ -111,10 +111,10 @@ function appOnUp(service) {
         console.log('Success');
         newelem.name = namearr[1];
         newelem.link = 'https://' + service.referer.address + ':' + service.port;
-        if (namearr[4] == 'Management') {
+        if (namearr[5] == 'Management' || namearr[4] === "Management") {
             newelem.state = 'configured';
         }
-        else if (namearr[4] == 'Unconfigured') {
+        else if (namearr[5] == 'Unconfigured' || namearr[4] === "Unconfigured") {
             newelem.state = 'unconfigured';
         }
         else {
@@ -122,6 +122,11 @@ function appOnUp(service) {
         }
         if (namearr[2] == 'Virtual') {
             newelem.type = 'VMware';
+        }
+        else if (namearr[2].length === 10) {
+            newelem.type = "SAN";
+        } else if (namearr[2].length === 11) {
+            newelem.type = "VMware";
         }
         else {
             newelem.type = 'SAN';
