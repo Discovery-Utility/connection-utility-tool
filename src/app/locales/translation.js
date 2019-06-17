@@ -15,6 +15,7 @@ let translation = new LocalizedStrings({
         WIFI_NETWORKS: "Wi-Fi networks.",
         SHOW_ME_LINK: "Show me how.",
         PC_FIRE_WALL: "Your PC firewall",
+        CONNECT_YOUR_LAPTOP: "Connect your laptop to " + productName + " network.",
         SHOW_ME_HOW: "Show me how.",
         SCAN_APPLIANCES: "Scan appliances",
         SEARCH: "Searching...",

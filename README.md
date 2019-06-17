@@ -39,7 +39,7 @@ and will also install [npm](https://docs.npmjs.com)
 3. Download and install all of the project libraries and dependencies by
 running the following commands (using any shell).
     1. run `npm install` in "./" of the project.
-4. In the directory "./" build the bundle by `npm run dev` command
+4. In the directory "./" build the bundle by `npm run dev` command. (For build the bundle & run application use `npm run app` command)
 5. Now you can run or build binary files of **ZSCU**:
     1. For running this application you need enter `npm run electron`
 command in "./"
