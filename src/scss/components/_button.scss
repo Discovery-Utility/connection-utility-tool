@@ -69,5 +69,31 @@ $btn-primary-active-bg-color: $dell-dark-blue;
   }
 }
 
+.button-disabling {
+  border-radius: $button-radius;
+  font-size: 14px;
+  box-shadow: none;
+  padding: 1px;
+  color: $dell-white;
+  background-color: $dell-blue;
+  border-color: $dell-blue;
+  cursor: pointer;
+
+  &:focus,
+  &.focus {
+    background-color: $btn-primary-hover-bg-color;
+    border-color: $btn-primary-hover-bg-color;
+  }
+
+  &:hover {
+    background-color: $btn-primary-hover-bg-color;
+    border-color: $btn-primary-hover-bg-color;
+
+  }
+  &:active {
+    background-color: $btn-primary-active-bg-color;
+    border-color: $btn-primary-active-bg-color;
+  }
+}
 
 
