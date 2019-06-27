@@ -26,8 +26,6 @@ export const check_bluetooth = function(){
             exec('hcitool dev',
                 function (error, stdout) {
                     const parsedStatus  = stdout.split(':\n\t');
-                    console.log(parsedStatus[0]);
-                    console.log(parsedStatus[1]);
                     resolve(parsedStatus[1] !== undefined);
                 });
         });
@@ -35,9 +33,7 @@ export const check_bluetooth = function(){
 };
 
 export const disable_bluetooth = function () {
-    /*if (platform === 'win32') {
-        exec('state off');
-    } else */if (platform === 'linux'){
+    if (platform === 'linux'){
         exec('rfkill block bluetooth');
     }
 };

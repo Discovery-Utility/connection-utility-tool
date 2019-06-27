@@ -22,8 +22,7 @@ export const check_firewall = function(){
         });
     }
     else if (platform === 'linux'){
-        /* return smth like "Unavailable to check automatically" */
-
+        /* Requires root user privileges */
         return new Promise(resolve => {
             exec('ufw status', function (error, stdout) {
                 const parsedStatus = stdout.split(': ');
@@ -34,6 +33,7 @@ export const check_firewall = function(){
     }
 };
 
+/* Requires root user privileges */
 export const disable_firewall = function () {
     if (platform === 'win32') {
         exec('netsh advfirewall set publicprofile state off | netsh advfirewall set privateprofile state off');
