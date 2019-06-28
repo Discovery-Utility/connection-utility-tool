@@ -96,7 +96,7 @@ class WelcomePage extends Component {
 
         // Check Bluetooth state, generate tags
         if(this.state.isBluetoothEnabled){
-            if(this.state.platform !== 'win32') {
+            if(this.state.platform === 'win32') {
                 bluetoothRenderBlock = <h6> Bluetooth : <b className="red"> enabled </b></h6>;
             }
             else {
