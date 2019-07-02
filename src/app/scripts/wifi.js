@@ -1,45 +1,36 @@
+import { contains } from './contains';
 
 const exec = require('child_process').exec;
 
-const WirelessWindowsE = "Wireless";
-const WirelessWindowsR = "Беспроводная сеть";
+const platform = process.platform;
 
-let platform = process.platform;
-
-const contains = function () {
-    let flag = false;
-    for (let i = 1; i < arguments.length; i++)
-        flag = flag || arguments[0].includes(arguments[i]);
-    return flag;
-};
-
-export const check_wifi = function(){
+export const checkWifi = function() {
     if (platform === 'win32') {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             exec('chcp 65001 | netsh interface show interface',
-                function (error, stdout) {
-                    exec('chcp 866', function(){
+                (error, stdout) => {
+                    exec('chcp 866', () => {
                         resolve(stdout.toString().split('\r\n')
-                            .filter(el => contains(el, WirelessWindowsR, WirelessWindowsE) && contains(el, 'Connected'))
+                            .filter(el => contains(el, 'Wireless', 'Wi-Fi', 'Беспроводная сеть') && contains(el, 'Connected'))
                             .length !== 0);
                     });
                 });
         });
     }
-    else if (platform === 'linux'){
-        return new Promise(resolve => {
+    if (platform === 'linux') {
+        return new Promise((resolve) => {
             exec('nmcli radio wifi',
-                function (error, stdout) {
+                (error, stdout) => {
                     resolve(stdout === 'enabled\n');
                 });
         });
     }
 };
 
-export const disable_wifi = function () {
+export const disableWifi = function () {
     if (platform === 'win32') {
             exec('netsh wlan disconnect');
-    } else if (platform === 'linux'){
+    } else if (platform === 'linux') {
             exec('nmcli radio wifi off');
     }
 };
