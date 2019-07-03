@@ -5,23 +5,23 @@ import Button from './../components/Button';
 import '../../scss/pages/_welcomepage.scss'
 const {shell} = require('electron');
 import {Redirect} from 'react-router-dom'
-import {check_wifi, disable_wifi} from "../scripts/wifi";
-import {check_bluetooth, disable_bluetooth} from "../scripts/bluetooth";
-import {check_firewall, disable_firewall} from "../scripts/firewall";
+import {checkWifi, disableWifi} from "../scripts/wifi";
+import {checkBluetooth, disableBluetooth} from "../scripts/bluetooth";
+import {checkFirewall, disableFirewall} from "../scripts/firewall";
 
-//const COUNT_SECONDS = env.SEARCH_DELAY;
 /**
  * Welcome page displays welcome message and button to scan the appliances
  */
+
 class WelcomePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             redirectToSearch: false,
             redirectToErrorPage: false,
-            isWiFiEnabled: undefined,
-            isFirewallEnabled: undefined,
-            isBluetoothEnabled: undefined,
+            isWiFiEnabled: false,
+            isFirewallEnabled: false,
+            isBluetoothEnabled: false,
             platform: process.platform
         };
 
@@ -43,84 +43,74 @@ class WelcomePage extends Component {
     }
 
     disableWiFi() {
-        disable_wifi();
+        disableWifi();
         this.setState({isWiFiEnabled: false})
     }
 
     disableFirewall() {
-        disable_firewall();
+        disableFirewall();
         this.setState({isFirewallEnabled: false})
     }
 
     disableBluetooth() {
-        disable_bluetooth();
+        disableBluetooth();
         this.setState({isBluetoothEnabled: false})
     }
 
     checkAll() {
-        check_wifi().then(res => {
+        checkWifi().then((res) => {
             this.setState({isWiFiEnabled: res})
         });
-        check_firewall().then(res => {
+        checkFirewall().then((res) => {
             this.setState({isFirewallEnabled: res})
         });
-        check_bluetooth().then(res => {
+        checkBluetooth().then((res) => {
             this.setState({isBluetoothEnabled: res})
         });
-    };
+    }
 
     componentDidMount() {
         this.checkAll();
         setInterval(() => this.checkAll(), 3000);
     }
 
-    render() {
-
-        let redirect = this.state.redirectToSearch;
-
-        let wifiRenderBlock = null;
-        let bluetoothRenderBlock = null;
-        let firewallRenderBlock = null;
-
-        // Check WiFi state, generate tags
+    getWifiRenderBlock() {
         if (this.state.isWiFiEnabled) {
-            wifiRenderBlock = <h6> Wi-Fi : <b className="red"> enabled </b>
-                                <img src={require('../../images/disable2.svg')} width="20" height="20"
-                                     className="d-inline-block pb-1"
-                                     onClick={this.disableWiFi} alt="disable"/>
-                                </h6>;
+            return <h6> Wi-Fi : <b className="red"> enabled </b>
+                <img src={require('../../images/disable2.svg')} width="20" height="20"
+                     className="d-inline-block pb-1" onClick={this.disableWiFi} alt="disable"/>
+                </h6>;
         }
-        else {
-            wifiRenderBlock = <h6> Wi-Fi : disabled </h6>;
-        }
+        return <h6> Wi-Fi : disabled </h6>;
+    }
 
-        // Check Bluetooth state, generate tags
+    getBluetoothRenderBlock() {
         if(this.state.isBluetoothEnabled){
             if(this.state.platform === 'win32') {
-                bluetoothRenderBlock = <h6> Bluetooth : <b className="red"> enabled </b></h6>;
-            }
-            else {
-                bluetoothRenderBlock = (<h6> Bluetooth : <b className="red"> enabled    </b>
-                                        <img src={require('../../images/disable2.svg')} width="20" height="20"
-                                             className="d-inline-block pb-1"
-                                             onClick={this.disableBluetooth} alt="disable"/>
-                                        </h6>);
+                return <h6> Bluetooth : <b className="red"> enabled </b></h6>;
+            } else {
+                return <h6> Bluetooth : <b className="red"> enabled    </b>
+                    <img src={require('../../images/disable2.svg')} width="20" height="20"
+                         className="d-inline-block pb-1" onClick={this.disableBluetooth} alt="disable"/>
+                    </h6>;
             }
         }
-        else {
-            bluetoothRenderBlock = <h6> Bluetooth : disabled </h6>;
-        }
+        return <h6> Bluetooth : disabled </h6>;
+    }
 
-        // Check Firewall state, generate tags
-        if (this.state.platform === 'win32'){
-            if(this.state.isFirewallEnabled)
-                firewallRenderBlock = <h6> Firewall : <b className="red"> enabled </b> </h6>;
-            else
-                firewallRenderBlock = <h6> Firewall : disabled </h6>;
+    getFirewallRenderBlock() {
+        if (this.state.platform === 'win32') {
+            if(this.state.isFirewallEnabled) {
+                return <h6> Firewall : <b className="red"> enabled </b></h6>;
+            } else {
+                return <h6> Firewall : disabled </h6>;
+            }
         }
-        else {
-            firewallRenderBlock = null;
-        }
+        return null;
+    }
+
+    render() {
+        let redirect = this.state.redirectToSearch;
 
         return (
             <div>
@@ -138,9 +128,9 @@ class WelcomePage extends Component {
                             </div>
                         </div>
                         <div className="text-center">
-                            { wifiRenderBlock }
-                            { bluetoothRenderBlock }
-                            { firewallRenderBlock }
+                            {this.getWifiRenderBlock()}
+                            {this.getBluetoothRenderBlock()}
+                            {this.getFirewallRenderBlock()}
                         </div>
                         <div className="row justify-content-center">
                             <Button available={true} text={t.SCAN_APPLIANCES} onClick={this.clickOnScanBtn}/>
