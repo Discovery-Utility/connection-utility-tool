@@ -25,7 +25,7 @@ class Button extends Component {
 
     render() {
         return (
-            <div className={this.getClassNames()}
+            <div className={this.getClassNames()} data-dismiss="modal"
                  onClick={this.props.available ? this.props.onClick : null}>{this.props.text}</div>
         );
     }

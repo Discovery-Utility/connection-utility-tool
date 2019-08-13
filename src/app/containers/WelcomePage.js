@@ -6,6 +6,7 @@ import '../../scss/pages/_welcomepage.scss'
 
 const {shell} = require('electron');
 import {Redirect} from 'react-router-dom'
+import SlideOutMessageDialog from "../components/SlideOutMessageDialog";
 
 /**
  * Welcome page displays welcome message and button to scan the appliances
@@ -13,19 +14,35 @@ import {Redirect} from 'react-router-dom'
 class WelcomePage extends Component {
     constructor(props) {
         super(props);
-        const disableNetworkPath = "http://lmgtfy.com/?q=how+to+disable+network";
-        const disableFirewallPath = "http://lmgtfy.com/?q=how+to+disable+firewall+windows+10";
+
+        this.state = {
+            modalBody: null,
+            modalTitle: null
+        };
 
         this.state = {
            redirectToSearch: false
         };
 
+        this.connectYourLaptop = () => {
+            this.setState({
+                modalTitle: t.CONNECT_LAPTOP,
+                modalBody: t.CONNECT_LAPTOP_TEXT + t.PLACEHOLDER_TEXT
+            })
+        };
+
         this.clickOnShowDisableNetwork = () => {
-            shell.openExternal(disableNetworkPath);
+            this.setState({
+                modalTitle: t.DISABLE_NETWORK,
+                modalBody: t.DISABLE_NETWORK_TEXT + t.PLACEHOLDER_TEXT
+            })
         };
 
         this.clickOnShowDisableFirewall = () => {
-            shell.openExternal(disableFirewallPath);
+            this.setState({
+                modalTitle: t.DISABLE_FIREWALL,
+                modalBody: t.DISABLE_FIREWALL_TEXT + t.PLACEHOLDER_TEXT
+            })
         };
 
         this.clickOnScanBtn = () => {
@@ -56,24 +73,24 @@ class WelcomePage extends Component {
                         <p className="text-center"><b>1.</b> {t.CONNECT_YOUR_LAPTOP}</p>
                     </div>
                     <div className="row justify-content-center">
-                        <p className="show-link" onClick={this.clickOnShowDisableNetwork}>  {t.SHOW_ME_HOW}</p>
+                        <p className="show-link" data-toggle="modal" data-target="#modal" onClick={this.connectYourLaptop}>  {t.SHOW_ME_HOW}</p>
                     </div>
                     <div className="row justify-content-center">
                         <p className="text-center"><b>2.</b> {t.WIFI_NETWORKS}</p>
                     </div>
                     <div className="row justify-content-center">
-                        <p className="show-link" onClick={this.clickOnShowDisableNetwork}>  {t.SHOW_ME_HOW}</p>
+                        <p className="show-link" data-toggle="modal" data-target="#modal" onClick={this.clickOnShowDisableNetwork}>  {t.SHOW_ME_HOW}</p>
                     </div>
                     <div className="row justify-content-center">
                         <p className="text-center"><b>3.</b> {t.PC_FIRE_WALL}</p>
                     </div>
                     <div className="row justify-content-center">
-                        <p className="show-link" onClick={this.clickOnShowDisableFirewall}>  {t.SHOW_ME_HOW}</p>
+                        <p className="show-link" data-toggle="modal" data-target="#modal" onClick={this.clickOnShowDisableFirewall}>  {t.SHOW_ME_HOW}</p>
                     </div>
                     <div className="row justify-content-center">
                         <Button available={true} text={t.SCAN_APPLIANCES} onClick={this.clickOnScanBtn}/>
                     </div>
-
+                    <SlideOutMessageDialog title={this.state.modalTitle} body={this.state.modalBody}/>
                     {/*redirect to next page*/}
                     {redirect ? <Redirect to="/search"/> : null}
                 </div>
