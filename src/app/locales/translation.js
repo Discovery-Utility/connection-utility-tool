@@ -45,7 +45,20 @@ let translation = new LocalizedStrings({
         ADD_TO_EXISTING: "Add to existing cluster",
         ADD_TO_CLUSTER: "Add to cluster",
         CLOSE: "Close",
-
+        ACTION_OK: "OK",
+        DISABLE_FIREWALL: "Disable firewall",
+        DISABLE_FIREWALL_TEXT: "To disable firewall you should do something cool and etc",
+        CONNECT_LAPTOP: "Connect your laptop",
+        CONNECT_LAPTOP_TEXT: "To connect your laptop to network you should do something cool and etc ",
+        DISABLE_NETWORK: "Disable WI-FI networks",
+        DISABLE_NETWORK_TEXT: "To disable wifi networks you should do something cool and etc",
+        PLACEHOLDER_TEXT: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet, mi a sagittis " +
+            "gravida, libero justo iaculis ex, et venenatis felis leo at sem. Pellentesque tristique pellentesque neque" +
+            " quis commodo. Vivamus mattis sem quis mi hendrerit tempus. Mauris mollis odio dui, a faucibus nisi semper " +
+            "non. Quisque iaculis convallis ex vitae iaculis. Morbi ut tortor et libero venenatis tempus. Maecenas " +
+            "lectus mi, cursus ac nisl in, blandit posuere diam. Lorem ipsum dolor sit amet, consectetur adipiscing " +
+            "elit. Nunc placerat nisi sed augue vehicula blandit. Sed aliquet ante eu elit fermentum, a semper dolor " +
+            "gravida. Donec gravida ante ut erat gravida, eu laoreet magna efficitur.",
 
         //*************************
         // ** MAIN PAGE LOCALES

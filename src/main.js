@@ -96,11 +96,11 @@ function appOnUp(service) {
 
     // New discovered device name parsing
 
-    var namearr = service.name.split('_');
-    if ((namearr[0] == 'PSApp') || (namearr[0] == 'PSCluster')) {
-        var tmp = JSON.parse(storages);
-        var tmpLog = JSON.parse(detectionLog);
-        var newelem = {
+    const serviceNames = service.name.split('_');
+    if (serviceNames[0] === 'PSApp' || serviceNames[0] === 'PSCluster') {
+        let tmp = JSON.parse(storages);
+        let tmpLog = JSON.parse(detectionLog);
+        let newElement = {
             "link": "",
             "name": "",
             "state": "",
@@ -109,39 +109,29 @@ function appOnUp(service) {
 
         };
         console.log('Success');
-        newelem.name = namearr[1];
-        newelem.link = 'https://' + service.referer.address + ':' + service.port;
-        if (namearr[5] == 'Management' || namearr[4] === "Management") {
-            newelem.state = 'configured';
-        }
-        else if (namearr[5] == 'Unconfigured' || namearr[4] === "Unconfigured") {
-            newelem.state = 'unconfigured';
-        }
-        else {
-            newelem.state = 'service state';
-        }
-        if (namearr[2] == 'Virtual') {
-            newelem.type = 'VMware';
-        }
-        else if (namearr[2].length === 10) {
-            newelem.type = "SAN";
-        } else if (namearr[2].length === 11) {
-            newelem.type = "VMware";
-        }
-        else {
-            newelem.type = 'SAN';
-        }
-        if (namearr[0] == 'PSApp') {
-            newelem.cluster = 'false';
-        }
-        else newelem.cluster = 'true';
+        newElement.name = serviceNames[1];
+        newElement.link = 'https://' + service.referer.address + ':' + service.port;
 
-        console.log('Current appliance:\n' + jsonParseString(newelem));
-        //tmp.storages.push(newelem);
+
+        if (serviceNames[5] === 'Management' || serviceNames[4] === 'Management') {
+            newElement.state = 'configured';
+        }
+        else if (serviceNames[5] === 'Unconfigured' || serviceNames[4] === 'Unconfigured') {
+            newElement.state = 'unconfigured';
+        }
+        else {
+            newElement.state = 'service state';
+        }
+
+        newElement.type = (serviceNames[2] === 'Virtual' || serviceNames[2].length === 11) ? 'VMware' : 'SAN';
+        newElement.cluster = serviceNames[0] === 'PSApp' ? 'false' : 'true';
+
+        console.log('Current appliance:\n' + jsonParseString(newElement));
+        //tmp.storages.push(newElement);
         if (tmp != null) {
             if (tmp.storages.length == 0) {
-                tmp.storages.push(newelem);
-                tmpLog.storages.splice(0, 0, addTypeInLogs(newelem));
+                tmp.storages.push(newElement);
+                tmpLog.storages.splice(0, 0, addTypeInLogs(newElement));
                 console.log('Discovered appliance:\n' + jsonParseString(tmpLog.storages[0]) + '\n');
                 if (tmpLog.storages.length > 1000) {
                     tmpLog.storages.splice(1000, tmpLog.storages.length - 1000);
@@ -149,13 +139,13 @@ function appOnUp(service) {
             } else {
                 var isInserted = false;
                 for (var i = 0; i < tmp.storages.length; i++) {
-                    if (tmp.storages[i].name == newelem.name) {
+                    if (tmp.storages[i].name == newElement.name) {
                         isInserted = true;
                         break;
                     }
-                    if (tmp.storages[i].name > newelem.name) {
-                        tmp.storages.splice(i, 0, newelem);
-                        tmpLog.storages.splice(0, 0, addTypeInLogs(newelem));
+                    if (tmp.storages[i].name > newElement.name) {
+                        tmp.storages.splice(i, 0, newElement);
+                        tmpLog.storages.splice(0, 0, addTypeInLogs(newElement));
                         console.log('Discovered appliance:\n' + jsonParseString(tmpLog.storages[0]) + '\n');
                         if (tmpLog.storages.length > 1000) {
                             tmpLog.storages.splice(1000, tmpLog.storages.length - 1000);
@@ -165,8 +155,8 @@ function appOnUp(service) {
                     }
                 }
                 if (!isInserted) {
-                    tmp.storages.push(newelem);
-                    tmpLog.storages.splice(0, 0, addTypeInLogs(newelem));
+                    tmp.storages.push(newElement);
+                    tmpLog.storages.splice(0, 0, addTypeInLogs(newElement));
                     console.log('Discovered appliance:\n' + jsonParseString(tmpLog.storages[0]) + '\n');
                     if (tmpLog.storages.length > 1000) {
                         tmpLog.storages.splice(1000, tmpLog.storages.length - 1000);
@@ -174,8 +164,8 @@ function appOnUp(service) {
                 }
             }
         } else {
-            tmp.storages.push(newelem);
-            tmpLog.storages.splice(0, 0, addTypeInLogs(newelem));
+            tmp.storages.push(newElement);
+            tmpLog.storages.splice(0, 0, addTypeInLogs(newElement));
             console.log('Discovered appliance:\n' + jsonParseString(tmpLog.storages[0]) + '\n');
             if (tmpLog.storages.length > 1000) {
                 tmpLog.storages.splice(1000, tmpLog.storages.length - 1000);
