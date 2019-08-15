@@ -5,7 +5,7 @@ $button-font-size: 16px;
 $btn-primary-hover-bg-color: #006899;
 $btn-primary-active-bg-color: $dell-dark-blue;
 
-
+//primary button styles
 .button {
   border-radius: $button-radius;
   font-size: $button-font-size;
@@ -38,7 +38,7 @@ $btn-primary-active-bg-color: $dell-dark-blue;
     opacity: 0.4;
   }
 }
-
+//outline button styles
 .button-outline {
   border-radius: $button-radius;
   font-size: $button-font-size;
