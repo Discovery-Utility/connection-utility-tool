@@ -4,7 +4,7 @@
  * main.js need to create application window.
  * And parse appliances data. (from network or demo data)
  */
-
+import {productName} from "./app/locales/translation";
 const env = require("./app_environment");
 const demo_data = require("./demo/demo_data");
 
@@ -89,15 +89,46 @@ function currDate() {
     return datestring;
 }
 
+function getModelByCode(code, type) {
+    var productModel = "";
+    switch(code) {
+        case "EX-1":
+            productModel = "1000";
+            break;
+        case "EX-2":
+            productModel = "3000";
+            break;
+        case "EX-3":
+            productModel = "5000";
+            break;
+        case "EX-4":
+            productModel = "7000";
+            break;
+        case "EX-5":
+            productModel = "9000";
+            break;
+    }
+
+    var typePostfix = "";
+    if (type === 'HCI') {
+        typePostfix = "X";
+    }
+    return productName + " " + productModel + typePostfix;
+}
+
 // The event handler for the emergence of a new device in the network
 function appOnUp(service) {
     console.log('#######################################\nadding');
-    console.log('Service found under the name: ' + service.name);
+    console.log('System found under the name: ' + service.name);
 
-    // New discovered device name parsing
+    // New discovered system name parsing
+
+// Service format should be (underscore delimited only):
+// PSA|PSC_<SOMENAME>_<code-version>_<system-type>_<system-model>_<HW type>_Unified|Block_<system-state>
+//    0         1           2              3              4           5           6             7
 
     const serviceNames = service.name.split('_');
-    if (serviceNames[0] === 'PSApp' || serviceNames[0] === 'PSCluster') {
+    if (serviceNames[0] === 'PSA' || serviceNames[0] === 'PSC') {
         let tmp = JSON.parse(storages);
         let tmpLog = JSON.parse(detectionLog);
         let newElement = {
@@ -105,26 +136,48 @@ function appOnUp(service) {
             "name": "",
             "state": "",
             "type": "",
-            "cluster": ""
-
+            "model": "",
+            "cluster": "",
+            "failed": ""
         };
         console.log('Success');
+
+        //Is the system part of a cluster or a standalone system
+        newElement.cluster = serviceNames[0] === 'PSA' ? 'false' : 'true';
+        //Cluster name or system service ID
         newElement.name = serviceNames[1];
+        //URL to access the system
         newElement.link = 'https://' + service.referer.address + ':' + service.port;
+        //System type
+        newElement.type = (serviceNames[3] === 'X') ? 'HCI' : 'BM';
+        //System model
+        newElement.model = getModelByCode(serviceNames[4], newElement.type);
 
+        //System state
+//  "Unconfigured", 0                 // system in factory state
+//  "Unconfigured_Faulted", 1       // Hardware is in faulted state
+//  "Configuring", 2                   // In the midst of being configured or unconfigured
+//  "Configured", 3                     // system is configured
+//  "Expanding", 4                       // System is adding a new appliance
+//  "Removing", 5                         // System is removing an appliance
+//  "Clustering_Failed", 6       // system in a bad state
+//  "Unknown", 99                          // unknown state
 
-        if (serviceNames[5] === 'Management' || serviceNames[4] === 'Management') {
-            newElement.state = 'configured';
-        }
-        else if (serviceNames[5] === 'Unconfigured' || serviceNames[4] === 'Unconfigured') {
+        if (serviceNames[7] === '0' || serviceNames[7] === '1') {
             newElement.state = 'unconfigured';
+        }
+        else if (serviceNames[7] === '3' || serviceNames[7] === '4' || serviceNames[7] === '5') {
+            newElement.state = 'configured';
         }
         else {
             newElement.state = 'service state';
         }
 
-        newElement.type = (serviceNames[2] === 'Virtual' || serviceNames[2].length === 11) ? 'VMware' : 'SAN';
-        newElement.cluster = serviceNames[0] === 'PSApp' ? 'false' : 'true';
+        newElement.failed = 'false';
+        // Identify if system is healthy or not
+        if (serviceNames[7] === '1' || serviceNames[7] === '6') {
+            newElement.failed = 'true';
+        }
 
         console.log('Current appliance:\n' + jsonParseString(newElement));
         //tmp.storages.push(newElement);
