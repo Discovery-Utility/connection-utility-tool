@@ -4,7 +4,6 @@
  * main.js need to create application window.
  * And parse appliances data. (from network or demo data)
  */
-import {productName} from "./app/locales/translation";
 const env = require("./app_environment");
 const demo_data = require("./demo/demo_data");
 
@@ -12,6 +11,7 @@ const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path');
 const url = require('url');
 const os = require('os');
+const productName = "ProductName";
 
 let win;
 
