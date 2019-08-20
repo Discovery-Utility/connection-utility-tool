@@ -63,7 +63,7 @@ class Appliance extends Component {
     render() {
         let {appliance, showSettingsMenu, itemClick, selectTypeCheckbox} = this.props;
         let applianceName = appliance.name;
-        let applianceType = appliance.type;
+        let applianceModel = appliance.model;
         return (
             <div className={this.getClassNames()} onClick={this.props.onClick}>
                 {selectTypeCheckbox ?
@@ -82,7 +82,7 @@ class Appliance extends Component {
                      alt="dell-logo"/>
 
                 <p className="app-name">{applianceName}</p>
-                <p className="app-type">{applianceType === "VMware" ? "HCI" : "SAN"}</p>
+                <p className="app-type">{applianceModel}</p>
                 {showSettingsMenu ? <div className="custom-dropdown dropleft">
                     <img src="./images/more.svg"
                          width="25" height="25"
