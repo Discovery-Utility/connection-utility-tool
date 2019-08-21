@@ -86,7 +86,7 @@ class Appliance extends Component {
 
                 <p className="app-name">{applianceName}</p>
                 <p className="app-model">{applianceModel}</p>
-                <p>{applianceFailed}</p>                
+                <p className="app-failed">{applianceFailed}</p>                
                 {showSettingsMenu ? <div className="custom-dropdown dropleft">
                     <img src="./images/more.svg"
                          width="25" height="25"
