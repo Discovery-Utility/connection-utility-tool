@@ -65,7 +65,7 @@ class Appliance extends Component {
         let {appliance, showSettingsMenu, itemClick, selectTypeCheckbox} = this.props;
         let applianceName = appliance.name;
         let applianceModel = appliance.model;
-        let applianceFailed = (appliance.failed === "true") ? "BOOOO" : "";
+        let applianceFailedClass = (appliance.failed === "true") ? "app-failed-true" : "app-failed-false";
 
         return (
             <div className={this.getClassNames()} onClick={this.props.onClick}>
@@ -79,14 +79,14 @@ class Appliance extends Component {
                                name="radio"/>
                         <span className="radio-checkmark"/>
                     </label>}
-                <img src="./images/Dell_Logo.svg"
-                    width="25" height="25"
-                   className="app-dell-ico"
-                  alt="dell-logo"/>
 
                 <p className="app-name">{applianceName}</p>
                 <p className="app-model">{applianceModel}</p>
-                <p className="app-failed">{applianceFailed}</p>                
+                <img src="./images/warning.svg"
+                    width="25" height="25"
+                   className={applianceFailedClass}
+                  alt="warning" />
+
                 {showSettingsMenu ? <div className="custom-dropdown dropleft">
                     <img src="./images/more.svg"
                          width="25" height="25"

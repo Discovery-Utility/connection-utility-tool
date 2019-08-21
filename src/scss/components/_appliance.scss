@@ -102,12 +102,15 @@
 }
 
 //system status
-.app-model {
-  padding-top: 12px;
-  margin-left: auto;
-  margin-right: 10px;
+.app-failed-true {
+  visibility: visible;
+  margin-left: 50px;
 }
 
+//system status
+.app-failed-false {
+  visibility: hidden;
+}
 
 //custom dropdown dialog styles
 .custom-dropdown {
