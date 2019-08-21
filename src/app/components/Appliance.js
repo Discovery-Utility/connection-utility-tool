@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import t from './../locales/translation'
 import '../../scss/components/_appliance.scss'
 
@@ -64,6 +65,8 @@ class Appliance extends Component {
         let {appliance, showSettingsMenu, itemClick, selectTypeCheckbox} = this.props;
         let applianceName = appliance.name;
         let applianceModel = appliance.model;
+        let applianceFailed = (appliance.failed === "true") ? "BOOOO" : "";
+
         return (
             <div className={this.getClassNames()} onClick={this.props.onClick}>
                 {selectTypeCheckbox ?
@@ -76,13 +79,14 @@ class Appliance extends Component {
                                name="radio"/>
                         <span className="radio-checkmark"/>
                     </label>}
-//                <img src="./images/Dell_Logo.svg"
-//                    width="25" height="25"
-//                   className="app-dell-ico"
-//                  alt="dell-logo"/>
+                <img src="./images/Dell_Logo.svg"
+                    width="25" height="25"
+                   className="app-dell-ico"
+                  alt="dell-logo"/>
 
                 <p className="app-name">{applianceName}</p>
                 <p className="app-model">{applianceModel}</p>
+                <p>{applianceFailed}</p>                
                 {showSettingsMenu ? <div className="custom-dropdown dropleft">
                     <img src="./images/more.svg"
                          width="25" height="25"
