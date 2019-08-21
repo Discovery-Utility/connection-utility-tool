@@ -76,13 +76,13 @@ class Appliance extends Component {
                                name="radio"/>
                         <span className="radio-checkmark"/>
                     </label>}
-                <img src="./images/Dell_Logo.svg"
-                     width="25" height="25"
-                     className="app-dell-ico"
-                     alt="dell-logo"/>
+//                <img src="./images/Dell_Logo.svg"
+//                    width="25" height="25"
+//                   className="app-dell-ico"
+//                  alt="dell-logo"/>
 
                 <p className="app-name">{applianceName}</p>
-                <p className="app-type">{applianceModel}</p>
+                <p className="app-model">{applianceModel}</p>
                 {showSettingsMenu ? <div className="custom-dropdown dropleft">
                     <img src="./images/more.svg"
                          width="25" height="25"
