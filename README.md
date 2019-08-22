@@ -41,7 +41,7 @@ running the following commands (using any shell).
     1. run `npm install` in "./" of the project.
 4. In the directory "./" build the bundle by `npm run dev` command. (For build the bundle & run application use `npm run app` command)
 5. Now you can run or build binary files of **ZSCU**:
-    1. For running this application you need enter `npm run electron`
+    1. For running this application live you need enter `npm run electron`
 command in "./"
     2. You can build binary files only from the same platform type as the intended target. For building binary files you need run one of the
 following commands in "./":
@@ -51,7 +51,7 @@ following commands in "./":
         npm run build:win64
         npm run build:linux
         ```
-
+6. In order to rebuild with custom changes repeat repeat #4&#5
 
 ## Supported format for publishing storage systems
 
