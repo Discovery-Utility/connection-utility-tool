@@ -232,8 +232,8 @@ class AppliancesPage extends Component {
             }
 
             //filter appliances to configured and unconfigured
-            let configured = appliances.filter(appliance => appliance.state === "configured" || appliance.state === "service state");
-            let unconfigured = appliances.filter(appliance => appliance.state === "unconfigured");
+            let configured = appliances.filter(appliance => appliance.cluster === "true");
+            let unconfigured = appliances.filter(appliance => appliance.cluster === "false");
 
             //count pages in pagination
             let countConfiguredPages = Math.ceil(configured.length / MAX_APPLIANCES_ON_PAGE);
