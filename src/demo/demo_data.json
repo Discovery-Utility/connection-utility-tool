@@ -25,7 +25,7 @@
       "state": "service state",
       "model": "ProductName 1000",
       "type": "SAN",
-      "cluster": "false",
+      "cluster": "true",
       "failed": "true"
 
     },

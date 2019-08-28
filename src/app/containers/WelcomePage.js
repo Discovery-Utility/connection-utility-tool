@@ -27,21 +27,21 @@ class WelcomePage extends Component {
         this.connectYourLaptop = () => {
             this.setState({
                 modalTitle: t.CONNECT_LAPTOP,
-                modalBody: t.CONNECT_LAPTOP_TEXT + t.PLACEHOLDER_TEXT
+                modalBody: t.CONNECT_LAPTOP_TEXT
             })
         };
 
         this.clickOnShowDisableNetwork = () => {
             this.setState({
                 modalTitle: t.DISABLE_NETWORK,
-                modalBody: t.DISABLE_NETWORK_TEXT + t.PLACEHOLDER_TEXT
+                modalBody: t.DISABLE_NETWORK_TEXT
             })
         };
 
         this.clickOnShowDisableFirewall = () => {
             this.setState({
                 modalTitle: t.DISABLE_FIREWALL,
-                modalBody: t.DISABLE_FIREWALL_TEXT + t.PLACEHOLDER_TEXT
+                modalBody: t.DISABLE_FIREWALL_TEXT
             })
         };
 
@@ -65,7 +65,7 @@ class WelcomePage extends Component {
                         </div>
                     </div>
                     <div className="row justify-content-center">
-                        <div className="col-4 text-center">
+                        <div className="col-8 text-center">
                             <p>{t.ABOUT_TOOL}</p>
                         </div>
                     </div>
