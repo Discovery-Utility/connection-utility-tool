@@ -390,6 +390,12 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
                 win.webContents.send("redirect-to-browser", linkToAppliance);
             }
         });
+    } else {
+            //open browser wihtout caring about certificates if we are not on Windows
+            if (linkToAppliance) {
+                win.webContents.send("redirect-to-browser", linkToAppliance);
+            }
+
     }
 });
 

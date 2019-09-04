@@ -6,9 +6,9 @@ export const discTool = "Discovery Utility";
 export const appTitle = productName + " " + discTool;
 
 let translation = new LocalizedStrings({
-    en: {
+    en:    {
         //new ui locales
-        WELCOME_TITLE: "Welcome to " + productName + "Discovery Utility!",
+        WELCOME_TITLE: "Welcome to " + productName + " Discovery Utility!",
         ABOUT_TOOL: "This utility helps you to scan and discover unconfigured appliances in the network\n" +
 	    "and launch the initial configuration process to create a " + productName + " cluster.\n" +
 	    "Before you begin, do the following on your workstation: \n",
@@ -48,19 +48,19 @@ let translation = new LocalizedStrings({
         ACTION_OK: "OK",
         DISABLE_FIREWALL: "Temporarily disable security applications such as antivirus and firewall software.",
         DISABLE_FIREWALL_TEXT: "Security applications, such as antivirus and firewalls, running on your workstation may prevent unconfigured appliances from being detected." +
-	    "Temporarily disable these applications on the workstation before scanning for the appliances.\n" +
-	    "Once you have launched the initial configuration process, you can enable the security applications again.\n" +
-	    "If this is not possible, add port 5353 and Discovery Utility on the exclusion list for the antivirus and firewall software. For more information, refer to the antivirus and firewall documentation.\n" +
-	    "If none of this is possible, refer to the manual procedure to discover the unconfigured appliances.",
+	    "Temporarily disable these applications on the workstation before scanning for the appliances.",
+        DISABLE_FIREWALL_TEXT2: "Once you have launched the initial configuration process, you can enable the security applications again.",
+        DISABLE_FIREWALL_TEXT3: "If this is not possible, add port 5353 and Discovery Utility on the exclusion list for the antivirus and firewall software. For more information, refer to the antivirus and firewall documentation.",
+        DISABLE_FIREWALL_TEXT4: "If none of this is possible, refer to the manual procedure to discover the unconfigured appliances.",
         CONNECT_LAPTOP: "Connect to the network.",
-        CONNECT_LAPTOP_TEXT: "Ensure that the workstation is connected directly to the same physical switch that your appliances’ management port is connected to.\n" + 
-	    "•	Configure the ethernet adapter, which is connected to the physical switch, with an IPv4-based link local IP address."+
-	    "For example, 169.254.1.2. To verify that the link-local addresses is set properly, open the Windows command prompt and run the “ipconfig /all” command.\n" +
-	    "•	If your network is running a DHCP service that automatically assigns IP addresses, contact your infrastructure administrator, or manually assign a 169.254.x.x address.",
+        CONNECT_LAPTOP_TEXT: "Ensure that the workstation is connected directly to the same physical switch that your appliances’ management port is connected to.", 
+	ConnectLaptopLi1: "Configure the ethernet adapter, which is connected to the physical switch, with an IPv4-based link local IP address. " + 
+	    "For example, 169.254.1.2. To verify that the link-local addresses is set properly, open the Windows command prompt and run the “ipconfig /all” command.",
+	ConnectLaptopLi2: "If your network is running a DHCP service that automatically assigns IP addresses, contact your infrastructure administrator, or manually assign a 169.254.x.x address.",
         DISABLE_NETWORK: "Temporarily disable your wireless networks.",
-        DISABLE_NETWORK_TEXT: "Isolate your local link network by temporarily disabling other networks such as your wireless network." +
-	    "For example, in Windows 10, select the Network icon in the taskbar, and click the Wi-Fi panel to disable the wireless antenna." +
-	    "You can click it again to enable it. For more information on disabling wireless networks, refer to your operating system documentation.",
+        DISABLE_NETWORK_TEXT: "Isolate your local link network by temporarily disabling other networks such as your wireless network. " +
+	    "For example, in Windows 10, select the Network icon in the taskbar, and click the Wi-Fi panel to disable the wireless antenna. ",
+	DISABLE_NETWORK_DETAILS_TEXT: "You can click it again to enable it. For more information on disabling wireless networks, refer to your operating system documentation.",
 
         //*************************
         // ** MAIN PAGE LOCALES
@@ -93,14 +93,14 @@ let translation = new LocalizedStrings({
         WHAT_EXPECT: "What to expect",
         WtExpect_descr: "Complete the following steps to get your {0} configured for use on your network:",
         WtExpect_Discover: "Discover",
-        WtExpect_DiscoverDescr: "Use the {0} Discovery Utility to discover all unconfigured appliances within your network. You can choose to group appliances into a new cluster or add them to an existing one.",
+        WtExpect_DiscoverDescr: "Use the {0} to discover all unconfigured appliances within your network. You can choose to group appliances into a new cluster or add them to an existing one.",
         WtExpect_Configure: "Configure",
-        WtExpect_ConfigureDescr: "Once you have discovered the appliances you want, begin the initial configuration process. Ensure that you have obtained network-related information in the {0} Series Initial Configuration Worksheet.",
+        WtExpect_ConfigureDescr: "Once you have discovered the appliances you want, begin the initial configuration process. Ensure that you have obtained network-related information in the " + productName + " Series Initial Configuration Worksheet.",
         WtExpect_Manage: "Manage",
-        WtExpect_ManageDescr: "When the initial configuration process is complete, you can log on to the {0} Manager" +
-	    "where you can configure settings for your cluster and start provisioning user accounts, storage resources, and policies." +
-	    "You can also add newly installed appliances to an existing cluster from " + productName + " Manager.\n \n "+
-	    "Note: In this release, you can have up to 4 appliances in a cluster.",
+        WtExpect_ManageDescr: "When the initial configuration process is complete, you can log on to the {0} Manager " +
+	    "where you can configure settings for your cluster and start provisioning user accounts, storage resources, and policies. " +
+	    "You can also add newly installed appliances to an existing cluster from " + productName + " Manager. ",
+	WtExpect_Note: "Note: In this release, you can have up to 4 appliances in a cluster.",
         // *TROUBLESHOOTING TIPS
         tab_Troubleshoot: "Troubleshooting Tips",
         Troubleshoot_descr: "If you are having problems detecting appliances, try the following:",
@@ -117,18 +117,33 @@ let translation = new LocalizedStrings({
         Troubleshoot_DocDescr3: "landing page for details on getting started, configuring, managing and optimizing your system.",
         // * DOCUMENTATION
         tab_Documentation: "Documentation Resources",
-        Documentation_descr1: "For product and feature documentation or release notes, go to the {0} Documentation page at PLACEHOLDER",
-        Documentation_descr2: "Before you try discovering unconfigured appliances and begin the initial configuration process, ensure that you have:",
         Documentation_descr3: "* Configured your network and physical switches based on the recommendations provided in the " + productName + " Series Configure Switches and External Networks Guide.\n" +
 	    "* Configured your site and workstation based on the specifications provided in the " + productName + " Series Planning and Preparation Guide.\n" +
 	    "* Obtained network-related information you will require for initial configuration using the " + productName + " Series Initial Configuration Worksheet.\n" +
 	    "* Installed the base enclosures, and the optional expansion enclosures, referring to the " + productName + " Series Quick Start Guide.",
-        Documentation_QuickSG: "",
-        Documentation_QuickSGDescr: "",
-        Documentation_PlanGuide: "",
-        Documentation_PlanGuideDescr: "",
-        Documentation_Config: "",
-        Documentation_ConfigDescr: "",
+        Documentation_descr: "For product and feature documentation or release notes, go to the " + productName + " Documentation page at PLACEHOLDER",
+	Documentation_note:  "Before you try discovering unconfigured appliances and begin the initial configuration process, ensure that you have:",
+	DocumentationLi1: "Configured your network and physical switches based on the recommendations provided in the " + productName + " Series Configure Switches and External Networks Guide.",
+	DocumentationLi2: "Configured your site and workstation based on the specifications provided in the " + productName + " Series Planning and Preparation Guide.",
+	DocumentationLi3: "Obtained network-related information you will require for initial configuration using the " + productName + " Series Initial Configuration Worksheet.",
+	DocumentationLi4: "Installed the base enclosures, and the optional expansion enclosures, referring to the " + productName + " Series Quick Start Guide.",
+
+	// *BACKUP DISCOVERY
+	SHOW_BACKUP_DISCOVERY: "Show manual discovery procedure",
+	BACKUP_DISCOVERY: "Manual discovery procedure",
+	BACKUP_DISCOVERY_DESC: "If you are unable to temporarily disable wireless networks or security applications and have trouble discovering unconfigured appliances, " + 
+	    "use the following steps to begin the initial configuration process manually:",
+	BACKUP_DISCOVERY1: "Connect your workstation to an appliance directly via the service port using a DB9 serial connection cable.",
+        BACKUP_DISCOVERY2: "In an SSH client, connect to the appliance using the following parameters:",
+	     BACKUP_DISCOVERY2_Li1: "Connection type – Serial",
+             BACKUP_DISCOVERY2_Li2: "Serial line – COM1 or COM2 (based on the workstation port used.)",
+             BACKUP_DISCOVERY2_Li3: "Speed - 115200",
+        BACKUP_DISCOVERY3: "When prompted, log on as the service user.",
+        BACKUP_DISCOVERY4: "Run the following command to obtain the zeroconf IP address:",
+	    BACKUP_DISCOVERY_COMMAND: "cat /cyc_var/cyc_avahi_autoipd_address",
+        BACKUP_DISCOVERY5: "Connect the workstation back to the physical switch.",
+        BACKUP_DISCOVERY6: "In a web browser window, enter the https://<IP address>, and press Enter.",
+
         // ------------------------------------------
 
         // ** TOOLTIPS

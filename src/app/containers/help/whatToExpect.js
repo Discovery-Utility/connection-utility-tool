@@ -29,19 +29,19 @@ class WtExpect extends React.Component {
                                 <div className="wteName">{mainPage_lang.WtExpect_Configure}</div>
                             </div>
                             <div
-                                className="wteText">{mainPage_lang.formatString(mainPage_lang.WtExpect_ConfigureDescr, discTool)}</div>
+                                className="wteText">{mainPage_lang.formatString(mainPage_lang.WtExpect_ConfigureDescr)}</div>
                         </div>
                         <div className="wteBlock">
                             <div className="wteNamePar">
                                 <div className="parNum">(3)</div>
                                 <div className="wteName">{mainPage_lang.WtExpect_Manage}</div>
                             </div>
-                            <div
-                                className="wteText">{mainPage_lang.formatString(mainPage_lang.WtExpect_ManageDescr, productName)}</div>
-                        </div>
+                            <div className="wteText">{mainPage_lang.formatString(mainPage_lang.WtExpect_ManageDescr, productName)}</div>
+ 				<div className="wteText">{mainPage_lang.formatString(mainPage_lang.WtExpect_Note, productName)}</div>
+		</div>
+		</div>
                     </div>
                 </div>
-            </div>
         );
     };
 };
