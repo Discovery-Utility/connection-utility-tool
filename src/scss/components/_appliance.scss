@@ -96,9 +96,20 @@
   width: 100px;
 }
 
-.app-type {
+.app-model {
   padding-top: 12px;
   margin-left: 95px;
+}
+
+//system status
+.app-failed-true {
+  visibility: visible;
+  margin-left: 50px;
+}
+
+//system status
+.app-failed-false {
+  visibility: hidden;
 }
 
 //custom dropdown dialog styles

@@ -62,7 +62,7 @@
     "webpack": "^1.15.0"
   },
   "build": {
-    "productName": "ConnectionUtility",
+    "productName": "DiscoveryUtility",
     "asar": "true",
     "extends": null,
     "squirrelWindows": {

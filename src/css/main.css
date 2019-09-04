@@ -14,6 +14,10 @@ body {
     background-color: #F9F9F9;
 }
 
+.scan-appliances {
+	padding-bottom: 20px;
+}
+
 #wrapper {
     display: -moz-box;
     display: -webkit-box;
