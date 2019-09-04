@@ -109,7 +109,7 @@ let translation = new LocalizedStrings({
         Troubleshoot_SetupLi2: "For all versions of Windows, temporarily disable Cisco Access Manager and Cisco Security Manager.",
         Troubleshoot_SetupLi3: "Isolate your local link network by temporarily disabling other networks, such as your wireless network.",
         Troubleshoot_SetupLi4: "Disable security applications, such as antivirus software.",
-        Troubleshoot_SetupLi5: "Ensure that you are running this {0} on the same network as the appliance you are looking to discover." +
+        Troubleshoot_SetupLi5: "Ensure that you are running this " + discTool + " on the same network as the appliance you are looking to discover." +
 	    "Your laptop or management station can be cabled directly to the network switch, or connected virtually on a host within the same network.",
         Troubleshoot_Doc: "Documentation",
         Troubleshoot_DocDescr1: "Visit the",
