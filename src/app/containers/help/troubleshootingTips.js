@@ -19,21 +19,21 @@ class Troubleshooting extends React.Component {
         return (
             <div id="logShow">
                 <div id="captionLog">
-                    {mainPage_lang.tab_Troubleshoot}
+                    {mainPage_lang.TAB_TROUBLESHOOT}
                 </div>
                 <div id="whiteSpaceForTable">
                     <div className="ExpContainer">
-                        <div>{mainPage_lang.Troubleshoot_descr}</div>
+                        <div>{mainPage_lang.TROUBLESHOOT_DESCR}</div>
                         <div className="wteBlock">
                             <div className="ttText">
                                 <ul>
-                                    <li>{mainPage_lang.Troubleshoot_SetupLi1}</li>
-                                    <li>{mainPage_lang.Troubleshoot_SetupLi2}</li>
-                                    <li>{mainPage_lang.Troubleshoot_SetupLi3}</li>
-                                    <li>{mainPage_lang.Troubleshoot_SetupLi4}</li>
-                                    <li>{mainPage_lang.Troubleshoot_SetupLi5}</li>
+                                    <li>{mainPage_lang.TROUBLESHOOT_SETUP_LI1}</li>
+                                    <li>{mainPage_lang.TROUBLESHOOT_SETUP_LI2}</li>
+                                    <li>{mainPage_lang.TROUBLESHOOT_SETUP_LI3}</li>
+                                    <li>{mainPage_lang.TROUBLESHOOT_SETUP_LI4}</li>
+                                    <li>{mainPage_lang.TROUBLESHOOT_SETUP_LI5}</li>
                                 </ul>
-		              <div>{mainPage_lang.Troubleshoot_Note}</div>
+		              <div>{mainPage_lang.TROUBLESHOOT_NOTE}</div>
                             </div>
                         </div>
                     </div>

@@ -51,10 +51,10 @@ class HelpPage extends React.Component {
                     {mainPage_lang.WHAT_EXPECT}
                 </div>
                 <div className="subtabs" id="tips" onClick={this.changeSubtabs.bind(this, "tips")}>
-                    {mainPage_lang.tab_Troubleshoot}
+                    {mainPage_lang.TAB_TROUBLESHOOT}
                 </div>
                 <div className="subtabs" id="docs" onClick={this.changeSubtabs.bind(this, "docs")}>
-                    {mainPage_lang.tab_Documentation}
+                    {mainPage_lang.TAB_DOCUMENTATION}
                 </div>
             </div>
         );

@@ -84,14 +84,14 @@ class DetectionLog extends React.Component {
         return (
             <div id="logSwitch">
                 <div id="systemLogs">
-                    {mainPage_lang.Logs_SystemLogs}
+                    {mainPage_lang.LOGS_SYSTEM_LOGS}
                 </div>
                 <div className="subtabs detectionLog" id="detectionLog"
                      onClick={this.changeSubtabs.bind(this, "detectionLog")}>
-                    {mainPage_lang.Logs_DetectionLog}
+                    {mainPage_lang.LOGS_DETECTION_LOG}
                 </div>
                 <div className="subtabs eventLog" id="eventLog" onClick={this.changeSubtabs.bind(this, "eventLog")}>
-                    {mainPage_lang.Logs_EventLog}
+                    {mainPage_lang.LOGS_EVENT_LOG}
                 </div>
             </div>
         );
@@ -128,23 +128,23 @@ class DetectionLog extends React.Component {
                         {this.returnTabs()}
                         <div id="logShow">
                             <div id="captionLog">
-                                {mainPage_lang.Logs_DetectionLog}
+                                {mainPage_lang.LOGS_DETECTION_LOG}
                             </div>
                             <div id="whiteSpaceForLogTable">
-                                <Button text={mainPage_lang.Logs_buttonSave}
+                                <Button text={mainPage_lang.LOGS_BUTTON_SAVE}
                                         available="true"
                                         onClick={this.saveLogs.bind(this, "text123", "logs.txt", "text/plain")}
                                         className="save-log-btn"/>
-                                <Button text={mainPage_lang.Logs_buttonClear}
+                                <Button text={mainPage_lang.LOGS_BUTTON_CLEAR}
                                         available="true"
                                         onClick={this.clearLogs}
                                         className="clear-log-btn"/>
                                 {/*<div className="saveLogButton"
                                      onClick={this.saveLogs.bind(this, "text123", "logs.txt", "text/plain")}>
-                                    <font>{mainPage_lang.Logs_buttonSave}</font>
+                                    <font>{mainPage_lang.LOGS_buttonSave}</font>
                                 </div>*/}
                                 {/*<div className="saveLogButton" onClick={this.clearLogs}>
-                                    <font>{mainPage_lang.Logs_buttonClear}</font>
+                                    <font>{mainPage_lang.LOGS_buttonClear}</font>
                                 </div>*/}
                                 {/*<div id="buttonRenewLog" onClick={this.refreshButton}>
                                     <img id="refIcon" src="icon/refresh.svg" height="20"/>
@@ -152,11 +152,11 @@ class DetectionLog extends React.Component {
                                 <table id="detectionLogTable">
                                     <thead>
                                     <tr>
-                                        <th>{mainPage_lang.Logs_Name}</th>
-                                        <th>{mainPage_lang.Logs_Addr}</th>
-                                        <th>{mainPage_lang.Logs_State}</th>
-                                        <th>{mainPage_lang.Logs_Type}</th>
-                                        <th>{mainPage_lang.Logs_Time}</th>
+                                        <th>{mainPage_lang.LOGS_NAME}</th>
+                                        <th>{mainPage_lang.LOGS_ADDR}</th>
+                                        <th>{mainPage_lang.LOGS_STATE}</th>
+                                        <th>{mainPage_lang.LOGS_TYPE}</th>
+                                        <th>{mainPage_lang.LOGS_TIME}</th>
                                     </tr>
                                     </thead>
                                     <tbody id="detectionLogTableBody">
@@ -176,7 +176,7 @@ class DetectionLog extends React.Component {
                         {this.returnTabs()}
                         <div id="logShow">
                             <div id="captionLog">
-                                {mainPage_lang.Logs_EventLog}
+                                {mainPage_lang.LOGS_EVENT_LOG}
                             </div>
                             <div id="whiteSpaceForLogTable">
                                 {/*<div id="buttonRenewLog">
@@ -185,8 +185,8 @@ class DetectionLog extends React.Component {
                                 <table id="eventLogTable">
                                     <thead>
                                     <tr>
-                                        <th>{mainPage_lang.Logs_Name}</th>
-                                        <th colSpan="3">{mainPage_lang.Logs_Time}</th>
+                                        <th>{mainPage_lang.LOGS_NAME}</th>
+                                        <th colSpan="3">{mainPage_lang.LOGS_TIME}</th>
                                     </tr>
                                     </thead>
                                     <tbody id="detectionLogTableBody">

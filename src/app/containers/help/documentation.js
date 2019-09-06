@@ -11,19 +11,19 @@ class Documentation extends React.Component {
         return (
             <div id="logShow">
                 <div id="captionLog">
-                    {mainPage_lang.tab_Documentation}
+                    {mainPage_lang.TAB_DOCUMENTATION}
                 </div>
                 <div id="whiteSpaceForTable">
                     <div className="ExpContainer">
-                        <div>{mainPage_lang.Documentation_descr}</div>
+                        <div>{mainPage_lang.DOCUMENTATION_DESCR}</div>
                         <div className="wteBlock">
-		            <div>{mainPage_lang.Documentation_note}</div>
+		            <div>{mainPage_lang.DOCUMENTATION_NOTE}</div>
                             <div className="ttText">
                                 <ul>
-                                    <li>{mainPage_lang.DocumentationLi1}</li>
-                                    <li>{mainPage_lang.DocumentationLi2}</li>
-                                    <li>{mainPage_lang.DocumentationLi3}</li>
-                                    <li>{mainPage_lang.DocumentationLi4}</li>
+                                    <li>{mainPage_lang.DOCUMENTATION_LI1}</li>
+                                    <li>{mainPage_lang.DOCUMENTATION_LI2}</li>
+                                    <li>{mainPage_lang.DOCUMENTATION_LI3}</li>
+                                    <li>{mainPage_lang.DOCUMENTATION_LI4}</li>
                                 </ul>
                             </div>
                         </div>
