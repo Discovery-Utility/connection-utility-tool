@@ -14,7 +14,7 @@ let translation = new LocalizedStrings({
 	    "Before you begin, do the following on your workstation: \n",
         WIFI_NETWORKS: "Temporarily disable your wireless networks.",
         SHOW_ME_LINK: "Show me how.",
-        PC_FIRE_WALL: "Your PC firewall",
+        PC_FIRE_WALL: "Temporarily disable security applications such as antivirus and firewall software.",
         CONNECT_YOUR_LAPTOP: "Connect to the network.",
         SHOW_ME_HOW: "Show me how.",
         SCAN_APPLIANCES: "Scan appliances",
@@ -46,18 +46,18 @@ let translation = new LocalizedStrings({
         ADD_TO_CLUSTER: "Add to cluster",
         CLOSE: "Close",
         ACTION_OK: "OK",
-        DISABLE_FIREWALL: "Temporarily disable security applications such as antivirus and firewall software.",
+        DISABLE_FIREWALL: "Temporarily disable security applications",
         DISABLE_FIREWALL_TEXT: "Security applications, such as antivirus and firewalls, running on your workstation may prevent unconfigured appliances from being detected." +
 	    "Temporarily disable these applications on the workstation before scanning for the appliances.",
         DISABLE_FIREWALL_TEXT2: "Once you have launched the initial configuration process, you can enable the security applications again.",
         DISABLE_FIREWALL_TEXT3: "If this is not possible, add port 5353 and Discovery Utility on the exclusion list for the antivirus and firewall software. For more information, refer to the antivirus and firewall documentation.",
         DISABLE_FIREWALL_TEXT4: "If none of this is possible, refer to the manual procedure to discover the unconfigured appliances.",
-        CONNECT_LAPTOP: "Connect to the network.",
+        CONNECT_LAPTOP: "Connect to the network",
         CONNECT_LAPTOP_TEXT: "Ensure that the workstation is connected directly to the same physical switch that your appliances’ management port is connected to.", 
 	ConnectLaptopLi1: "Configure the ethernet adapter, which is connected to the physical switch, with an IPv4-based link local IP address. " + 
 	    "For example, 169.254.1.2. To verify that the link-local addresses is set properly, open the Windows command prompt and run the “ipconfig /all” command.",
 	ConnectLaptopLi2: "If your network is running a DHCP service that automatically assigns IP addresses, contact your infrastructure administrator, or manually assign a 169.254.x.x address.",
-        DISABLE_NETWORK: "Temporarily disable your wireless networks.",
+        DISABLE_NETWORK: "Temporarily disable your wireless networks",
         DISABLE_NETWORK_TEXT: "Isolate your local link network by temporarily disabling other networks such as your wireless network. " +
 	    "For example, in Windows 10, select the Network icon in the taskbar, and click the Wi-Fi panel to disable the wireless antenna. ",
 	DISABLE_NETWORK_DETAILS_TEXT: "You can click it again to enable it. For more information on disabling wireless networks, refer to your operating system documentation.",
@@ -111,10 +111,7 @@ let translation = new LocalizedStrings({
         Troubleshoot_SetupLi4: "Disable security applications, such as antivirus software.",
         Troubleshoot_SetupLi5: "Ensure that you are running this " + discTool + " on the same network as the appliance you are looking to discover." +
 	    "Your laptop or management station can be cabled directly to the network switch, or connected virtually on a host within the same network.",
-        Troubleshoot_Doc: "Documentation",
-        Troubleshoot_DocDescr1: "Visit the",
-        Troubleshoot_DocDescr2: "technical documentation",
-        Troubleshoot_DocDescr3: "landing page for details on getting started, configuring, managing and optimizing your system.",
+	Troubleshoot_Note: "If you cannot temporarily disable firewall or antivirus software, or have trouble scanning for unconfigured appliances, use the Manual Procedure to begin the initial configuration process manually.",
         // * DOCUMENTATION
         tab_Documentation: "Documentation Resources",
         Documentation_descr3: "* Configured your network and physical switches based on the recommendations provided in the " + productName + " Series Configure Switches and External Networks Guide.\n" +
