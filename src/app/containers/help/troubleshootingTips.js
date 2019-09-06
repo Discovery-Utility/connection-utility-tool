@@ -33,6 +33,7 @@ class Troubleshooting extends React.Component {
                                     <li>{mainPage_lang.Troubleshoot_SetupLi4}</li>
                                     <li>{mainPage_lang.Troubleshoot_SetupLi5}</li>
                                 </ul>
+		              <div>{mainPage_lang.Troubleshoot_Note}</div>
                             </div>
                         </div>
                     </div>
