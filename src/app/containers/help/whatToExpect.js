@@ -14,30 +14,30 @@ class WtExpect extends React.Component {
                 </div>
                 <div id="whiteSpaceForTable">
                     <div className="ExpContainer">
-                        <div>{mainPage_lang.formatString(mainPage_lang.WtExpect_descr, productName)}</div>
+                        <div>{mainPage_lang.formatString(mainPage_lang.WTEXPECT_DESCR, productName)}</div>
                         <div className="wteBlock">
                             <div className="wteNamePar">
                                 <div className="parNum">(1)</div>
-                                <div className="wteName">{mainPage_lang.WtExpect_Discover}</div>
+                                <div className="wteName">{mainPage_lang.WTEXPECT_DISCOVER}</div>
                             </div>
                             <div
-                                className="wteText">{mainPage_lang.formatString(mainPage_lang.WtExpect_DiscoverDescr, discTool)}</div>
+                                className="wteText">{mainPage_lang.formatString(mainPage_lang.WTEXPECT_DISCOVER_DESCR, discTool)}</div>
                         </div>
                         <div className="wteBlock">
                             <div className="wteNamePar">
                                 <div className="parNum">(2)</div>
-                                <div className="wteName">{mainPage_lang.WtExpect_Configure}</div>
+                                <div className="wteName">{mainPage_lang.WTEXPECT_CONFIGURE}</div>
                             </div>
                             <div
-                                className="wteText">{mainPage_lang.formatString(mainPage_lang.WtExpect_ConfigureDescr)}</div>
+                                className="wteText">{mainPage_lang.formatString(mainPage_lang.WTEXPECT_CONFIGURE_DESCR)}</div>
                         </div>
                         <div className="wteBlock">
                             <div className="wteNamePar">
                                 <div className="parNum">(3)</div>
-                                <div className="wteName">{mainPage_lang.WtExpect_Manage}</div>
+                                <div className="wteName">{mainPage_lang.WTEXPECT_MANAGE}</div>
                             </div>
-                            <div className="wteText">{mainPage_lang.formatString(mainPage_lang.WtExpect_ManageDescr, productName)}</div>
- 				<div className="wteText">{mainPage_lang.formatString(mainPage_lang.WtExpect_Note, productName)}</div>
+                            <div className="wteText">{mainPage_lang.formatString(mainPage_lang.WTEXPECT_MANAGE_DESCR, productName)}</div>
+ 				<div className="wteText">{mainPage_lang.formatString(mainPage_lang.WTEXPECT_NOTE, productName)}</div>
 		</div>
 		</div>
                     </div>

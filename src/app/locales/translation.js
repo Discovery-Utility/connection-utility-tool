@@ -54,9 +54,9 @@ let translation = new LocalizedStrings({
         DISABLE_FIREWALL_TEXT4: "If none of this is possible, refer to the manual procedure to discover the unconfigured appliances.",
         CONNECT_LAPTOP: "Connect to the network",
         CONNECT_LAPTOP_TEXT: "Ensure that the workstation is connected directly to the same physical switch that your appliances’ management port is connected to.", 
-	ConnectLaptopLi1: "Configure the ethernet adapter, which is connected to the physical switch, with an IPv4-based link local IP address. " + 
+	CONNECT_LAPTOP_LI1: "Configure the ethernet adapter, which is connected to the physical switch, with an IPv4-based link local IP address. " + 
 	    "For example, 169.254.1.2. To verify that the link-local addresses is set properly, open the Windows command prompt and run the “ipconfig /all” command.",
-	ConnectLaptopLi2: "If your network is running a DHCP service that automatically assigns IP addresses, contact your infrastructure administrator, or manually assign a 169.254.x.x address.",
+	CONNECT_LAPTOP_LI2: "If your network is running a DHCP service that automatically assigns IP addresses, contact your infrastructure administrator, or manually assign a 169.254.x.x address.",
         DISABLE_NETWORK: "Temporarily disable your wireless networks",
         DISABLE_NETWORK_TEXT: "Isolate your local link network by temporarily disabling other networks such as your wireless network. " +
 	    "For example, in Windows 10, select the Network icon in the taskbar, and click the Wi-Fi panel to disable the wireless antenna. ",
@@ -91,39 +91,35 @@ let translation = new LocalizedStrings({
 
         // * WHAT TO EXPECT
         WHAT_EXPECT: "What to expect",
-        WtExpect_descr: "Complete the following steps to get your {0} configured for use on your network:",
-        WtExpect_Discover: "Discover",
-        WtExpect_DiscoverDescr: "Use the {0} to discover all unconfigured appliances within your network. You can choose to group appliances into a new cluster or add them to an existing one.",
-        WtExpect_Configure: "Configure",
-        WtExpect_ConfigureDescr: "Once you have discovered the appliances you want, begin the initial configuration process. Ensure that you have obtained network-related information in the " + productName + " Series Initial Configuration Worksheet.",
-        WtExpect_Manage: "Manage",
-        WtExpect_ManageDescr: "When the initial configuration process is complete, you can log on to the {0} Manager " +
+        WTEXPECT_DESCR: "Complete the following steps to get your {0} configured for use on your network:",
+        WTEXPECT_DISCOVER: "Discover",
+        WTEXPECT_DISCOVER_DESCR: "Use the {0} to discover all unconfigured appliances within your network. You can choose to group appliances into a new cluster or add them to an existing one.",
+        WTEXPECT_CONFIGURE: "Configure",
+        WTEXPECT_CONFIGURE_DESCR: "Once you have discovered the appliances you want, begin the initial configuration process. Ensure that you have obtained network-related information in the " + productName + " Series Initial Configuration Worksheet.",
+        WTEXPECT_MANAGE: "Manage",
+        WTEXPECT_MANAGE_DESCR: "When the initial configuration process is complete, you can log on to the {0} Manager " +
 	    "where you can configure settings for your cluster and start provisioning user accounts, storage resources, and policies. " +
 	    "You can also add newly installed appliances to an existing cluster from " + productName + " Manager. ",
-	WtExpect_Note: "Note: In this release, you can have up to 4 appliances in a cluster.",
+	WTEXPECT_NOTE: "Note: In this release, you can have up to 4 appliances in a cluster.",
         // *TROUBLESHOOTING TIPS
-        tab_Troubleshoot: "Troubleshooting Tips",
-        Troubleshoot_descr: "If you are having problems detecting appliances, try the following:",
-        Troubleshoot_Setup: "Setup",
-        Troubleshoot_SetupLi1: "Temporally disable your firewall or add services to the exclusion list.",
-        Troubleshoot_SetupLi2: "For all versions of Windows, temporarily disable Cisco Access Manager and Cisco Security Manager.",
-        Troubleshoot_SetupLi3: "Isolate your local link network by temporarily disabling other networks, such as your wireless network.",
-        Troubleshoot_SetupLi4: "Disable security applications, such as antivirus software.",
-        Troubleshoot_SetupLi5: "Ensure that you are running this " + discTool + " on the same network as the appliance you are looking to discover." +
+        TAB_TROUBLESHOOT: "Troubleshooting Tips",
+        TROUBLESHOOT_DESCR: "If you are having problems detecting appliances, try the following:",
+        TROUBLESHOOT_SETUP_: "Setup",
+        TROUBLESHOOT_SETUP_LI1: "Temporally disable your firewall or add services to the exclusion list.",
+        TROUBLESHOOT_SETUP_LI2: "For all versions of Windows, temporarily disable Cisco Access Manager and Cisco Security Manager.",
+        TROUBLESHOOT_SETUP_LI3: "Isolate your local link network by temporarily disabling other networks, such as your wireless network.",
+        TROUBLESHOOT_SETUP_LI4: "Disable security applications, such as antivirus software.",
+        TROUBLESHOOT_SETUP_LI5: "Ensure that you are running this " + discTool + " on the same network as the appliance you are looking to discover. " +
 	    "Your laptop or management station can be cabled directly to the network switch, or connected virtually on a host within the same network.",
-	Troubleshoot_Note: "If you cannot temporarily disable firewall or antivirus software, or have trouble scanning for unconfigured appliances, use the Manual Procedure to begin the initial configuration process manually.",
+	TROUBLESHOOT_NOTE: "If you cannot temporarily disable firewall or antivirus software, or have trouble scanning for unconfigured appliances, use the Manual Procedure to begin the initial configuration process manually.",
         // * DOCUMENTATION
-        tab_Documentation: "Documentation Resources",
-        Documentation_descr3: "* Configured your network and physical switches based on the recommendations provided in the " + productName + " Series Configure Switches and External Networks Guide.\n" +
-	    "* Configured your site and workstation based on the specifications provided in the " + productName + " Series Planning and Preparation Guide.\n" +
-	    "* Obtained network-related information you will require for initial configuration using the " + productName + " Series Initial Configuration Worksheet.\n" +
-	    "* Installed the base enclosures, and the optional expansion enclosures, referring to the " + productName + " Series Quick Start Guide.",
-        Documentation_descr: "For product and feature documentation or release notes, go to the " + productName + " Documentation page at PLACEHOLDER",
-	Documentation_note:  "Before you try discovering unconfigured appliances and begin the initial configuration process, ensure that you have:",
-	DocumentationLi1: "Configured your network and physical switches based on the recommendations provided in the " + productName + " Series Configure Switches and External Networks Guide.",
-	DocumentationLi2: "Configured your site and workstation based on the specifications provided in the " + productName + " Series Planning and Preparation Guide.",
-	DocumentationLi3: "Obtained network-related information you will require for initial configuration using the " + productName + " Series Initial Configuration Worksheet.",
-	DocumentationLi4: "Installed the base enclosures, and the optional expansion enclosures, referring to the " + productName + " Series Quick Start Guide.",
+        TAB_DOCUMENTATION: "Documentation Resources",
+        DOCUMENTATION_DESCR: "For product and feature documentation or release notes, go to the " + productName + " Documentation page at PLACEHOLDER",
+	DOCUMENTATION_NOTE:  "Before you try discovering unconfigured appliances and begin the initial configuration process, ensure that you have:",
+	DOCUMENTATION_LI1: "Configured your network and physical switches based on the recommendations provided in the " + productName + " Series Configure Switches and External Networks Guide.",
+	DOCUMENTATION_LI2: "Configured your site and workstation based on the specifications provided in the " + productName + " Series Planning and Preparation Guide.",
+	DOCUMENTATION_LI3: "Obtained network-related information you will require for initial configuration using the " + productName + " Series Initial Configuration Worksheet.",
+	DOCUMENTATION_LI4: "Installed the base enclosures, and the optional expansion enclosures, referring to the " + productName + " Series Quick Start Guide.",
 
 	// *BACKUP DISCOVERY
 	SHOW_BACKUP_DISCOVERY: "Show manual discovery procedure",
@@ -144,39 +140,20 @@ let translation = new LocalizedStrings({
         // ------------------------------------------
 
         // ** TOOLTIPS
-        JoinClusterTooltip_descr: "In this release, you can only add one appliance at a time.",
-        ClusterTooltip_descr: "In this release, you can only create a cluster with up to 4 appliances.",
-        // * INFOTAB
-        Infotab_ApplDetails: "Appliance Details",
-        Infotab_SN: "Serial Number",
-        Infotab_SysType: "System Type",
-        Infotab_IP: "IP Address",
-        Infotab_buttonClose: "CLOSE",
-        Infotab_ClustDetails: "Cluster Details",
-        Infotab_ClustName: "Cluster Name",
-        Infotab_AdminTool: "Administration Tool",
-        Infotab_ApplInCluster: "Appliances in Cluster",
-        Infotab_ChooseCluster: "Choose Cluster",
-        Infotab_ChooseClusterDescr: "Select the cluster to which you want to add your appliance.",
-        Infotab_AvailCl: "Avaliable clusters ({0})",
-        Infotab_PlaceHolder: "Search clusters",
-        Infotab_name: "Name",
-        Infotab_selectedAppliances: "Selected appliances ({0})",
-        Infotab_buttonCancel: "CANCEL",
-        Infotab_buttonJoin: "JOIN CLUSTER",
-        // ------------------------------------------
+        JOIN_CLUSTER_TOOLTIP_DESCR: "In this release, you can only add one appliance at a time.",
+        CLUSTER_TOOLTIP_DESCR: "In this release, you can only create a cluster with up to 4 appliances.",
 
         // ** LOGS
-        Logs_SystemLogs: "System Logs",
-        Logs_DetectionLog: "Detection Log",
-        Logs_EventLog: "Event Log",
-        Logs_buttonSave: "Save logs",
-        Logs_buttonClear: "Clear logs",
-        Logs_Name: "Event Name",
-        Logs_Addr: "Address",
-        Logs_State: "State",
-        Logs_Type: "Type",
-        Logs_Time: "Time"
+        LOGS_SYSTEM_LOGS: "System Logs",
+        LOGS_DETECTION_LOG: "Detection Log",
+        LOGS_EVENT_LOG: "Event Log",
+        LOGS_BUTTON_SAVE: "Save logs",
+        LOGS_BUTTON_CLEAR: "Clear logs",
+        LOGS_NAME: "Event Name",
+        LOGS_ADDR: "Address",
+        LOGS_STATE: "State",
+        LOGS_TYPE: "Type",
+        LOGS_TIME: "Time"
 
     }
 });
