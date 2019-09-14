@@ -4,7 +4,7 @@
       "link": "http://192.168.0.100:8080",
       "name": "FNM00103198723",
       "state": "unconfigured",
-      "type": "VMware",
+      "type": "HCI",
       "model": "ProductName 1000X",
       "cluster": "false",
       "failed": "false"
@@ -14,7 +14,7 @@
       "name": "ClusterSample",
       "state": "configured",
       "model": "ProductName 1000",
-      "type": "SAN",
+      "type": "BM",
       "cluster": "true",
       "failed": "false"
 
@@ -24,7 +24,7 @@
       "name": "H2120",
       "state": "service state",
       "model": "ProductName 1000",
-      "type": "SAN",
+      "type": "BM",
       "cluster": "true",
       "failed": "true"
 
@@ -34,7 +34,7 @@
       "name": "FNM00251390871",
       "state": "unconfigured",
       "model": "ProductName 1000X",
-      "type": "VMware",
+      "type": "HCI",
       "cluster": "false",
       "failed": "true"
     },
@@ -43,7 +43,7 @@
       "name": "MainCluster",
       "state": "configured",
       "model": "ProductName 1000",
-      "type": "SAN",
+      "type": "BM",
       "cluster": "true",
       "failed": "false"
     },
@@ -52,7 +52,7 @@
       "name": "TestCluster",
       "state": "configured",
       "model": "ProductName 1000",
-      "type": "SAN",
+      "type": "BM",
       "cluster": "true",
       "failed": "false"
     },
@@ -61,7 +61,7 @@
       "name": "SecondCluster",
       "state": "configured",
       "model": "ProductName 3000X",
-      "type": "VMware",
+      "type": "HCI",
       "cluster": "true",
       "failed": "false"
     },
@@ -70,7 +70,7 @@
       "name": "FNM00314386531",
       "state": "unconfigured",
       "model": "ProductName 9000X",
-      "type": "VMware",
+      "type": "HCI",
       "cluster": "false",
       "failed": "false"
     },
@@ -79,7 +79,7 @@
       "name": "N5341",
       "state": "service state",
       "model": "ProductName 1000",
-      "type": "SAN",
+      "type": "BM",
       "cluster": "true",
       "failed": "false"
     },
@@ -88,7 +88,7 @@
       "name": "FNM00408753975",
       "state": "unconfigured",
       "model": "ProductName 1000X",
-      "type": "VMware",
+      "type": "HCI",
       "cluster": "false",
       "failed": "false"
     },
@@ -97,7 +97,7 @@
       "name": "FNM003456009762",
       "state": "unconfigured",
       "model": "ProductName 1000",
-      "type": "SAN",
+      "type": "BM",
       "cluster": "false",
       "failed": "false"
     },
@@ -106,7 +106,7 @@
       "name": "FNM003456009762",
       "state": "unconfigured",
       "model": "ProductName 1000X",
-      "type": "VMware",
+      "type": "HCI",
       "cluster": "false",
       "failed": "false"
     },
@@ -114,7 +114,7 @@
       "link": "http://192.168.2.58:8080",
       "name": "FNM003456009762",
       "state": "unconfigured",
-      "type": "SAN",
+      "type": "BM",
       "model": "ProductName 1000",
       "cluster": "false",
       "failed": "false"
@@ -123,7 +123,7 @@
       "link": "http://192.168.2.58:8080",
       "name": "FNM003456009762",
       "state": "unconfigured",
-      "type": "VMware",
+      "type": "HCI",
       "model": "ProductName 1000X",
       "cluster": "false",
       "failed": "false"
@@ -132,7 +132,7 @@
       "link": "http://192.168.2.58:8080",
       "name": "FNM003456444754",
       "state": "unconfigured",
-      "type": "SAN",
+      "type": "BM",
       "model": "ProductName 1000",
       "cluster": "false",
       "failed": "false"
@@ -141,7 +141,7 @@
       "link": "http://192.168.2.58:8080",
       "name": "FNM003432402309744",
       "state": "unconfigured",
-      "type": "VMware",
+      "type": "HCI",
       "model": "ProductName 1000X",
       "cluster": "false",
       "failed": "false"
@@ -150,7 +150,7 @@
       "link": "http://192.168.2.58:8080",
       "name": "FNM0044949009767",
       "state": "unconfigured",
-      "type": "SAN",
+      "type": "BM",
       "model": "ProductName 1000",
       "cluster": "false",
       "failed": "false"
@@ -159,7 +159,7 @@
       "link": "http://192.168.2.58:8080",
       "name": "FNM0033475097866",
       "state": "unconfigured",
-      "type": "VMware",
+      "type": "HCI",
       "model": "ProductName 1000X",
       "cluster": "false",
       "failed": "false"
@@ -168,7 +168,7 @@
       "link": "http://192.168.2.58:8080",
       "name": "FNM0034560045123",
       "state": "unconfigured",
-      "type": "SAN",
+      "type": "BM",
       "model": "ProductName 1000",
       "cluster": "false",
       "failed": "false"
