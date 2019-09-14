@@ -10,7 +10,8 @@
     "build:linux": "build --platform linux",
     "build:win": "npm run build:win64 && npm run build:win32",
     "build:win32": "build --platform win32 --arch ia32",
-    "build:win64": "build --platform win32 --arch x64"
+    "build:win64": "build --platform win32 --arch x64",
+    "build:mac": "build --platform mac"
   },
   "license": "ISC",
   "dependencies": {
@@ -85,6 +86,11 @@
     "linux": {
       "target": [
         "AppImage"
+      ]
+    },
+    "mac": {
+      "target": [
+	    "dmg"
       ]
     }
   }
