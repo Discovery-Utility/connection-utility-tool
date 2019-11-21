@@ -221,6 +221,14 @@ class AppliancesPage extends Component {
     }
 
     componentDidMount() {
+        this.getApplianceList();
+        
+        ipcRndr.on('update-appliance-list', (event, message) => {
+            this.getApplianceList();
+        });
+    }
+
+    getApplianceList() {
         //parse data from backend
         let appliances = JSON.parse(localStorage.getItem("message")).storages;
 

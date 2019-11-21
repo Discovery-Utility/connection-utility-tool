@@ -233,6 +233,7 @@ function appOnUp(service) {
         // Send data to the UI part
         try {
             win.webContents.send('ping', storages, detectionLog);
+            win.webContents.send("update-appliance-list");
         }
         catch (err) {
         }
@@ -262,6 +263,7 @@ function appOnDown(service) {
     detectionLog = jsonParseString(tmpLog);
     try {
         win.webContents.send('ping', storages, detectionLog);
+        win.webContents.send("update-appliance-list");
     }
     catch (err) {
     }
