@@ -222,8 +222,12 @@ class AppliancesPage extends Component {
 
     componentDidMount() {
         this.getApplianceList();
-        
+
         ipcRndr.on('update-appliance-list', (event, message) => {
+            if (message !== 'add') {
+                let unselectedAppliance = this.state.appliances.filter(appliance => appliance.name === message);
+                unselectedAppliance.forEach(appliance => this.removeSelection(appliance.id));
+            }
             this.getApplianceList();
         });
     }
