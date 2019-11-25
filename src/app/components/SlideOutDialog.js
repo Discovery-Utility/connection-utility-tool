@@ -12,7 +12,7 @@ class SlideOutDialog extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selected_ids: []
+            selectedNames: []
         };
 
         this.toggle = () => {
@@ -21,28 +21,28 @@ class SlideOutDialog extends Component {
             });
         };
 
-        this.addSelection = (selectionId, isCheckBox) => {
-            let selected = this.state.selected_ids;
+        this.addSelection = (selectionName, isCheckBox) => {
+            let selected = this.state.selectedNames;
             selected = isCheckBox ? selected : [];
-            selected.push(selectionId);
+            selected.push(selectionName);
             this.setState({
-                selected_ids: selected
+                sselectedNames: selected
             });
         };
 
-        this.removeSelection = (selectionId) => {
-            let selected = this.state.selected_ids;
-            selected = selected.filter((id) => id !== selectionId);
+        this.removeSelection = (selectionName) => {
+            let selected = this.state.selectedNames;
+            selected = selected.filter((name) => name !== selectionName);
             this.setState({
-                selected_ids: selected
+                selectedNames: selected
             });
         };
 
         this.addClick = () => {
-            let selected = this.state.selected_ids;
+            let selected = this.state.selectedNames;
             let configured = this.props.configured;
             let unconfiguredAppliance = this.props.selectedAppliance;
-            let appliance = configured.filter(appliance => appliance.id === selected[0])[0];
+            let appliance = configured.find(appliance => appliance.id === selected[0]);
             let link = appliance.link + "/?appliances=" + unconfiguredAppliance.name;
 
             ipcRndr.send("connect-to-appliance", link);
@@ -52,9 +52,9 @@ class SlideOutDialog extends Component {
 
     render() {
         let {configured, selectedAppliance} = this.props;
-        let {selected_ids} = this.state;
+        let {selectedNames} = this.state;
 
-        let isAddBtnActive = selected_ids.length === 1;
+        let isAddBtnActive = selectedNames.length === 1;
 
         let selectedApplianceName = selectedAppliance ? selectedAppliance.name : "";
 
@@ -75,8 +75,8 @@ class SlideOutDialog extends Component {
                                 configured.map(appliance => {
                                     let active = false;
 
-                                    selected_ids.forEach((element) => {
-                                        if (element === appliance.id) {
+                                    selectedNames.forEach((element) => {
+                                        if (element === appliance.name) {
                                             active = true;
                                         }
                                     });
@@ -85,7 +85,7 @@ class SlideOutDialog extends Component {
                                         <Appliance addSelection={this.addSelection}
                                                    removeSelection={this.removeSelection}
                                                    itemClick={null}
-                                                   key={appliance.id}
+                                                   key={appliance.name}
                                                    appliance={appliance}
                                                    showSettingsMenu={false}
                                                    active={active}/>

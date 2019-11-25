@@ -116,6 +116,14 @@ function getModelByCode(code, type) {
     return productName + " " + productModel + typePostfix;
 }
 
+function splicingLogStorages(tmpLog, newElem) {
+    tmpLog.storages.splice(0, 0, addTypeInLogs(newElem));
+    console.log(`Discovered appliance:\n${jsonParseString(tmpLog.storages[0])}\n`);
+    if (tmpLog.storages.length > 1000) {
+        tmpLog.storages.splice(1000, tmpLog.storages.length - 1000);
+    }
+}
+
 // The event handler for the emergence of a new device in the network
 function appOnUp(service) {
     console.log('#######################################\nadding');
@@ -154,14 +162,14 @@ function appOnUp(service) {
         newElement.model = getModelByCode(serviceNames[4], newElement.type);
 
         //System state
-//  "Unconfigured", 0                 // system in factory state
-//  "Unconfigured_Faulted", 1       // Hardware is in faulted state
-//  "Configuring", 2                   // In the midst of being configured or unconfigured
-//  "Configured", 3                     // system is configured
-//  "Expanding", 4                       // System is adding a new appliance
-//  "Removing", 5                         // System is removing an appliance
-//  "Clustering_Failed", 6       // system in a bad state
-//  "Unknown", 99                          // unknown state
+        //  "Unconfigured", 0                 // system in factory state
+        //  "Unconfigured_Faulted", 1       // Hardware is in faulted state
+        //  "Configuring", 2                   // In the midst of being configured or unconfigured
+        //  "Configured", 3                     // system is configured
+        //  "Expanding", 4                       // System is adding a new appliance
+        //  "Removing", 5                         // System is removing an appliance
+        //  "Clustering_Failed", 6       // system in a bad state
+        //  "Unknown", 99                          // unknown state
 
         if (serviceNames[7] === '0' || serviceNames[7] === '1') {
             newElement.state = 'unconfigured';
@@ -184,11 +192,7 @@ function appOnUp(service) {
         if (tmp != null) {
             if (tmp.storages.length == 0) {
                 tmp.storages.push(newElement);
-                tmpLog.storages.splice(0, 0, addTypeInLogs(newElement));
-                console.log('Discovered appliance:\n' + jsonParseString(tmpLog.storages[0]) + '\n');
-                if (tmpLog.storages.length > 1000) {
-                    tmpLog.storages.splice(1000, tmpLog.storages.length - 1000);
-                }
+                splicingLogStorages(tmpLog, newElement);
             } else {
                 var isInserted = false;
                 for (var i = 0; i < tmp.storages.length; i++) {
@@ -198,31 +202,19 @@ function appOnUp(service) {
                     }
                     if (tmp.storages[i].name > newElement.name) {
                         tmp.storages.splice(i, 0, newElement);
-                        tmpLog.storages.splice(0, 0, addTypeInLogs(newElement));
-                        console.log('Discovered appliance:\n' + jsonParseString(tmpLog.storages[0]) + '\n');
-                        if (tmpLog.storages.length > 1000) {
-                            tmpLog.storages.splice(1000, tmpLog.storages.length - 1000);
-                        }
+                        splicingLogStorages(tmpLog, newElement);
                         isInserted = true;
                         break;
                     }
                 }
                 if (!isInserted) {
                     tmp.storages.push(newElement);
-                    tmpLog.storages.splice(0, 0, addTypeInLogs(newElement));
-                    console.log('Discovered appliance:\n' + jsonParseString(tmpLog.storages[0]) + '\n');
-                    if (tmpLog.storages.length > 1000) {
-                        tmpLog.storages.splice(1000, tmpLog.storages.length - 1000);
-                    }
+                    splicingLogStorages(tmpLog, newElement);
                 }
             }
         } else {
             tmp.storages.push(newElement);
-            tmpLog.storages.splice(0, 0, addTypeInLogs(newElement));
-            console.log('Discovered appliance:\n' + jsonParseString(tmpLog.storages[0]) + '\n');
-            if (tmpLog.storages.length > 1000) {
-                tmpLog.storages.splice(1000, tmpLog.storages.length - 1000);
-            }
+            splicingLogStorages(tmpLog, newElement);
         }
         storages = jsonParseString(tmp);
         detectionLog = jsonParseString(tmpLog);
@@ -263,7 +255,7 @@ function appOnDown(service) {
     detectionLog = jsonParseString(tmpLog);
     try {
         win.webContents.send('ping', storages, detectionLog);
-        win.webContents.send("update-appliance-list", namearr[1]); // TODO: Check if name is unique
+        win.webContents.send("update-appliance-list", 'delete', namearr[1]);
     }
     catch (err) {
     }

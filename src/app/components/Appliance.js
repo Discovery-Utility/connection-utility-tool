@@ -38,13 +38,13 @@ class Appliance extends Component {
 
         //click on the checkbox if props selecteTypeCheckbox = true
         this.checkBoxClick = () => {
-            let selfID = this.props.appliance.id;
+            let applianceName = this.props.appliance.name;
             let {removeSelection, addSelection} = this.props;
             let isCheckbox = true;
             if (this.state.checked) {
-                removeSelection(selfID);
+                removeSelection(applianceName);
             } else {
-                addSelection(selfID, isCheckbox);
+                addSelection(applianceName, isCheckbox);
             }
 
             this.setState({
@@ -55,9 +55,9 @@ class Appliance extends Component {
         //click on the radio button if props selecteTypeCheckbox = false
         this.radioClick = () => {
             let {addSelection} = this.props;
-            let selfID = this.props.appliance.id;
+            let applianceName = this.props.appliance.name;
             let isCheckBox = false;
-            addSelection(selfID, isCheckBox);
+            addSelection(applianceName, isCheckBox);
         };
     }
 

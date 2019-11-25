@@ -103,7 +103,7 @@
     },
     {
       "link": "http://192.168.2.58:8080",
-      "name": "FNM003456009762",
+      "name": "FNM003456009763",
       "state": "unconfigured",
       "model": "ProductName 1000X",
       "type": "HCI",
@@ -112,7 +112,7 @@
     },
     {
       "link": "http://192.168.2.58:8080",
-      "name": "FNM003456009762",
+      "name": "FNM003456009764",
       "state": "unconfigured",
       "type": "BM",
       "model": "ProductName 1000",
@@ -121,7 +121,7 @@
     },
     {
       "link": "http://192.168.2.58:8080",
-      "name": "FNM003456009762",
+      "name": "FNM003456009765",
       "state": "unconfigured",
       "type": "HCI",
       "model": "ProductName 1000X",
