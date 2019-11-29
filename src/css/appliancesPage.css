@@ -26,7 +26,7 @@
     width: 100%;
 }
 
-.change-available-configured {
+.change-unconfigured-configured {
     font-size: 16px;
     font-weight: bold;
     user-select: none;

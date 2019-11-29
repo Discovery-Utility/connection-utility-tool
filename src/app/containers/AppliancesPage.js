@@ -26,7 +26,7 @@ class AppliancesPage extends Component {
             selected_ids: [],
             unconfigured: [],
             redirectToSearch: false,
-            pageStateAvailable: true,    //used for switch available/configured screen states
+            pageStateUnconfigured: true,    //used for switch available/configured screen states
             showCreateClusterMessage: false,
             countConfiguredPages: 0,
             countUnconfiguredPages: 0,
@@ -37,10 +37,10 @@ class AppliancesPage extends Component {
 
         //change state from available to configured
         this.changeScreenState = () => {
-            let pageState = this.state.pageStateAvailable;
+            let pageState = this.state.pageStateUnconfigured;
 
             this.setState({
-                pageStateAvailable: !pageState,
+                pageStateUnconfigured: !pageState,
                 selected_ids: [],
                 showModalAddToCluster: !this.state.showModalAddToCluster,
                 currentPage: 0
@@ -68,7 +68,7 @@ class AppliancesPage extends Component {
 
         //click on the button in popup
         this.popupButtonClick = () => {
-            if (this.state.pageStateAvailable) {
+            if (this.state.pageStateUnconfigured) {
                 this.setState({
                     showCreateClusterMessage: true,
                     showPagination: false
@@ -158,7 +158,7 @@ class AppliancesPage extends Component {
         this.getPopup = (tooltipMessage, showTooltipMessage, isAvailableBtnCreateCluster, buttonText) => {
             let countSelectedAppliances = this.state.selected_ids.length;
             let selectedText = "";
-            if (this.state.pageStateAvailable) {
+            if (this.state.pageStateUnconfigured) {
                 selectedText = countSelectedAppliances + " ";
                 selectedText += countSelectedAppliances === 1 ? t.APPLIANCE_SELECTED : t.APPLIANCES_SELECTED;
             } else {
@@ -206,6 +206,19 @@ class AppliancesPage extends Component {
             );
         };
 
+        this.getScreenStateButton = () => {
+            return (<ul className="pagination pagination-sm justify-content-start">
+                        <li className={"page-item " + this.state.pageStateUnconfigured ? 'active' : ''}
+                            onClick={this.changeScreenState}>
+                            <a className="page-link">{t.UNCONFIGURED}</a>
+                        </li>
+                        <li className={"page-item " + this.state.pageStateUnconfigured ? '' : 'active'}
+                            onClick={this.changeScreenState}>
+                            <a className="page-link">{t.CONFIGURED}</a>
+                        </li>
+                    </ul>);
+        }
+
         //show modal Add To Cluster
         this.getModal = () => {
 
@@ -252,7 +265,7 @@ class AppliancesPage extends Component {
     render() {
         let {
             currentPage, countConfiguredPages, countUnconfiguredPages, unconfigured, selected_ids, showCreateClusterMessage,
-            configured, pageStateAvailable, showPagination, redirectToSearch, showModalAddToCluster
+            configured, pageStateUnconfigured, showPagination, redirectToSearch, showModalAddToCluster
         } = this.state;
 
         let showPopup = false;
@@ -263,8 +276,8 @@ class AppliancesPage extends Component {
         let showSettingsInAppliance = false;
         let countSelectedAppliances = selected_ids.length;
 
-        let appliances = pageStateAvailable ? unconfigured : configured;
-        let countPages = pageStateAvailable ? countUnconfiguredPages : countConfiguredPages;
+        let appliances = pageStateUnconfigured ? unconfigured : configured;
+        let countPages = pageStateUnconfigured ? countUnconfiguredPages : countConfiguredPages;
 
 
         showPagination = showPagination && appliances.length > MAX_APPLIANCES_ON_PAGE;
@@ -274,10 +287,10 @@ class AppliancesPage extends Component {
         if (countSelectedAppliances > 0) {
             showPopup = true;
 
-            popupButtonText = pageStateAvailable ? t.CREATE_CLUSTER : t.GO_TO_CLUSTER;
+            popupButtonText = pageStateUnconfigured ? t.CREATE_CLUSTER : t.GO_TO_CLUSTER;
 
             if (countSelectedAppliances > 1) {
-                if (pageStateAvailable) {
+                if (pageStateUnconfigured) {
                     let firstType = unconfigured.filter(appliance => appliance.id === selected_ids[0])[0].type;
 
                     //check that appliances have same types and that they are not HCI
@@ -290,12 +303,11 @@ class AppliancesPage extends Component {
                             tooltipMessage = t.MIXED_CLUSTER_WARNING;
                             break;
                         }
-			if (nextType === "HCI") {
-		            isAvailablePopupButton = false;
+                        if (nextType === "HCI") {
+                            isAvailablePopupButton = false;
                             showTooltipMessage = true;
                             tooltipMessage = t.MULTI_HCI_CLUSTER_WARNING;
-
-			}
+                        }
                     }
                 } else {
                     isAvailablePopupButton = false;
@@ -352,15 +364,11 @@ class AppliancesPage extends Component {
 
                 <div className="container">
                     <div className="row">
-                        <p className="change-available-configured">{pageStateAvailable ? t.AVAILABLE : t.CONFIGURED}</p>
-                        <label className="switch">
-                            <input onClick={this.changeScreenState} type="checkbox"/>
-                            <span className="slider round"/>
-                        </label>
+                        {this.getScreenStateButton()}
                     </div>
 
                     <div className="row">
-                        {this.state.pageStateAvailable && <p>{t.SELECT_APPLIANCES}</p>}
+                        {this.state.pageStateUnconfigured && <p>{t.SELECT_APPLIANCES}</p>}
                     </div>
 
                     <div className="row">
@@ -372,11 +380,11 @@ class AppliancesPage extends Component {
                                     selected_ids.forEach((element) => {
                                         showSettingsInAppliance = false;
                                         if (element === appliance.id) {
-                                            showSettingsInAppliance = pageStateAvailable && selected_ids.length === 1;
+                                            showSettingsInAppliance = pageStateUnconfigured && selected_ids.length === 1;
                                             active = true;
                                         }
                                     });
-                                    let isSelectTypeCheckbox = pageStateAvailable;
+                                    let isSelectTypeCheckbox = pageStateUnconfigured;
 
                                     return (
                                         <Appliance key={appliance.id}

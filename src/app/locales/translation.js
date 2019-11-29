@@ -31,7 +31,7 @@ let translation = new LocalizedStrings({
         ERROR_MESSAGE: discTool + " was unable to scan for any appliances.",
         RESCAN_APPLIANCES: "Re-scan for Appliances",
         SCAN_AGAIN: "Scan again",
-        AVAILABLE: "Available ",
+        UNCONFIGURED: "Unconfigured",
         CONFIGURED: "Configured",
         SELECT_APPLIANCES: "Select the appliances you want to add to a new or existing cluster.",
         APPLIANCE_SELECTED: "Appliance selected",
@@ -81,7 +81,6 @@ let translation = new LocalizedStrings({
         // * APPLIANCES
         APPLIANCES_FILTER: "Appliance - {0}",
         CLUSTER_NAME: "Cluster name",
-        UNCONFIGURED: "unconfigured",
 
         // * NUMBER OF SELECTED APPLIANCES
         FILTER_APPLIANCES_SELECTED: "{0} Appliances selected",
@@ -125,7 +124,7 @@ let translation = new LocalizedStrings({
 	// *BACKUP DISCOVERY
 	SHOW_BACKUP_DISCOVERY: "Show manual discovery procedure",
 	BACKUP_DISCOVERY: "Manual discovery procedure",
-	BACKUP_DISCOVERY_DESC: "If you are unable to temporarily disable wireless networks or security applications and have trouble discovering unconfigured appliances, " + 
+       BACKUP_DISCOVERY_DESC: "If you are unable to temporarily disable wireless networks or security applications and have trouble discovering unconfigured appliances, " +
 	    "use the following steps to begin the initial configuration process manually:",
 	BACKUP_DISCOVERY1: "Connect your workstation to an appliance directly via the service port using a DB9 serial connection cable.",
         BACKUP_DISCOVERY2: "In an SSH client, connect to the appliance using the following parameters:",
