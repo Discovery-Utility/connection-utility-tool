@@ -207,12 +207,12 @@ class AppliancesPage extends Component {
         };
 
         this.getScreenStateButton = () => {
-            return (<ul className="pagination pagination-sm justify-content-start">
-                        <li className={"page-item " + this.state.pageStateUnconfigured ? 'active' : ''}
+            return (<ul className="pagination justify-content-start change-unconfigured-configured">
+                        <li className={`page-item ${this.state.pageStateUnconfigured ? "active" : ""}`}
                             onClick={this.changeScreenState}>
                             <a className="page-link">{t.UNCONFIGURED}</a>
                         </li>
-                        <li className={"page-item " + this.state.pageStateUnconfigured ? '' : 'active'}
+                        <li className={`page-item ${this.state.pageStateUnconfigured ? "" : "active"}`}
                             onClick={this.changeScreenState}>
                             <a className="page-link">{t.CONFIGURED}</a>
                         </li>
