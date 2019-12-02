@@ -37,23 +37,28 @@ class AppliancesPage extends Component {
         };
 
         //change state from configured to unconfigured
-        this.changeScreenStateToUnconfigured = () => {
-            this.setState({
-                pageStateUnconfigured: true,
-                selected_ids: [],
-                showModalAddToCluster: !this.state.showModalAddToCluster,
-                currentPage: 0
-            });
+        this.changePageStateToUnconfigured = () => {
+            // update states only in case of changing page
+            if (!this.state.pageStateUnconfigured) {
+                this.setState({
+                    pageStateUnconfigured: true,
+                    selected_ids: [],
+                    showModalAddToCluster: !this.state.showModalAddToCluster,
+                    currentPage: 0
+                });
+            }
         }
 
         //change state from unconfigured to configured
-        this.changeScreenStateToConfigured = () => {
-            this.setState({
-                pageStateUnconfigured: false,
-                selected_ids: [],
-                showModalAddToCluster: !this.state.showModalAddToCluster,
-                currentPage: 0
-            });
+        this.changePageStateToConfigured = () => {
+            if (this.state.pageStateUnconfigured) {
+                this.setState({
+                    pageStateUnconfigured: false,
+                    selected_ids: [],
+                    showModalAddToCluster: !this.state.showModalAddToCluster,
+                    currentPage: 0
+                }); 
+            }
         }
 
         //callback function for Appliance component, set selection on Appliance
@@ -221,11 +226,11 @@ class AppliancesPage extends Component {
         this.getScreenStateButton = () => {
             return (<ul className="pagination justify-content-start change-unconfigured-configured">
                         <li className={`page-item ${this.state.pageStateUnconfigured ? "active" : ""}`}
-                            onClick={this.changeScreenStateToUnconfigured}>
+                            onClick={this.changePageStateToUnconfigured}>
                             <a className="page-link">{t.UNCONFIGURED}</a>
                         </li>
                         <li className={`page-item ${this.state.pageStateUnconfigured ? "" : "active"}`}
-                            onClick={this.changeScreenStateToConfigured}>
+                            onClick={this.changePageStateToConfigured}>
                             <a className="page-link">{t.CONFIGURED}</a>
                         </li>
                     </ul>);
