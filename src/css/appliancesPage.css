@@ -26,10 +26,7 @@
     width: 100%;
 }
 
-.change-available-configured {
-    font-size: 16px;
-    font-weight: bold;
-    user-select: none;
+.change-unconfigured-configured {
     padding-top: 15px;
 }
 
@@ -143,7 +140,7 @@ input:checked + .slider:before {
 
 .page-selector {
     position: fixed;
-    top: 500px;
+    top: 550px;
     right: 25px;
 }
 
