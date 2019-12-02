@@ -14,7 +14,7 @@ const MAX_APPLIANCES_ON_PAGE = 5;
 const {shell} = require('electron');
 
 /**
- * Appliance page displays available/configured appliance lists
+ * Appliance page displays unconfigured/configured appliance lists
  */
 class AppliancesPage extends Component {
     constructor(props) {
@@ -26,7 +26,8 @@ class AppliancesPage extends Component {
             selected_ids: [],
             unconfigured: [],
             redirectToSearch: false,
-            pageStateUnconfigured: true,    //used for switch available/configured screen states
+            pageStateUnconfigured: true,    //used for switch unconfigured/configured screen states
+            showPageStateButton: true,
             showCreateClusterMessage: false,
             countConfiguredPages: 0,
             countUnconfiguredPages: 0,
@@ -35,17 +36,25 @@ class AppliancesPage extends Component {
             showModalAddToCluster: true
         };
 
-        //change state from available to configured
-        this.changeScreenState = () => {
-            let pageState = this.state.pageStateUnconfigured;
-
+        //change state from configured to unconfigured
+        this.changeScreenStateToUnconfigured = () => {
             this.setState({
-                pageStateUnconfigured: !pageState,
+                pageStateUnconfigured: true,
                 selected_ids: [],
                 showModalAddToCluster: !this.state.showModalAddToCluster,
                 currentPage: 0
             });
-        };
+        }
+
+        //change state from unconfigured to configured
+        this.changeScreenStateToConfigured = () => {
+            this.setState({
+                pageStateUnconfigured: false,
+                selected_ids: [],
+                showModalAddToCluster: !this.state.showModalAddToCluster,
+                currentPage: 0
+            });
+        }
 
         //callback function for Appliance component, set selection on Appliance
         this.addSelection = (selectionId, isCheckBox) => {
@@ -71,7 +80,8 @@ class AppliancesPage extends Component {
             if (this.state.pageStateUnconfigured) {
                 this.setState({
                     showCreateClusterMessage: true,
-                    showPagination: false
+                    showPagination: false, 
+                    showPageStateButton: false
                 });
             } else {
                 let {selected_ids, configured} = this.state;
@@ -119,7 +129,8 @@ class AppliancesPage extends Component {
             //shell.openExternal(link);
             this.setState({
                 showCreateClusterMessage: false,
-                showPagination: true
+                showPagination: true,
+                showPageStateButton: true
             });
         };
 
@@ -127,7 +138,8 @@ class AppliancesPage extends Component {
         this.cancelClick = () => {
             this.setState({
                 showCreateClusterMessage: false,
-                showPagination: true
+                showPagination: true,
+                showPageStateButton: true
             });
         };
 
@@ -209,11 +221,11 @@ class AppliancesPage extends Component {
         this.getScreenStateButton = () => {
             return (<ul className="pagination justify-content-start change-unconfigured-configured">
                         <li className={`page-item ${this.state.pageStateUnconfigured ? "active" : ""}`}
-                            onClick={this.changeScreenState}>
+                            onClick={this.changeScreenStateToUnconfigured}>
                             <a className="page-link">{t.UNCONFIGURED}</a>
                         </li>
                         <li className={`page-item ${this.state.pageStateUnconfigured ? "" : "active"}`}
-                            onClick={this.changeScreenState}>
+                            onClick={this.changeScreenStateToConfigured}>
                             <a className="page-link">{t.CONFIGURED}</a>
                         </li>
                     </ul>);
@@ -265,7 +277,7 @@ class AppliancesPage extends Component {
     render() {
         let {
             currentPage, countConfiguredPages, countUnconfiguredPages, unconfigured, selected_ids, showCreateClusterMessage,
-            configured, pageStateUnconfigured, showPagination, redirectToSearch, showModalAddToCluster
+            configured, pageStateUnconfigured, showPageStateButton, showPagination, redirectToSearch, showModalAddToCluster
         } = this.state;
 
         let showPopup = false;
@@ -364,7 +376,7 @@ class AppliancesPage extends Component {
 
                 <div className="container">
                     <div className="row">
-                        {this.getScreenStateButton()}
+                        {showPageStateButton && this.getScreenStateButton()}
                     </div>
 
                     <div className="row">
