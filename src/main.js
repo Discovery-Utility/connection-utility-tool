@@ -131,9 +131,9 @@ function appOnUp(service) {
 
     // New discovered system name parsing
 
-// Service format should be (underscore delimited only):
-// PSA|PSC_<SOMENAME>_<code-version>_<system-type>_<system-model>_<HW type>_Unified|Block_<system-state>
-//    0         1           2              3              4           5           6             7
+    // Service format should be (underscore delimited only):
+    // PSA|PSC_<SOMENAME>_<code-version>_<system-type>_<system-model>_<HW type>_Unified|Block_<system-state>
+    //    0         1           2              3              4           5           6             7
 
     const serviceNames = service.name.split('_');
     if (serviceNames[0] === 'PSA' || serviceNames[0] === 'PSC') {
@@ -161,15 +161,15 @@ function appOnUp(service) {
         //System model
         newElement.model = getModelByCode(serviceNames[4], newElement.type);
 
-        //System state
-        //  "Unconfigured", 0                 // system in factory state
-        //  "Unconfigured_Faulted", 1       // Hardware is in faulted state
-        //  "Configuring", 2                   // In the midst of being configured or unconfigured
-        //  "Configured", 3                     // system is configured
-        //  "Expanding", 4                       // System is adding a new appliance
-        //  "Removing", 5                         // System is removing an appliance
-        //  "Clustering_Failed", 6       // system in a bad state
-        //  "Unknown", 99                          // unknown state
+        // System state
+        //  "Unconfigured", 0                system in factory state
+        //  "Unconfigured_Faulted", 1        Hardware is in faulted state
+        //  "Configuring", 2                 In the midst of being configured or unconfigured
+        //  "Configured", 3                  system is configured
+        //  "Expanding", 4                   System is adding a new appliance
+        //  "Removing", 5                    System is removing an appliance
+        //  "Clustering_Failed", 6           system in a bad state
+        //  "Unknown", 99                    unknown state
 
         if (serviceNames[7] === '0' || serviceNames[7] === '1') {
             newElement.state = 'unconfigured';

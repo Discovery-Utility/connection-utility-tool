@@ -26,7 +26,7 @@ class SlideOutDialog extends Component {
             selected = isCheckBox ? selected : [];
             selected.push(selectionName);
             this.setState({
-                sselectedNames: selected
+                selectedNames: selected
             });
         };
 
@@ -42,7 +42,7 @@ class SlideOutDialog extends Component {
             let selected = this.state.selectedNames;
             let configured = this.props.configured;
             let unconfiguredAppliance = this.props.selectedAppliance;
-            let appliance = configured.find(appliance => appliance.id === selected[0]);
+            let appliance = configured.find(appliance => appliance.name === selected[0]);
             let link = appliance.link + "/?appliances=" + unconfiguredAppliance.name;
 
             ipcRndr.send("connect-to-appliance", link);
