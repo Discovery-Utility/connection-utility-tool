@@ -14,7 +14,7 @@ const MAX_APPLIANCES_ON_PAGE = 5;
 const {shell} = require('electron');
 
 /**
- * Appliance page displays available/configured appliance lists
+ * Appliance page displays unconfigured/configured appliance lists
  */
 class AppliancesPage extends Component {
     constructor(props) {
@@ -26,7 +26,8 @@ class AppliancesPage extends Component {
             selectedNames: [],
             unconfigured: [],
             redirectToSearch: false,
-            pageStateAvailable: true,    //used for switch available/configured screen states
+            pageStateUnconfigured: true,    //used for switch unconfigured/configured screen states
+            showPageStateButton: true,
             showCreateClusterMessage: false,
             countConfiguredPages: 0,
             countUnconfiguredPages: 0,
@@ -35,17 +36,30 @@ class AppliancesPage extends Component {
             showModalAddToCluster: true
         };
 
-        //change state from available to configured
-        this.changeScreenState = () => {
-            let pageState = this.state.pageStateAvailable;
+        //change state from configured to unconfigured
+        this.changePageStateToUnconfigured = () => {
+            // update states only in case of changing page
+            if (!this.state.pageStateUnconfigured) {
+                this.setState({
+                    pageStateUnconfigured: true,
+                    selectedNames: [],
+                    showModalAddToCluster: !this.state.showModalAddToCluster,
+                    currentPage: 0
+                });
+            }
+        }
 
-            this.setState({
-                pageStateAvailable: !pageState,
-                selectedNames: [],
-                showModalAddToCluster: !this.state.showModalAddToCluster,
-                currentPage: 0
-            });
-        };
+        //change state from unconfigured to configured
+        this.changePageStateToConfigured = () => {
+            if (this.state.pageStateUnconfigured) {
+                this.setState({
+                    pageStateUnconfigured: false,
+                    selectedNames: [],
+                    showModalAddToCluster: !this.state.showModalAddToCluster,
+                    currentPage: 0
+                }); 
+            }
+        }
 
         //callback function for Appliance component, set selection on Appliance
         this.addSelection = (selectionName, isCheckBox) => {
@@ -68,10 +82,11 @@ class AppliancesPage extends Component {
 
         //click on the button in popup
         this.popupButtonClick = () => {
-            if (this.state.pageStateAvailable) {
+            if (this.state.pageStateUnconfigured) {
                 this.setState({
                     showCreateClusterMessage: true,
-                    showPagination: false
+                    showPagination: false, 
+                    showPageStateButton: false
                 });
             } else {
                 let {selectedNames, configured} = this.state;
@@ -113,7 +128,8 @@ class AppliancesPage extends Component {
             //shell.openExternal(link);
             this.setState({
                 showCreateClusterMessage: false,
-                showPagination: true
+                showPagination: true,
+                showPageStateButton: true
             });
         };
 
@@ -121,7 +137,8 @@ class AppliancesPage extends Component {
         this.cancelClick = () => {
             this.setState({
                 showCreateClusterMessage: false,
-                showPagination: true
+                showPagination: true,
+                showPageStateButton: true
             });
         };
 
@@ -152,7 +169,7 @@ class AppliancesPage extends Component {
         this.getPopup = (tooltipMessage, showTooltipMessage, isAvailableBtnCreateCluster, buttonText) => {
             let countSelectedAppliances = this.state.selectedNames.length;
             let selectedText = "";
-            if (this.state.pageStateAvailable) {
+            if (this.state.pageStateUnconfigured) {
                 selectedText = countSelectedAppliances + " ";
                 selectedText += countSelectedAppliances === 1 ? t.APPLIANCE_SELECTED : t.APPLIANCES_SELECTED;
             } else {
@@ -199,6 +216,19 @@ class AppliancesPage extends Component {
                 </nav>
             );
         };
+
+        this.getScreenStateButton = () => {
+            return (<ul className="pagination justify-content-start change-unconfigured-configured">
+                        <li className={`page-item ${this.state.pageStateUnconfigured ? "active" : ""}`}
+                            onClick={this.changePageStateToUnconfigured}>
+                            <a className="page-link">{t.UNCONFIGURED}</a>
+                        </li>
+                        <li className={`page-item ${this.state.pageStateUnconfigured ? "" : "active"}`}
+                            onClick={this.changePageStateToConfigured}>
+                            <a className="page-link">{t.CONFIGURED}</a>
+                        </li>
+                    </ul>);
+        }
 
         //show modal Add To Cluster
         this.getModal = () => {
@@ -251,7 +281,7 @@ class AppliancesPage extends Component {
     render() {
         let {
             currentPage, countConfiguredPages, countUnconfiguredPages, unconfigured, selectedNames, showCreateClusterMessage,
-            configured, pageStateAvailable, showPagination, redirectToSearch, showModalAddToCluster
+            configured, pageStateUnconfigured, showPageStateButton, showPagination, redirectToSearch, showModalAddToCluster
         } = this.state;
 
         let showPopup = false;
@@ -262,8 +292,8 @@ class AppliancesPage extends Component {
         let showSettingsInAppliance = false;
         let countSelectedAppliances = selectedNames.length;
 
-        let appliances = pageStateAvailable ? unconfigured : configured;
-        let countPages = pageStateAvailable ? countUnconfiguredPages : countConfiguredPages;
+        let appliances = pageStateUnconfigured ? unconfigured : configured;
+        let countPages = pageStateUnconfigured ? countUnconfiguredPages : countConfiguredPages;
 
 
         showPagination = showPagination && appliances.length > MAX_APPLIANCES_ON_PAGE;
@@ -273,10 +303,10 @@ class AppliancesPage extends Component {
         if (countSelectedAppliances > 0) {
             showPopup = true;
 
-            popupButtonText = pageStateAvailable ? t.CREATE_CLUSTER : t.GO_TO_CLUSTER;
+            popupButtonText = pageStateUnconfigured ? t.CREATE_CLUSTER : t.GO_TO_CLUSTER;
 
             if (countSelectedAppliances > 1) {
-                if (pageStateAvailable) {
+                if (pageStateUnconfigured) {
                     let firstType = unconfigured.find(appliance => appliance.name === selectedNames[0]).type;
 
                     //check that appliances have same types and that they are not HCI
@@ -293,7 +323,6 @@ class AppliancesPage extends Component {
                             isAvailablePopupButton = false;
                             showTooltipMessage = true;
                             tooltipMessage = t.MULTI_HCI_CLUSTER_WARNING;
-
                         }
                     }
                 } else {
@@ -351,15 +380,11 @@ class AppliancesPage extends Component {
 
                 <div className="container">
                     <div className="row">
-                        <p className="change-available-configured">{pageStateAvailable ? t.AVAILABLE : t.CONFIGURED}</p>
-                        <label className="switch">
-                            <input onClick={this.changeScreenState} type="checkbox"/>
-                            <span className="slider round"/>
-                        </label>
+                        {showPageStateButton && this.getScreenStateButton()}
                     </div>
 
                     <div className="row">
-                        {this.state.pageStateAvailable && <p>{t.SELECT_APPLIANCES}</p>}
+                        {this.state.pageStateUnconfigured && <p>{t.SELECT_APPLIANCES}</p>}
                     </div>
 
                     <div className="row">
@@ -371,11 +396,11 @@ class AppliancesPage extends Component {
                                     selectedNames.forEach((element) => {
                                         showSettingsInAppliance = false;
                                         if (element === appliance.name) {
-                                            showSettingsInAppliance = pageStateAvailable && selectedNames.length === 1;
+                                            showSettingsInAppliance = pageStateUnconfigured && selectedNames.length === 1;
                                             active = true;
                                         }
                                     });
-                                    let isSelectTypeCheckbox = pageStateAvailable;
+                                    let isSelectTypeCheckbox = pageStateUnconfigured;
 
                                     return (
                                         <Appliance key={appliance.name}
