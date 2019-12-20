@@ -93,7 +93,8 @@
   margin: auto;
   width: 95%;
   background-color: white;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 #buttonRenewLog{

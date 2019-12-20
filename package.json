@@ -90,7 +90,7 @@
     },
     "mac": {
       "target": [
-	    "dmg"
+        "dmg"
       ]
     }
   }

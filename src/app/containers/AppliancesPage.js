@@ -158,7 +158,7 @@ class AppliancesPage extends Component {
         //show create cluster screen
         this.getCreateClusterScreen = () => {
             return (
-                <div className="create-cluster-screen">
+                <div className="create-cluster-screen text-center">
                     <p className="create-cluster-screen-title">{t.ALMOST_THERE}</p>
                     <p>{t.REDIRECT_HELP_MESSAGE}</p>
                     <p>{t.PLEASE_STAY}</p>

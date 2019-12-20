@@ -120,6 +120,7 @@ class DetectionLog extends React.Component {
     }
 
     render() {
+        const currDate = new Date();
         if (this.state.subtab == "detectionLog") {
             return (
                 <div>
@@ -190,6 +191,14 @@ class DetectionLog extends React.Component {
                                     </tr>
                                     </thead>
                                     <tbody id="detectionLogTableBody">
+                                        <tr>
+                                            <td>
+                                                <div><font> Open log page </font></div>
+                                            </td>
+                                            <td>
+                                                <div><font> {currDate.toUTCString()} </font></div>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
