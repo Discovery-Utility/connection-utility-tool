@@ -9,7 +9,7 @@ let translation = new LocalizedStrings({
     en: {
         // ** Welcome & Rescan Page locales
         WELCOME_TITLE: "Welcome to " + productName + " Discovery Utility!",
-        ABOUT_TOOL: "This utility helps you to scan and discover unconfigured appliances in the network\n and launch the initial configuration process to create a " + productName + " cluster.\n Before you begin, do the following on your workstation: \n",
+        ABOUT_TOOL: "This utility helps you to scan and discover unconfigured appliances in the network and launch the initial configuration process to create a " + productName + " cluster.\n Before you begin, do the following on your workstation:",
         WIFI_NETWORKS: "Temporarily disable your wireless networks.",
         SHOW_ME_LINK: "Show me how.",
         PC_FIRE_WALL: "Temporarily disable security applications such as antivirus and firewall software.",

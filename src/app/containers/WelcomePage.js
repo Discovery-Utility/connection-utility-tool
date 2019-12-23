@@ -124,7 +124,7 @@ class WelcomePage extends Component {
                         </div>
                     </div>
                     <div className="row justify-content-center">
-                        <div className="col-8 text-center">
+                        <div className="col-8 text-center welcome-page-text">
                             <p>{t.ABOUT_TOOL}</p>
                         </div>
                     </div>
