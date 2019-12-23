@@ -16,12 +16,12 @@ class DetectionLog extends React.Component {
         this.changeSubtabs = this.changeSubtabs.bind(this);
         this.returnTabs = this.returnTabs.bind(this);
         this.eachLog = this.eachLog.bind(this);
-        this.refreshButton = this.refreshButton.bind(this);
+        this.refreshLogs = this.refreshLogs.bind(this);
         this.saveLogs = this.saveLogs.bind(this);
         this.clearLogs = this.clearLogs.bind(this);
     };
 
-    refreshButton() {
+    refreshLogs() {
         this.state.detLogs = JSON.parse(localStorage.getItem('logs'));
         this.forceUpdate();
     }
@@ -49,7 +49,7 @@ class DetectionLog extends React.Component {
         var logs = JSON.stringify(tmp, "", 4);
         localStorage.setItem('logs', logs);
         ipcRndr.send('clearDetectLog', "Clear logs");
-        this.refreshButton();
+        this.refreshLogs();
     }
 
     // Save detection logs
@@ -119,6 +119,12 @@ class DetectionLog extends React.Component {
         );
     }
 
+    componentDidMount() {
+        ipcRndr.on('update-appliance-list', (event, message, newApplianceName) => {
+            this.refreshLogs();
+        });
+    }
+
     render() {
         if (this.state.subtab == "detectionLog") {
             return (
@@ -146,7 +152,7 @@ class DetectionLog extends React.Component {
                                 {/*<div className="saveLogButton" onClick={this.clearLogs}>
                                     <font>{mainPage_lang.LOGS_buttonClear}</font>
                                 </div>*/}
-                                {/*<div id="buttonRenewLog" onClick={this.refreshButton}>
+                                {/*<div id="buttonRenewLog" onClick={this.refreshLogs}>
                                     <img id="refIcon" src="icon/refresh.svg" height="20"/>
                                 </div>*/}
                                 <table id="detectionLogTable">
