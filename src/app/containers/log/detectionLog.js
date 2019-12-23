@@ -22,8 +22,10 @@ class DetectionLog extends React.Component {
     };
 
     refreshLogs() {
-        this.state.detLogs = JSON.parse(localStorage.getItem('logs'));
-        this.forceUpdate();
+        this.setState({
+            detLogs: JSON.parse(localStorage.getItem('logs')),
+            eventLogs: JSON.parse(localStorage.getItem('eventlogs'))
+        })
     }
 
     changeSubtabs(subtab) {
@@ -120,9 +122,14 @@ class DetectionLog extends React.Component {
     }
 
     componentDidMount() {
-        ipcRndr.on('update-appliance-list', (event, message, newApplianceName) => {
+        this.refreshLogs();
+        ipcRndr.on('update-appliance-list', (event, message, newApplianceName) => {  
             this.refreshLogs();
         });
+    }
+
+    componentWillUnmount() {
+        ipcRndr.removeAllListeners('update-appliance-list');
     }
 
     render() {

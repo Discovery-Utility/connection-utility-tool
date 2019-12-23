@@ -255,6 +255,10 @@ class AppliancesPage extends Component {
         });
     }
 
+    componentWillUnmount() {
+        ipcRndr.removeAllListeners('update-appliance-list');
+    }
+
     getApplianceList() {
         //parse data from backend
         let appliances = JSON.parse(localStorage.getItem("message")).storages;
