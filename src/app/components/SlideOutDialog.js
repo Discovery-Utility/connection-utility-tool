@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
-import t from './../locales/translation'
+import React, {Component} from "react";
+import t from "./../locales/translation";
 import Appliance from "./Appliance";
-import Button from './../components/Button';
-
-import './../../scss/components/_slideoutdialog.scss';
+import Button from "./../components/Button";
+import "./../../scss/components/_slideoutdialog.scss";
 
 /**
  * SlideOutDialog displayed add to cluster modal.
@@ -30,9 +29,9 @@ class SlideOutDialog extends Component {
             });
         };
 
-        this.removeSelection = (selectionId) => {
+        this.removeSelection = selectionId => {
             let selected = this.state.selected_ids;
-            selected = selected.filter((id) => id !== selectionId);
+            selected = selected.filter(id => id !== selectionId);
             this.setState({
                 selected_ids: selected
             });
@@ -47,8 +46,7 @@ class SlideOutDialog extends Component {
 
             ipcRndr.send("connect-to-appliance", link);
         };
-    };
-
+    }
 
     render() {
         let {configured, selectedAppliance} = this.props;
@@ -59,42 +57,43 @@ class SlideOutDialog extends Component {
         let selectedApplianceName = selectedAppliance ? selectedAppliance.name : "";
 
         return (
-            <div className="modal fade" id="modal" tabIndex="-1" role="dialog"
-                 aria-labelledby="exampleModalLabel4" aria-hidden="true">
+            <div className="modal fade" id="modal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-slideout modal-lg" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">{t.ADD_TO_EXISTING}</h5>
+                            <h5 className="modal-title" id="exampleModalLabel">
+                                {t.ADD_TO_EXISTING}
+                            </h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
                         <p className="slideout-body-text">Selected: {selectedApplianceName}</p>
                         <div className="modal-body">
-                            {
-                                configured.map(appliance => {
-                                    let active = false;
+                            {configured.map(appliance => {
+                                let active = false;
 
-                                    selected_ids.forEach((element) => {
-                                        if (element === appliance.id) {
-                                            active = true;
-                                        }
-                                    });
+                                selected_ids.forEach(element => {
+                                    if (element === appliance.id) {
+                                        active = true;
+                                    }
+                                });
 
-                                    return (
-                                        <Appliance addSelection={this.addSelection}
-                                                   removeSelection={this.removeSelection}
-                                                   itemClick={null}
-                                                   key={appliance.id}
-                                                   appliance={appliance}
-                                                   showSettingsMenu={false}
-                                                   active={active}/>
-                                    );
-                                })}
+                                return (
+                                    <Appliance
+                                        addSelection={this.addSelection}
+                                        removeSelection={this.removeSelection}
+                                        itemClick={null}
+                                        key={appliance.id}
+                                        appliance={appliance}
+                                        showSettingsMenu={false}
+                                        active={active}
+                                    />
+                                );
+                            })}
                         </div>
                         <div className="modal-footer">
-                            <Button text={t.ADD_TO_CLUSTER.toUpperCase()} available={isAddBtnActive}
-                                    onClick={this.addClick}/>
+                            <Button text={t.ADD_TO_CLUSTER.toUpperCase()} available={isAddBtnActive} onClick={this.addClick} />
                         </div>
                     </div>
                 </div>

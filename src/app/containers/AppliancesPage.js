@@ -1,17 +1,16 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import AppHeader from "../components/AppHeader";
-import t from './../locales/translation'
+import t from "./../locales/translation";
 import {Redirect} from "react-router-dom";
-import Appliance from './../components/Appliance'
+import Appliance from "./../components/Appliance";
 import Button from "../components/Button";
-import MappleToolTip from 'reactjs-mappletooltip';
-import SlideOutDialog from './../components/SlideOutDialog';
-
+import MappleToolTip from "reactjs-mappletooltip";
+import SlideOutDialog from "./../components/SlideOutDialog";
 
 const MAX_SELECT_APPLIANCES = 4;
 const MAX_APPLIANCES_ON_PAGE = 5;
 
-const {shell} = require('electron');
+const {shell} = require("electron");
 
 /**
  * Appliance page displays unconfigured/configured appliance lists
@@ -26,7 +25,7 @@ class AppliancesPage extends Component {
             selected_ids: [],
             unconfigured: [],
             redirectToSearch: false,
-            pageStateUnconfigured: true,    //used for switch unconfigured/configured screen states
+            pageStateUnconfigured: true, //used for switch unconfigured/configured screen states
             showPageStateButton: true,
             showCreateClusterMessage: false,
             countConfiguredPages: 0,
@@ -47,7 +46,7 @@ class AppliancesPage extends Component {
                     currentPage: 0
                 });
             }
-        }
+        };
 
         //change state from unconfigured to configured
         this.changePageStateToConfigured = () => {
@@ -57,9 +56,9 @@ class AppliancesPage extends Component {
                     selected_ids: [],
                     showModalAddToCluster: !this.state.showModalAddToCluster,
                     currentPage: 0
-                }); 
+                });
             }
-        }
+        };
 
         //callback function for Appliance component, set selection on Appliance
         this.addSelection = (selectionId, isCheckBox) => {
@@ -72,9 +71,9 @@ class AppliancesPage extends Component {
         };
 
         //remove selection from Appliance component
-        this.removeSelection = (selectionId) => {
+        this.removeSelection = selectionId => {
             let selected = this.state.selected_ids;
-            selected = selected.filter((id) => id !== selectionId);
+            selected = selected.filter(id => id !== selectionId);
             this.setState({
                 selected_ids: selected
             });
@@ -85,13 +84,13 @@ class AppliancesPage extends Component {
             if (this.state.pageStateUnconfigured) {
                 this.setState({
                     showCreateClusterMessage: true,
-                    showPagination: false, 
+                    showPagination: false,
                     showPageStateButton: false
                 });
             } else {
                 let {selected_ids, configured} = this.state;
 
-                let appliance = configured.filter((appliance) => {
+                let appliance = configured.filter(appliance => {
                     return appliance.id === selected_ids[0];
                 });
 
@@ -103,11 +102,11 @@ class AppliancesPage extends Component {
 
         //click on the scan again link
         this.scanAgainClick = () => {
-            ipcRndr.send('refresh', "Restart scaning");
+            ipcRndr.send("refresh", "Restart scaning");
 
             this.setState({
                 redirectToSearch: true
-            })
+            });
         };
 
         //click on continue button in CreateCluster screen
@@ -115,16 +114,15 @@ class AppliancesPage extends Component {
             let {selected_ids, unconfigured} = this.state;
 
             let countSelected = selected_ids.length;
-            let firstAppliance = unconfigured.filter((appliance) => {
-                return appliance.id === selected_ids[0]
+            let firstAppliance = unconfigured.filter(appliance => {
+                return appliance.id === selected_ids[0];
             });
 
             let names = "";
             for (let i = 0; i < countSelected; i++) {
-                let nextAppliance = unconfigured.filter((appliance) => {
+                let nextAppliance = unconfigured.filter(appliance => {
                     return appliance.id === selected_ids[i];
                 });
-
 
                 names += nextAppliance[0].name;
                 names += i < countSelected - 1 ? "," : "";
@@ -149,10 +147,10 @@ class AppliancesPage extends Component {
         };
 
         //click on the pagination (one of pages)
-        this.pageClick = (page) => {
+        this.pageClick = page => {
             this.setState({
                 currentPage: page - 1
-            })
+            });
         };
 
         //show create cluster screen
@@ -163,10 +161,10 @@ class AppliancesPage extends Component {
                     <p>{t.REDIRECT_HELP_MESSAGE}</p>
                     <p>{t.PLEASE_STAY}</p>
 
-                    <Button text="Continue" onClick={this.continueClick}
-                            className="create-cluster-screen-continue"
-                            available={true}/>
-                    <p onClick={this.cancelClick} className="create-cluster-screen-cancel">Back</p>
+                    <Button text="Continue" onClick={this.continueClick} className="create-cluster-screen-continue" available={true} />
+                    <p onClick={this.cancelClick} className="create-cluster-screen-cancel">
+                        Back
+                    </p>
                 </div>
             );
         };
@@ -186,20 +184,11 @@ class AppliancesPage extends Component {
                 <div className="shadow create-cluster-popup">
                     <p className="popup-selected-text">{selectedText}</p>
                     <div className="popup-create-cluster-button">
-                        <MappleToolTip
-                            showMappleIf={showTooltipMessage}
-                            direction="left"
-                            mappleType="contra"
-                            float={false}>
-                            <Button text={buttonText}
-                                    onClick={this.popupButtonClick}
-                                    available={isAvailableBtnCreateCluster}/>
-                            <div>
-                                {tooltipMessage}
-                            </div>
+                        <MappleToolTip showMappleIf={showTooltipMessage} direction="left" mappleType="contra" float={false}>
+                            <Button text={buttonText} onClick={this.popupButtonClick} available={isAvailableBtnCreateCluster} />
+                            <div>{tooltipMessage}</div>
                         </MappleToolTip>
                     </div>
-
                 </div>
             );
         };
@@ -214,9 +203,11 @@ class AppliancesPage extends Component {
                             if (pageId - 1 === page) {
                                 additionalClass = "active";
                             }
-                            return (<li key={pageId} className={"page-item " + additionalClass}
-                                        onClick={this.pageClick.bind(this, pageId)}>
-                                <a className="page-link">{pageId}</a></li>)
+                            return (
+                                <li key={pageId} className={"page-item " + additionalClass} onClick={this.pageClick.bind(this, pageId)}>
+                                    <a className="page-link">{pageId}</a>
+                                </li>
+                            );
                         })}
                     </ul>
                 </nav>
@@ -224,29 +215,29 @@ class AppliancesPage extends Component {
         };
 
         this.getScreenStateButton = () => {
-            return (<ul className="pagination justify-content-start change-unconfigured-configured">
-                        <li className={`page-item ${this.state.pageStateUnconfigured ? "active" : ""}`}
-                            onClick={this.changePageStateToUnconfigured}>
-                            <a className="page-link">{t.UNCONFIGURED}</a>
-                        </li>
-                        <li className={`page-item ${this.state.pageStateUnconfigured ? "" : "active"}`}
-                            onClick={this.changePageStateToConfigured}>
-                            <a className="page-link">{t.CONFIGURED}</a>
-                        </li>
-                    </ul>);
-        }
+            return (
+                <ul className="pagination justify-content-start change-unconfigured-configured">
+                    <li
+                        className={`page-item ${this.state.pageStateUnconfigured ? "active" : ""}`}
+                        onClick={this.changePageStateToUnconfigured}
+                    >
+                        <a className="page-link">{t.UNCONFIGURED}</a>
+                    </li>
+                    <li
+                        className={`page-item ${this.state.pageStateUnconfigured ? "" : "active"}`}
+                        onClick={this.changePageStateToConfigured}
+                    >
+                        <a className="page-link">{t.CONFIGURED}</a>
+                    </li>
+                </ul>
+            );
+        };
 
         //show modal Add To Cluster
         this.getModal = () => {
-
             let selectedAppliance = this.state.unconfigured.filter(appliance => appliance.id === this.state.selected_ids[0])[0];
             let configuredAppliances = this.state.configured.filter(appliance => appliance.type === selectedAppliance.type);
-            return (
-                <SlideOutDialog
-                    configured={configuredAppliances}
-                    selectedAppliance={selectedAppliance}
-                />
-            );
+            return <SlideOutDialog configured={configuredAppliances} selectedAppliance={selectedAppliance} />;
         };
     }
 
@@ -255,7 +246,6 @@ class AppliancesPage extends Component {
         let appliances = JSON.parse(localStorage.getItem("message")).storages;
 
         if (appliances) {
-
             //set ids to appliances
             for (let i = 0; i < appliances.length; i++) {
                 appliances[i].id = i;
@@ -281,8 +271,18 @@ class AppliancesPage extends Component {
 
     render() {
         let {
-            currentPage, countConfiguredPages, countUnconfiguredPages, unconfigured, selected_ids, showCreateClusterMessage,
-            configured, pageStateUnconfigured, showPageStateButton, showPagination, redirectToSearch, showModalAddToCluster
+            currentPage,
+            countConfiguredPages,
+            countUnconfiguredPages,
+            unconfigured,
+            selected_ids,
+            showCreateClusterMessage,
+            configured,
+            pageStateUnconfigured,
+            showPageStateButton,
+            showPagination,
+            redirectToSearch,
+            showModalAddToCluster
         } = this.state;
 
         let showPopup = false;
@@ -295,7 +295,6 @@ class AppliancesPage extends Component {
 
         let appliances = pageStateUnconfigured ? unconfigured : configured;
         let countPages = pageStateUnconfigured ? countUnconfiguredPages : countConfiguredPages;
-
 
         showPagination = showPagination && appliances.length > MAX_APPLIANCES_ON_PAGE;
         showModalAddToCluster = showModalAddToCluster && selected_ids.length === 1;
@@ -360,69 +359,60 @@ class AppliancesPage extends Component {
         }
         return (
             <div>
-                <AppHeader/>
+                <AppHeader />
                 <div className="appliances-header">
-                    <div className="available-appliances-title">
-                        {t.APPLIANCES}
-                    </div>
+                    <div className="available-appliances-title">{t.APPLIANCES}</div>
 
                     <div className="available-appliances-rescan">
-                        <img src="./images/refresh.svg"
-                             width="20" height="20"
-                             alt="refresh-ico"/>
-
+                        <img src="./images/refresh.svg" width="20" height="20" alt="refresh-ico" />
                     </div>
 
                     <div onClick={this.scanAgainClick} className="available-appliances-rescan-text">
                         {t.SCAN_AGAIN.toUpperCase()}
                     </div>
-
                 </div>
 
                 <div className="container">
-                    <div className="row">
-                        {showPageStateButton && this.getScreenStateButton()}
-                    </div>
+                    <div className="row">{showPageStateButton && this.getScreenStateButton()}</div>
 
-                    <div className="row">
-                        {this.state.pageStateUnconfigured && <p>{t.SELECT_APPLIANCES}</p>}
-                    </div>
+                    <div className="row">{this.state.pageStateUnconfigured && <p>{t.SELECT_APPLIANCES}</p>}</div>
 
                     <div className="row">
                         <div className="appliances-list">
-                            {
-                                appliances.map(appliance => {
-                                    let active = false;
+                            {appliances.map(appliance => {
+                                let active = false;
 
-                                    selected_ids.forEach((element) => {
-                                        showSettingsInAppliance = false;
-                                        if (element === appliance.id) {
-                                            showSettingsInAppliance = pageStateUnconfigured && selected_ids.length === 1;
-                                            active = true;
-                                        }
-                                    });
-                                    let isSelectTypeCheckbox = pageStateUnconfigured;
+                                selected_ids.forEach(element => {
+                                    showSettingsInAppliance = false;
+                                    if (element === appliance.id) {
+                                        showSettingsInAppliance = pageStateUnconfigured && selected_ids.length === 1;
+                                        active = true;
+                                    }
+                                });
+                                let isSelectTypeCheckbox = pageStateUnconfigured;
 
-                                    return (
-                                        <Appliance key={appliance.id}
-                                                   addSelection={this.addSelection}
-                                                   removeSelection={this.removeSelection}
-                                                   appliance={appliance}
-                                                   selectTypeCheckbox={isSelectTypeCheckbox}
-                                                   showSettingsMenu={showSettingsInAppliance}
-                                                   active={active}/>
-                                    );
-                                })}
+                                return (
+                                    <Appliance
+                                        key={appliance.id}
+                                        addSelection={this.addSelection}
+                                        removeSelection={this.removeSelection}
+                                        appliance={appliance}
+                                        selectTypeCheckbox={isSelectTypeCheckbox}
+                                        showSettingsMenu={showSettingsInAppliance}
+                                        active={active}
+                                    />
+                                );
+                            })}
                         </div>
                     </div>
                     {showModalAddToCluster && this.getModal()}
                     {showPagination && this.getPagination(pages, currentPage)}
                     {showPopup && this.getPopup(tooltipMessage, showTooltipMessage, isAvailablePopupButton, popupButtonText)}
                     {showCreateClusterMessage && this.getCreateClusterScreen()}
-                    {redirectToSearch && <Redirect to="/search"/>}
+                    {redirectToSearch && <Redirect to="/search" />}
                 </div>
             </div>
-        )
+        );
     }
 }
 

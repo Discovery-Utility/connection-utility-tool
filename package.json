@@ -11,7 +11,10 @@
     "build:win": "npm run build:win64 && npm run build:win32",
     "build:win32": "build --platform win32 --arch ia32",
     "build:win64": "build --platform win32 --arch x64",
-    "build:mac": "build --platform mac"
+    "build:mac": "build --platform mac",
+    "prettiercheck": "prettier --check \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\"",
+    "prettierwrite": "prettier --write \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\"",
+    "prettier": "prettier"
   },
   "license": "ISC",
   "dependencies": {
@@ -59,8 +62,22 @@
     "electron-squirrel-startup": "^1.0.0",
     "json-loader": "^0.5.7",
     "postcss-loader": "^2.0.8",
+    "prettier": "1.19.1",
     "react-transform-hmr": "^1.0.4",
     "webpack": "^1.15.0"
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "endOfLine": "auto",
+    "jsxBracketSameLine": false,
+    "jsxSingleQuote": false,
+    "parser": "typescript",
+    "printWidth": 140,
+    "semi": true,
+    "singleQuote": false,
+    "tabWidth": 4,
+    "trailingComma": "none",
+    "useTabs": false
   },
   "build": {
     "productName": "DiscoveryUtility",

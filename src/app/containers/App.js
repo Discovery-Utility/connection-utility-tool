@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom'
+import React, {Component} from "react";
+import {Redirect} from "react-router-dom";
 
 /**
  * Default root component in application.
@@ -11,9 +11,7 @@ class App extends Component {
     }
 
     render() {
-        return (
-            <Redirect to="/welcome"/>
-        );
+        return <Redirect to="/welcome" />;
     }
 }
 
