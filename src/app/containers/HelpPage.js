@@ -29,12 +29,12 @@ class HelpPage extends React.Component {
         this.setState({
             state: subtab
         });
-        var subtabs = document.getElementsByClassName("subtabs");
-        for (var i = 0; i < subtabs.length; i++) {
+        let subtabs = document.getElementsByClassName("subtabs");
+        for (let i = 0; i < subtabs.length; i++) {
             subtabs[i].style.color = "#555555";
             subtabs[i].style.backgroundColor = "white";
         }
-        var selectSubtub = document.getElementById(subtab).style;
+        let selectSubtub = document.getElementById(subtab).style;
         selectSubtub.color = "#248dc0";
         selectSubtub.backgroundColor = "#eeeeee";
     }

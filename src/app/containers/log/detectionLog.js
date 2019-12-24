@@ -30,22 +30,22 @@ class DetectionLog extends React.Component {
         this.setState({
             subtab: subtab
         });
-        var subtabs = document.getElementsByClassName("subtabs");
-        for (var i = 0; i < subtabs.length; i++) {
+        let subtabs = document.getElementsByClassName("subtabs");
+        for (let i = 0; i < subtabs.length; i++) {
             subtabs[i].style.color = "#555555";
             subtabs[i].style.backgroundColor = "white";
         }
-        var selectSubtub = document.getElementById(subtab).style;
+        let selectSubtub = document.getElementById(subtab).style;
         selectSubtub.color = "#248dc0";
         selectSubtub.backgroundColor = "#eeeeee";
     }
 
     // Cleare detection logs
     clearLogs() {
-        var tmp = {
+        const tmp = {
             storages: []
         };
-        var logs = JSON.stringify(tmp, "", 4);
+        const logs = JSON.stringify(tmp, "", 4);
         localStorage.setItem("logs", logs);
         ipcRndr.send("clearDetectLog", "Clear logs");
         this.refreshButton();
@@ -53,9 +53,9 @@ class DetectionLog extends React.Component {
 
     // Save detection logs
     saveLogs(text, name, type) {
-        var logStor = this.state.detLogs.storages;
+        const logStor = this.state.detLogs.storages;
         text = "";
-        for (var i = 0; i < logStor.length; i++) {
+        for (let i = 0; i < logStor.length; i++) {
             text +=
                 logStor[i].date +
                 " " +
@@ -72,15 +72,15 @@ class DetectionLog extends React.Component {
                 logStor[i].link.slice(7) +
                 "\n";
         }
-        var logFile = new Blob([text], {type: type});
-        var a = document.createElement("a"),
-            url = URL.createObjectURL(logFile);
+        const logFile = new Blob([text], {type: type});
+        const url = URL.createObjectURL(logFile);
+        let a = document.createElement("a");
         console.log(url);
         a.href = url;
         a.download = name;
         document.body.appendChild(a);
         a.click();
-        setTimeout(function() {
+        setTimeout(() => {
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);
         }, 0);
