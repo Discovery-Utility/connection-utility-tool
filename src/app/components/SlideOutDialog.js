@@ -68,8 +68,8 @@ class SlideOutDialog extends Component {
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
-                        <p className="slideout-body-text">Selected: {selectedApplianceName}</p>
                         <div className="modal-body">
+                            <p className="slideout-body-text">Selected: {selectedApplianceName}</p>
                             {configured.map(appliance => {
                                 let active = false;
 

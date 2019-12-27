@@ -165,13 +165,16 @@ input:checked + .slider:before {
     background: #fff;
 }
 
+.modal-dialog-slideout.message {
+    width: 400px;
+}
+
 .modal.fade .modal-dialog.modal-dialog-slideout {
     transform: translate(100%, 0);
     position: absolute;
     height: 100%;
     top: 0;
     right: 0;
-    width: 400px;
     bottom: 0;
     margin-top: 0;
     margin-bottom: 0;
