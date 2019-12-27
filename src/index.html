@@ -25,14 +25,11 @@
 
     <script>
         const ipcRndr = require('electron').ipcRenderer;
-        var selectAppliances = [];
-        var selectedCluster = "noSelected";
-        var prevFilter = "unconfigured";
+        let selectedCluster = "noSelected";
         // Required for redirecting all links to the default browser
         let shell = require('electron').shell
         // Get messege from the app's local storage
         require('electron').ipcRenderer.on('ping', (event, message, logMessage) => {
-
             localStorage.setItem('message', message);
             localStorage.setItem('logs', logMessage);
         });
@@ -47,11 +44,11 @@
 
         // Popup windows' closing on "focus left"
         function focusLeave() {
-            var ppup = document.getElementById("modalpopup");
+            let ppup = document.getElementById("modalpopup");
             ppup.style.visibility = "hidden";
             ppup.style.left = "100%";
             ppup.style.opacity = "0.0";
-            var jppup = document.getElementById("joinpopup");
+            let jppup = document.getElementById("joinpopup");
             jppup.style.visibility = "hidden";
             jppup.style.left = "100%";
             jppup.style.opacity = "0.0";
