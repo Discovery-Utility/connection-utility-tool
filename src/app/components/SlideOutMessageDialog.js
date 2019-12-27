@@ -11,7 +11,7 @@ class SlideOutMessageDialog extends Component {
         return (
             <div>
                 <div className="modal fade" id="modal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
-                    <div className="modal-dialog modal-dialog-slideout modal-lg" role="document">
+                    <div className="modal-dialog modal-dialog-slideout message modal-lg" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="exampleModalLabel">

@@ -92,19 +92,21 @@
 //appliance name and type styles
 .app-name {
   padding-top: 12px;
-  margin-left: 50px;
-  width: 100px;
+  margin-left: 30px;
+  width: 220px;
+  overflow-wrap: break-word;
+  line-height: 1.2;
 }
 
 .app-model {
   padding-top: 12px;
-  margin-left: 95px;
+  margin-left: 55px;
 }
 
 //system status
 .app-failed-true {
   visibility: visible;
-  margin-left: 50px;
+  margin-left: 40px;
 }
 
 //system status
@@ -127,7 +129,7 @@
 .radio-button {
   display: block;
   position: relative;
-  padding-left: 35px;
+  padding-left: 20px;
   margin-bottom: 20px;
   cursor: pointer;
   font-size: 22px;
