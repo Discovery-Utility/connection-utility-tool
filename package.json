@@ -14,7 +14,9 @@
     "build:mac": "build --platform mac",
     "prettiercheck": "prettier --check \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\"",
     "prettierwrite": "prettier --write \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\"",
-    "prettier": "prettier"
+    "prettier": "prettier",
+    "test": "mocha --opts ./src/test/mocha.opts 'src/test/**/*.js'",
+    "tc_test": "testcafe \"./src/tc_test/*.js\""
   },
   "license": "ISC",
   "dependencies": {
@@ -25,10 +27,11 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.9.0",
     "bonjour": "3.5.0",
-    "bootstrap": "^4.0.0-beta",
+    "bootstrap": "^4.0.0",
+    "chai": "^4.2.0",
     "cross-env": "^1.0.8",
     "expect": "^1.20.1",
-    "jquery": "^3.2.1",
+    "jquery": "^3.4.1",
     "multicast-dns": "github:alexey-martynov/multicast-dns#multihomed-multicast",
     "node-libs-browser": "^2.0.0",
     "node-sass": "^4.7.2",
@@ -48,7 +51,10 @@
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",
     "sass-loader": "^4.0.0",
+    "sinon": "^8.0.1",
     "style-loader": "^0.13.1",
+    "testcafe": "^1.7.1",
+    "testcafe-browser-provider-electron": "0.0.13",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.11.0"
   },
@@ -60,11 +66,19 @@
     "electron-builder": "^20.26.0",
     "electron-builder-squirrel-windows": "^19.18.0",
     "electron-squirrel-startup": "^1.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-15": "^1.4.1",
+    "jest": "^24.9.0",
     "json-loader": "^0.5.7",
+    "mocha": "^6.2.2",
     "postcss-loader": "^2.0.8",
     "prettier": "1.19.1",
+    "react-test-renderer": "^15.6.2",
     "react-transform-hmr": "^1.0.4",
     "webpack": "^1.15.0"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "src/test/setupTests.js"
   },
   "prettier": {
     "bracketSpacing": false,

@@ -57,7 +57,7 @@ class HelpPage extends React.Component {
     }
 
     render() {
-        if (this.state.state == "expect") {
+        if (this.state.state === "expect") {
             return (
                 <div>
                     <AppHeader />
@@ -68,7 +68,7 @@ class HelpPage extends React.Component {
                 </div>
             );
         }
-        if (this.state.state == "tips") {
+        if (this.state.state === "tips") {
             return (
                 <div>
                     <AppHeader />
@@ -79,7 +79,7 @@ class HelpPage extends React.Component {
                 </div>
             );
         }
-        if (this.state.state == "docs") {
+        if (this.state.state === "docs") {
             return (
                 <div>
                     <AppHeader />

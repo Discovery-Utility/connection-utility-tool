@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import React from "react";
 import Router from "./Router";
+import Bootstrap from "bootstrap";
 
 /**
  * Application entry point.

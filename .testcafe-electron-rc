@@ -1,0 +1,5 @@
+{
+  "mainWindowUrl": "src/index.html",
+  "appFile": "src/main.js"
+  "electron": "electron ."
+}

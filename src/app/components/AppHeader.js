@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {appTitle} from "../locales/translation";
 import "./../../bootstrap/scss/bootstrap.scss";
-import "bootstrap/dist/js/bootstrap.js";
 import {Link, Redirect} from "react-router-dom";
 
 /**
