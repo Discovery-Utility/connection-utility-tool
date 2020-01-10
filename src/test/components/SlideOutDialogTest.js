@@ -1,19 +1,16 @@
-import React from 'react';
-import {expect} from 'chai';
-import {shallow} from 'enzyme';
-import sinon from 'sinon';
-import SlideOutDialog from '../../app/components/SlideOutDialog';
-import Appliance from '../../app/components/Appliance';
+import React from "react";
+import SlideOutDialog from "../../app/components/SlideOutDialog";
+import Appliance from "../../app/components/Appliance";
 
 const DEMO_APPLIANCE = {
     link: "http://192.168.0.100:8080",
     name: "FNM00103198723",
     state: "unconfigured",
-    type: "HCI",
-    model: "ProductName 1000X",
+    type: "BM",
+    model: "ProductName 1000",
     cluster: "false",
     failed: "false"
-}
+};
 
 const DEMO_CLUSTER = [
     {
@@ -36,23 +33,34 @@ const DEMO_CLUSTER = [
         cluster: "true",
         failed: "false"
     }
-]
+];
 
-const noop = function () {};
-
-describe('SlideOutDialog component tests', () => {
-    it('Should render dialog with proper appliances', () => {
+describe("SlideOutDialog component tests", () => {
+    it("Should render dialog with proper appliances", () => {
         const wrapper = shallow(<SlideOutDialog configured={DEMO_CLUSTER} selectedAppliance={DEMO_APPLIANCE} />);
-        expect(wrapper.find('#modal')).to.have.lengthOf(1);
-        expect(wrapper.find('.slideout-body-text').text()).to.equal(`Selected: ${DEMO_APPLIANCE.name}`);
+        expect(wrapper.find("#modal")).to.have.lengthOf(1);
+        expect(wrapper.find(".slideout-body-text").text()).to.equal(`Selected: ${DEMO_APPLIANCE.name}`);
         expect(wrapper.find(Appliance)).to.have.lengthOf(2);
     });
 
-    it('Should close dialog by clicking on "x" button', () => {
-        // TODO
+    it("Should add appliance to selected after click", () => {
+        const wrapper = mount(<SlideOutDialog configured={DEMO_CLUSTER} selectedAppliance={DEMO_APPLIANCE} />);
+        expect(wrapper.state("selected_ids")).to.deep.equal([]);
+        const appliance = wrapper.find(Appliance).at(0);
+        appliance.find("input").simulate("click");
+        expect(wrapper.state("selected_ids")).to.deep.equal([DEMO_CLUSTER[0].id]);
     });
 
-    it('Should close dialog by clicking on "OK" button', () => {
-        // TODO
+    it("Should change selected appliance", () => {
+        const wrapper = mount(<SlideOutDialog configured={DEMO_CLUSTER} selectedAppliance={DEMO_APPLIANCE} />);
+        expect(wrapper.state("selected_ids")).to.deep.equal([]);
+        const firstAppliance = wrapper.find(Appliance).at(0);
+        firstAppliance.find("input").simulate("click");
+        expect(wrapper.state("selected_ids")).to.deep.equal([DEMO_CLUSTER[0].id]);
+        const secondAppliance = wrapper.find(Appliance).at(1);
+        secondAppliance.find("input").simulate("click");
+        expect(wrapper.state("selected_ids")).to.deep.equal([DEMO_CLUSTER[1].id]);
     });
+
+    //it('Should call ipcRndr.send by click on button', () => {});
 });

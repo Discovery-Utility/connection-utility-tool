@@ -12,11 +12,10 @@
     "build:win32": "build --platform win32 --arch ia32",
     "build:win64": "build --platform win32 --arch x64",
     "build:mac": "build --platform mac",
-    "prettiercheck": "prettier --check \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\"",
-    "prettierwrite": "prettier --write \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\"",
+    "prettiercheck": "prettier --check \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\" \"src/test/*.js\" \"src/test/**/*.js\"",
+    "prettierwrite": "prettier --write \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\" \"src/test/*.js\" \"src/test/**/*.js\"",
     "prettier": "prettier",
-    "test": "mocha --opts ./src/test/mocha.opts 'src/test/**/*.js'",
-    "tc_test": "testcafe \"./src/tc_test/*.js\""
+    "test": "mocha --opts ./src/test/mocha.opts 'src/test/**/*.js'"
   },
   "license": "ISC",
   "dependencies": {
@@ -53,8 +52,6 @@
     "sass-loader": "^4.0.0",
     "sinon": "^8.0.1",
     "style-loader": "^0.13.1",
-    "testcafe": "^1.7.1",
-    "testcafe-browser-provider-electron": "0.0.13",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.11.0"
   },
@@ -68,7 +65,8 @@
     "electron-squirrel-startup": "^1.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-15": "^1.4.1",
-    "jest": "^24.9.0",
+    "jsdom": "15.2.1",
+    "jsdom-global": "3.0.2",
     "json-loader": "^0.5.7",
     "mocha": "^6.2.2",
     "postcss-loader": "^2.0.8",
@@ -76,9 +74,6 @@
     "react-test-renderer": "^15.6.2",
     "react-transform-hmr": "^1.0.4",
     "webpack": "^1.15.0"
-  },
-  "jest": {
-    "setupTestFrameworkScriptFile": "src/test/setupTests.js"
   },
   "prettier": {
     "bracketSpacing": false,

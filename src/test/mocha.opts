@@ -1,2 +1,5 @@
 --require babel-core/register
+--require jsdom-global/register
+
 --require src/test/css-null-compiler.js
+--require src/test/setupTests.js
