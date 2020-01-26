@@ -70,7 +70,7 @@ describe("Appliance component tests", () => {
         expect(wrapper.state("checked")).to.equal(true);
     });
 
-    it('Should set checkbox to inactive call "removeSelection" after click', () => {
+    it('Should set checkbox to inactive & call "removeSelection" after click', () => {
         const removeCallback = sinon.spy();
         const wrapper = shallow(
             <Appliance appliance={DEMO_APPLIANCE} active={true} selectTypeCheckbox={true} removeSelection={removeCallback} />

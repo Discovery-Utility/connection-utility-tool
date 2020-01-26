@@ -15,7 +15,7 @@
     "prettiercheck": "prettier --check \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\" \"src/test/*.js\" \"src/test/**/*.js\"",
     "prettierwrite": "prettier --write \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\" \"src/test/*.js\" \"src/test/**/*.js\"",
     "prettier": "prettier",
-    "test": "mocha --opts ./src/test/mocha.opts 'src/test/**/*.js'"
+    "test": "mocha --opts ./src/test/mocha.opts 'src/test/**/*.js' 'src/test/**/**/*.js'"
   },
   "license": "ISC",
   "dependencies": {
