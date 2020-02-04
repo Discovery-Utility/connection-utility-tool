@@ -70,8 +70,8 @@ class Appliance extends Component {
             <div className={this.getClassNames()} onClick={this.props.onClick}>
                 {selectTypeCheckbox ? (
                     <label className="container-check">
-                        <input type="checkbox" defaultChecked={this.props.active} />
-                        <span onClick={this.checkBoxClick} className="checkmark" />
+                        <input onClick={this.checkBoxClick} type="checkbox" defaultChecked={this.props.active} />
+                        <span className="checkmark" />
                     </label>
                 ) : (
                     <label className="radio-button">
@@ -82,7 +82,7 @@ class Appliance extends Component {
 
                 <p className="app-name">{applianceName}</p>
                 <p className="app-model">{applianceModel}</p>
-                <img src="./images/warning.svg" width="25" height="25" className={applianceFailedClass} alt="warning" />
+                <img src="./images/warning.svg" width="25" height="25" id="warningImage" className={applianceFailedClass} alt="warning" />
 
                 {showSettingsMenu ? (
                     <div className="custom-dropdown dropleft">

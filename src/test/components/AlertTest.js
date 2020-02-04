@@ -20,10 +20,7 @@ describe("Alert component tests", () => {
     it("Should render alert with additional class", () => {
         const wrapper = shallow(<Alert className={CUSTOM_CLASS} title={ALERT_TITLE} text={ALERT_TEXT} onClick={noop} />);
         expect(wrapper.find(`.${CUSTOM_CLASS}`)).to.have.lengthOf(1);
-        expect(wrapper.find(".alert-img")).to.have.lengthOf(1);
-        expect(wrapper.find(".alert-title")).to.have.lengthOf(1);
         expect(wrapper.find(".alert-msg").text()).to.equal(ALERT_TEXT);
-        assert.equal(wrapper.find(".alert-error").props().onClick, noop);
     });
 
     it("Should call on click event", () => {

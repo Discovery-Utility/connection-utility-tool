@@ -181,11 +181,16 @@ class AppliancesPage extends Component {
             }
 
             return (
-                <div className="shadow create-cluster-popup">
+                <div className="shadow create-cluster-popup" id="popupCC">
                     <p className="popup-selected-text">{selectedText}</p>
                     <div className="popup-create-cluster-button">
                         <MappleToolTip showMappleIf={showTooltipMessage} direction="left" mappleType="contra" float={false}>
-                            <Button text={buttonText} onClick={this.popupButtonClick} available={isAvailableBtnCreateCluster} />
+                            <Button
+                                id="popupButton"
+                                text={buttonText}
+                                onClick={this.popupButtonClick}
+                                available={isAvailableBtnCreateCluster}
+                            />
                             <div>{tooltipMessage}</div>
                         </MappleToolTip>
                     </div>
@@ -204,7 +209,12 @@ class AppliancesPage extends Component {
                                 additionalClass = "active";
                             }
                             return (
-                                <li key={pageId} className={"page-item " + additionalClass} onClick={this.pageClick.bind(this, pageId)}>
+                                <li
+                                    key={pageId}
+                                    id="paginationButton"
+                                    className={"page-item " + additionalClass}
+                                    onClick={this.pageClick.bind(this, pageId)}
+                                >
                                     <a className="page-link">{pageId}</a>
                                 </li>
                             );
@@ -220,12 +230,14 @@ class AppliancesPage extends Component {
                     <li
                         className={`page-item ${this.state.pageStateUnconfigured ? "active" : ""}`}
                         onClick={this.changePageStateToUnconfigured}
+                        id="pageButtonUnconfigured"
                     >
                         <a className="page-link">{t.UNCONFIGURED}</a>
                     </li>
                     <li
                         className={`page-item ${this.state.pageStateUnconfigured ? "" : "active"}`}
                         onClick={this.changePageStateToConfigured}
+                        id="pageButtonConfigured"
                     >
                         <a className="page-link">{t.CONFIGURED}</a>
                     </li>
@@ -367,7 +379,7 @@ class AppliancesPage extends Component {
                         <img src="./images/refresh.svg" width="20" height="20" alt="refresh-ico" />
                     </div>
 
-                    <div onClick={this.scanAgainClick} className="available-appliances-rescan-text">
+                    <div onClick={this.scanAgainClick} className="available-appliances-rescan-text" id="rescanButton">
                         {t.SCAN_AGAIN.toUpperCase()}
                     </div>
                 </div>

@@ -38,6 +38,7 @@ const DEMO_CLUSTER = [
 describe("SlideOutDialog component tests", () => {
     it("Should render dialog with proper appliances", () => {
         const wrapper = shallow(<SlideOutDialog configured={DEMO_CLUSTER} selectedAppliance={DEMO_APPLIANCE} />);
+
         expect(wrapper.find("#modal")).to.have.lengthOf(1);
         expect(wrapper.find(".slideout-body-text").text()).to.equal(`Selected: ${DEMO_APPLIANCE.name}`);
         expect(wrapper.find(Appliance)).to.have.lengthOf(2);
@@ -45,22 +46,28 @@ describe("SlideOutDialog component tests", () => {
 
     it("Should add appliance to selected after click", () => {
         const wrapper = mount(<SlideOutDialog configured={DEMO_CLUSTER} selectedAppliance={DEMO_APPLIANCE} />);
-        expect(wrapper.state("selected_ids")).to.deep.equal([]);
         const appliance = wrapper.find(Appliance).at(0);
+
+        expect(wrapper.state("selected_ids")).to.deep.equal([]);
+
         appliance.find("input").simulate("click");
+
         expect(wrapper.state("selected_ids")).to.deep.equal([DEMO_CLUSTER[0].id]);
     });
 
     it("Should change selected appliance", () => {
         const wrapper = mount(<SlideOutDialog configured={DEMO_CLUSTER} selectedAppliance={DEMO_APPLIANCE} />);
+        const firstCluster = wrapper.find(Appliance).at(0);
+        const secondCluster = wrapper.find(Appliance).at(1);
+
         expect(wrapper.state("selected_ids")).to.deep.equal([]);
-        const firstAppliance = wrapper.find(Appliance).at(0);
-        firstAppliance.find("input").simulate("click");
+
+        firstCluster.find("input").simulate("click");
+
         expect(wrapper.state("selected_ids")).to.deep.equal([DEMO_CLUSTER[0].id]);
-        const secondAppliance = wrapper.find(Appliance).at(1);
-        secondAppliance.find("input").simulate("click");
+
+        secondCluster.find("input").simulate("click");
+
         expect(wrapper.state("selected_ids")).to.deep.equal([DEMO_CLUSTER[1].id]);
     });
-
-    //it('Should call ipcRndr.send by click on button', () => {});
 });

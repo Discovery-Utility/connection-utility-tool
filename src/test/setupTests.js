@@ -26,3 +26,9 @@ global.localStorage = {
         delete this.data[key];
     }
 };
+
+global.ipcRndr = {
+    send(channel, args) {
+        return args;
+    }
+};

@@ -8,10 +8,11 @@ describe("SlideOutMessageDialog component tests", () => {
 
     it("Should render SlideOutMessageDialog", () => {
         const wrapper = shallow(<SlideOutMessageDialog title={MODAL_TITLE} body={MODAL_TEXT} />);
+
         expect(wrapper.find("#modal")).to.have.lengthOf(1);
         expect(wrapper.find(".modal-title").text()).to.equal(MODAL_TITLE);
         expect(wrapper.find(".modal-body").text()).to.equal(MODAL_TEXT);
-        expect(wrapper.find("button")).to.have.lengthOf(1); // Button at the top
+        expect(wrapper.find("button")).to.have.lengthOf(1); // Button in the header
         expect(wrapper.find(Button)).to.have.lengthOf(1); // Button in the footer
     });
 });
