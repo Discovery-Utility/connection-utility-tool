@@ -171,7 +171,7 @@ test("Should open Create Cluster popup with disabled button when more than allow
     const popupMessage = Selector(".mappleTip");
     let appliance;
 
-    for (let i = 0; i < MAX_SELECT_APPLIANCES+1; i++) {
+    for (let i = 0; i < MAX_SELECT_APPLIANCES + 1; i++) {
         if (i % MAX_APPLIANCES_ON_PAGE === 0) {
             // Go to proper page
             let paginationButton = ReactSelector("li")
@@ -183,8 +183,8 @@ test("Should open Create Cluster popup with disabled button when more than allow
         }
         // Choose appliances
         appliance = ReactSelector("Appliance")
-                .nth(i % MAX_APPLIANCES_ON_PAGE)
-                .find("span");
+            .nth(i % MAX_APPLIANCES_ON_PAGE)
+            .find("span");
         await t.click(appliance);
     }
     // Check popup & tooltip message
