@@ -12,9 +12,10 @@
     "build:win32": "build --platform win32 --arch ia32",
     "build:win64": "build --platform win32 --arch x64",
     "build:mac": "build --platform mac",
-    "prettiercheck": "prettier --check \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\"",
-    "prettierwrite": "prettier --write \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\"",
-    "prettier": "prettier"
+    "prettiercheck": "prettier --check \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\" \"testcafe/*.js\" \"testcafe/helpers/*.js\"",
+    "prettierwrite": "prettier --write \"src/app/**/*.js\"  \"src/app/**/**/*.js\" \"src/main.js\" \"testcafe/*.js\" \"testcafe/helpers/*.js\"",
+    "prettier": "prettier",
+    "testcafe": "testcafe electron \"testcafe/*.js\" "
   },
   "license": "ISC",
   "dependencies": {
@@ -49,6 +50,9 @@
     "redux-thunk": "^2.1.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
+    "testcafe": "^1.8.1",
+    "testcafe-browser-provider-electron": "0.0.14",
+    "testcafe-react-selectors": "^4.0.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.11.0"
   },

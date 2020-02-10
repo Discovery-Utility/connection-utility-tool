@@ -70,8 +70,8 @@ class Appliance extends Component {
             <div className={this.getClassNames()} onClick={this.props.onClick}>
                 {selectTypeCheckbox ? (
                     <label className="container-check">
-                        <input type="checkbox" defaultChecked={this.props.active} />
-                        <span onClick={this.checkBoxClick} className="checkmark" />
+                        <input onClick={this.checkBoxClick} type="checkbox" defaultChecked={this.props.active} />
+                        <span className="checkmark" />
                     </label>
                 ) : (
                     <label className="radio-button">

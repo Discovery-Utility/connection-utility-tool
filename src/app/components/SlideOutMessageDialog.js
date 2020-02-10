@@ -24,6 +24,7 @@ class SlideOutMessageDialog extends Component {
                             <div className="modal-body">{this.props.body}</div>
                             <div className="modal-footer">
                                 <Button
+                                    id="footerButton"
                                     data-dismiss="modal"
                                     aria-label="Close"
                                     text={t.ACTION_OK.toUpperCase()}
