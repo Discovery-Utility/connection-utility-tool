@@ -13,7 +13,7 @@
       "link": "https://10.248.178.162",
       "name": "ClusterSample",
       "state": "configured",
-      "model": "ProductName 1000",
+      "model": "ProductName 1000T",
       "type": "BM",
       "cluster": "true",
       "failed": "false"
@@ -23,7 +23,7 @@
       "link": "http://192.168.145.1:8080",
       "name": "H2120",
       "state": "service state",
-      "model": "ProductName 1000",
+      "model": "ProductName 1000T",
       "type": "BM",
       "cluster": "true",
       "failed": "true"
@@ -42,7 +42,7 @@
       "link": "http://192.168.6.47:8080",
       "name": "MainCluster",
       "state": "configured",
-      "model": "ProductName 1000",
+      "model": "ProductName 1000T",
       "type": "BM",
       "cluster": "true",
       "failed": "false"
@@ -51,7 +51,7 @@
       "link": "http://192.168.3.45:8080",
       "name": "TestCluster",
       "state": "configured",
-      "model": "ProductName 1000",
+      "model": "ProductName 1000T",
       "type": "BM",
       "cluster": "true",
       "failed": "false"
@@ -78,7 +78,7 @@
       "link": "http://192.168.8.144:8080",
       "name": "N5341",
       "state": "service state",
-      "model": "ProductName 1000",
+      "model": "ProductName 1000T",
       "type": "BM",
       "cluster": "true",
       "failed": "false"
@@ -96,7 +96,7 @@
       "link": "http://192.168.2.58:8080",
       "name": "FNM003456009762",
       "state": "unconfigured",
-      "model": "ProductName 1000",
+      "model": "ProductName 1000T",
       "type": "BM",
       "cluster": "false",
       "failed": "false"
@@ -115,7 +115,7 @@
       "name": "FNM003456009764",
       "state": "unconfigured",
       "type": "BM",
-      "model": "ProductName 1000",
+      "model": "ProductName 1000T",
       "cluster": "false",
       "failed": "false"
     },
@@ -133,7 +133,7 @@
       "name": "FNM003456444754",
       "state": "unconfigured",
       "type": "BM",
-      "model": "ProductName 1000",
+      "model": "ProductName 1000T",
       "cluster": "false",
       "failed": "false"
     },
@@ -151,7 +151,7 @@
       "name": "FNM0044949009767",
       "state": "unconfigured",
       "type": "BM",
-      "model": "ProductName 1000",
+      "model": "ProductName 1000T",
       "cluster": "false",
       "failed": "false"
     },
@@ -169,7 +169,7 @@
       "name": "FNM0034560045123",
       "state": "unconfigured",
       "type": "BM",
-      "model": "ProductName 1000",
+      "model": "ProductName 1000T",
       "cluster": "false",
       "failed": "false"
     }

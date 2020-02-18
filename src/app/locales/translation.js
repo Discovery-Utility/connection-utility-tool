@@ -45,7 +45,7 @@ let translation = new LocalizedStrings({
         MIXED_CLUSTER_WARNING:
             "Your selection results in a combination of " +
             productName +
-            " and " +
+            "T and " +
             productName +
             "X appliances. Creating a cluster with appliances with different configurations is not supported in this release.",
         MULTI_HCI_CLUSTER_WARNING:
@@ -66,9 +66,9 @@ let translation = new LocalizedStrings({
         DISABLE_FIREWALL_TEXT3: "If this is not possible, add port 5353 and Discovery Utility on the exclusion list for the antivirus and firewall software. For more information, refer to the antivirus and firewall documentation.",
         DISABLE_FIREWALL_TEXT4: "If none of this is possible, refer to the manual procedure to discover the unconfigured appliances.",
         CONNECT_LAPTOP: "Connect to the network",
-        CONNECT_LAPTOP_TEXT: "Ensure that the workstation is connected directly to the same physical switch that your appliances’ management port is connected to.",
-        CONNECT_LAPTOP_LI1: "Configure the ethernet adapter, which is connected to the physical switch, with an IPv4-based link local IP address. For example, 169.254.1.2. To verify that the link-local addresses is set properly, open the Windows command prompt and run the “ipconfig /all” command.",
-        CONNECT_LAPTOP_LI2: "If your network is running a DHCP service that automatically assigns IP addresses, contact your infrastructure administrator, or manually assign a 169.254.x.x address.",
+        CONNECT_LAPTOP_TEXT: "Ensure that your workstation or virtual machine is connected directly to the same switch that the base enclosure is cable to or is on the same VLAN as the native network of the " + productName + " management network connection.",
+        CONNECT_LAPTOP_LI1: "Create a second network adapter that uses the same native network as the " + productName + " management network connection.",
+        CONNECT_LAPTOP_LI2: "Set the IP address of the second network adapter to 169.254.1.2 with netmask 255.255.255.0 and no gateway address defined. This address cannot be overwritten by any other address ranges (whether you use DHCP or static IP addresses).",
         DISABLE_NETWORK: "Temporarily disable your wireless networks",
         DISABLE_NETWORK_TEXT: "Isolate your local link network by temporarily disabling other networks such as your wireless network. For example, in Windows 10, select the Network icon in the taskbar, and click the Wi-Fi panel to disable the wireless antenna. ",
         DISABLE_NETWORK_DETAILS_TEXT: "You can click it again to enable it. For more information on disabling wireless networks, refer to your operating system documentation.",
@@ -131,7 +131,7 @@ let translation = new LocalizedStrings({
 
         // * Documentation
         TAB_DOCUMENTATION: "Documentation Resources",
-        DOCUMENTATION_DESCR: "For product and feature documentation or release notes, go to the " + productName + " Documentation page at PLACEHOLDER",
+        DOCUMENTATION_DESCR: "For product and feature documentation or release notes, go to the " + productName + " Documentation page at https://dell.com/" + productName + "docs",
         DOCUMENTATION_NOTE: "Before you try discovering unconfigured appliances and begin the initial configuration process, ensure that you have:",
         DOCUMENTATION_LI1:
             "Configured your network and physical switches based on the recommendations provided in the " +
@@ -154,16 +154,12 @@ let translation = new LocalizedStrings({
         SHOW_BACKUP_DISCOVERY: "Show manual discovery procedure",
         BACKUP_DISCOVERY: "Manual discovery procedure",
         BACKUP_DISCOVERY_DESC: "If you are unable to temporarily disable wireless networks or security applications and have trouble discovering unconfigured appliances, use the following steps to begin the initial configuration process manually:",
-        BACKUP_DISCOVERY1: "Connect your workstation to an appliance directly via the service port using a DB9 serial connection cable.",
-        BACKUP_DISCOVERY2: "In an SSH client, connect to the appliance using the following parameters:",
-        BACKUP_DISCOVERY2_Li1: "Connection type – Serial",
-        BACKUP_DISCOVERY2_Li2: "Serial line – COM1 or COM2 (based on the workstation port used.)",
-        BACKUP_DISCOVERY2_Li3: "Speed - 115200",
-        BACKUP_DISCOVERY3: "When prompted, log on as the service user.",
-        BACKUP_DISCOVERY4: "Run the following command to obtain the zeroconf IP address:",
-        BACKUP_DISCOVERY_COMMAND: "cat /cyc_var/cyc_avahi_autoipd_address",
-        BACKUP_DISCOVERY5: "Connect the workstation back to the physical switch.",
-        BACKUP_DISCOVERY6: "In a web browser window, enter the https://<IP address>, and press Enter.",
+        BACKUP_DISCOVERY1: "Connect your workstation's Ethernet adapter to the service port on node A of the base enclosure.",
+        BACKUP_DISCOVERY2: "Set the IP address of your workstation to 128.221.1.249 with netmask 255.255.255.0, and no gateway address defined.",
+        BACKUP_DISCOVERY3: "Ensure that you can ping the IP address of node A's service LAN port (128.221.1.250).",
+        BACKUP_DISCOVERY4: "In a web browser, go to https://128.221.1.250",
+        BACKUP_DISCOVERY5: "Log on to " + productName + " Manager and begin the initial configuration process using the default credentials (admin/Password123#).",
+        BACKUP_DISCOVERY6: "Disconnect the workstation from the service port after the initial configuration process is complete.",
 
         // ** Tooltips
         JOIN_CLUSTER_TOOLTIP_DESCR: "In this release, you can only add one appliance at a time.",

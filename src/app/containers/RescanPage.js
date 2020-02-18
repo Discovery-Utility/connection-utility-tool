@@ -89,22 +89,9 @@ class RescanPage extends Component {
                     <div>{t.BACKUP_DISCOVERY_DESC}</div>
                     <ol type="1">
                         <li>{t.BACKUP_DISCOVERY1}</li>
-                        <li>
-                            {t.BACKUP_DISCOVERY2}
-                            <ul>
-                                <li>{t.BACKUP_DISCOVERY2_Li1}</li>
-                                <li>{t.BACKUP_DISCOVERY2_Li2}</li>
-                                <li>{t.BACKUP_DISCOVERY2_Li3}</li>
-                            </ul>
-                        </li>
+                        <li>{t.BACKUP_DISCOVERY2}</li>
                         <li>{t.BACKUP_DISCOVERY3}</li>
-                        <li>
-                            {t.BACKUP_DISCOVERY4}
-                            <br></br>
-                            <br></br>
-                            <div>{t.BACKUP_DISCOVERY_COMMAND}</div>
-                            <br></br>
-                        </li>
+                        <li>{t.BACKUP_DISCOVERY4}</li>
                         <li>{t.BACKUP_DISCOVERY5}</li>
                         <li>{t.BACKUP_DISCOVERY6}</li>
                     </ol>
