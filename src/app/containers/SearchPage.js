@@ -1,12 +1,11 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import {Redirect} from "react-router-dom";
-import env from './../../app_environment';
-import t from './../locales/translation';
-import "../../scss/pages/_searchpage.scss"
+import env from "./../../app_environment";
+import t from "./../locales/translation";
+import "../../scss/pages/_searchpage.scss";
 import AppHeader from "../components/AppHeader";
-import ButtonOutline from './../components/ButtonOutline';
-import {ProgressBar} from 'react-bootstrap';
-
+import ButtonOutline from "./../components/ButtonOutline";
+import {ProgressBar} from "react-bootstrap";
 
 const COUNT_SECONDS = env.SEARCH_DELAY;
 
@@ -25,14 +24,14 @@ class SearchPage extends Component {
         this.clickOnCancelBtn = () => {
             this.setState({
                 redirectToErrorPage: true
-            })
-        }
+            });
+        };
     }
 
     componentDidMount() {
         this.timer = setInterval(() => {
             let timeLeft = this.state.timeLeft - 1;
-            let progress = this.state.progress + (100 / COUNT_SECONDS);
+            let progress = this.state.progress + 100 / COUNT_SECONDS;
 
             if (timeLeft === 0) {
                 clearInterval(this.timer);
@@ -40,9 +39,8 @@ class SearchPage extends Component {
             this.setState({
                 timeLeft: timeLeft,
                 progress: progress
-            })
+            });
         }, 1000);
-
     }
 
     componentWillUnmount() {
@@ -68,14 +66,11 @@ class SearchPage extends Component {
 
         return (
             <div>
-                <AppHeader/>
+                <AppHeader />
                 <div className="container">
                     <div className="row justify-content-center text-center">
                         <div className="col-12 align-content-center">
-                            <img src="./images/search.svg"
-                                 width="150" height="150"
-                                 className="search-image"
-                                 alt=""/>
+                            <img src="./images/search.svg" width="150" height="150" className="search-image" alt="" />
                         </div>
                     </div>
                     <div className="row justify-content-center">
@@ -90,19 +85,18 @@ class SearchPage extends Component {
                         </div>
                     </div>
 
-
                     <div className="row justify-content-center search-page-cancel-btn">
-                        <ButtonOutline text="Cancel" onClick={this.clickOnCancelBtn}/>
+                        <ButtonOutline text="Cancel" onClick={this.clickOnCancelBtn} />
                     </div>
 
-                    <ProgressBar active now={this.state.progress}/>
+                    <ProgressBar active now={this.state.progress} />
 
                     {/*if component <Redirect> visible, page redirect automatic*/}
-                    {redirectToErrorPage ? <Redirect to="/error"/> : null}
-                    {redirectToAppliancesPage ? <Redirect to="/appliances"/> : null}
+                    {redirectToErrorPage ? <Redirect to="/error" /> : null}
+                    {redirectToAppliancesPage ? <Redirect to="/appliances" /> : null}
                 </div>
             </div>
-        )
+        );
     }
 }
 

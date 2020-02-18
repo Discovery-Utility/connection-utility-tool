@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import WtExpect from "./help/whatToExpect";
 import Troubleshooting from "./help/troubleshootingTips";
 import Docs from "./help/documentation";
@@ -9,7 +9,6 @@ import AppHeader from "../components/AppHeader";
 // This component is responsible for displaying the technical support page,
 // it contains three tabs "Documentation", "Troubleshooting Tips" and "What To Expect",
 // and respectively, three built-in components for each of the tabs.
-
 
 class HelpPage extends React.Component {
     constructor(props) {
@@ -23,30 +22,27 @@ class HelpPage extends React.Component {
         this.state = {
             state: "expect"
         };
-    };
+    }
 
     // Switch tabs, and also highlight an open tab
     changeSubtabs(subtab) {
         this.setState({
             state: subtab
         });
-        var subtabs = document.getElementsByClassName("subtabs");
-        for (var i = 0; i < subtabs.length; i++) {
+        let subtabs = document.getElementsByClassName("subtabs");
+        for (let i = 0; i < subtabs.length; i++) {
             subtabs[i].style.color = "#555555";
             subtabs[i].style.backgroundColor = "white";
-            ;
         }
-        var selectSubtub = document.getElementById(subtab).style;
+        let selectSubtub = document.getElementById(subtab).style;
         selectSubtub.color = "#248dc0";
         selectSubtub.backgroundColor = "#eeeeee";
-    };
+    }
 
     returnTabs() {
         return (
             <div id="logSwitch">
-                <div id="systemLogs">
-                    {mainPage_lang.HELP}
-                </div>
+                <div id="systemLogs">{mainPage_lang.HELP}</div>
                 <div className="subtabs" id="expect" onClick={this.changeSubtabs.bind(this, "expect")}>
                     {mainPage_lang.WHAT_EXPECT}
                 </div>
@@ -64,10 +60,10 @@ class HelpPage extends React.Component {
         if (this.state.state == "expect") {
             return (
                 <div>
-                    <AppHeader/>
+                    <AppHeader />
                     <div id="logBox">
                         {this.returnTabs()}
-                        <WtExpect/>
+                        <WtExpect />
                     </div>
                 </div>
             );
@@ -75,10 +71,10 @@ class HelpPage extends React.Component {
         if (this.state.state == "tips") {
             return (
                 <div>
-                    <AppHeader/>
+                    <AppHeader />
                     <div id="logBox">
                         {this.returnTabs()}
-                        <Troubleshooting/>
+                        <Troubleshooting />
                     </div>
                 </div>
             );
@@ -86,15 +82,15 @@ class HelpPage extends React.Component {
         if (this.state.state == "docs") {
             return (
                 <div>
-                    <AppHeader/>
+                    <AppHeader />
                     <div id="logBox">
                         {this.returnTabs()}
-                        <Docs/>
+                        <Docs />
                     </div>
                 </div>
             );
         }
-    };
-};
+    }
+}
 
-export default (HelpPage);
+export default HelpPage;

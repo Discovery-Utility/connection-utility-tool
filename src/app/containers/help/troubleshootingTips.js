@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import mainPage_lang from "../../locales/translation";
 import {discTool} from "../../locales/translation";
 
@@ -8,19 +8,16 @@ class Troubleshooting extends React.Component {
     constructor(props) {
         super(props);
         this.linkTechDocs = this.linkTechDocs.bind(this);
-
-    };
+    }
 
     linkTechDocs() {
         shell.openExternal("https://TBD");
-    };
+    }
 
     render() {
         return (
             <div id="logShow">
-                <div id="captionLog">
-                    {mainPage_lang.TAB_TROUBLESHOOT}
-                </div>
+                <div id="captionLog">{mainPage_lang.TAB_TROUBLESHOOT}</div>
                 <div id="whiteSpaceForTable">
                     <div className="ExpContainer">
                         <div>{mainPage_lang.TROUBLESHOOT_DESCR}</div>
@@ -33,14 +30,14 @@ class Troubleshooting extends React.Component {
                                     <li>{mainPage_lang.TROUBLESHOOT_SETUP_LI4}</li>
                                     <li>{mainPage_lang.TROUBLESHOOT_SETUP_LI5}</li>
                                 </ul>
-		              <div>{mainPage_lang.TROUBLESHOOT_NOTE}</div>
+                                <div>{mainPage_lang.TROUBLESHOOT_NOTE}</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         );
-    };
-};
+    }
+}
 
-export default (Troubleshooting);
+export default Troubleshooting;

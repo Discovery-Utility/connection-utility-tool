@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import '../../scss/components/_button.scss';
-
+import React, {Component} from "react";
+import "../../scss/components/_button.scss";
 
 class Button extends Component {
     constructor(props) {
@@ -20,16 +19,16 @@ class Button extends Component {
             }
 
             return buttonClassNames + " " + customClassNames;
-        }
+        };
     }
 
     render() {
         return (
-            <div className={this.getClassNames()} data-dismiss="modal"
-                 onClick={this.props.available ? this.props.onClick : null}>{this.props.text}</div>
+            <div className={this.getClassNames()} data-dismiss="modal" onClick={this.props.available ? this.props.onClick : null}>
+                {this.props.text}
+            </div>
         );
     }
 }
 
 export default Button;
-

@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
-
-import t from './../locales/translation'
-import '../../scss/components/_appliance.scss'
+import React, {Component} from "react";
+import t from "./../locales/translation";
+import "../../scss/components/_appliance.scss";
 
 /**
  * Appliance component displays item of appliances list.
@@ -65,44 +64,49 @@ class Appliance extends Component {
         let {appliance, showSettingsMenu, itemClick, selectTypeCheckbox} = this.props;
         let applianceName = appliance.name;
         let applianceModel = appliance.model;
-        let applianceFailedClass = (appliance.failed === "true") ? "app-failed-true" : "app-failed-false";
+        let applianceFailedClass = appliance.failed === "true" ? "app-failed-true" : "app-failed-false";
 
         return (
             <div className={this.getClassNames()} onClick={this.props.onClick}>
-                {selectTypeCheckbox ?
+                {selectTypeCheckbox ? (
                     <label className="container-check">
-                        <input type="checkbox" defaultChecked={this.props.active}/>
-                        <span onClick={this.checkBoxClick} className="checkmark"/>
+                        <input type="checkbox" defaultChecked={this.props.active} />
+                        <span onClick={this.checkBoxClick} className="checkmark" />
                     </label>
-                    : <label className="radio-button">
-                        <input onClick={this.radioClick} type="radio" defaultChecked={this.props.active}
-                               name="radio"/>
-                        <span className="radio-checkmark"/>
-                    </label>}
+                ) : (
+                    <label className="radio-button">
+                        <input onClick={this.radioClick} type="radio" defaultChecked={this.props.active} name="radio" />
+                        <span className="radio-checkmark" />
+                    </label>
+                )}
 
                 <p className="app-name">{applianceName}</p>
                 <p className="app-model">{applianceModel}</p>
-                <img src="./images/warning.svg"
-                    width="25" height="25"
-                   className={applianceFailedClass}
-                  alt="warning" />
+                <img src="./images/warning.svg" width="25" height="25" className={applianceFailedClass} alt="warning" />
 
-                {showSettingsMenu ? <div className="custom-dropdown dropleft">
-                    <img src="./images/more.svg"
-                         width="25" height="25"
-                         className="d-inline-block align-top"
-                         id="dropdownMenuButton"
-                         data-toggle="dropdown" aria-haspopup="false" aria-expanded="false"
-                         alt=""/>
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <p className="dropdown-item custom-dropdown-item" data-toggle="modal" data-target="#modal"
-                           onClick={itemClick}>{t.ADD_TO_EXISTING}</p>
+                {showSettingsMenu ? (
+                    <div className="custom-dropdown dropleft">
+                        <img
+                            src="./images/more.svg"
+                            width="25"
+                            height="25"
+                            className="d-inline-block align-top"
+                            id="dropdownMenuButton"
+                            data-toggle="dropdown"
+                            aria-haspopup="false"
+                            aria-expanded="false"
+                            alt=""
+                        />
+                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <p className="dropdown-item custom-dropdown-item" data-toggle="modal" data-target="#modal" onClick={itemClick}>
+                                {t.ADD_TO_EXISTING}
+                            </p>
+                        </div>
                     </div>
-                </div> : null}
+                ) : null}
             </div>
         );
     }
 }
 
 export default Appliance;
-
