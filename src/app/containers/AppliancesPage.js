@@ -280,7 +280,7 @@ class AppliancesPage extends Component {
             countConfiguredPages,
             countUnconfiguredPages,
             unconfigured,
-            selected_ids,
+            selectedNames,
             showCreateClusterMessage,
             configured,
             pageStateUnconfigured,
