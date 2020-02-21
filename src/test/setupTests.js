@@ -30,5 +30,11 @@ global.localStorage = {
 global.ipcRndr = {
     send(channel, args) {
         return args;
+    },
+    on(channel, listener) {
+        return channel;
+    },
+    removeAllListeners(channel) {
+        return channel;
     }
 };

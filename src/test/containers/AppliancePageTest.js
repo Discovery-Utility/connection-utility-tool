@@ -16,9 +16,9 @@ describe("AppliancePage container tests", () => {
 
         expect(wrapper.find(AppHeader)).to.have.lengthOf(1);
         expect(wrapper.find(".available-appliances-title").text()).to.equal(t.APPLIANCES);
-        expect(wrapper.find("#rescanButton").text()).to.equal(t.SCAN_AGAIN.toUpperCase());
-        expect(wrapper.find("#pageButtonUnconfigured")).to.have.lengthOf(1);
-        expect(wrapper.find("#pageButtonConfigured")).to.have.lengthOf(1);
+        expect(wrapper.find("#AppliancePage_rescanButton").text()).to.equal(t.SCAN_AGAIN.toUpperCase());
+        expect(wrapper.find("#Pagination_pageButtonUnconfigured")).to.have.lengthOf(1);
+        expect(wrapper.find("#Pagination_pageButtonConfigured")).to.have.lengthOf(1);
         expect(wrapper.find(".appliances-list")).to.have.lengthOf(1);
         expect(wrapper.find(".page-selector")).to.have.lengthOf(1);
     });
@@ -28,7 +28,7 @@ describe("AppliancePage container tests", () => {
 
         expect(wrapper.state("redirectToSearch")).to.equal(false);
 
-        wrapper.find("#rescanButton").simulate("click");
+        wrapper.find("#AppliancePage_rescanButton").simulate("click");
 
         expect(wrapper.state("redirectToSearch")).to.equal(true);
         expect(wrapper.find(Redirect)).to.have.lengthOf(1);
@@ -39,11 +39,11 @@ describe("AppliancePage container tests", () => {
 
         expect(wrapper.state("pageStateUnconfigured")).to.equal(true);
 
-        wrapper.find("#pageButtonConfigured").simulate("click");
+        wrapper.find("#Pagination_pageButtonConfigured").simulate("click");
 
         expect(wrapper.state("pageStateUnconfigured")).to.equal(false);
 
-        wrapper.find("#pageButtonUnconfigured").simulate("click");
+        wrapper.find("#Pagination_pageButtonUnconfigured").simulate("click");
 
         expect(wrapper.state("pageStateUnconfigured")).to.equal(true);
     });
@@ -80,19 +80,19 @@ describe("AppliancePage container tests", () => {
             return appliance.cluster === "false";
         });
 
-        expect(page.state("selected_ids")).to.deep.equal([]);
+        expect(page.state("selectedNames")).to.deep.equal([]);
 
         firstAppliance.find("input").simulate("click");
 
-        expect(page.state("selected_ids")).to.deep.equal([appliances[0].id]);
+        expect(page.state("selectedNames")).to.deep.equal([appliances[0].name]);
 
         secondAppliance.find("input").simulate("click");
 
-        expect(page.state("selected_ids")).to.deep.equal([appliances[0].id, appliances[1].id]);
+        expect(page.state("selectedNames")).to.deep.equal([appliances[0].name, appliances[1].name]);
 
         firstAppliance.find("input").simulate("click");
 
-        expect(page.state("selected_ids")).to.deep.equal([appliances[1].id]);
+        expect(page.state("selectedNames")).to.deep.equal([appliances[1].name]);
     });
 
     it("Should update a list of selected clusters", () => {
@@ -103,7 +103,7 @@ describe("AppliancePage container tests", () => {
                 <AppliancePage />
             </MemoryRouter>
         );
-        wrapper.find("#pageButtonConfigured").simulate("click");
+        wrapper.find("#Pagination_pageButtonConfigured").simulate("click");
         wrapper.update();
 
         let page = wrapper.find(AppliancePage);
@@ -114,15 +114,15 @@ describe("AppliancePage container tests", () => {
             return appliance.cluster === "true";
         });
 
-        expect(page.state("selected_ids")).to.deep.equal([]);
+        expect(page.state("selectedNames")).to.deep.equal([]);
 
         firstCluster.find("input").simulate("click");
 
-        expect(page.state("selected_ids")).to.deep.equal([clusters[0].id]);
+        expect(page.state("selectedNames")).to.deep.equal([clusters[0].name]);
 
         secondCluster.find("input").simulate("click");
 
-        expect(page.state("selected_ids")).to.deep.equal([clusters[1].id]);
+        expect(page.state("selectedNames")).to.deep.equal([clusters[1].name]);
     });
 
     it('Should show "Create Cluster" popup', () => {
@@ -134,14 +134,14 @@ describe("AppliancePage container tests", () => {
         let page = wrapper.find(AppliancePage);
         const firstAppliance = page.find(Appliance).at(0);
 
-        expect(page.find("#popupCC")).to.have.lengthOf(0);
+        expect(page.find("#CreateCluster_popup")).to.have.lengthOf(0);
 
         firstAppliance.find("input").simulate("click");
 
         wrapper.update();
         page = wrapper.find(AppliancePage);
 
-        expect(page.find("#popupCC")).to.have.lengthOf(1);
+        expect(page.find("#CreateCluster_popup")).to.have.lengthOf(1);
     });
 
     it("Should show 'Create Cluster' screen", () => {
@@ -159,7 +159,7 @@ describe("AppliancePage container tests", () => {
 
         wrapper.update();
         page = wrapper.find(AppliancePage);
-        page.find("#popupButton").simulate("click");
+        page.find("#CreateCluster_popupButton").simulate("click");
 
         wrapper.update();
         page = wrapper.find(AppliancePage);
@@ -202,18 +202,18 @@ describe("AppliancePage container tests", () => {
         );
         let page = wrapper.find(AppliancePage);
 
-        wrapper.find("#pageButtonConfigured").simulate("click");
+        wrapper.find("#Pagination_pageButtonConfigured").simulate("click");
         wrapper.update();
         page = wrapper.find(AppliancePage);
         const cluster = page.find(Appliance).at(0);
 
-        expect(page.find("#popupCC")).to.have.lengthOf(0);
+        expect(page.find("#CreateCluster_popup")).to.have.lengthOf(0);
 
         cluster.find("input").simulate("click");
 
         wrapper.update();
         page = wrapper.find(AppliancePage);
 
-        expect(page.find("#popupButton")).to.have.lengthOf(1);
+        expect(page.find("#CreateCluster_popupButton")).to.have.lengthOf(1);
     });
 });

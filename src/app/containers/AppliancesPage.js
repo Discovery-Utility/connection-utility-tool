@@ -175,12 +175,12 @@ class AppliancesPage extends Component {
             }
 
             return (
-                <div className="shadow create-cluster-popup" id="popupCC">
+                <div className="shadow create-cluster-popup" id="CreateCluster_popup">
                     <p className="popup-selected-text">{selectedText}</p>
                     <div className="popup-create-cluster-button">
                         <MappleToolTip showMappleIf={showTooltipMessage} direction="left" mappleType="contra" float={false}>
                             <Button
-                                id="popupButton"
+                                id="CreateCluster_popupButton"
                                 text={buttonText}
                                 onClick={this.popupButtonClick}
                                 available={isAvailableBtnCreateCluster}
@@ -224,14 +224,14 @@ class AppliancesPage extends Component {
                     <li
                         className={`page-item ${this.state.pageStateUnconfigured ? "active" : ""}`}
                         onClick={this.changePageStateToUnconfigured}
-                        id="pageButtonUnconfigured"
+                        id="Pagination_pageButtonUnconfigured"
                     >
                         <a className="page-link">{t.UNCONFIGURED}</a>
                     </li>
                     <li
                         className={`page-item ${this.state.pageStateUnconfigured ? "" : "active"}`}
                         onClick={this.changePageStateToConfigured}
-                        id="pageButtonConfigured"
+                        id="Pagination_pageButtonConfigured"
                     >
                         <a className="page-link">{t.CONFIGURED}</a>
                     </li>
@@ -384,7 +384,7 @@ class AppliancesPage extends Component {
                         <img src="./images/refresh.svg" width="20" height="20" alt="refresh-ico" />
                     </div>
 
-                    <div onClick={this.scanAgainClick} className="available-appliances-rescan-text" id="rescanButton">
+                    <div onClick={this.scanAgainClick} className="available-appliances-rescan-text" id="AppliancePage_rescanButton">
                         {t.SCAN_AGAIN.toUpperCase()}
                     </div>
                 </div>

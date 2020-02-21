@@ -48,11 +48,11 @@ describe("SlideOutDialog component tests", () => {
         const wrapper = mount(<SlideOutDialog configured={DEMO_CLUSTER} selectedAppliance={DEMO_APPLIANCE} />);
         const appliance = wrapper.find(Appliance).at(0);
 
-        expect(wrapper.state("selected_ids")).to.deep.equal([]);
+        expect(wrapper.state("selectedNames")).to.deep.equal([]);
 
         appliance.find("input").simulate("click");
 
-        expect(wrapper.state("selected_ids")).to.deep.equal([DEMO_CLUSTER[0].id]);
+        expect(wrapper.state("selectedNames")).to.deep.equal([DEMO_CLUSTER[0].name]);
     });
 
     it("Should change selected appliance", () => {
@@ -60,14 +60,14 @@ describe("SlideOutDialog component tests", () => {
         const firstCluster = wrapper.find(Appliance).at(0);
         const secondCluster = wrapper.find(Appliance).at(1);
 
-        expect(wrapper.state("selected_ids")).to.deep.equal([]);
+        expect(wrapper.state("selectedNames")).to.deep.equal([]);
 
         firstCluster.find("input").simulate("click");
 
-        expect(wrapper.state("selected_ids")).to.deep.equal([DEMO_CLUSTER[0].id]);
+        expect(wrapper.state("selectedNames")).to.deep.equal([DEMO_CLUSTER[0].name]);
 
         secondCluster.find("input").simulate("click");
 
-        expect(wrapper.state("selected_ids")).to.deep.equal([DEMO_CLUSTER[1].id]);
+        expect(wrapper.state("selectedNames")).to.deep.equal([DEMO_CLUSTER[1].name]);
     });
 });

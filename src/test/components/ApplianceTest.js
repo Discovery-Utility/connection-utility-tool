@@ -57,7 +57,7 @@ describe("Appliance component tests", () => {
             <Appliance appliance={DEMO_APPLIANCE_WITH_WARNING} selectTypeCheckbox={true} showSettingsMenu={true} active={false} />
         );
 
-        expect(wrapper.find("#warningImage")).to.have.lengthOf(1);
+        expect(wrapper.find("#Appliance_warningImage")).to.have.lengthOf(1);
         expect(wrapper.find(".app-failed-true")).to.have.lengthOf(1);
     });
 

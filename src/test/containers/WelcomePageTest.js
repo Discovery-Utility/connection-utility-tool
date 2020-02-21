@@ -20,7 +20,7 @@ describe("WelcomePage container tests", () => {
 
         expect(wrapper.state("modalTitle")).to.equal(null);
 
-        wrapper.find("#connectToNetwork").simulate("click");
+        wrapper.find("#ShowLink_connectToNetwork").simulate("click");
 
         expect(wrapper.state("modalTitle")).to.equal(t.CONNECT_LAPTOP);
     });
@@ -30,7 +30,7 @@ describe("WelcomePage container tests", () => {
 
         expect(wrapper.state("modalTitle")).to.equal(null);
 
-        wrapper.find("#disableWiFi").simulate("click");
+        wrapper.find("#ShowLink_disableWiFi").simulate("click");
 
         expect(wrapper.state("modalTitle")).to.equal(t.DISABLE_NETWORK);
     });
@@ -40,7 +40,7 @@ describe("WelcomePage container tests", () => {
 
         expect(wrapper.state("modalTitle")).to.equal(null);
 
-        wrapper.find("#disableFirewall").simulate("click");
+        wrapper.find("#ShowLink_disableFirewall").simulate("click");
 
         expect(wrapper.state("modalTitle")).to.equal(t.DISABLE_FIREWALL);
     });
@@ -50,7 +50,7 @@ describe("WelcomePage container tests", () => {
 
         expect(wrapper.state("modalTitle")).to.equal(null);
 
-        wrapper.find("#manualDiscovery").simulate("click");
+        wrapper.find("#ShowLink_manualDiscovery").simulate("click");
 
         expect(wrapper.state("modalTitle")).to.equal(t.BACKUP_DISCOVERY);
     });
