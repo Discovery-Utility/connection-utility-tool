@@ -66,8 +66,8 @@ let translation = new LocalizedStrings({
         DISABLE_FIREWALL_TEXT3: "If this is not possible, add port 5353 and Discovery Utility on the exclusion list for the antivirus and firewall software. For more information, refer to the antivirus and firewall documentation.",
         DISABLE_FIREWALL_TEXT4: "If none of this is possible, refer to the manual procedure to discover the unconfigured appliances.",
         CONNECT_LAPTOP: "Connect to the network",
-        CONNECT_LAPTOP_TEXT: "Ensure that your workstation or virtual machine is connected directly to the same switch that the base enclosure is cable to or is on the same VLAN as the native network of the " + productName + " management network connection.",
-        CONNECT_LAPTOP_LI1: "Create a second network adapter that uses the same native network as the " + productName + " management network connection.",
+        CONNECT_LAPTOP_TEXT: "Ensure that your workstation or virtual machine is connected directly to the same switch that the base enclosure is cable to or is on the same VLAN as the native/untagged network of the " + productName + " management network connection.",
+        CONNECT_LAPTOP_LI1: "Create a second network adapter that uses the same native/untagged network as the " + productName + " management network connection.",
         CONNECT_LAPTOP_LI2: "Set the IP address of the second network adapter to 169.254.1.2 with netmask 255.255.255.0 and no gateway address defined. This address cannot be overwritten by any other address ranges (whether you use DHCP or static IP addresses).",
         DISABLE_NETWORK: "Temporarily disable your wireless networks",
         DISABLE_NETWORK_TEXT: "Isolate your local link network by temporarily disabling other networks such as your wireless network. For example, in Windows 10, select the Network icon in the taskbar, and click the Wi-Fi panel to disable the wireless antenna. ",
@@ -107,7 +107,7 @@ let translation = new LocalizedStrings({
         WTEXPECT_CONFIGURE_DESCR:
             "Once you have discovered the appliances you want, begin the initial configuration process. Ensure that you have obtained network-related information in the " +
             productName +
-            " Series Initial Configuration Worksheet.",
+            "  Initial Configuration Worksheet.",
         WTEXPECT_MANAGE: "Manage",
         WTEXPECT_MANAGE_DESCR:
             "When the initial configuration process is complete, you can log on to the {0} Manager where you can configure settings for your cluster and start provisioning user accounts, storage resources, and policies. You can also add newly installed appliances to an existing cluster from " +
@@ -136,19 +136,19 @@ let translation = new LocalizedStrings({
         DOCUMENTATION_LI1:
             "Configured your network and physical switches based on the recommendations provided in the " +
             productName +
-            " Series Configure Switches and External Networks Guide.",
+            "  Configure Switches and External Networks Guide.",
         DOCUMENTATION_LI2:
             "Configured your site and workstation based on the specifications provided in the " +
             productName +
-            " Series Planning and Preparation Guide.",
+            "  Planning and Preparation Guide.",
         DOCUMENTATION_LI3:
             "Obtained network-related information you will require for initial configuration using the " +
             productName +
-            " Series Initial Configuration Worksheet.",
+            "  Initial Configuration Worksheet.",
         DOCUMENTATION_LI4:
             "Installed the base enclosures, and the optional expansion enclosures, referring to the " +
             productName +
-            " Series Quick Start Guide.",
+            " Quick Start Guide.",
 
         // * Backup discovery
         SHOW_BACKUP_DISCOVERY: "Show manual discovery procedure",
