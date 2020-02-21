@@ -1,7 +1,6 @@
 import {Selector, t} from "testcafe";
 import {waitForReact, ReactSelector} from "testcafe-react-selectors";
 import {navigateToRescanPage} from "./helpers/navigation";
-import translation from "../src/app/locales/translation";
 
 fixture("RescanPage container tests")
     .page("../src/index.html")
@@ -9,7 +8,7 @@ fixture("RescanPage container tests")
         await waitForReact();
     });
 
-const modalLinkList = ["#connectToNetwork", "#disableWiFi", "#disableFirewall", "#manualDiscovery"];
+const modalLinkList = ["#ShowLink_connectToNetwork", "#ShowLink_disableWiFi", "#ShowLink_disableFirewall", "#ShowLink_manualDiscovery"];
 
 test("Should open all the modals & close them by top button", async t => {
     await navigateToRescanPage();

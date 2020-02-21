@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import AppHeader from "../components/AppHeader";
 import t from "./../locales/translation";
 import Button from "./../components/Button";
-const {shell} = require("electron");
 import {Redirect} from "react-router-dom";
 import Alert from "../components/Alert";
 import "../../scss/pages/_rescanpage.scss";
@@ -164,7 +163,7 @@ class RescanPage extends Component {
                     <div className="row justify-content-center">
                         <p
                             className="show-link"
-                            id="connectToNetwork"
+                            id="ShowLink_connectToNetwork"
                             data-toggle="modal"
                             data-target="#modal"
                             onClick={this.connectYourLaptop}
@@ -180,7 +179,7 @@ class RescanPage extends Component {
                     <div className="row justify-content-center">
                         <p
                             className="show-link"
-                            id="disableWiFi"
+                            id="ShowLink_disableWiFi"
                             data-toggle="modal"
                             data-target="#modal"
                             onClick={this.clickOnShowDisableNetwork}
@@ -196,7 +195,7 @@ class RescanPage extends Component {
                     <div className="row justify-content-center">
                         <p
                             className="show-link"
-                            id="disableFirewall"
+                            id="ShowLink_disableFirewall"
                             data-toggle="modal"
                             data-target="#modal"
                             onClick={this.clickOnShowDisableFirewall}
@@ -212,7 +211,7 @@ class RescanPage extends Component {
                     <div className="row justify-content-center">
                         <p
                             className="show-link"
-                            id="manualDiscovery"
+                            id="ShowLink_manualDiscovery"
                             data-toggle="modal"
                             data-target="#modal"
                             onClick={this.clickOnShowBackupDiscovery}

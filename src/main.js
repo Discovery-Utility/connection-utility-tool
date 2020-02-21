@@ -232,13 +232,10 @@ function appOnUp(service) {
 
         // Send data to the UI part
         try {
-            win.webContents.send('ping', storages, detectionLog);
-            win.webContents.send("update-appliance-list", 'add');
-        }
-        catch (err) {
-        }
-    }
-    else console.log('Service does not match the name parameters');
+            win.webContents.send("ping", storages, detectionLog);
+            win.webContents.send("update-appliance-list", "add");
+        } catch (err) {}
+    } else console.log("Service does not match the name parameters");
 }
 
 // The event handler for device disconnecting from the network
@@ -262,11 +259,9 @@ function appOnDown(service) {
     storages = jsonParseString(tmp);
     detectionLog = jsonParseString(tmpLog);
     try {
-        win.webContents.send('ping', storages, detectionLog);
-        win.webContents.send("update-appliance-list", 'delete', namearr[1]);
-    }
-    catch (err) {
-    }
+        win.webContents.send("ping", storages, detectionLog);
+        win.webContents.send("update-appliance-list", "delete", namearr[1]);
+    } catch (err) {}
 }
 
 // Restart services browsing in the network

@@ -29,9 +29,9 @@ class SlideOutDialog extends Component {
             });
         };
 
-        this.removeSelection = (selectionName) => {
+        this.removeSelection = selectionName => {
             let selected = this.state.selectedNames;
-            selected = selected.filter((name) => name !== selectionName);
+            selected = selected.filter(name => name !== selectionName);
             this.setState({
                 selectedNames: selected
             });
@@ -73,22 +73,24 @@ class SlideOutDialog extends Component {
                             {configured.map(appliance => {
                                 let active = false;
 
-                                    selectedNames.forEach((element) => {
-                                        if (element === appliance.name) {
-                                            active = true;
-                                        }
-                                    });
+                                selectedNames.forEach(element => {
+                                    if (element === appliance.name) {
+                                        active = true;
+                                    }
+                                });
 
-                                    return (
-                                        <Appliance addSelection={this.addSelection}
-                                                   removeSelection={this.removeSelection}
-                                                   itemClick={null}
-                                                   key={appliance.name}
-                                                   appliance={appliance}
-                                                   showSettingsMenu={false}
-                                                   active={active}/>
-                                    );
-                                })}
+                                return (
+                                    <Appliance
+                                        addSelection={this.addSelection}
+                                        removeSelection={this.removeSelection}
+                                        itemClick={null}
+                                        key={appliance.name}
+                                        appliance={appliance}
+                                        showSettingsMenu={false}
+                                        active={active}
+                                    />
+                                );
+                            })}
                         </div>
                         <div className="modal-footer">
                             <Button text={t.ADD_TO_CLUSTER.toUpperCase()} available={isAddBtnActive} onClick={this.addClick} />

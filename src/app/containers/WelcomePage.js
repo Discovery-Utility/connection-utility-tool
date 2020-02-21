@@ -3,8 +3,6 @@ import AppHeader from "../components/AppHeader";
 import t from "./../locales/translation";
 import Button from "./../components/Button";
 import "../../scss/pages/_welcomepage.scss";
-
-const {shell} = require("electron");
 import {Redirect} from "react-router-dom";
 import SlideOutMessageDialog from "../components/SlideOutMessageDialog";
 
@@ -150,7 +148,7 @@ class WelcomePage extends Component {
                     <div className="row justify-content-center">
                         <p
                             className="show-link"
-                            id="connectToNetwork"
+                            id="ShowLink_connectToNetwork"
                             data-toggle="modal"
                             data-target="#modal"
                             onClick={this.connectYourLaptop}
@@ -166,7 +164,7 @@ class WelcomePage extends Component {
                     <div className="row justify-content-center">
                         <p
                             className="show-link"
-                            id="disableWiFi"
+                            id="ShowLink_disableWiFi"
                             data-toggle="modal"
                             data-target="#modal"
                             onClick={this.clickOnShowDisableNetwork}
@@ -182,7 +180,7 @@ class WelcomePage extends Component {
                     <div className="row justify-content-center">
                         <p
                             className="show-link"
-                            id="disableFirewall"
+                            id="ShowLink_disableFirewall"
                             data-toggle="modal"
                             data-target="#modal"
                             onClick={this.clickOnShowDisableFirewall}
@@ -197,7 +195,7 @@ class WelcomePage extends Component {
                     <div className="row justify-content-center">
                         <p
                             className="show-link"
-                            id="manualDiscovery"
+                            id="ShowLink_manualDiscovery"
                             data-toggle="modal"
                             data-target="#modal"
                             onClick={this.clickOnShowBackupDiscovery}

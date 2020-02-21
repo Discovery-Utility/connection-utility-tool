@@ -42,7 +42,7 @@ export async function navigateToAppliancePage(isConfiguredScreen) {
     await t.expect(appliancesPage.exists).ok();
 
     if (isConfiguredScreen) {
-        await t.click("#pageButtonConfigured");
+        await t.click("#Pagination_pageButtonConfigured");
     }
 }
 

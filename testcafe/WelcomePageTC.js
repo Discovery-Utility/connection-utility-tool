@@ -8,7 +8,7 @@ fixture("WelcomePage container tests")
         await waitForReact();
     });
 
-const modalLinkList = ["#connectToNetwork", "#disableWiFi", "#disableFirewall", "#manualDiscovery"];
+const modalLinkList = ["#ShowLink_connectToNetwork", "#ShowLink_disableWiFi", "#ShowLink_disableFirewall", "#ShowLink_manualDiscovery"];
 
 test("Should open all the modals & close them by top button", async t => {
     let modalTopCloseButton;

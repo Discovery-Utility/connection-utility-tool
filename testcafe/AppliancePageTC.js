@@ -3,11 +3,8 @@ import {waitForReact, ReactSelector} from "testcafe-react-selectors";
 import {navigateToAppliancePage, rescanFromAppliancePage} from "./helpers/navigation";
 import {parseLocalStorage} from "./helpers/localStorage";
 import translation from "../src/app/locales/translation";
+import Constants from "../src/app/constants/Constants";
 const exec = require("child_process").exec;
-
-// TODO: Find a way how to import that
-const MAX_SELECT_APPLIANCES = 4;
-const MAX_APPLIANCES_ON_PAGE = 5;
 
 const UNCONFIGURED_SCREEN = false;
 const CONFIGURED_SCREEN = true;
@@ -30,7 +27,7 @@ const testPaginationButtons = async isConfiguredScreen => {
 
     const applianceList = await parseLocalStorage(isConfiguredScreen);
 
-    const pagination = Math.ceil(applianceList.length / MAX_APPLIANCES_ON_PAGE);
+    const pagination = Math.ceil(applianceList.length / Constants.APPLIANCE_PAGE.MAX_APPLIANCES_ON_PAGE);
 
     let paginationButton;
     let actualTopApplianceName;
@@ -49,7 +46,7 @@ const testPaginationButtons = async isConfiguredScreen => {
         actualTopApplianceName = ReactSelector("Appliance")
             .nth(0)
             .find("p.app-name");
-        calculatedTopApplianceName = applianceList[(i - 1) * MAX_APPLIANCES_ON_PAGE].name;
+        calculatedTopApplianceName = applianceList[(i - 1) * Constants.APPLIANCE_PAGE.MAX_APPLIANCES_ON_PAGE].name;
 
         await t.expect(actualTopApplianceName.textContent).eql(calculatedTopApplianceName);
     }
@@ -76,9 +73,9 @@ const testDetection = async (cmdArg, isConfiguredScreen) => {
     await t.expect(firstAppliance.textContent).notEql(testName);
 
     // Execute publishing script
-    if (platform === "win32") {
+    if (platform === Constants.PLATFORM_TYPES.WIN) {
         publish = exec(`dns-sd -R ${cmdArg} _http._tcp . 3000`);
-    } else if (platform === "linux") {
+    } else if (platform === Constants.PLATFORM_TYPES.LINUX) {
         publish = exec(`avahi-publish-service ${cmdArg} _http._tcp 3000`);
     } else {
         console.log("This test is not runnable in your OS");
@@ -88,7 +85,7 @@ const testDetection = async (cmdArg, isConfiguredScreen) => {
     // Rescan the appliances
     await rescanFromAppliancePage();
     if (isConfiguredScreen) {
-        await t.click("#pageButtonConfigured");
+        await t.click("#Pagination_pageButtonConfigured");
     }
 
     // Check that test appliance appeared in the list
@@ -118,14 +115,14 @@ test("Should change pages from unconfigured to configured and vice versa", async
     await t.expect(topApplianceName.textContent).eql(applianceList[0].name);
 
     // Change screen to 'Configured' & check if page was changed and now it showing the cluster list
-    await t.click("#pageButtonConfigured");
+    await t.click("#Pagination_pageButtonConfigured");
     topApplianceName = ReactSelector("Appliance")
         .nth(0)
         .find("p.app-name");
     await t.expect(topApplianceName.textContent).eql(clusterList[0].name);
 
     // Change screen back to 'Unconfigured' & check if page again shows appliance list
-    await t.click("#pageButtonUnconfigured");
+    await t.click("#Pagination_pageButtonUnconfigured");
     topApplianceName = ReactSelector("Appliance")
         .nth(0)
         .find("p.app-name");
@@ -171,11 +168,11 @@ test("Should open Create Cluster popup with disabled button when more than allow
     const popupMessage = Selector(".mappleTip");
     let appliance;
 
-    for (let i = 0; i < MAX_SELECT_APPLIANCES + 1; i++) {
-        if (i % MAX_APPLIANCES_ON_PAGE === 0) {
+    for (let i = 0; i < Constants.APPLIANCE_PAGE.MAX_SELECT_APPLIANCES + 1; i++) {
+        if (i % Constants.APPLIANCE_PAGE.MAX_APPLIANCES_ON_PAGE === 0) {
             // Go to proper page
             let paginationButton = ReactSelector("li")
-                .withKey(i / MAX_APPLIANCES_ON_PAGE + 1)
+                .withKey(i / Constants.APPLIANCE_PAGE.MAX_APPLIANCES_ON_PAGE + 1)
                 .find("a");
 
             await t.expect(paginationButton.exists).ok();
@@ -183,7 +180,7 @@ test("Should open Create Cluster popup with disabled button when more than allow
         }
         // Choose appliances
         appliance = ReactSelector("Appliance")
-            .nth(i % MAX_APPLIANCES_ON_PAGE)
+            .nth(i % Constants.APPLIANCE_PAGE.MAX_APPLIANCES_ON_PAGE)
             .find("span");
         await t.click(appliance);
     }
