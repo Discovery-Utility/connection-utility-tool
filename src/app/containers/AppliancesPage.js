@@ -22,7 +22,7 @@ class AppliancesPage extends Component {
         this.state = {
             appliances: [],
             configured: [],
-            selected_ids: [],
+            selectedNames: [],
             unconfigured: [],
             redirectToSearch: false,
             pageStateUnconfigured: true, //used for switch unconfigured/configured screen states
@@ -41,7 +41,7 @@ class AppliancesPage extends Component {
             if (!this.state.pageStateUnconfigured) {
                 this.setState({
                     pageStateUnconfigured: true,
-                    selected_ids: [],
+                    selectedNames: [],
                     showModalAddToCluster: !this.state.showModalAddToCluster,
                     currentPage: 0
                 });
@@ -53,7 +53,7 @@ class AppliancesPage extends Component {
             if (this.state.pageStateUnconfigured) {
                 this.setState({
                     pageStateUnconfigured: false,
-                    selected_ids: [],
+                    selectedNames: [],
                     showModalAddToCluster: !this.state.showModalAddToCluster,
                     currentPage: 0
                 });
@@ -61,21 +61,21 @@ class AppliancesPage extends Component {
         };
 
         //callback function for Appliance component, set selection on Appliance
-        this.addSelection = (selectionId, isCheckBox) => {
-            let selected = this.state.selected_ids;
+        this.addSelection = (selectionName, isCheckBox) => {
+            let selected = this.state.selectedNames;
             selected = isCheckBox ? selected : [];
-            selected.push(selectionId);
+            selected.push(selectionName);
             this.setState({
-                selected_ids: selected
+                selectedNames: selected
             });
         };
 
         //remove selection from Appliance component
-        this.removeSelection = selectionId => {
-            let selected = this.state.selected_ids;
-            selected = selected.filter(id => id !== selectionId);
+        this.removeSelection = (selectionName) => {
+            let selected = this.state.selectedNames;
+            selected = selected.filter(name => name !== selectionName);
             this.setState({
-                selected_ids: selected
+                selectedNames: selected
             });
         };
 
@@ -88,11 +88,9 @@ class AppliancesPage extends Component {
                     showPageStateButton: false
                 });
             } else {
-                let {selected_ids, configured} = this.state;
+                let {selectedNames, configured} = this.state;
 
-                let appliance = configured.filter(appliance => {
-                    return appliance.id === selected_ids[0];
-                });
+                let appliance = configured.filter(appliance => appliance.name === selectedNames[0]);
 
                 let link = appliance[0].link;
                 ipcRndr.send("connect-to-appliance", link);
@@ -111,18 +109,14 @@ class AppliancesPage extends Component {
 
         //click on continue button in CreateCluster screen
         this.continueClick = () => {
-            let {selected_ids, unconfigured} = this.state;
+            let {selectedNames, unconfigured} = this.state;
 
-            let countSelected = selected_ids.length;
-            let firstAppliance = unconfigured.filter(appliance => {
-                return appliance.id === selected_ids[0];
-            });
+            let countSelected = selectedNames.length;
+            let firstAppliance = unconfigured.filter(appliance => appliance.name === selectedNames[0]);
 
             let names = "";
             for (let i = 0; i < countSelected; i++) {
-                let nextAppliance = unconfigured.filter(appliance => {
-                    return appliance.id === selected_ids[i];
-                });
+                let nextAppliance = unconfigured.filter(appliance => appliance.name === selectedNames[i]);
 
                 names += nextAppliance[0].name;
                 names += i < countSelected - 1 ? "," : "";
@@ -171,7 +165,7 @@ class AppliancesPage extends Component {
 
         //show popup at the bottom of the application
         this.getPopup = (tooltipMessage, showTooltipMessage, isAvailableBtnCreateCluster, buttonText) => {
-            let countSelectedAppliances = this.state.selected_ids.length;
+            let countSelectedAppliances = this.state.selectedNames.length;
             let selectedText = "";
             if (this.state.pageStateUnconfigured) {
                 selectedText = countSelectedAppliances + " ";
@@ -247,22 +241,33 @@ class AppliancesPage extends Component {
 
         //show modal Add To Cluster
         this.getModal = () => {
-            let selectedAppliance = this.state.unconfigured.filter(appliance => appliance.id === this.state.selected_ids[0])[0];
+            let selectedAppliance = this.state.unconfigured.find(appliance => appliance.name === this.state.selectedNames[0]);
             let configuredAppliances = this.state.configured.filter(appliance => appliance.type === selectedAppliance.type);
             return <SlideOutDialog configured={configuredAppliances} selectedAppliance={selectedAppliance} />;
         };
     }
 
     componentDidMount() {
+        this.getApplianceList();
+
+        ipcRndr.on('update-appliance-list', (event, message, newApplianceName) => {
+            if (message === 'delete') {
+                let unselectedAppliance = this.state.appliances.filter(appliance => appliance.name === newApplianceName);
+                unselectedAppliance.forEach(appliance => this.removeSelection(appliance.name));
+            }
+            this.getApplianceList();
+        });
+    }
+
+    componentWillUnmount() {
+        ipcRndr.removeAllListeners('update-appliance-list');
+    }
+
+    getApplianceList() {
         //parse data from backend
         let appliances = JSON.parse(localStorage.getItem("message")).storages;
 
         if (appliances) {
-            //set ids to appliances
-            for (let i = 0; i < appliances.length; i++) {
-                appliances[i].id = i;
-            }
-
             //filter appliances to configured and unconfigured
             let configured = appliances.filter(appliance => appliance.cluster === "true");
             let unconfigured = appliances.filter(appliance => appliance.cluster === "false");
@@ -287,7 +292,7 @@ class AppliancesPage extends Component {
             countConfiguredPages,
             countUnconfiguredPages,
             unconfigured,
-            selected_ids,
+            selectedNames,
             showCreateClusterMessage,
             configured,
             pageStateUnconfigured,
@@ -303,13 +308,13 @@ class AppliancesPage extends Component {
         let showTooltipMessage = false;
         let tooltipMessage = "";
         let showSettingsInAppliance = false;
-        let countSelectedAppliances = selected_ids.length;
+        let countSelectedAppliances = selectedNames.length;
 
         let appliances = pageStateUnconfigured ? unconfigured : configured;
         let countPages = pageStateUnconfigured ? countUnconfiguredPages : countConfiguredPages;
 
         showPagination = showPagination && appliances.length > MAX_APPLIANCES_ON_PAGE;
-        showModalAddToCluster = showModalAddToCluster && selected_ids.length === 1;
+        showModalAddToCluster = showModalAddToCluster && selectedNames.length === 1;
 
         //show popup at the bottom of the page
         if (countSelectedAppliances > 0) {
@@ -319,11 +324,11 @@ class AppliancesPage extends Component {
 
             if (countSelectedAppliances > 1) {
                 if (pageStateUnconfigured) {
-                    let firstType = unconfigured.filter(appliance => appliance.id === selected_ids[0])[0].type;
+                    let firstType = unconfigured.find(appliance => appliance.name === selectedNames[0]).type;
 
                     //check that appliances have same types and that they are not HCI
                     for (let i = 1; i < countSelectedAppliances; i++) {
-                        let nextType = unconfigured.filter(appliance => appliance.id === selected_ids[i])[0].type;
+                        let nextType = unconfigured.find(appliance => appliance.name === selectedNames[i]).type;
 
                         if (nextType !== firstType) {
                             isAvailablePopupButton = false;
@@ -391,30 +396,29 @@ class AppliancesPage extends Component {
 
                     <div className="row">
                         <div className="appliances-list">
-                            {appliances.map(appliance => {
-                                let active = false;
+                            {
+                                appliances.map(appliance => {
+                                    let active = false;
 
-                                selected_ids.forEach(element => {
-                                    showSettingsInAppliance = false;
-                                    if (element === appliance.id) {
-                                        showSettingsInAppliance = pageStateUnconfigured && selected_ids.length === 1;
-                                        active = true;
-                                    }
-                                });
-                                let isSelectTypeCheckbox = pageStateUnconfigured;
+                                    selectedNames.forEach((element) => {
+                                        showSettingsInAppliance = false;
+                                        if (element === appliance.name) {
+                                            showSettingsInAppliance = pageStateUnconfigured && selectedNames.length === 1;
+                                            active = true;
+                                        }
+                                    });
+                                    let isSelectTypeCheckbox = pageStateUnconfigured;
 
-                                return (
-                                    <Appliance
-                                        key={appliance.id}
-                                        addSelection={this.addSelection}
-                                        removeSelection={this.removeSelection}
-                                        appliance={appliance}
-                                        selectTypeCheckbox={isSelectTypeCheckbox}
-                                        showSettingsMenu={showSettingsInAppliance}
-                                        active={active}
-                                    />
-                                );
-                            })}
+                                    return (
+                                        <Appliance key={appliance.name}
+                                                   addSelection={this.addSelection}
+                                                   removeSelection={this.removeSelection}
+                                                   appliance={appliance}
+                                                   selectTypeCheckbox={isSelectTypeCheckbox}
+                                                   showSettingsMenu={showSettingsInAppliance}
+                                                   active={active}/>
+                                    );
+                                })}
                         </div>
                     </div>
                     {showModalAddToCluster && this.getModal()}

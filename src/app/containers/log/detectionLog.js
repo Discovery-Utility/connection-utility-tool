@@ -16,14 +16,16 @@ class DetectionLog extends React.Component {
         this.changeSubtabs = this.changeSubtabs.bind(this);
         this.returnTabs = this.returnTabs.bind(this);
         this.eachLog = this.eachLog.bind(this);
-        this.refreshButton = this.refreshButton.bind(this);
+        this.refreshLogs = this.refreshLogs.bind(this);
         this.saveLogs = this.saveLogs.bind(this);
         this.clearLogs = this.clearLogs.bind(this);
     }
 
-    refreshButton() {
-        this.state.detLogs = JSON.parse(localStorage.getItem("logs"));
-        this.forceUpdate();
+    refreshLogs() {
+        this.setState({
+            detLogs: JSON.parse(localStorage.getItem('logs')),
+            eventLogs: JSON.parse(localStorage.getItem('eventlogs'))
+        })
     }
 
     changeSubtabs(subtab) {
@@ -45,10 +47,10 @@ class DetectionLog extends React.Component {
         const tmp = {
             storages: []
         };
-        const logs = JSON.stringify(tmp, "", 4);
-        localStorage.setItem("logs", logs);
-        ipcRndr.send("clearDetectLog", "Clear logs");
-        this.refreshButton();
+        var logs = JSON.stringify(tmp, "", 4);
+        localStorage.setItem('logs', logs);
+        ipcRndr.send('clearDetectLog', "Clear logs");
+        this.refreshLogs();
     }
 
     // Save detection logs
@@ -132,6 +134,17 @@ class DetectionLog extends React.Component {
         );
     }
 
+    componentDidMount() {
+        this.refreshLogs();
+        ipcRndr.on('update-appliance-list', (event, message, newApplianceName) => {  
+            this.refreshLogs();
+        });
+    }
+
+    componentWillUnmount() {
+        ipcRndr.removeAllListeners('update-appliance-list');
+    }
+
     render() {
         const currDate = new Date();
         if (this.state.subtab == "detectionLog") {
@@ -162,7 +175,7 @@ class DetectionLog extends React.Component {
                                 {/*<div className="saveLogButton" onClick={this.clearLogs}>
                                     <font>{mainPage_lang.LOGS_buttonClear}</font>
                                 </div>*/}
-                                {/*<div id="buttonRenewLog" onClick={this.refreshButton}>
+                                {/*<div id="buttonRenewLog" onClick={this.refreshLogs}>
                                     <img id="refIcon" src="icon/refresh.svg" height="20"/>
                                 </div>*/}
                                 <table id="detectionLogTable">
