@@ -95,9 +95,9 @@ const testDetection = async (cmdArg, isConfiguredScreen) => {
     await t.expect(firstAppliance.textContent).eql(testName);
 
     // Kill the child process
-    if (platform === "win32") {
+    if (platform === Constants.PLATFORM_TYPES.WIN) {
         exec(`taskkill /pid ${publish.pid} /f /t`);
-    } else if (platform === "linux") {
+    } else if (platform === Constants.PLATFORM_TYPES.LINUX) {
         publish.kill();
     }
 };
