@@ -108,7 +108,7 @@ let translation = new LocalizedStrings({
         WTEXPECT_CONFIGURE_DESCR:
             "Once you have discovered the appliances you want, begin the initial configuration process. Ensure that you have obtained network-related information in the " +
             productName +
-            "  Initial Configuration Worksheet.",
+            " Initial Configuration Worksheet.",
         WTEXPECT_MANAGE: "Manage",
         WTEXPECT_MANAGE_DESCR:
             "When the initial configuration process is complete, you can log on to the {0} Manager where you can configure settings for your cluster and start provisioning user accounts, storage resources, and policies. You can also add newly installed appliances to an existing cluster from " +
@@ -137,15 +137,15 @@ let translation = new LocalizedStrings({
         DOCUMENTATION_LI1:
             "Configured your network and physical switches based on the recommendations provided in the " +
             productName +
-            "  Configure Switches and External Networks Guide.",
+            " Configure Switches and External Networks Guide.",
         DOCUMENTATION_LI2:
             "Configured your site and workstation based on the specifications provided in the " +
             productName +
-            "  Planning and Preparation Guide.",
+            " Planning and Preparation Guide.",
         DOCUMENTATION_LI3:
             "Obtained network-related information you will require for initial configuration using the " +
             productName +
-            "  Initial Configuration Worksheet.",
+            " Initial Configuration Worksheet.",
         DOCUMENTATION_LI4:
             "Installed the base enclosures, and the optional expansion enclosures, referring to the " +
             productName +
