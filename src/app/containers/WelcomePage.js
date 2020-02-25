@@ -31,7 +31,12 @@ class WelcomePage extends Component {
                     <div className="ttText">
                         <ul>
                             <li>{t.CONNECT_LAPTOP_LI1}</li>
-                            <li>{t.CONNECT_LAPTOP_LI2}</li>
+                            <li>
+                                {t.CONNECT_LAPTOP_LI2}
+                                <br></br>
+                                <b>Note: </b>
+                                {t.CONNECT_LAPTOP_LI2_NOTE}
+                            </li>
                         </ul>
                     </div>
                 </div>

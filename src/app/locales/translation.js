@@ -40,7 +40,7 @@ let translation = new LocalizedStrings({
         REDIRECT_HELP_MESSAGE:
             "To complete the process, you will now be leaving the Discovery Utility. " +
             productName +
-            "Manager will launch in a browser window where you will complete the initial configuration process.",
+            " Manager will launch in a browser window where you will complete the initial configuration process.",
         PLEASE_STAY: "Please stay connected to the hardware until the configuration is complete.",
         MIXED_CLUSTER_WARNING:
             "Your selection results in a combination of " +
@@ -66,9 +66,10 @@ let translation = new LocalizedStrings({
         DISABLE_FIREWALL_TEXT3: "If this is not possible, add port 5353 and Discovery Utility on the exclusion list for the antivirus and firewall software. For more information, refer to the antivirus and firewall documentation.",
         DISABLE_FIREWALL_TEXT4: "If none of this is possible, refer to the manual procedure to discover the unconfigured appliances.",
         CONNECT_LAPTOP: "Connect to the network",
-        CONNECT_LAPTOP_TEXT: "Ensure that your workstation or virtual machine is connected directly to the same switch that the base enclosure is cable to or is on the same VLAN as the native/untagged network of the " + productName + " management network connection.",
+        CONNECT_LAPTOP_TEXT: "Ensure that your workstation or virtual machine is connected directly to the same switch that the base enclosure is cabled to or is on the same VLAN as the native/untagged network of the " + productName + " management network connection.",
         CONNECT_LAPTOP_LI1: "Create a second network adapter that uses the same native/untagged network as the " + productName + " management network connection.",
-        CONNECT_LAPTOP_LI2: "Set the IP address of the second network adapter to 169.254.1.2 with netmask 255.255.255.0 and no gateway address defined. This address cannot be overwritten by any other address ranges (whether you use DHCP or static IP addresses).",
+        CONNECT_LAPTOP_LI2: "Verify whether there is an IP address starting with 169.254.x.x/16 subnet setup available that you can use as the IP address of the second network adapter. If such an IP address is not available, set the IP address of the second network adapter to 169.254.1.2 with netmask 255.255.0.0 and no gateway address defined. This address cannot be overwritten by any other address ranges (whether you use DHCP or static IP addresses).",
+        CONNECT_LAPTOP_LI2_NOTE: "To avoid duplicate IP addresses, ensure that there is only one laptop or virtual machine in the same native/untagged network with the 169.254.x.x IP address you set up.",
         DISABLE_NETWORK: "Temporarily disable your wireless networks",
         DISABLE_NETWORK_TEXT: "Isolate your local link network by temporarily disabling other networks such as your wireless network. For example, in Windows 10, select the Network icon in the taskbar, and click the Wi-Fi panel to disable the wireless antenna. ",
         DISABLE_NETWORK_DETAILS_TEXT: "You can click it again to enable it. For more information on disabling wireless networks, refer to your operating system documentation.",
