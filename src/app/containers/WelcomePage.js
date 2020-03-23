@@ -28,7 +28,12 @@ class WelcomePage extends Component {
                     <div className="ttText">
                         <ul>
                             <li>{t.CONNECT_LAPTOP_LI1}</li>
-                            <li>{t.CONNECT_LAPTOP_LI2}</li>
+                            <li>
+                                {t.CONNECT_LAPTOP_LI2}
+                                <br></br>
+                                <b>Note: </b>
+                                {t.CONNECT_LAPTOP_LI2_NOTE}
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -86,22 +91,9 @@ class WelcomePage extends Component {
                     <div>{t.BACKUP_DISCOVERY_DESC}</div>
                     <ol type="1">
                         <li>{t.BACKUP_DISCOVERY1}</li>
-                        <li>
-                            {t.BACKUP_DISCOVERY2}
-                            <ul>
-                                <li>{t.BACKUP_DISCOVERY2_Li1}</li>
-                                <li>{t.BACKUP_DISCOVERY2_Li2}</li>
-                                <li>{t.BACKUP_DISCOVERY2_Li3}</li>
-                            </ul>
-                        </li>
+                        <li>{t.BACKUP_DISCOVERY2}</li>
                         <li>{t.BACKUP_DISCOVERY3}</li>
-                        <li>
-                            {t.BACKUP_DISCOVERY4}
-                            <br></br>
-                            <br></br>
-                            <div>{t.BACKUP_DISCOVERY_COMMAND}</div>
-                            <br></br>
-                        </li>
+                        <li>{t.BACKUP_DISCOVERY4}</li>
                         <li>{t.BACKUP_DISCOVERY5}</li>
                         <li>{t.BACKUP_DISCOVERY6}</li>
                     </ol>
