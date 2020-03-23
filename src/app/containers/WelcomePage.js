@@ -3,8 +3,6 @@ import AppHeader from "../components/AppHeader";
 import t from "./../locales/translation";
 import Button from "./../components/Button";
 import "../../scss/pages/_welcomepage.scss";
-
-const {shell} = require("electron");
 import {Redirect} from "react-router-dom";
 import SlideOutMessageDialog from "../components/SlideOutMessageDialog";
 
@@ -140,7 +138,13 @@ class WelcomePage extends Component {
                         </p>
                     </div>
                     <div className="row justify-content-center">
-                        <p className="show-link" data-toggle="modal" data-target="#modal" onClick={this.connectYourLaptop}>
+                        <p
+                            className="show-link"
+                            id="ShowLink_connectToNetwork"
+                            data-toggle="modal"
+                            data-target="#modal"
+                            onClick={this.connectYourLaptop}
+                        >
                             {t.SHOW_ME_HOW}
                         </p>
                     </div>
@@ -150,7 +154,13 @@ class WelcomePage extends Component {
                         </p>
                     </div>
                     <div className="row justify-content-center">
-                        <p className="show-link" data-toggle="modal" data-target="#modal" onClick={this.clickOnShowDisableNetwork}>
+                        <p
+                            className="show-link"
+                            id="ShowLink_disableWiFi"
+                            data-toggle="modal"
+                            data-target="#modal"
+                            onClick={this.clickOnShowDisableNetwork}
+                        >
                             {t.SHOW_ME_HOW}
                         </p>
                     </div>
@@ -160,7 +170,13 @@ class WelcomePage extends Component {
                         </p>
                     </div>
                     <div className="row justify-content-center">
-                        <p className="show-link" data-toggle="modal" data-target="#modal" onClick={this.clickOnShowDisableFirewall}>
+                        <p
+                            className="show-link"
+                            id="ShowLink_disableFirewall"
+                            data-toggle="modal"
+                            data-target="#modal"
+                            onClick={this.clickOnShowDisableFirewall}
+                        >
                             {t.SHOW_ME_HOW}
                         </p>
                     </div>
@@ -169,7 +185,13 @@ class WelcomePage extends Component {
                     </div>
 
                     <div className="row justify-content-center">
-                        <p className="show-link" data-toggle="modal" data-target="#modal" onClick={this.clickOnShowBackupDiscovery}>
+                        <p
+                            className="show-link"
+                            id="ShowLink_manualDiscovery"
+                            data-toggle="modal"
+                            data-target="#modal"
+                            onClick={this.clickOnShowBackupDiscovery}
+                        >
                             {t.SHOW_BACKUP_DISCOVERY}
                         </p>
                     </div>

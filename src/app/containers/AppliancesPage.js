@@ -6,11 +6,7 @@ import Appliance from "./../components/Appliance";
 import Button from "../components/Button";
 import MappleToolTip from "reactjs-mappletooltip";
 import SlideOutDialog from "./../components/SlideOutDialog";
-
-const MAX_SELECT_APPLIANCES = 4;
-const MAX_APPLIANCES_ON_PAGE = 5;
-
-const {shell} = require("electron");
+import Constants from "../constants/Constants";
 
 /**
  * Appliance page displays unconfigured/configured appliance lists
@@ -71,7 +67,7 @@ class AppliancesPage extends Component {
         };
 
         //remove selection from Appliance component
-        this.removeSelection = (selectionName) => {
+        this.removeSelection = selectionName => {
             let selected = this.state.selectedNames;
             selected = selected.filter(name => name !== selectionName);
             this.setState({
@@ -179,7 +175,12 @@ class AppliancesPage extends Component {
                     <p className="popup-selected-text">{selectedText}</p>
                     <div className="popup-create-cluster-button">
                         <MappleToolTip showMappleIf={showTooltipMessage} direction="left" mappleType="contra" float={false}>
-                            <Button text={buttonText} onClick={this.popupButtonClick} available={isAvailableBtnCreateCluster} />
+                            <Button
+                                id="CreateCluster_popupButton"
+                                text={buttonText}
+                                onClick={this.popupButtonClick}
+                                available={isAvailableBtnCreateCluster}
+                            />
                             <div>{tooltipMessage}</div>
                         </MappleToolTip>
                     </div>
@@ -214,12 +215,14 @@ class AppliancesPage extends Component {
                     <li
                         className={`page-item ${this.state.pageStateUnconfigured ? "active" : ""}`}
                         onClick={this.changePageStateToUnconfigured}
+                        id="Pagination_pageButtonUnconfigured"
                     >
                         <a className="page-link">{t.UNCONFIGURED}</a>
                     </li>
                     <li
                         className={`page-item ${this.state.pageStateUnconfigured ? "" : "active"}`}
                         onClick={this.changePageStateToConfigured}
+                        id="Pagination_pageButtonConfigured"
                     >
                         <a className="page-link">{t.CONFIGURED}</a>
                     </li>
@@ -238,8 +241,8 @@ class AppliancesPage extends Component {
     componentDidMount() {
         this.getApplianceList();
 
-        ipcRndr.on('update-appliance-list', (event, message, newApplianceName) => {
-            if (message === 'delete') {
+        ipcRndr.on("update-appliance-list", (event, message, newApplianceName) => {
+            if (message === "delete") {
                 let unselectedAppliance = this.state.appliances.filter(appliance => appliance.name === newApplianceName);
                 unselectedAppliance.forEach(appliance => this.removeSelection(appliance.name));
             }
@@ -248,7 +251,7 @@ class AppliancesPage extends Component {
     }
 
     componentWillUnmount() {
-        ipcRndr.removeAllListeners('update-appliance-list');
+        ipcRndr.removeAllListeners("update-appliance-list");
     }
 
     getApplianceList() {
@@ -261,8 +264,8 @@ class AppliancesPage extends Component {
             let unconfigured = appliances.filter(appliance => appliance.cluster === "false");
 
             //count pages in pagination
-            let countConfiguredPages = Math.ceil(configured.length / MAX_APPLIANCES_ON_PAGE);
-            let countUnconfiguredPages = Math.ceil(unconfigured.length / MAX_APPLIANCES_ON_PAGE);
+            let countConfiguredPages = Math.ceil(configured.length / Constants.APPLIANCE_PAGE.MAX_APPLIANCES_ON_PAGE);
+            let countUnconfiguredPages = Math.ceil(unconfigured.length / Constants.APPLIANCE_PAGE.MAX_APPLIANCES_ON_PAGE);
 
             this.setState({
                 appliances: appliances,
@@ -301,7 +304,7 @@ class AppliancesPage extends Component {
         let appliances = pageStateUnconfigured ? unconfigured : configured;
         let countPages = pageStateUnconfigured ? countUnconfiguredPages : countConfiguredPages;
 
-        showPagination = showPagination && appliances.length > MAX_APPLIANCES_ON_PAGE;
+        showPagination = showPagination && appliances.length > Constants.APPLIANCE_PAGE.MAX_APPLIANCES_ON_PAGE;
         showModalAddToCluster = showModalAddToCluster && selectedNames.length === 1;
 
         //show popup at the bottom of the page
@@ -336,7 +339,7 @@ class AppliancesPage extends Component {
             }
 
             //check that selected appliances less than max select appliances
-            if (countSelectedAppliances > MAX_SELECT_APPLIANCES) {
+            if (countSelectedAppliances > Constants.APPLIANCE_PAGE.MAX_SELECT_APPLIANCES) {
                 isAvailablePopupButton = false;
                 showTooltipMessage = true;
                 tooltipMessage = t.MAX_APPLIANCES_IN_CLUSTER;
@@ -345,8 +348,8 @@ class AppliancesPage extends Component {
 
         //prepare appliances that displays at one page
         if (appliances.length > 0 && currentPage <= countPages) {
-            let it1 = currentPage * MAX_APPLIANCES_ON_PAGE;
-            let it2 = it1 + MAX_APPLIANCES_ON_PAGE;
+            let it1 = currentPage * Constants.APPLIANCE_PAGE.MAX_APPLIANCES_ON_PAGE;
+            let it2 = it1 + Constants.APPLIANCE_PAGE.MAX_APPLIANCES_ON_PAGE;
             let temp = [];
             for (; it1 < it2; it1++) {
                 if (it1 >= appliances.length) {
@@ -384,29 +387,30 @@ class AppliancesPage extends Component {
 
                     <div className="row">
                         <div className="appliances-list">
-                            {
-                                appliances.map(appliance => {
-                                    let active = false;
+                            {appliances.map(appliance => {
+                                let active = false;
 
-                                    selectedNames.forEach((element) => {
-                                        showSettingsInAppliance = false;
-                                        if (element === appliance.name) {
-                                            showSettingsInAppliance = pageStateUnconfigured && selectedNames.length === 1;
-                                            active = true;
-                                        }
-                                    });
-                                    let isSelectTypeCheckbox = pageStateUnconfigured;
+                                selectedNames.forEach(element => {
+                                    showSettingsInAppliance = false;
+                                    if (element === appliance.name) {
+                                        showSettingsInAppliance = pageStateUnconfigured && selectedNames.length === 1;
+                                        active = true;
+                                    }
+                                });
+                                let isSelectTypeCheckbox = pageStateUnconfigured;
 
-                                    return (
-                                        <Appliance key={appliance.name}
-                                                   addSelection={this.addSelection}
-                                                   removeSelection={this.removeSelection}
-                                                   appliance={appliance}
-                                                   selectTypeCheckbox={isSelectTypeCheckbox}
-                                                   showSettingsMenu={showSettingsInAppliance}
-                                                   active={active}/>
-                                    );
-                                })}
+                                return (
+                                    <Appliance
+                                        key={appliance.name}
+                                        addSelection={this.addSelection}
+                                        removeSelection={this.removeSelection}
+                                        appliance={appliance}
+                                        selectTypeCheckbox={isSelectTypeCheckbox}
+                                        showSettingsMenu={showSettingsInAppliance}
+                                        active={active}
+                                    />
+                                );
+                            })}
                         </div>
                     </div>
                     {showModalAddToCluster && this.getModal()}
