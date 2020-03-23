@@ -122,6 +122,8 @@ function getModelByCode(code, type) {
     let typePostfix = "";
     if (type === "HCI") {
         typePostfix = "X";
+    } else if (type === "BM") {
+        typePostfix = "T";
     }
     return productName + " " + productModel + typePostfix;
 }

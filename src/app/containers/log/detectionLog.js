@@ -122,7 +122,7 @@ class DetectionLog extends React.Component {
                 </td>
                 <td>
                     <div>
-                        <font> {item.type} </font>
+                        <font> {item.type === "HCI" ? "X" : "T"} </font>
                     </div>
                 </td>
                 <td>
