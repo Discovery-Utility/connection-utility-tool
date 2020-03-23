@@ -16,18 +16,18 @@ class HelpPage extends React.Component {
         this.changeSubtabs = this.changeSubtabs.bind(this);
         this.returnTabs = this.returnTabs.bind(this);
 
-        // "state" - the tab in this case, initially takes the value "expect" - the product description page.
-        // "state" can take the value of "tips" - the troubleshooting tips page,
+        // "tab" - the tab in this case, initially takes the value "expect" - the product description page.
+        // "tab" can take the value of "tips" - the troubleshooting tips page,
         // and also value of "docs" - documentation page
         this.state = {
-            state: "expect"
+            tab: "expect"
         };
     }
 
     // Switch tabs, and also highlight an open tab
     changeSubtabs(subtab) {
         this.setState({
-            state: subtab
+            tab: subtab
         });
         let subtabs = document.getElementsByClassName("subtabs");
         for (let i = 0; i < subtabs.length; i++) {
@@ -57,7 +57,7 @@ class HelpPage extends React.Component {
     }
 
     render() {
-        if (this.state.state === "expect") {
+        if (this.state.tab === "expect") {
             return (
                 <div>
                     <AppHeader />
@@ -68,7 +68,7 @@ class HelpPage extends React.Component {
                 </div>
             );
         }
-        if (this.state.state === "tips") {
+        if (this.state.tab === "tips") {
             return (
                 <div>
                     <AppHeader />
@@ -79,7 +79,7 @@ class HelpPage extends React.Component {
                 </div>
             );
         }
-        if (this.state.state === "docs") {
+        if (this.state.tab === "docs") {
             return (
                 <div>
                     <AppHeader />

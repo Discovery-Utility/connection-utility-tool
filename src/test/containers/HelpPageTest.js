@@ -12,7 +12,7 @@ describe("HelpPage container tests", () => {
         const wrapper = shallow(<HelpPage />);
 
         expect(wrapper.find(AppHeader)).to.have.lengthOf(1);
-        expect(wrapper.state("state")).to.equal("expect");
+        expect(wrapper.state("tab")).to.equal("expect");
         expect(wrapper.find("#logBox")).to.have.lengthOf(1);
         expect(wrapper.find("#logSwitch")).to.have.lengthOf(1);
         expect(wrapper.find("#expect").text()).to.equal(t.WHAT_EXPECT);
@@ -34,7 +34,7 @@ describe("HelpPage container tests", () => {
         wrapper.update();
         page = wrapper.find(HelpPage);
 
-        expect(page.state("state")).to.equal("tips");
+        expect(page.state("tab")).to.equal("tips");
         expect(page.find(Troubleshooting)).to.have.lengthOf(1);
     });
 
@@ -53,7 +53,7 @@ describe("HelpPage container tests", () => {
         wrapper.update();
         page = wrapper.find(HelpPage);
 
-        expect(page.state("state")).to.equal("docs");
+        expect(page.state("tab")).to.equal("docs");
         expect(page.find(Docs)).to.have.lengthOf(1);
     });
 });
