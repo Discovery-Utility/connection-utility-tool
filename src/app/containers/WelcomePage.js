@@ -3,8 +3,6 @@ import AppHeader from "../components/AppHeader";
 import t from "./../locales/translation";
 import Button from "./../components/Button";
 import "../../scss/pages/_welcomepage.scss";
-
-const {shell} = require("electron");
 import {Redirect} from "react-router-dom";
 import SlideOutMessageDialog from "../components/SlideOutMessageDialog";
 

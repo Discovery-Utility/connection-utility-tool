@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import AppHeader from "../components/AppHeader";
 import t from "./../locales/translation";
 import Button from "./../components/Button";
-const {shell} = require("electron");
 import {Redirect} from "react-router-dom";
 import Alert from "../components/Alert";
 import "../../scss/pages/_rescanpage.scss";

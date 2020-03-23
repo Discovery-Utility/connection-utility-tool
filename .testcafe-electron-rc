@@ -1,0 +1,4 @@
+{
+    "mainWindowUrl": "./src/index.html",
+    "appPath": "."
+}
