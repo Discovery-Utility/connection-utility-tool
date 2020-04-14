@@ -14,12 +14,9 @@ class WelcomePage extends Component {
         super(props);
 
         this.state = {
+            redirectToSearch: false,
             modalBody: null,
             modalTitle: null
-        };
-
-        this.state = {
-            redirectToSearch: false
         };
 
         this.getConnectYourLaptop = () => {
@@ -41,7 +38,7 @@ class WelcomePage extends Component {
             );
         };
 
-        this.connectYourLaptop = () => {
+        this.clickOnShowConnectYourLaptop = () => {
             this.setState({
                 modalTitle: t.CONNECT_LAPTOP,
                 modalBody: this.getConnectYourLaptop()
@@ -143,7 +140,7 @@ class WelcomePage extends Component {
                             id="ShowLink_connectToNetwork"
                             data-toggle="modal"
                             data-target="#modal"
-                            onClick={this.connectYourLaptop}
+                            onClick={this.clickOnShowConnectYourLaptop}
                         >
                             {t.SHOW_ME_HOW}
                         </p>

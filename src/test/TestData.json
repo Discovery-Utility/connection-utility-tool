@@ -1,0 +1,84 @@
+{
+    "storages": [
+      {
+        "id": 0,
+        "link": "http://192.168.0.100:8080",
+        "name": "FNM00103198723",
+        "state": "unconfigured",
+        "type": "HCI",
+        "model": "ProductName 1000X",
+        "cluster": "false",
+        "failed": "false"
+      },
+      {
+        "id": 1,
+        "link": "http://192.168.4.15:8080",
+        "name": "FNM00251390871",
+        "state": "unconfigured",
+        "model": "ProductName 1000X",
+        "type": "HCI",
+        "cluster": "false",
+        "failed": "true"
+      },
+      {
+        "id": 2,
+        "link": "http://192.168.4.16:8080",
+        "name": "FNM00251390872",
+        "state": "unconfigured",
+        "model": "ProductName 1000X",
+        "type": "HCI",
+        "cluster": "false",
+        "failed": "true"
+      },
+      {
+        "id": 3,
+        "link": "http://192.168.2.58:8080",
+        "name": "FNM003456009762",
+        "state": "unconfigured",
+        "model": "ProductName 1000",
+        "type": "BM",
+        "cluster": "false",
+        "failed": "false"
+      },
+      {
+        "id": 4,
+        "link": "http://192.168.2.59:8080",
+        "name": "FNM003456009763",
+        "state": "unconfigured",
+        "model": "ProductName 1000",
+        "type": "BM",
+        "cluster": "false",
+        "failed": "false"
+      },
+      {
+        "id": 5,
+        "link": "http://192.168.2.60:8080",
+        "name": "FNM003456009764",
+        "state": "unconfigured",
+        "model": "ProductName 1000",
+        "type": "BM",
+        "cluster": "false",
+        "failed": "false"
+      },
+      {
+        "id": 6,
+        "link": "https://10.248.178.162",
+        "name": "ClusterSAN",
+        "state": "configured",
+        "model": "ProductName 1000",
+        "type": "BM",
+        "cluster": "true",
+        "failed": "false"
+      },
+      {
+        "id": 7,
+        "link": "http://192.168.1.34:8080",
+        "name": "ClusterHCI",
+        "state": "configured",
+        "model": "ProductName 3000X",
+        "type": "HCI",
+        "cluster": "true",
+        "failed": "false"
+      }
+    ]
+  }

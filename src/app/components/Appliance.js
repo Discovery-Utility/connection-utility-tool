@@ -82,7 +82,7 @@ class Appliance extends Component {
 
                 <p className="app-name">{applianceName}</p>
                 <p className="app-model">{applianceModel}</p>
-                <img src="./images/warning.svg" width="25" height="25" className={applianceFailedClass} alt="warning" />
+                <img src="./images/warning.svg" width="25" height="25" id="Appliance_warningImage" className={applianceFailedClass} alt="warning" />
 
                 {showSettingsMenu ? (
                     <div className="custom-dropdown dropleft">

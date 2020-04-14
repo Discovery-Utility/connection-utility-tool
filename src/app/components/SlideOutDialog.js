@@ -14,12 +14,6 @@ class SlideOutDialog extends Component {
             selectedNames: []
         };
 
-        this.toggle = () => {
-            this.setState({
-                modal: !this.state.modal
-            });
-        };
-
         this.addSelection = (selectionName, isCheckBox) => {
             let selected = this.state.selectedNames;
             selected = isCheckBox ? selected : [];

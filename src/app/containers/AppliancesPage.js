@@ -171,7 +171,7 @@ class AppliancesPage extends Component {
             }
 
             return (
-                <div className="shadow create-cluster-popup">
+                <div className="shadow create-cluster-popup" id="CreateCluster_popup">
                     <p className="popup-selected-text">{selectedText}</p>
                     <div className="popup-create-cluster-button">
                         <MappleToolTip showMappleIf={showTooltipMessage} direction="left" mappleType="contra" float={false}>
@@ -199,7 +199,12 @@ class AppliancesPage extends Component {
                                 additionalClass = "active";
                             }
                             return (
-                                <li key={pageId} className={"page-item " + additionalClass} onClick={this.pageClick.bind(this, pageId)}>
+                                <li
+                                    key={pageId}
+                                    id="paginationButton"
+                                    className={"page-item " + additionalClass}
+                                    onClick={this.pageClick.bind(this, pageId)}
+                                >
                                     <a className="page-link">{pageId}</a>
                                 </li>
                             );
@@ -375,7 +380,7 @@ class AppliancesPage extends Component {
                         <img src="./images/refresh.svg" width="20" height="20" alt="refresh-ico" />
                     </div>
 
-                    <div onClick={this.scanAgainClick} className="available-appliances-rescan-text">
+                    <div onClick={this.scanAgainClick} className="available-appliances-rescan-text" id="AppliancePage_rescanButton">
                         {t.SCAN_AGAIN.toUpperCase()}
                     </div>
                 </div>
