@@ -11,7 +11,7 @@ const {app, BrowserWindow, ipcMain} = require("electron");
 const path = require("path");
 const url = require("url");
 const os = require("os");
-const productName = "ProductName";
+const productName = "PowerStore";
 
 let win;
 

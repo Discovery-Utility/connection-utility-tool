@@ -7,7 +7,7 @@ const DEMO_APPLIANCE = {
     name: "FNM00103198723",
     state: "unconfigured",
     type: "BM",
-    model: "ProductName 1000",
+    model: "PowerStore 1000",
     cluster: "false",
     failed: "false"
 };
@@ -18,7 +18,7 @@ const DEMO_CLUSTER = [
         link: "https://10.248.178.162",
         name: "ClusterSample",
         state: "configured",
-        model: "ProductName 1000",
+        model: "PowerStore 1000",
         type: "BM",
         cluster: "true",
         failed: "false"
@@ -28,7 +28,7 @@ const DEMO_CLUSTER = [
         link: "http://192.168.6.47:8080",
         name: "MainCluster",
         state: "configured",
-        model: "ProductName 1000",
+        model: "PowerStore 1000",
         type: "BM",
         cluster: "true",
         failed: "false"

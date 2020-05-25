@@ -6,7 +6,7 @@ const DEMO_APPLIANCE = {
     name: "FNM00103198723",
     state: "unconfigured",
     type: "HCI",
-    model: "ProductName 1000X",
+    model: "PowerStore 1000X",
     cluster: "false",
     failed: "false"
 };
@@ -16,7 +16,7 @@ const DEMO_APPLIANCE_WITH_WARNING = {
     name: "FNM00103198723",
     state: "unconfigured",
     type: "HCI",
-    model: "ProductName 1000X",
+    model: "PowerStore 1000X",
     cluster: "false",
     failed: "true"
 };
@@ -25,7 +25,7 @@ const DEMO_CLUSTER = {
     link: "https://10.248.178.162",
     name: "ClusterSample",
     state: "configured",
-    model: "ProductName 1000",
+    model: "PowerStore 1000",
     type: "BM",
     cluster: "true",
     failed: "false"
