@@ -1,7 +1,7 @@
 import LocalizedStrings from "react-localization";
 
 // Product constants
-export const productName = "ProductName";
+export const productName = "PowerStore";
 export const discTool = "Discovery Utility";
 export const appTitle = productName + " " + discTool;
 
@@ -132,7 +132,7 @@ let translation = new LocalizedStrings({
 
         // * Documentation
         TAB_DOCUMENTATION: "Documentation Resources",
-        DOCUMENTATION_DESCR: "For product and feature documentation or release notes, go to the " + productName + " Documentation page at https://dell.com/" + productName + "docs",
+        DOCUMENTATION_DESCR: "For product and feature documentation or release notes, go to the " + productName + " Documentation page at https://dell.com/powerstoredocs",
         DOCUMENTATION_NOTE: "Before you try discovering unconfigured appliances and begin the initial configuration process, ensure that you have:",
         DOCUMENTATION_LI1:
             "Configured your network and physical switches based on the recommendations provided in the " +
