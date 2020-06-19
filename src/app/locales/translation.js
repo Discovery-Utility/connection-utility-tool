@@ -48,12 +48,7 @@ let translation = new LocalizedStrings({
             "T and " +
             productName +
             "X appliances. Creating a cluster with appliances with different configurations is not supported in this release.",
-        MULTI_HCI_CLUSTER_WARNING:
-            "Your selection has more than one " +
-            productName +
-            "X appliance. In this release, you can only configure a cluster with one " +
-            productName +
-            "X appliance.",
+        MULTI_HCI_CLUSTER_WARNING: "Some of the selected " + productName + "X appliances do not support multi appliance clusters",
         MAX_APPLIANCES_IN_CLUSTER: "Your selection would result in too many appliances in the cluster",
         GO_TO_CLUSTER: "Launch " + productName + " Manager",
         ADD_TO_EXISTING: "Add to existing cluster",

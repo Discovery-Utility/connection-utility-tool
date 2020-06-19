@@ -144,34 +144,37 @@ function appOnUp(service) {
     // New discovered system name parsing
 
     // Service format should be (underscore delimited only):
-    // PSA|PSC_<SOMENAME>_<code-version>_<system-type>_<system-model>_<HW type>_Unified|Block_<system-state>
-    //    0         1           2              3              4           5           6             7
+    // PSA|PSC_<SOMENAME>_<compatibility-level>_<system-type>_<system-model>_<HW-type>_Unified|Block_<system-state>
+    //    0         1              2                  3             4            5           6             7
 
-    const serviceNames = service.name.split("_");
-    if (serviceNames[0] === "PSA" || serviceNames[0] === "PSC") {
+    const [prefix, name, compatibility, type, model, hardware, mode, state] = service.name.split("_");
+    if (prefix === "PSA" || prefix === "PSC") {
         let tmp = JSON.parse(storages);
         let tmpLog = JSON.parse(detectionLog);
         let newElement = {
             link: "",
             name: "",
             state: "",
+            compatibility: 0,
             type: "",
             model: "",
-            cluster: "",
-            failed: ""
+            cluster: false,
+            failed: false
         };
         console.log("Success");
 
         //Is the system part of a cluster or a standalone system
-        newElement.cluster = serviceNames[0] === "PSA" ? "false" : "true";
+        newElement.cluster = prefix === "PSA" ? false : true;
         //Cluster name or system service ID
-        newElement.name = serviceNames[1];
+        newElement.name = name;
+        //Compatability level
+        newElement.compatibility = parseInt(compatibility, 10);
         //URL to access the system
         newElement.link = "https://" + service.referer.address + ":" + service.port;
         //System type
-        newElement.type = serviceNames[3] === "X" ? "HCI" : "BM";
+        newElement.type = type === "X" ? "HCI" : "BM";
         //System model
-        newElement.model = getModelByCode(serviceNames[4], newElement.type);
+        newElement.model = getModelByCode(model, newElement.type);
 
         //System state
         //  "Unconfigured", 0               // system in factory state
@@ -183,19 +186,16 @@ function appOnUp(service) {
         //  "Clustering_Failed", 6          // system in a bad state
         //  "Unknown", 99                   // unknown state
 
-        if (serviceNames[7] === "0" || serviceNames[7] === "1") {
+        if (state === "0" || state === "1") {
             newElement.state = "unconfigured";
-        } else if (serviceNames[7] === "3" || serviceNames[7] === "4" || serviceNames[7] === "5") {
+        } else if (state === "3" || state === "4" || state === "5") {
             newElement.state = "configured";
         } else {
             newElement.state = "service state";
         }
 
-        newElement.failed = "false";
         // Identify if system is healthy or not
-        if (serviceNames[7] === "1" || serviceNames[7] === "6") {
-            newElement.failed = "true";
-        }
+        newElement.failed = state === "1" || state === "6";
 
         console.log("Current appliance:\n" + jsonParseString(newElement));
         //tmp.storages.push(newElement);
@@ -237,7 +237,9 @@ function appOnUp(service) {
             win.webContents.send("ping", storages, detectionLog);
             win.webContents.send("update-appliance-list", "add");
         } catch (err) {}
-    } else console.log("Service does not match the name parameters");
+    } else {
+        console.log("Service does not match the name parameters");
+    }
 }
 
 // The event handler for device disconnecting from the network
@@ -270,7 +272,7 @@ function appOnDown(service) {
 function bonjourLoad(refresh) {
     // reset of existing data
     if (refresh) {
-        let data = env.DEMO_MODE ? demo_data : {storages: []};
+        const data = env.DEMO_MODE ? demo_data : {storages: []};
         storages = jsonParseString(data);
     }
 

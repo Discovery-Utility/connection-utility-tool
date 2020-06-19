@@ -5,30 +5,33 @@ const DEMO_APPLIANCE = {
     link: "http://192.168.0.100:8080",
     name: "FNM00103198723",
     state: "unconfigured",
+    compatibility: 1,
     type: "HCI",
     model: "PowerStore 1000X",
-    cluster: "false",
-    failed: "false"
+    cluster: false,
+    failed: false
 };
 
 const DEMO_APPLIANCE_WITH_WARNING = {
     link: "http://192.168.0.100:8080",
     name: "FNM00103198723",
     state: "unconfigured",
+    compatibility: 1,
     type: "HCI",
     model: "PowerStore 1000X",
-    cluster: "false",
-    failed: "true"
+    cluster: false,
+    failed: true
 };
 
 const DEMO_CLUSTER = {
     link: "https://10.248.178.162",
     name: "ClusterSample",
     state: "configured",
+    compatibility: 1,
     model: "PowerStore 1000",
     type: "BM",
-    cluster: "true",
-    failed: "false"
+    cluster: true,
+    failed: false
 };
 
 describe("Appliance component tests", () => {

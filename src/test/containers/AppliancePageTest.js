@@ -76,7 +76,7 @@ describe("AppliancePage container tests", () => {
         const firstAppliance = page.find(Appliance).at(0);
         const secondAppliance = page.find(Appliance).at(1);
 
-        const appliances = testData.storages.filter(appliance => appliance.cluster === "false");
+        const appliances = testData.storages.filter(appliance => !appliance.cluster);
 
         expect(page.state("selectedNames")).to.deep.equal([]);
 
@@ -108,7 +108,7 @@ describe("AppliancePage container tests", () => {
         const firstCluster = page.find(Appliance).at(0);
         const secondCluster = page.find(Appliance).at(1);
 
-        const clusters = testData.storages.filter(appliance => appliance.cluster === "true");
+        const clusters = testData.storages.filter(appliance => appliance.cluster);
 
         expect(page.state("selectedNames")).to.deep.equal([]);
 

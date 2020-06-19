@@ -15,6 +15,6 @@ const getLocalStorageItem = ClientFunction(prop => {
 export async function parseLocalStorage(isClusterList) {
     const localStorage = JSON.parse(await getLocalStorageItem("message"));
     return localStorage.storages.filter(appliance => {
-        return appliance.cluster === `${isClusterList}`;
+        return appliance.cluster === isClusterList;
     });
 }
