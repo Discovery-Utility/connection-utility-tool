@@ -6,9 +6,10 @@
         "name": "FNM00103198723",
         "state": "unconfigured",
         "type": "HCI",
+        "compatibility": 1,
         "model": "PowerStore 1000X",
-        "cluster": "false",
-        "failed": "false"
+        "cluster": false,
+        "failed": false
       },
       {
         "id": 1,
@@ -17,8 +18,9 @@
         "state": "unconfigured",
         "model": "PowerStore 1000X",
         "type": "HCI",
-        "cluster": "false",
-        "failed": "true"
+        "compatibility": 1,
+        "cluster": false,
+        "failed": true
       },
       {
         "id": 2,
@@ -27,8 +29,9 @@
         "state": "unconfigured",
         "model": "PowerStore 1000X",
         "type": "HCI",
-        "cluster": "false",
-        "failed": "true"
+        "compatibility": 1,
+        "cluster": false,
+        "failed": true
       },
       {
         "id": 3,
@@ -37,8 +40,9 @@
         "state": "unconfigured",
         "model": "PowerStore 1000",
         "type": "BM",
-        "cluster": "false",
-        "failed": "false"
+        "compatibility": 1,
+        "cluster": false,
+        "failed": false
       },
       {
         "id": 4,
@@ -47,8 +51,9 @@
         "state": "unconfigured",
         "model": "PowerStore 1000",
         "type": "BM",
-        "cluster": "false",
-        "failed": "false"
+        "compatibility": 1,
+        "cluster": false,
+        "failed": false
       },
       {
         "id": 5,
@@ -57,8 +62,9 @@
         "state": "unconfigured",
         "model": "PowerStore 1000",
         "type": "BM",
-        "cluster": "false",
-        "failed": "false"
+        "compatibility": 1,
+        "cluster": false,
+        "failed": false
       },
       {
         "id": 6,
@@ -67,8 +73,9 @@
         "state": "configured",
         "model": "PowerStore 1000",
         "type": "BM",
-        "cluster": "true",
-        "failed": "false"
+        "compatibility": 1,
+        "cluster": true,
+        "failed": false
       },
       {
         "id": 7,
@@ -77,8 +84,9 @@
         "state": "configured",
         "model": "PowerStore 3000X",
         "type": "HCI",
-        "cluster": "true",
-        "failed": "false"
+        "compatibility": 1,
+        "cluster": true,
+        "failed": false
       }
     ]
   }

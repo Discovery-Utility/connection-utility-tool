@@ -5,9 +5,10 @@
       "name": "FNM00103198723",
       "state": "unconfigured",
       "type": "HCI",
+      "compatibility": 1,
       "model": "PowerStore 1000X",
-      "cluster": "false",
-      "failed": "false"
+      "cluster": false,
+      "failed": false
     },
     {
       "link": "https://10.248.178.162",
@@ -15,8 +16,9 @@
       "state": "configured",
       "model": "PowerStore 1000T",
       "type": "BM",
-      "cluster": "true",
-      "failed": "false"
+      "compatibility": 1,
+      "cluster": true,
+      "failed": false
 
     },
     {
@@ -25,8 +27,9 @@
       "state": "service state",
       "model": "PowerStore 1000T",
       "type": "BM",
-      "cluster": "true",
-      "failed": "true"
+      "compatibility": 1,
+      "cluster": true,
+      "failed": true
 
     },
     {
@@ -35,8 +38,9 @@
       "state": "unconfigured",
       "model": "PowerStore 1000X",
       "type": "HCI",
-      "cluster": "false",
-      "failed": "true"
+      "compatibility": 1,
+      "cluster": false,
+      "failed": true
     },
     {
       "link": "http://192.168.6.47:8080",
@@ -44,8 +48,9 @@
       "state": "configured",
       "model": "PowerStore 1000T",
       "type": "BM",
-      "cluster": "true",
-      "failed": "false"
+      "compatibility": 1,
+      "cluster": true,
+      "failed": false
     },
     {
       "link": "http://192.168.3.45:8080",
@@ -53,8 +58,9 @@
       "state": "configured",
       "model": "PowerStore 1000T",
       "type": "BM",
-      "cluster": "true",
-      "failed": "false"
+      "compatibility": 1,
+      "cluster": true,
+      "failed": false
     },
     {
       "link": "http://192.168.1.34:8080",
@@ -62,8 +68,9 @@
       "state": "configured",
       "model": "PowerStore 3000X",
       "type": "HCI",
-      "cluster": "true",
-      "failed": "false"
+      "compatibility": 1,
+      "cluster": true,
+      "failed": false
     },
     {
       "link": "http://192.168.8.14:8080",
@@ -71,8 +78,9 @@
       "state": "unconfigured",
       "model": "PowerStore 9000X",
       "type": "HCI",
-      "cluster": "false",
-      "failed": "false"
+      "compatibility": 10,
+      "cluster": false,
+      "failed": false
     },
     {
       "link": "http://192.168.8.144:8080",
@@ -80,8 +88,9 @@
       "state": "service state",
       "model": "PowerStore 1000T",
       "type": "BM",
-      "cluster": "true",
-      "failed": "false"
+      "compatibility": 1,
+      "cluster": true,
+      "failed": false
     },
     {
       "link": "http://192.168.1.34:8080",
@@ -89,8 +98,9 @@
       "state": "unconfigured",
       "model": "PowerStore 1000X",
       "type": "HCI",
-      "cluster": "false",
-      "failed": "false"
+      "compatibility": 10,
+      "cluster": false,
+      "failed": false
     },
     {
       "link": "http://192.168.2.58:8080",
@@ -98,8 +108,9 @@
       "state": "unconfigured",
       "model": "PowerStore 1000T",
       "type": "BM",
-      "cluster": "false",
-      "failed": "false"
+      "compatibility": 1,
+      "cluster": false,
+      "failed": false
     },
     {
       "link": "http://192.168.2.58:8080",
@@ -107,71 +118,79 @@
       "state": "unconfigured",
       "model": "PowerStore 1000X",
       "type": "HCI",
-      "cluster": "false",
-      "failed": "false"
+      "compatibility": 1,
+      "cluster": false,
+      "failed": false
     },
     {
       "link": "http://192.168.2.58:8080",
       "name": "FNM003456009764",
       "state": "unconfigured",
       "type": "BM",
+      "compatibility": 1,
       "model": "PowerStore 1000T",
-      "cluster": "false",
-      "failed": "false"
+      "cluster": false,
+      "failed": false
     },
     {
       "link": "http://192.168.2.58:8080",
       "name": "FNM003456009765",
       "state": "unconfigured",
       "type": "HCI",
+      "compatibility": 1,
       "model": "PowerStore 1000X",
-      "cluster": "false",
-      "failed": "false"
+      "cluster": false,
+      "failed": false
     },
     {
       "link": "http://192.168.2.58:8080",
       "name": "FNM003456444754",
       "state": "unconfigured",
       "type": "BM",
+      "compatibility": 1,
       "model": "PowerStore 1000T",
-      "cluster": "false",
-      "failed": "false"
+      "cluster": false,
+      "failed": false
     },
     {
       "link": "http://192.168.2.58:8080",
       "name": "FNM003432402309744",
       "state": "unconfigured",
       "type": "HCI",
+      "compatibility": 1,
       "model": "PowerStore 1000X",
-      "cluster": "false",
-      "failed": "false"
+      "cluster": false,
+      "failed": false
     },
     {
       "link": "http://192.168.2.58:8080",
       "name": "FNM0044949009767",
       "state": "unconfigured",
       "type": "BM",
+      "compatibility": 1,
       "model": "PowerStore 1000T",
-      "cluster": "false",
-      "failed": "false"
+      "cluster": false,
+      "failed": false
     },
     {
       "link": "http://192.168.2.58:8080",
       "name": "FNM0033475097866",
       "state": "unconfigured",
       "type": "HCI",
+      "compatibility": 1,
       "model": "PowerStore 1000X",
-      "cluster": "false",
-      "failed": "false"
+      "cluster": false,
+      "failed": false
     },
     {
       "link": "http://192.168.2.58:8080",
       "name": "FNM0034560045123",
       "state": "unconfigured",
       "type": "BM",
+      "compatibility": 1,
       "model": "PowerStore 1000T",
-      "cluster": "false",
-      "failed": "false"
+      "cluster": false,
+      "failed": false
     }
   ]
 }

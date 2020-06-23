@@ -2,6 +2,7 @@ import {Selector, t} from "testcafe";
 import {waitForReact, ReactSelector} from "testcafe-react-selectors";
 import {navigateToAppliancePage, rescanFromAppliancePage} from "./helpers/navigation";
 import {parseLocalStorage} from "./helpers/localStorage";
+import {execPublishProcess, killPublishProcess} from "./helpers/publishing";
 import translation from "../src/app/locales/translation";
 import Constants from "../src/app/constants/Constants";
 const exec = require("child_process").exec;
@@ -9,8 +10,13 @@ const exec = require("child_process").exec;
 const UNCONFIGURED_SCREEN = false;
 const CONFIGURED_SCREEN = true;
 
-const CMD_APPLIANCE = "PSA_--ApplianceTest--_v1_X_EX-1_HWType_Block_0";
-const CMD_CLUSTER = "PSC_--ClusterTest--_v1_X_EX-1_HWType_Block_3";
+const CMD_APPLIANCE = "PSA_--ApplianceTest--_1_X_EX-1_W_U_0";
+const CMD_CLUSTER = "PSC_--ClusterTest--_1_X_EX-1_W_U_3";
+
+const CMD_APPLIANCE_V1_1 = "PSA_--Appliance1v1--_1_X_EX-1_W_U_0";
+const CMD_APPLIANCE_V1_2 = "PSA_--Appliance2v1--_1_X_EX-1_W_U_0";
+const CMD_APPLIANCE_V2_1 = "PSA_--Appliance1v2--_10_X_EX-1_W_U_0";
+const CMD_APPLIANCE_V2_2 = "PSA_--Appliance2v2--_10_X_EX-1_W_U_0";
 
 fixture("AppliancePage container tests")
     .page("../src/index.html")
@@ -221,4 +227,100 @@ test("Should detect new appliance after rescan", async t => {
 
 test("Should detect new cluster after rescan", async t => {
     await testDetection(CMD_CLUSTER, CONFIGURED_SCREEN);
+});
+
+test("Should open Create Cluster popup with disabled button when compatibility level < 10 (HCI case)", async t => {
+    const popupButton = Selector(".popup-create-cluster-button").find("span");
+    const popupMessage = Selector(".mappleTip");
+
+    await navigateToAppliancePage(UNCONFIGURED_SCREEN);
+
+    // Execute publishing script
+    const processes = await execPublishProcess([CMD_APPLIANCE_V1_1, CMD_APPLIANCE_V1_2]);
+
+    await t.wait(2000);
+
+    // Choose appliances
+    const appliance1 = ReactSelector("Appliance")
+        .nth(0)
+        .find("span");
+    const appliance2 = ReactSelector("Appliance")
+        .nth(1)
+        .find("span");
+    await t.click(appliance1);
+    await t.click(appliance2);
+
+    // Check popup & tooltip message
+    await t.expect(popupButton.exists).ok();
+    await t.hover(popupButton);
+    await t.expect(popupMessage.textContent).eql(translation.MULTI_HCI_CLUSTER_WARNING);
+
+    // Kill the child process
+    await killPublishProcess(processes);
+});
+
+test("Should open Create Cluster popup with disabled button when appliances have different compat levels (HCI case)", async t => {
+    const popupButton = Selector(".popup-create-cluster-button").find("span");
+    const popupMessage = Selector(".mappleTip");
+
+    await navigateToAppliancePage(UNCONFIGURED_SCREEN);
+
+    // Execute publishing script
+    const processes = await execPublishProcess([CMD_APPLIANCE_V1_1, CMD_APPLIANCE_V2_1]);
+
+    await t.wait(2000);
+
+    // Choose appliances
+    const appliance1 = ReactSelector("Appliance")
+        .nth(0)
+        .find("span");
+    const appliance2 = ReactSelector("Appliance")
+        .nth(1)
+        .find("span");
+    await t.click(appliance1);
+    await t.click(appliance2);
+
+    // Check popup & tooltip message
+    await t.expect(popupButton.exists).ok();
+    await t.hover(popupButton);
+    await t.expect(popupMessage.textContent).eql(translation.MULTI_HCI_CLUSTER_WARNING);
+
+    // Kill the child process
+    await killPublishProcess(processes);
+});
+
+test("Should open Create Cluster popup with enabled button when compatibility level >= 10 (HCI case)", async t => {
+    const popupButton = Selector(".popup-create-cluster-button").find("span");
+    const createClusterButton = Selector(".create-cluster-screen").find(".button");
+    const cancelButton = Selector(".create-cluster-screen-cancel");
+
+    await navigateToAppliancePage(UNCONFIGURED_SCREEN);
+
+    // Execute publishing script
+    const processes = await execPublishProcess([CMD_APPLIANCE_V2_1, CMD_APPLIANCE_V2_2]);
+
+    await t.wait(2000);
+
+    // Choose appliances
+    const appliance1 = ReactSelector("Appliance")
+        .nth(0)
+        .find("span");
+    const appliance2 = ReactSelector("Appliance")
+        .nth(1)
+        .find("span");
+    await t.click(appliance1);
+    await t.click(appliance2);
+
+    // Check popup & click to 'Create Cluster' button
+    await t.expect(popupButton.exists).ok();
+    await t.click(popupButton);
+
+    // Check CC screen & click to 'Back' button
+    await t.expect(createClusterButton.exists).ok();
+    await t.expect(cancelButton.exists).ok();
+    await t.click(cancelButton);
+    await t.expect(createClusterButton.exists).notOk();
+
+    // Kill the child process
+    await killPublishProcess(processes);
 });

@@ -265,8 +265,8 @@ class AppliancesPage extends Component {
 
         if (appliances) {
             //filter appliances to configured and unconfigured
-            let configured = appliances.filter(appliance => appliance.cluster === "true");
-            let unconfigured = appliances.filter(appliance => appliance.cluster === "false");
+            let configured = appliances.filter(appliance => appliance.cluster);
+            let unconfigured = appliances.filter(appliance => !appliance.cluster);
 
             //count pages in pagination
             let countConfiguredPages = Math.ceil(configured.length / Constants.APPLIANCE_PAGE.MAX_APPLIANCES_ON_PAGE);
@@ -320,19 +320,19 @@ class AppliancesPage extends Component {
 
             if (countSelectedAppliances > 1) {
                 if (pageStateUnconfigured) {
-                    let firstType = unconfigured.find(appliance => appliance.name === selectedNames[0]).type;
+                    const firstAppliance = unconfigured.find(appliance => appliance.name === selectedNames[0]);
 
                     //check that appliances have same types and that they are not HCI
                     for (let i = 1; i < countSelectedAppliances; i++) {
-                        let nextType = unconfigured.find(appliance => appliance.name === selectedNames[i]).type;
+                        const nextAppliance = unconfigured.find(appliance => appliance.name === selectedNames[i]);
 
-                        if (nextType !== firstType) {
+                        if (nextAppliance.type !== firstAppliance.type) {
                             isAvailablePopupButton = false;
                             showTooltipMessage = true;
                             tooltipMessage = t.MIXED_CLUSTER_WARNING;
                             break;
                         }
-                        if (nextType === "HCI") {
+                        if (nextAppliance.type === "HCI" && (nextAppliance.compatibility < 10 || firstAppliance.compatibility < 10)) {
                             isAvailablePopupButton = false;
                             showTooltipMessage = true;
                             tooltipMessage = t.MULTI_HCI_CLUSTER_WARNING;

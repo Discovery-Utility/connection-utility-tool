@@ -64,7 +64,7 @@ class Appliance extends Component {
         let {appliance, showSettingsMenu, itemClick, selectTypeCheckbox} = this.props;
         let applianceName = appliance.name;
         let applianceModel = appliance.model;
-        let applianceFailedClass = appliance.failed === "true" ? "app-failed-true" : "app-failed-false";
+        let applianceFailedClass = appliance.failed ? "app-failed-true" : "app-failed-false";
 
         return (
             <div className={this.getClassNames()} onClick={this.props.onClick}>
@@ -82,7 +82,14 @@ class Appliance extends Component {
 
                 <p className="app-name">{applianceName}</p>
                 <p className="app-model">{applianceModel}</p>
-                <img src="./images/warning.svg" width="25" height="25" id="Appliance_warningImage" className={applianceFailedClass} alt="warning" />
+                <img
+                    src="./images/warning.svg"
+                    width="25"
+                    height="25"
+                    id="Appliance_warningImage"
+                    className={applianceFailedClass}
+                    alt="warning"
+                />
 
                 {showSettingsMenu ? (
                     <div className="custom-dropdown dropleft">
