@@ -12,6 +12,11 @@ const path = require("path");
 const url = require("url");
 const os = require("os");
 const productName = "PowerStore";
+const IP_ADDRESS_IPV4_REGEX = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+
+function isIPv4(address) {
+    return IP_ADDRESS_IPV4_REGEX.test(address);
+}
 
 let win;
 
@@ -170,7 +175,8 @@ function appOnUp(service) {
         //Compatability level
         newElement.compatibility = parseInt(compatibility, 10);
         //URL to access the system
-        newElement.link = "https://" + service.referer.address + ":" + service.port;
+        const address = service.addresses.find(ip => isIPv4(ip));
+        newElement.link = "https://" + address + ":" + service.port;
         //System type
         newElement.type = type === "X" ? "HCI" : "BM";
         //System model
