@@ -51,7 +51,7 @@ following commands in "./":
         npm run build:win64
         npm run build:linux
         ```
-6. In order to rebuild with custom changes repeat repeat #4&#5
+6. In order to rebuild with custom changes repeat repeat #4 & #5
 
 ## Supported format for publishing storage systems
 
@@ -60,32 +60,37 @@ auto assigns IP-addresses to devices (appliances).
 [mDNS](https://community.cisco.com/t5/wireless-mobility-documents/basic-theory-behind-mdns/ta-p/3148577) is used for name resolving.
 Whithin the network every appliance has a unique name, that contains
 information about itself. This information has the following format:
-`<cluster>_<serialNumber>_<type>_<state>`, where  
-* `<cluster> = {CycCluster, CycApp}` - identifier of whether it is the cluster or not;
-* `<serialNumber>` - serial number of the appliance;
-* `<type> = {Virtual_Dell, Another_type (with "_" sign)}`
- - identifier of appliance's type. `Virtual_Dell` - appliances type is VMware,
- `Another_type` -  - appliances type is SAN;
-* `<state> = {Management, Unconfigured, Service}` - identifier of appliance's state.
-`Management` - it works fine, `Service` - appliance is not healthy, `Unconfigured` - newly installed appliance;
+`<prefix>_<appliance-name>_<compatibility-level>_<system-type>_<system-model>_<HW-type>_<mode>_<system-state>`, where  
+* `<prefix> = {PSA, PSC}` - identifier of whether it is the cluster or not: PSC for cluster, PSA for appliance;
+* `<appliance-name>` - serial number of the appliance or cluster name;
+* `<compatibility-level>` - version of the software installed on the system
+* `<system-type> = {X, B, S}` - identifier of appliance's type, X for HCI, B for SAN, S for simulator
+* `<system-model>` - model of the appliance
+* `<HW-type> = {W, D, R}` - type of hardware
+* `<mode> = {U, B}` - appliance mode, U for Unified, B for Block
+* `<system-state> = {0, 1, 2, 3, 4, 5, 6, 99}` - identifier of appliance's state.
+`0` - unconfigured state, newly installed appliance, `3` - configured, cluster works fine, `99` - unknown state;
 
 Also a published appliance possesses information about its own IP-address and port.
 
 ### Testing ZSCU
 If you have no ability to test **ZSCU** with real storage systems, you
 can do that on the test network by publishing the name of appliances
-with folowing command:
-`avahi-publish-service CycCluster_H2042_Virtual_Dell_Management _http._tcp 3000`, where
+with following commands:
+* For Linux: `avahi-publish-service PSA_FNM00000000001_1_X_EX-1_W_B_0 _http._tcp 3000`, 
+* For Windows: `dns-sd -R PSA_FNM00000000001_1_X_EX-1_W_B_0 _http._tcp . 3000`
+
+where
 * `_http._tcp` - type of publishing and discovering appliances;
 * `3000` - port of that appliances (you may set any one);
-* `CycCluster_H2042_Virtual_Dell_Management` - unique name of the appliance.
+* `PSA_FNM00000000001_1_X_EX-1_W_B_0` - unique name of the appliance.
 
 ## Troubleshooting tips
 With any problems feel free to contact us by [EMAIL]()(TBD) or create an
 issue within this project. Also it may be helpful to view all current
 and closed issues for similar problems.
 
-Bellow are some examples of common issues during the build and execution
+Below are some examples of common issues during the build and execution
 of **ZSCU**.
 
 ### Trouble with build process
