@@ -122,6 +122,9 @@ function getModelByCode(code, type) {
         case "EX-5":
             productModel = "9000";
             break;
+        case "RT":
+            productModel = "500";
+            break;
     }
 
     let typePostfix = "";
