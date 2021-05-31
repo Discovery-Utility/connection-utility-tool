@@ -12,7 +12,7 @@ const path = require("path");
 const url = require("url");
 const os = require("os");
 const productName = "PowerStore";
-const IP_ADDRESS_IPV4_REGEX = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+const IP_ADDRESS_IPV4_REGEX = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
 function isIPv4(address) {
     return IP_ADDRESS_IPV4_REGEX.test(address);
@@ -171,21 +171,31 @@ function appOnUp(service) {
         };
         console.log("Success");
 
-        //Is the system part of a cluster or a standalone system
+        // Is the system part of a cluster or a standalone system
         newElement.cluster = prefix === "PSA" ? false : true;
-        //Cluster name or system service ID
+
+        // Cluster name or system service ID
         newElement.name = name;
-        //Compatability level
+
+        // Compatability level
         newElement.compatibility = parseInt(compatibility, 10);
-        //URL to access the system
+
+        // URL to access the system
         const address = service.addresses.find(ip => isIPv4(ip));
-        newElement.link = "https://" + address + ":" + service.port;
-        //System type
+        if (address) {
+            newElement.link = "https://" + address + ":" + service.port;
+        } else {
+            // in a case when mDNS packet doesn't have address RR
+            // use source address of IP packet
+            newElement.link = "https://" + service.referer.address + ":" + service.port;
+        }
+
+        // System type
         newElement.type = type === "X" ? "HCI" : "BM";
-        //System model
+        // System model
         newElement.model = getModelByCode(model, newElement.type);
 
-        //System state
+        // System state
         //  "Unconfigured", 0               // system in factory state
         //  "Unconfigured_Faulted", 1       // Hardware is in faulted state
         //  "Configuring", 2                // In the midst of being configured or unconfigured
