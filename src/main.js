@@ -207,6 +207,8 @@ function appOnUp(service) {
 
         if (state === "0" || state === "1") {
             newElement.state = "unconfigured";
+        } else if (state === "2") {
+            newElement.state = "configuring";
         } else if (state === "3" || state === "4" || state === "5") {
             newElement.state = "configured";
         } else {
