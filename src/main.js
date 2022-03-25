@@ -110,17 +110,32 @@ function getModelByCode(code, type) {
         case "EX-1":
             productModel = "1000";
             break;
+        case "EX-1-MLK":
+            productModel = "1200";
+            break;
         case "EX-2":
             productModel = "3000";
+            break;
+        case "EX-2-MLK":
+            productModel = "3200";
             break;
         case "EX-3":
             productModel = "5000";
             break;
+        case "EX-3-MLK":
+            productModel = "5200";
+            break;
         case "EX-4":
             productModel = "7000";
             break;
+        case "EX-4-MLK":
+            productModel = "7200";
+            break;
         case "EX-5":
             productModel = "9000";
+            break;
+        case "EX-5-MLK":
+            productModel = "9200";
             break;
         case "RT":
             productModel = "500";
