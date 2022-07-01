@@ -16,10 +16,10 @@
 }
 
 .logo {
-    width: 108px;
+    width: 170px;
     height: 22px;
     cursor: pointer;
-    background: url('../images/Dell_EMC_Logo_white.svg') no-repeat;
+    background: url('../images/DellTech_Logo_white.svg') no-repeat;
     margin-left: 20px;
 }
 
@@ -32,6 +32,7 @@
     font-size: 20px;
     color: white;
     font-family: Metropolis, serif;
+    margin-left: 10px;
 }
 
 #appTitle {

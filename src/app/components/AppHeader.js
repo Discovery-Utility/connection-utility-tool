@@ -37,7 +37,7 @@ class AppHeader extends Component {
                     <span className="application-title navbar-text navbar-left text-left" id="appTitle">
                         {appTitle}
                     </span>
-                    <div className="col-xl-7 col-lg-6 col-md-5 col-sm-3" />
+                    <div className="col-xl-6 col-lg-5 col-md-4 col-sm-2" />
 
                     <Link to="/log">
                         <img src="./images/menu.svg" width="25" height="25" className="d-inline-block align-top" alt="" />
