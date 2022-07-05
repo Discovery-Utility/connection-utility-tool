@@ -2,6 +2,10 @@
   "name": "connection-utility",
   "version": "1.0.0",
   "main": "src/main.js",
+  "engines": {
+    "node": ">=10.16 <11.0",
+    "npm": ">=6.9 <7.0"
+  },
   "scripts": {
     "app": "webpack && electron .",
     "dev": "webpack",
