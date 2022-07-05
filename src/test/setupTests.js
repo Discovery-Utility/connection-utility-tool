@@ -1,5 +1,5 @@
 import {mount, render, shallow, configure} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import Adapter from "enzyme-adapter-react-15";
 import {expect, assert} from "chai";
 import sinon from "sinon";
 
