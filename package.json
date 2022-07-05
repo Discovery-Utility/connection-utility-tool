@@ -59,9 +59,9 @@
     "webpack-hot-middleware": "2.24.3"
   },
   "devDependencies": {
-    "babel-plugin-react-transform": "^2.0.2",
-    "babel-preset-stage-0": "^6.5.0",
-    "css-loader": "^0.23.1",
+    "babel-plugin-react-transform": "2.0.2",
+    "babel-preset-stage-0": "6.24.1",
+    "css-loader": "0.23.1",
     "electron": "^2.0.5",
     "electron-builder": "^20.26.0",
     "electron-builder-squirrel-windows": "^19.18.0",
@@ -70,13 +70,13 @@
     "enzyme-adapter-react-15": "1.4.1",
     "jsdom": "15.2.1",
     "jsdom-global": "3.0.2",
-    "json-loader": "^0.5.7",
+    "json-loader": "0.5.7",
     "mocha": "6.2.2",
-    "postcss-loader": "^2.0.8",
+    "postcss-loader": "2.1.6",
     "prettier": "1.19.1",
     "react-test-renderer": "15.6.2",
-    "react-transform-hmr": "^1.0.4",
-    "webpack": "^1.15.0"
+    "react-transform-hmr": "1.0.4",
+    "webpack": "1.15.0"
   },
   "prettier": {
     "bracketSpacing": false,
