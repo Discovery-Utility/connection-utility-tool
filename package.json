@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/main.js",
   "engines": {
-    "node": ">=10.16 <11.0",
+    "node": ">=10.16 <15.0",
     "npm": ">=6.9 <7.0"
   },
   "scripts": {
@@ -38,7 +38,7 @@
     "jquery": "3.4.1",
     "multicast-dns": "github:alexey-martynov/multicast-dns#multihomed-multicast",
     "node-libs-browser": "2.1.0",
-    "node-sass": "4.9.4",
+    "node-sass": "4.14.1",
     "react": "15.6.2",
     "react-addons-test-utils": "15.6.2",
     "react-bootstrap": "0.32.4",
