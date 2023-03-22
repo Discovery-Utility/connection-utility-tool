@@ -20,25 +20,7 @@ function isIPv4(address) {
 
 let win;
 
-function allInterfaces() {
-    const networks = os.networkInterfaces();
-    let res = [];
-
-    Object.keys(networks).forEach(key => {
-        for (let i = 0; i < networks[key].length; i++) {
-            const iface = networks[key][i];
-            if (iface.family === "IPv4") {
-                res.push(iface.address);
-                // could only addMembership once per interface (https://nodejs.org/api/dgram.html#dgram_socket_addmem..)
-                break;
-            }
-        }
-    });
-
-    return res;
-}
-
-const bonjour = require("bonjour")({interface: allInterfaces()});
+const bonjour = require("bonjour")();
 let browser = null;
 
 // Info about devices, that will be sent to the UI part of the app
@@ -208,7 +190,11 @@ function appOnUp(service) {
         // System type
         newElement.type = type === "X" ? "HCI" : "BM";
         // System model
-        newElement.model = getModelByCode(model, newElement.type);
+        if (service.txt.product_model !== undefined) {
+            newElement.model = service.txt.product_model
+        } else {
+            newElement.model = getModelByCode(model, newElement.type);
+        }
 
         // System state
         //  "Unconfigured", 0               // system in factory state
